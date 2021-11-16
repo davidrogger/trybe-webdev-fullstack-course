@@ -1,6 +1,6 @@
 # Trybe
 
-Este reposit&oacute;rio cont&eacute;m todas as atividades de aprendizagem desenvolvidas por _[Dav&iacute;d Rogg&eacute;r](https://www.linkedin.com/in/davidrogger/)_ enquanto estudava na [Trybe](https://www.betrybe.com/) :rocket:
+Este reposit&oacute;rio cont&eacute;m todas as atividades de aprendizagem desenvolvidas por _[Dav&iacute;d Rogg&eacute;r](https://www.linkedin.com/in/davidrogger/)_ enquanto estuda na [Trybe](https://www.betrybe.com/) :rocket:
 
 _"A Trybe &eacute; uma escola do futuro para qualquer pessoa que queira melhorar de vida e construir uma carreira de sucesso em tecnologia, onde a pessoa s&oacute; paga quando conseguir um bom trabalho."_
 
