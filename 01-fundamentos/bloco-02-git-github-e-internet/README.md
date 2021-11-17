@@ -24,3 +24,4 @@ git config --global user.e-mail seuemail@exemplo.br
 7. Comando para adicionar o SSH(certificado/autentica&ccedil;&atilde;o) ao shh-agent(porteiro), primeiro inicie o ssh-agent com o comando `eval "$(ssh-agent -s)"` seguindo do comando para adicionar a chave `ssh-add ~/.ssh/id_rsa`(*ceritifique-se de que esse é o caminho que foi salvo sua chave*).
 8. Para o funcionamento do SSH tamb&eacute;m &eacute; necess&aacute;rio
 9. Testando branch day-2.1-web
+9. Testando branch 2.1-terminal
