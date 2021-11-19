@@ -146,4 +146,6 @@ Tem a função de atualizar recursos e também pode ser usada para criar novos r
 
 Dinâmica em grupo Trybe tribo B, Sala 4, grupo 4EVER:
 
-![This is an image](fluxo.4ever.png)
+![Fluxo-internet](https://github.com/davidrogger/trybe-exercicios/blob/day-2.3/01-fundamentos/bloco-02-git-github-e-internet/day-2.3/fluxo_4ever.png?raw=true)
+
+Ao usuário digitar o endereço google.com, esse endereço deve ser identificado por meio do DNS, qual o IP é representado pelo nome google.com ao indentifica-lo, toda informação é anexada ao pacote gerado por essa requisição, que segue todo percurso até encontrar o destinatário, passando pelo load lanacer caso o servidor destino tenha o tenha, responsavel por criar mais fluidez em caso de um grande fluxo de pacotes solicitando um mesmo conteudo, ao localizar o conteúdo endereçado para aquele IP, o servidor cria uma cópia do conteúdo, ele quebra esse conteúdo em diversos pacotes, e direciona para o rementente solicitante, gerando na tela o conteúdo solicitado.
