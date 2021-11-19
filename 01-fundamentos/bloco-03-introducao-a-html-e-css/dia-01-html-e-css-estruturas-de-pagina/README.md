@@ -71,7 +71,7 @@ ag para criar uma lista não ordenada(sem númeração), cada item da lista deve
 Tag para lista ordenada, seguindo o mesmo padrão do ul.
 
 ```<img src="">```
-Tag para inserir uma imagem, entras aspas deve conter o endereço de onde a imagem está hospedada ou caminho se localmente existem algumas configurações extras nesse comando como o alt="", onde você pode adicionar algumas descrição na imagem.
+Tag para inserir uma imagem, entras aspas deve conter o endereço de onde a imagem está hospedada ou caminho se localmente existem algumas configurações extras nesse comando como o alt="", é apresentando um texto, caso a imagem não carregue.
 
 ```<a href="caminho-do-link" target=""> container </a>```
 
