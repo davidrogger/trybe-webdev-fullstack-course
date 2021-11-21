@@ -1,3 +1,4 @@
+Working in progress.. :hourglass_flowing_sand:
 # BLOCO 02 - Git & GitHub :hourglass_flowing_sand:
 Arquivos criados para teste, e aprendizado de como o git & github funciona.
 
