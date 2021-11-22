@@ -6,7 +6,12 @@ Linguagem usada para estilizar o site, definindo padrão de cores, tamanhos tudo
 
 ### Como aplicar os estilos
 
-Existem duas formas para aplicar os estilo, criando a tag `<style> </style>` dentro do campo head ou indicando um caminho para o arquivo .css. <br>
+Existem três formas para aplicar os estilo:
+<ol>
+<li>Primeiro seria o inline não é algo que não é indicado se usar na maioria dos casos, que seria adicionando o estilo do texto dentro da propria TAG. </li>
+<li>Segundo criando a tag `<style> </style>` dentro do campo head </li>
+<li>Terceiro e mais indicado e usado, é usando o código `<link rel="stylesheet" type="text/css" href="caminho/nome_do_arquivo">. </li>
+</ol>
 
 ### Explicações do dia
 
