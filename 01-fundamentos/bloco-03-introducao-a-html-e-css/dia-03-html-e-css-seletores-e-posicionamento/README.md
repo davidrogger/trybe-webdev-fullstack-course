@@ -14,7 +14,7 @@ anotações do bloco 3.3
 `z-index` atribui a prioridade para o item aparecer, quando maior, maior sua prioridade.
 `top` determina a distancia que o elemento seletor deve ter da parte superior
 `left` mesmo que o top, mas referente ao lado esquerdo.
-
+`float` faz o elemento flutuar empurrando conteduo para fora do seu espaço.
 
 ### Termos usados
 
