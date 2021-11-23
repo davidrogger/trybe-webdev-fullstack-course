@@ -10,6 +10,11 @@ anotações do bloco 3.3
 ### Novos Seletores Usados
 
 `overflow` define como deve ser apresentado o conteúdo, seja determinando uma limitação de altura ou largura, para não mostra, usar barra de rolagens para visualizar o material que passou do limite determinado.
+`position` Usado para determinar a posição, usado absolute como apresentação, a imagem usada fica acima de todo conteúdo.
+`z-index` atribui a prioridade para o item aparecer, quando maior, maior sua prioridade.
+`top` determina a distancia que o elemento seletor deve ter da parte superior
+`left` mesmo que o top, mas referente ao lado esquerdo.
+
 
 ### Termos usados
 
@@ -27,3 +32,6 @@ anotações do bloco 3.3
 `border-style`, controla o estilo da linha e seu valor inicial é none.(por isso não é visivel por padrão)
 `border-color`, controla a cor da borda, e tem como valor inicial currentcolor.
 4. **margin**, ela fica fora da borda, expandidndo os elementos para além dos campos visíveis.
+
+## Posicionamento de elementos
+
