@@ -46,3 +46,13 @@ Sempre que for criado um repositório o proprio github, vai aprensetar como inic
 `git clone urlDoSeuRepositório` 
 Para estabelecer uma conexao e copiar o conteudo de um repositório ja existente é usado esse comando.
 
+##### Alterando nome da branch principal
+
+Quando realizado a alteração do branch principal pelo navegador, para sincronia no git local, usando branch main como exemplo
+
+```
+git branch -m master main
+git fetch origin
+git branch -u origin/main main
+git remote set-head origin -a
+```
