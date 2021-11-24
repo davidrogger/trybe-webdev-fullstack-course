@@ -1,0 +1,53 @@
+ol li {
+    background-color: yellow;
+}
+ol li:nth-of-type(even) {
+    background-color: green;
+}
+ol li:nth-of-type(odd) {
+    text-transform:uppercase ;
+}
+
+h1, h3 {
+color: red;
+}
+h1, h3 em {
+    font-size: 50px;
+    
+}
+
+li {
+    font-size: 20px;
+}
+
+li em {
+    font-weight: bold;    
+}
+/* Seleciono o primeiro TAG do tipo UL e usando a expressão N negativamente, seria como criar um espelho dos elementos se ele positivamente selecionaria o terceiro elemento apartir do primeiro, negativamente ele selecionaria os 3 primeiros, não muito claro ainda. */
+ul:nth-of-type(1) li:nth-of-type(-n+3){
+    color:blue
+}
+/* Pesquisei e pesquisei, e não encontrei solução para encontrar Java em especifico, segundo o gabarito, foi especificado uma classe para cada linha */
+.bg-pink {
+    background-color: pink;
+}
+
+.aliados li a:hover {
+ font-weight: bold; 
+}
+
+.aliados li a[href*="stackoverflow"]{
+    color: orange;
+}
+.aliados li a[href*="w3schools"]{
+    color: green;
+}
+.aliados li a[href*="developer.mozilla"]{
+    color:black;
+}
+.aliados li a[href*="devdocs"]{
+    color: yellow;
+}
+.aliados li a[href*="betrybe"] {
+    color: rgb(61, 95, 61);
+}
