@@ -1,0 +1,13 @@
+h1, p {
+    text-align: center;
+}
+li:hover {
+    background-color: brown;
+}
+li:active {
+    font-family: 'Comforter', sans-serif ;
+}
+
+li {
+    list-style: none;    
+}
