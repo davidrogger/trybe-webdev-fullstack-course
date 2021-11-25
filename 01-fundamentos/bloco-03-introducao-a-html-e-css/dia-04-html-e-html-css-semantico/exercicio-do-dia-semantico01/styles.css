@@ -17,12 +17,15 @@ table {
 div, section {
     border: 2px solid black;    
 }
-.text-section01 {        
+/* .text-section01 {        
     height: 385px;     
 }
 .text-section02 {
     height: 300px;    
 }
+.text-section03 {
+    height: 200px;
+} */
 article p {
     margin-left: 300px;
     margin-right: 20px;
@@ -39,6 +42,8 @@ article p {
     text-align: center;  
     background-image: url(./img/stoma-shell.gif);  
     border-radius: 10px;    
+    top: 300px;    
+    right: 10px;
 }
 .side-video a {
     color: white;
