@@ -1,23 +1,47 @@
+}
 body{
     padding: 10px;
+}
+header,footer {
+    text-align: center;
 }
 .head-nav li{
     display: inline;
     padding: 50px;
+    text-align: center;
 }
 
 table {
     border: 1px solid black;
-    margin: 15px;
+    margin: 15px;    
+    float: left;
 }
 tr, th {
     text-align: center;
 }
 div, section {
-    border: 2px solid black;
+    border: 2px solid black;    
 }
-.text-section01 {    
-    position: absolute;
-    margin-left: 300px;
-    margin-right: 100px;
+.text-section01 {        
+    height: 500px;     
+}
+.main-content {
+    display: inline-block;    
+}
+.side-video {
+    display: inline-block;    
+    width: 100px;
+    padding: 50px 20px;
+    text-align: center;    
+}
+.fotoOlhos {
+    width: 250px;
+    float: left;
+}
+.text-section02 {
+    height: 350px;
+}
+article {
+    display: inline-block;
+    width: 70%;
 }
