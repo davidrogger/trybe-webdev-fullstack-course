@@ -21,25 +21,41 @@ div, section {
     height: 385px;     
 }
 .text-section02 {
-    height: 250px;
+    height: 300px;    
 }
+article p {
+    margin-left: 300px;
+    margin-right: 20px;
+    text-align: justify;
+}
+
 .main-content {
     display: inline-block;    
 }
 .side-video {
     display: inline-block;    
-    width: 100px;
-    padding: 50px 20px;
-    text-align: center;
-    margin-top: 1px;
+    width: 300px;
+    padding: 80px 30px;
+    text-align: center;  
+    background-image: url(./img/stoma-shell.gif);  
+    border-radius: 10px;    
 }
+.side-video a {
+    color: white;
+    font-size: 25px;
+    text-decoration: none;
+}
+.side-video a:hover{
+    color: yellow;
+}
+
 .fotoOlhos, .fotoPata {
     margin: 15px;    
     float: left;
 }
 article {
     display: inline-block;
-    width: 70%;    
+    width: 60%;    
 }
 section {
     margin: 15px;
