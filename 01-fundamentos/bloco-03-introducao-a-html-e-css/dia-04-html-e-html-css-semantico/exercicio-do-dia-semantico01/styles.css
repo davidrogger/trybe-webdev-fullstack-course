@@ -30,7 +30,8 @@ div, section {
     display: inline-block;    
     width: 100px;
     padding: 50px 20px;
-    text-align: center;    
+    text-align: center;
+    margin-top: 1px;
 }
 .fotoOlhos, .fotoPata {
     margin: 15px;    
