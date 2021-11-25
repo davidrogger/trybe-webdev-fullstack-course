@@ -1,4 +1,23 @@
+body{
+    padding: 10px;
+}
 .head-nav li{
     display: inline;
     padding: 50px;
+}
+
+table {
+    border: 1px solid black;
+    margin: 15px;
+}
+tr, th {
+    text-align: center;
+}
+div, section {
+    border: 2px solid black;
+}
+.text-section01 {    
+    position: absolute;
+    margin-left: 300px;
+    margin-right: 100px;
 }
