@@ -22,7 +22,10 @@ div, section {
     border: 2px solid black;    
 }
 .text-section01 {        
-    height: 500px;     
+    height: 385px;     
+}
+.text-section02 {
+    height: 250px;
 }
 .main-content {
     display: inline-block;    
@@ -34,13 +37,14 @@ div, section {
     text-align: center;    
 }
 .fotoOlhos {
+    margin: 15px;
     width: 250px;
     float: left;
 }
-.text-section02 {
-    height: 350px;
-}
 article {
     display: inline-block;
-    width: 70%;
+    width: 70%;    
+}
+section {
+    margin: 15px;
 }
