@@ -1,7 +1,7 @@
 body{
     padding: 10px;
 }
-header,footer {
+header,footer,tr, th {
     text-align: center;
 }
 .head-nav li{
@@ -9,14 +9,10 @@ header,footer {
     padding: 50px;
     text-align: center;
 }
-
 table {
     border: 1px solid black;
     margin: 15px;    
     float: left;
-}
-tr, th {
-    text-align: center;
 }
 div, section {
     border: 2px solid black;    
@@ -36,9 +32,8 @@ div, section {
     padding: 50px 20px;
     text-align: center;    
 }
-.fotoOlhos {
-    margin: 15px;
-    width: 250px;
+.fotoOlhos, .fotoPata {
+    margin: 15px;    
     float: left;
 }
 article {
@@ -48,3 +43,7 @@ article {
 section {
     margin: 15px;
 }
+.fotoPata, .fotoOlhos {
+    width: 250px;
+}
+
