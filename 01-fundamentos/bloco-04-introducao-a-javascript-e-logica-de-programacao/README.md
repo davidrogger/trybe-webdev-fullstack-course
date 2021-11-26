@@ -75,3 +75,26 @@ else {
 || OR Uma das condições deve ser verdadeira, para o resultado ser verdadeiro
 ! NOT Diferente, a condições deve ser diferente daquele argumento indicado.
 ```
+
+## Switch e Case
+
+Extrutura:
+```
+let trafficLight;
+switch (trafficLight){
+  case "vermelho":
+  console.log("pare");
+  break;
+
+case "amarelo":
+  console.log("atenção);
+  break;
+
+case "verde":
+  console.logo("siga");
+  break;
+
+default:
+  console.log("valor não identificado");
+}
+```
