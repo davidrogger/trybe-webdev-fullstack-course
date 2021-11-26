@@ -68,4 +68,10 @@ else {
 }
 ```
 
-#
+## Operadores lógicos
+
+```
+&& AND
+|| OR
+! NOT
+```
