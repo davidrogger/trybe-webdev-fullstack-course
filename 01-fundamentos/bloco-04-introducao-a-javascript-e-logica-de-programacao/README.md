@@ -71,7 +71,7 @@ else {
 ## Operadores lógicos
 
 ```
-&& AND
-|| OR
-! NOT
+&& AND "As duas condiões devem ser verdadeiras para o resultado ser verdadeiro.
+|| OR Uma das condições deve ser verdadeira, para o resultado ser verdadeiro
+! NOT Diferente, a condições deve ser diferente daquele argumento indicado.
 ```
