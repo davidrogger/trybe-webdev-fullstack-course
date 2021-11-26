@@ -37,3 +37,14 @@ Em 1997 nśo temos a primeira versão ECMA-262 também conhecido como ECMAScript
 ## Tipagem Dinâmica
 
 JS possui uma tipagem dinâmica, pois mesmo sem indicar que tipo de variavel ela é, ele consegue identificar pelos padrões de tipagem.
+
+## Operadores Aritméticos
+
+```+ Soma
+- Subtração
+* Multiplicação
+** Exponecial
+/ Divisão
+% Resto da divisão
+++ Incrimento
+-- Descremento```
