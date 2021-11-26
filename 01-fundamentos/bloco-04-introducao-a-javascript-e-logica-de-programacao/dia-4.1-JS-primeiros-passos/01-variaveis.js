@@ -1,7 +1,4 @@
-const myName = "David";
-const birthCity = "Boituva";
-const birthYear = 1988;
-
-console.log(myName);
-console.log(birthCity);
-console.log(birthYear);
+const base = 5;
+const height = 8;
+const perimeter = base * height;
+console.log(area);

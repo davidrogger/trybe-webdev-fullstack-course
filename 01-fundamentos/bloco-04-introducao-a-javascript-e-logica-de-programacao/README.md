@@ -40,11 +40,32 @@ JS possui uma tipagem dinâmica, pois mesmo sem indicar que tipo de variavel ela
 
 ## Operadores Aritméticos
 
-```+ Soma
-- Subtração
-* Multiplicação
-** Exponecial
-/ Divisão
-% Resto da divisão
-++ Incrimento
--- Descremento```
+`+ Soma`
+`- Subtração`
+`* Multiplicação`
+`** Exponecial`
+`/ Divisão`
+`% Resto da divisão`
+`++ Incrimento`
+`-- Descremento`
+
+## Condições
+
+if, condição de se algo for verdadeiro
+else, se não faça esse outro algo.
+
+### Extrutura de condições
+
+```
+if (condicao) {
+    //codigo
+}
+else if (outra condicao) {
+    //outra condição
+}
+else {
+    // nenhuma das condições acima atendidas
+}
+```
+
+#
