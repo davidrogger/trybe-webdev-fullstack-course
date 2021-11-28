@@ -21,7 +21,7 @@ Em 1997 nśo temos a primeira versão ECMA-262 também conhecido como ECMAScript
 
 ## Variaveis
 
-## Tipos de Variaveis
+## Variaveis
 
 **let**, a informação contida em let, pode ser reatribuida, exemplo: se ela recebeu 20 em um determinando momento, ela pode receber outro valor, sendo prescrevido o valor 20, pelo outro valor inserido.
 **const**, não pode ter um valor reatribuido, se foi colocado o valor 20 em const, ele não pode ser alterado.
@@ -97,4 +97,15 @@ case "verde":
 default:
   console.log("valor não identificado");
 }
+```
+# Array
+
+Existem dois tipos devariaveis as simples, que armazenam **uma** informação e as compostas que podem ser compostas por diversas informações dentro da mesma variavel. <br>
+A composição da variavel array, é por meio de colchetes `variavel []`, dentro dos colchetes, cada informação é divida por meio da vírgula. Para cada informação dentro de uma virgula é dado o nome de chave, ou indice, também é considerado como indice zero, ou seja, sua contagem começa apartir do 0, para apresentarmos o primeiro valor do array, deve ser o número 0 e não o 1.<br>
+
+### Alguns comandos:
+```
+variavel.length = usado para mostrar a quantidade total de chaves dentro daquele array.
+variavel.push = usado para acrescentar uma informação dentro do array no final da fila.
+variacel.sort() = usado para organizar as informações dentro do array, em forma alfabética.
 ```
