@@ -113,3 +113,19 @@ variavel.pop(itemAdicionado) = usado para remover uma informação dentro do arr
 variavel.shift(itemAdicionado) = usado para remover uma informação dentro do array no começo da "fila".
 variavel.indexOf(item); usado para localizar a posição do item dentro do array.
 ```
+
+## FOR
+
+É usado para criar um laço de repetição, até ele completar uma determinada condição, ele irá repetir isso.
+
+### Extrutura
+```
+for (let contatdor = 0; contador < variavel; contador += 1){
+  repetição
+}
+```
+Nesse exemplo, criamos dentro do for uma variavel, para determinar quais as condições, atribuindo 0(let contatdor = 0), ele irá comparar o contador a uma variavel(contador < variavel), enquanto o contador for menor quela, ele irá executar a tarefa dentro das chaves, e toda vez que for executado ele irá incrementar 1 no contador(contador += 1).
+
+### FOR/OF
+
+Usado normalmente para mostrar o conteúdo dentro de um array, é possivel adicionar informação, mas ele nunca altera o array, somente mostra a alteração sobre o conteúdo mostrado.
