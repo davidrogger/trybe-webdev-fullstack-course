@@ -1,4 +1,4 @@
 let menu = ['Home', 'Serviços', 'Portfólio', 'Links'];
-let menuServices = ;
+let indexOfPortfolio = ;
 
-console.log(menuServices);
+console.log(indexOfPortfolio);
