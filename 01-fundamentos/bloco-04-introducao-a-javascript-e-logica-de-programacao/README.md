@@ -106,6 +106,10 @@ A composição da variavel array, é por meio de colchetes `variavel []`, dentro
 ### Alguns comandos:
 ```
 variavel.length = usado para mostrar a quantidade total de chaves dentro daquele array.
-variavel.push = usado para acrescentar uma informação dentro do array no final da fila.
 variacel.sort() = usado para organizar as informações dentro do array, em forma alfabética.
+variavel.unshift(itemAdicionado) = usado para acrescentar uma informação dentro do array no começo da "fila".
+variavel.push(itemAdicionado) = usado para acrescentar uma informação dentro do array no final da "fila".
+variavel.pop(itemAdicionado) = usado para remover uma informação dentro do array no final da "fila".
+variavel.shift(itemAdicionado) = usado para remover uma informação dentro do array no começo da "fila".
+variavel.indexOf(item); usado para localizar a posição do item dentro do array.
 ```
