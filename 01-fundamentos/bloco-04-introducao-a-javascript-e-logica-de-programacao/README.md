@@ -21,7 +21,7 @@ Em 1997 nśo temos a primeira versão ECMA-262 também conhecido como ECMAScript
 
 ## Variaveis
 
-## Tipos de Variaveis
+## Variaveis
 
 **let**, a informação contida em let, pode ser reatribuida, exemplo: se ela recebeu 20 em um determinando momento, ela pode receber outro valor, sendo prescrevido o valor 20, pelo outro valor inserido.
 **const**, não pode ter um valor reatribuido, se foi colocado o valor 20 em const, ele não pode ser alterado.
@@ -98,3 +98,34 @@ default:
   console.log("valor não identificado");
 }
 ```
+# Array
+
+Existem dois tipos devariaveis as simples, que armazenam **uma** informação e as compostas que podem ser compostas por diversas informações dentro da mesma variavel. <br>
+A composição da variavel array, é por meio de colchetes `variavel []`, dentro dos colchetes, cada informação é divida por meio da vírgula. Para cada informação dentro de uma virgula é dado o nome de chave, ou indice, também é considerado como indice zero, ou seja, sua contagem começa apartir do 0, para apresentarmos o primeiro valor do array, deve ser o número 0 e não o 1.<br>
+
+### Alguns comandos:
+```
+variavel.length = usado para mostrar a quantidade total de chaves dentro daquele array.
+variacel.sort() = usado para organizar as informações dentro do array, em forma alfabética.
+variavel.unshift(itemAdicionado) = usado para acrescentar uma informação dentro do array no começo da "fila".
+variavel.push(itemAdicionado) = usado para acrescentar uma informação dentro do array no final da "fila".
+variavel.pop(itemAdicionado) = usado para remover uma informação dentro do array no final da "fila".
+variavel.shift(itemAdicionado) = usado para remover uma informação dentro do array no começo da "fila".
+variavel.indexOf(item); usado para localizar a posição do item dentro do array.
+```
+
+## FOR
+
+É usado para criar um laço de repetição, até ele completar uma determinada condição, ele irá repetir isso.
+
+### Extrutura
+```
+for (let contatdor = 0; contador < variavel; contador += 1){
+  repetição
+}
+```
+Nesse exemplo, criamos dentro do for uma variavel, para determinar quais as condições, atribuindo 0(let contatdor = 0), ele irá comparar o contador a uma variavel(contador < variavel), enquanto o contador for menor quela, ele irá executar a tarefa dentro das chaves, e toda vez que for executado ele irá incrementar 1 no contador(contador += 1).
+
+### FOR/OF
+
+Usado normalmente para mostrar o conteúdo dentro de um array, é possivel adicionar informação, mas ele nunca altera o array, somente mostra a alteração sobre o conteúdo mostrado.
