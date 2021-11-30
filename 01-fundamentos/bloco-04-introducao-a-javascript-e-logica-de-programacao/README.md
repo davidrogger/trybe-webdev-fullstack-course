@@ -190,4 +190,32 @@ let diasDaSemana = {
   // diasDaSemana.1; // SyntaxError: Unexpected number
   console.log(diasDaSemana['1']); // domingo
   ```
-  
+  ## FOR/IN
+
+  Pode ser usado tanto para array, quando objeto.
+  Exemplo:
+```
+  let car = {
+  type: 'Fiat',
+  model: '500',
+  color: 'white',
+};
+
+for (let index in car) {
+  console.log(index, car[index]);
+}
+```
+
+No caso do objeto, index, fica armazenado a chave do objeto, se nesse exemplo, fosse usado para mostrar apenas o index, seria apresentado "type, model, color", se fosse para apresentar apenas o conteúdo, seria car (objeto) seguido das chaves [index], no exemplo é mostrado, a chave e o valor dentro da chave (index, car[index]).
+
+Funciona da mesma maneira para o array, mas no array, a chave seria o número do indice do array da mesma forma, usando o mesmo exemplo como array.
+
+```
+  let car = ['Fiat', '500', 'white'];
+for (let index in car) {
+  console.log(index, car[index]);
+}
+```
+
+Nesse caso, index do fiat seria 0, pois é a primeira posição do indice no array, o inice ocupa o lugar da chave ja que ela não existe no array.
+
