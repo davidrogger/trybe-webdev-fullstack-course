@@ -5,5 +5,8 @@ let info = {
 };
 info['recorrente'] = 'Sim';
 
-console.log(info)
+for (let todasInfos in info) {
+  console.log(todasInfos);
+}
+// console.log(info)
 // console.log(`Bem vinda, ${info.personagem}`); passo 01
