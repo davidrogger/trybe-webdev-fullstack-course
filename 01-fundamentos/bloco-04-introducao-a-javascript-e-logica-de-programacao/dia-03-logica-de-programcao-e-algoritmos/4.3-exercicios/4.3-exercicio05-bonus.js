@@ -1,4 +1,5 @@
-// Agora inverta o lado do triângulo.
+// Faça uma pirâmide com n asteriscos de base, que seja vazia no meio:.
+// Tentando entender a lógica ainda...
 
 let n = 5;
 let linhaAsterisco = "";
