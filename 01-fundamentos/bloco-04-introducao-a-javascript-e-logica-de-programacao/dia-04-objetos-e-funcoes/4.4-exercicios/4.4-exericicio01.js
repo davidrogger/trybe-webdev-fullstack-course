@@ -5,8 +5,18 @@ let info = {
 };
 info['recorrente'] = 'Sim';
 
-for (let todasInfos in info) {
-  console.log(todasInfos);
+// Passo 04
+for (let todasInfos in info){
+  console.log(info[todasInfos]);
 }
-// console.log(info)
-// console.log(`Bem vinda, ${info.personagem}`); passo 01
+
+//Passo 03
+// for (let todasChaves in info) {
+//   console.log(todasChaves);
+// }
+
+//Passo 02
+// console.log(info) 
+
+//Passo 01
+// console.log(`Bem vinda, ${info.personagem}`); 
