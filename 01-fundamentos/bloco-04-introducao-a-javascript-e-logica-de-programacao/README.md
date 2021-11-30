@@ -129,3 +129,11 @@ Nesse exemplo, criamos dentro do for uma variavel, para determinar quais as cond
 ### FOR/OF
 
 Usado normalmente para mostrar o conteúdo dentro de um array, é possivel adicionar informação, mas ele nunca altera o array, somente mostra a alteração sobre o conteúdo mostrado.
+
+## Algoritmos
+
+Receita do bolo, seria o passo a passo de como algo deve ser executado.
+
+### Complexidade de código
+
+Para medir a complexidade de um código, exite a complexidade ciclomática, quanto maior for a complexidade ciclomática, mais dicil é de fazer o acompanhamento do código, sua manutenção e testagem.
