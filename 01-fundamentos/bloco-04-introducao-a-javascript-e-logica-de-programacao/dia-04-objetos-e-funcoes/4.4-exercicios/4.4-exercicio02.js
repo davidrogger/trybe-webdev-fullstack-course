@@ -9,9 +9,16 @@ let leitor = {
       editora: 'Tordesilhas',
     },
   ],
-}
+};
 // Passo 02 - 07
-leitor.livrosFavoritos.push(`{titulo: 'Harry Potter e o Prisioneiro de Azkaban', autor: 'JK Rowling', editor: 'Rocco',}`)
+leitor.livrosFavoritos.push(
+{ titulo: 'Harry Potter e o Prisioneiro de Azkaban',
+  autor: 'JK Rowling',
+  editor: 'Rocco',
+},)
+
+console.log(`${leitor.nome} tem ${leitor.livrosFavoritos.length} livros favoritos.`)
+
 
 // Passo 01 - 06
 // console.log(`O livro favorito da ${leitor.nome} ${leitor.sobrenome} se chama ${leitor.livrosFavoritos['0']['titulo']}.`)
