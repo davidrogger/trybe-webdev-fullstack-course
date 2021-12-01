@@ -16,7 +16,7 @@ function repNumber (){
       if (countNumber > totalCount){
         totalCount = countNumber;        
         mostRep = arrayTest[index];
-      }      
+      }  
     }
   }
   console.log(mostRep);
