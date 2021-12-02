@@ -14,7 +14,7 @@ function biggerName (){
       biggerName = arrayTest[index];
     }
   }
-  console.log(biggerName);
+  return (biggerName);
 }
 
-biggerName();
+console.log(biggerName());

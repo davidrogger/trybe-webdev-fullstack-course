@@ -4,7 +4,7 @@
 
 let arrayTest = [2, 3, 2, 5, 8, 2];
 
-function repNumber (){
+function repNumber (arrayTest){
   let mostRep = 0;
   let totalCount = 0;  
   for (let index = 0; index < arrayTest.length; index += 1){    
@@ -19,7 +19,7 @@ function repNumber (){
       }  
     }
   }
-  console.log(mostRep);
+  return mostRep;
 }
 
-repNumber();
+console.log(repNumber(arrayTest));
