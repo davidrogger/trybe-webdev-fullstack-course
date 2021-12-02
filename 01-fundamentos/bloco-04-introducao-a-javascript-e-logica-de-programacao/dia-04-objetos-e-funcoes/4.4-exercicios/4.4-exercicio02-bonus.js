@@ -8,13 +8,20 @@ function checkEvenNumbers (vector){
     if (vector[indexFather].length > 1){
       for(let indexChild = 0; indexChild < vector[indexFather].length; indexChild += 1){
         if (vector[indexFather][indexChild] % 2 == 0){
-
-          evenNumberSave = `${evenNumberSave} + ${vector[indexChild]}`
+          if (evenNumberSave == null){
+            evenNumberSave = vector[indexFather][indexChild];
+          } else {
+          evenNumberSave = `${evenNumberSave}, ${vector[indexFather][indexChild]}`;
+          }
         }
       }
     } else {
       if (vector[indexFather] % 2 == 0){
-        evenNumberSave = `${evenNumberSave}, ${vector[indexFather]}`
+        if (evenNumberSave == 'null'){
+          evenNumberSave = vector[indexFather];
+        } else {
+          evenNumberSave = `${evenNumberSave}, ${vector[indexFather]}`;
+        }
       }
     }
   }
@@ -22,5 +29,7 @@ function checkEvenNumbers (vector){
 }
 
 
-checkEvenNumbers(vector);
 
+
+
+console.log(checkEvenNumbers(vector));
