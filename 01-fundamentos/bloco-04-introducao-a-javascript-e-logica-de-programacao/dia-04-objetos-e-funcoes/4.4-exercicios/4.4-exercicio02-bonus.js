@@ -17,7 +17,7 @@ function checkEvenNumbers (vector){
       }
     } else {
       if (vector[indexFather] % 2 == 0){
-        if (evenNumberSave == 'null'){
+        if (evenNumberSave == null){
           evenNumberSave = vector[indexFather];
         } else {
           evenNumberSave = `${evenNumberSave}, ${vector[indexFather]}`;
