@@ -34,8 +34,8 @@ function basketFruitQuantity (basket){
     fruitList[basket[indexMain]] = qtFruit;
   }
   for(let basketReport in fruitList){
-    finalReport.push(`${fruitList[basketReport]} ${basketReport}s,`)
-  }
+    finalReport.push(`${fruitList[basketReport]} ${basketReport}s,`)    
+  }  
   let joinFinalReport = finalReport.join(' ');
   let finalReportMsg = 'Sua cesta possui: '+ joinFinalReport;
   return finalReportMsg;
