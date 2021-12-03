@@ -1,0 +1,3 @@
+anotações pessoais...
+# DOM - Document Object Model
+
