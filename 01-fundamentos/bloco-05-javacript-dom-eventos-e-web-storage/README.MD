@@ -46,3 +46,16 @@ Coleta somente o texto, sem nenhuma tag que esteja interna aquela tag ID apontad
 Existem outras propriedades inner, que serão apresentadas.
 
 
+### document.ElementsByClassName()
+
+Seria a coleta de varios elementos definidos por classe e eles são organizadas em lista (array), mesmo que tenha apenas 1 TAG com a classe, ele organiza em forma de lista, por indices.
+
+Exemplo de acesso de informação:
+coletei a informação e coloquei ela dentra de uma variavel.
+`let classArray = document.getElementsByClassName('nomeDaClasse');`
+Para acessar a primeira informação coletada, seria por meio do seu indice.
+`classeArray[0]`
+
+### document.ElementsByTagName()
+
+Sempre retornada em forma de lista de elementos mesmo sendo um elemento.
