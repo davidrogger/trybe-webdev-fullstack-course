@@ -58,4 +58,17 @@ Para acessar a primeira informação coletada, seria por meio do seu indice.
 
 ### document.ElementsByTagName()
 
-Sempre retornada em forma de lista de elementos mesmo sendo um elemento.
+Sempre retornada em forma de lista de elementos mesmo sendo um TAG.
+
+### document.querySelector()
+
+Ela puxa apenas um elemento, e esse é o primeiro elemento da "chamada", ela trabalha com seletores do CSS.
+Com os seletores como Class e ID, apenas indicamentos o nome do ID ou classe, no apontamento, usando query, precisamos apontar qual tipo que ele é, assim como no CSS, usando ponto para .classes e # para #ID.
+
+### document.querySelectorAll()
+
+Segue os mesmos padrões do querySelector, mas coletando dados em lista (vários itens).
+
+#### querySelector
+
+Abrange muito mais que apenas classes e ID, temos todos seletores disponiveis CSS para usar como referencia.
