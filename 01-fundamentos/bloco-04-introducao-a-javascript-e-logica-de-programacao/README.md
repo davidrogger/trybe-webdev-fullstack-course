@@ -137,3 +137,85 @@ Receita do bolo, seria o passo a passo de como algo deve ser executado.
 ### Complexidade de código
 
 Para medir a complexidade de um código, exite a complexidade ciclomática, quanto maior for a complexidade ciclomática, mais dicil é de fazer o acompanhamento do código, sua manutenção e testagem.
+
+## Estilos de escrita
+
+Ponto interessante, são as forma que podemos escrever quando programando, pesquisando encontrei 4 forma diferentes, no curso foram citados 2 formas, o camelCase e o Kebab-Case.<br>
+
+`camelCase = userLogin`
+`kebab-case = user-login`
+`snake_case = user_login`
+`PascalCase = UserLogin`
+
+Pascal lembra a mesma ideia do camel, porém até mesmo inicio de palavras teriam sua letra maiuscula, provavelmente futuramente devo encontrar alguma linguagem que pode usar a primeira letra maiuscula, pois em JS, não se pode usar a primeira letra de uma variavel como número ou maiuscula.<br>
+Também não é recomendado o keba no JS, pois o -, pode ser interpretado como uma subtração, sendo a melhor prática o uso de camel.
+
+## Objetos
+
+Objetos, são variaveis, que possui chaves ligadas a uma valor, e podem ser diversas no exemplo apresentando no curso, foi a seguinte extrutura:
+```
+let singer = {
+  name: "Milton",
+  lastName: "Nascimento",
+  nickName: "Bituca",
+  age: 77,
+  bestAlbuns: ["Travessia", "Clube da Esquina", "Minas"],
+  bornInfo: {
+    city: "Rio de janeiro",
+    state: "Rio de Janeiro"
+  }
+}
+```
+Meu ponto de vista Basicamente, seria um container, onde eu posso armazenar varias variaveis dentro de uma variável, podendo até colocar um container dentro do outro como no exemplo, seria uma forma de organziar o armazenamento dos dados. <br>
+
+Agora para mostrar esses dados temos duas formas, Exemplo:
+
+`singer.name` ou `singer["name"]` = para mostrar a informação da chave name.
+
+Quando vamos usar um ou outro, varia da estrutura do código, mas acho que usaria a segunda para criar uma chave nova, e adicionar dentro do objeto, nesse exemplo ele cria uma chave fullName:
+`singer["fullName"] = `${singer.name} ${singer.lastName}`;`
+
+Também quando uma chave é representada por um número, não se deve usar a notação pelo ponto, pois as chaves são armazenadas como string, portanto ele retorna um erro, então devemos chamar usando a notação por colchetes. Exemplo:
+```
+let diasDaSemana = {
+  1: 'domingo',
+  2: 'segunda',
+  3: 'terça',
+  4: 'quarta',
+  5: 'quinta',
+  6: 'sexta',
+  7: 'sábado',
+  };
+  
+  // diasDaSemana.1; // SyntaxError: Unexpected number
+  console.log(diasDaSemana['1']); // domingo
+  ```
+  ## FOR/IN
+
+  Pode ser usado tanto para array, quando objeto.
+  Exemplo:
+```
+  let car = {
+  type: 'Fiat',
+  model: '500',
+  color: 'white',
+};
+
+for (let index in car) {
+  console.log(index, car[index]);
+}
+```
+
+No caso do objeto, index, fica armazenado a chave do objeto, se nesse exemplo, fosse usado para mostrar apenas o index, seria apresentado "type, model, color", se fosse para apresentar apenas o conteúdo, seria car (objeto) seguido das chaves [index], no exemplo é mostrado, a chave e o valor dentro da chave (index, car[index]).
+
+Funciona da mesma maneira para o array, mas no array, a chave seria o número do indice do array da mesma forma, usando o mesmo exemplo como array.
+
+```
+  let car = ['Fiat', '500', 'white'];
+for (let index in car) {
+  console.log(index, car[index]);
+}
+```
+
+Nesse caso, index do fiat seria 0, pois é a primeira posição do indice no array, o inice ocupa o lugar da chave ja que ela não existe no array.
+
