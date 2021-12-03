@@ -6,12 +6,15 @@ let urgentTaskDivBG = document.querySelectorAll('.emergency-tasks div');
 let notUrgentTaskDivBG = document.querySelectorAll('.no-emergency-tasks div');
 let footerBG = document.getElementById('footer-container');
 
+function backColor (arrayTitle, color) {
+  for (let index =0; index < arrayTitle.length; index += 1) {
+    arrayTitle[index].style.background = color;
+  };
+} 
 
-for (let notUrgentBG in notUrgentTaskTitleBG) {
-  notUrgentTaskTitleBG[notUrgentBG].style.backgroundColor = 'black';
-  notUrgentTaskDivBG[notUrgentBG].style.backgroundColor = '#E1E150';
-  urgentTaskTitleBG[notUrgentBG].style.backgroundColor = '#CB52CB';
-  urgentTaskDivBG[notUrgentBG].style.backgroundColor = '#FFA899'
-};
+backColor(notUrgentTaskTitleBG, 'black');
+backColor(urgentTaskTitleBG, '#B04DB5');
+backColor(urgentTaskDivBG, 'salmon');
+backColor(notUrgentTaskDivBG, '#DEE378');
 
 footerBG.style.backgroundColor = '#072206';
