@@ -21,3 +21,28 @@ Pode ser dizer que é uma representação orientada a objetos da página web, qu
 
 ## Seletores de elemento
 
+### document.ElementById()
+
+Usado para coletar a informação HTML, de uma determinada TAG, por meio de sua ID, porém ela retorna toda informação HTML.
+Exemplo:
+```
+document.getElementByID('paragraph');
+<p id='paragraph'> texto <strong> texto negrito </strong> </p>
+```
+Existem propriedades para alterar a forma como é coletado esse tag.
+
+#### innerHTML
+`document.getElementByID('').innerHTML;`
+Coleta a informação HTML interna da TAG, no caso do exemplo acima, não apareceria o tag P, somente o negrito strong.
+```
+document.getElementByID('paragraph').innerHTML;
+texto <strong> texto negrito </strong>
+```
+
+#### innerText
+`document.getElementByID('').innerText;`
+Coleta somente o texto, sem nenhuma tag que esteja interna aquela tag ID apontada.
+
+Existem outras propriedades inner, que serão apresentadas.
+
+
