@@ -17,7 +17,16 @@ document.getElementById('pai').lastElementChild.previousElementSibling;
 
 //parte 2
 // Crie um irmão para elementoOndeVoceEsta .
-
+let pai = document.getElementById('pai');
+let irmaoOndeVoceEsta = document.createElement('section');
+pai.appendChild(irmaoOndeVoceEsta).className = 'irmaoOndeVoceEsta';
 // Crie um filho para elementoOndeVoceEsta .
+let filhoOndeVoceEsta = document.createElement('section')
+ondeVoceEsta.appendChild(filhoOndeVoceEsta).className = 'filhoOndeVoceEsta';
 // Crie um filho para primeiroFilhoDoFilho .
+let primeiroFilhoDoFilho = document.getElementById('primeiroFilhoDoFilho')
+let filhoDoPrimeiroFilhoDoFilho = document.createElement('section');
+primeiroFilhoDoFilho.appendChild(filhoDoPrimeiroFilhoDoFilho).className = 'filhoDoPrimeiroFilhoDoFilho';
 // A partir desse filho criado, acesse terceiroFilho .
+// let acessoFilhoParaTeceiroFilho = document.querySelector('.filhoDoPrimeiroFilhoDoFilho');
+// acessoFilhoParaTeceiroFilho.parentNode.parentNode.parentNode
