@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <header>
+      <h2 id="page-title">Título</h2>
+      <p class="paragraph">Dê uma cor para este parágrafo!</p>
+      <h4 id="subtitle">Subtítulo</h4>
+      <p class="paragraph">Segundo parágrafo!</p>
+    </header>
+    <script>
+      let paragraphs = document.getElementsByClassName('paragraph');
+      paragraphs[0].style.fontFamily = 'monospace';
+      let subtitle = document.getElementsByTagName('h4');
+      subtitle[0].style.color = 'green';
+    </script>
+  </body>
+</html>
