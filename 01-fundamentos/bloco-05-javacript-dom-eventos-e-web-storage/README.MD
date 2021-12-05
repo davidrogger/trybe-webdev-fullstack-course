@@ -91,3 +91,6 @@ Usado para visualizar (ele funciona somente para leitura), o elemento pai de um 
 10. nextElementSibling = retorna o próximo **elemento**.
 11. previousElementSibling = retorna o **elemento** anterior.
 
+### Criando elementos
+
+#### createElement()
