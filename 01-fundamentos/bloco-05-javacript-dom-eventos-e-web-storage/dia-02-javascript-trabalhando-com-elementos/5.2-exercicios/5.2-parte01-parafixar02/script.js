@@ -14,3 +14,10 @@ document.getElementById('elementoOndeVoceEsta').nextSibling;
 document.getElementById('elementoOndeVoceEsta').nextElementSibling;
 // Agora acesse o terceiroFilho a partir de pai .
 document.getElementById('pai').lastElementChild.previousElementSibling;
+
+//parte 2
+// Crie um irmão para elementoOndeVoceEsta .
+
+// Crie um filho para elementoOndeVoceEsta .
+// Crie um filho para primeiroFilhoDoFilho .
+// A partir desse filho criado, acesse terceiroFilho .

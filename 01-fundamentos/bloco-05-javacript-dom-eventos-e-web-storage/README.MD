@@ -94,3 +94,9 @@ Usado para visualizar (ele funciona somente para leitura), o elemento pai de um 
 ### Criando elementos
 
 #### createElement()
+
+`document.createElement()` Usado para criar o elemento que queremos, entre parenteses fica o tag desajado exemplo para criar uma TAG li, para inserir em uma TAG de lista, seja ul ou ol:
+`let listHTML = document.querySelector('.ingredients')` coletando a info da ul que está na classe ingredients.
+`let listItem = document.createElement('li')` cria o li
+`listItem.innexText = textItem` adiciona o conteudo da variavel no li.
+`listHTML.appendChild(listItem);` insere o conteudo li no pai listHTML.
