@@ -106,3 +106,9 @@ variavel.innerText.inclusdes('palavra_desejada') = busca dentro do innerText uma
 
 ### Eventos
 
+[Link com lista de eventos](https://www.w3schools.com/jsref/dom_obj_event.asp)
+
+`variavel.addEventListener('evento desejado', função será realizada)`
+
+parametro.target = mostra quem foi que acionou a função.
+parametro.type = mostra qual tipo de evento.
