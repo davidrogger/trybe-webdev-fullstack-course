@@ -104,5 +104,5 @@ Usado para visualizar (ele funciona somente para leitura), o elemento pai de um 
 removeChild() = remove a tag desejada
 variavel.innerText.inclusdes('palavra_desejada') = busca dentro do innerText uma palavra, é usado no video uma if, para se for verdadeira a condiçẽso dentro do parentezes, ele remover o item da lista com removeChild.
 
-
+### Eventos
 
