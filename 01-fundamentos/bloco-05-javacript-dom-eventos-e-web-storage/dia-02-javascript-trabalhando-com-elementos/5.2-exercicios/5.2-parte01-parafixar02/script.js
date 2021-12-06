@@ -28,5 +28,15 @@ let primeiroFilhoDoFilho = document.getElementById('primeiroFilhoDoFilho')
 let filhoDoPrimeiroFilhoDoFilho = document.createElement('section');
 primeiroFilhoDoFilho.appendChild(filhoDoPrimeiroFilhoDoFilho).className = 'filhoDoPrimeiroFilhoDoFilho';
 // A partir desse filho criado, acesse terceiroFilho .
-// let acessoFilhoParaTeceiroFilho = document.querySelector('.filhoDoPrimeiroFilhoDoFilho');
-// acessoFilhoParaTeceiroFilho.parentNode.parentNode.parentNode
+let acessoFilhoDoFilhoParaTeceiroFilho = document.querySelector('.filhoDoPrimeiroFilhoDoFilho');
+acessoFilhoDoFilhoParaTeceiroFilho.parentNode.parentNode.parentNode.lastElementChild.previousElementSibling.previousElementSibling
+// Remova todos os elementos filhos de paiDoPai exceto pai , elementoOndeVoceEsta e primeiroFilhoDoFilho .
+pai.removeChild(irmaoOndeVoceEsta);
+
+pai.removeChild(pai.lastElementChild);
+pai.removeChild(pai.lastElementChild);
+pai.removeChild(pai.firstElementChild);
+ondeVoceEsta.removeChild(ondeVoceEsta.lastElementChild);
+ondeVoceEsta.removeChild(ondeVoceEsta.lastElementChild);
+pai.removeChild(pai.firstElementChild.nextSibling);
+primeiroFilhoDoFilho.removeChild(primeiroFilhoDoFilho.firstElementChild);

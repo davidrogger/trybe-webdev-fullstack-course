@@ -100,3 +100,9 @@ Usado para visualizar (ele funciona somente para leitura), o elemento pai de um 
 `let listItem = document.createElement('li')` cria o li
 `listItem.innexText = textItem` adiciona o conteudo da variavel no li.
 `listHTML.appendChild(listItem);` insere o conteudo li no pai listHTML.
+
+removeChild() = remove a tag desejada
+variavel.innerText.inclusdes('palavra_desejada') = busca dentro do innerText uma palavra, é usado no video uma if, para se for verdadeira a condiçẽso dentro do parentezes, ele remover o item da lista com removeChild.
+
+
+
