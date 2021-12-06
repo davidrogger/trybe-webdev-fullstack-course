@@ -82,11 +82,27 @@
       let imgSectionLeft = document.createElement('img');
       imgSectionLeft.src = 'https://picsum.photos/200';
       sectionLeft.appendChild(imgSectionLeft).className = 'small-image';
-      // Adicione uma lista não ordenada com os valores de 1 a 10 por extenso, ou seja, um , dois , três , ... como valores da lista. Essa lista deve ser filha do section criado no passo 6;
-      let listU = document.createElement('ul');
-      sectionRight.appendChild(listU);
-      
-      // Adicione 3 tags h3 , todas sendo filhas do main criado no passo 2.
+      // 8-Adicione uma lista não ordenada com os valores de 1 a 10 por extenso, ou seja, um , dois , três , ... como valores da lista. Essa lista deve ser filha do section criado no passo 6;
+      let listUl = document.createElement('ul');
+      sectionRight.appendChild(listUl);      
+      for (let index = 1; index <= 10; index += 1) {
+        let listLi = document.createElement('li');
+        listLi.innerText = index;
+        listUl.appendChild(listLi);
+      }
+      // 9-Adicione 3 tags h3 , todas sendo filhas do main criado no passo 2.
+      for (let index2 = 0; index2 < 3; index2 += 1) {
+        let titleH3 = document.createElement('h3');
+        mainContent.appendChild(titleH3);
+      }
+      //Agora que você criou muita coisa, vamos fazer algumas alterações e remoções:
+      // 1-Adicione a classe title na tag h1 criada;
+      // 2-Adicione a classe description nas 3 tags h3 criadas;
+      // 3-Remova a section criado no passo 5 (aquele que possui a classe left-content ). Utilize a função .removeChild() ;
+      // 4-Centralize a section criado no passo 6 (aquele que possui a classe right-content ). Dica: para centralizar, basta configurar o margin-right: auto da section ;
+      // 5-Troque a cor de fundo do elemento pai da section criada no passo 3 (aquela que possui a classe center-content ) para a cor verde;
+      // 6-Remova os dois últimos elementos ( nove e dez ) da lista criada no passo 8.
+
     </script>
   </body>
 </html>
