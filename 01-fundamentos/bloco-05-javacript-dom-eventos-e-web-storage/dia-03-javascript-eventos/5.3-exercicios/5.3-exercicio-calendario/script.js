@@ -53,3 +53,15 @@ function buttonEvent () {
   buttonHoliDay.addEventListener('click', holidayEvent);
 }
 buttonEvent ()
+
+function holidayEvent () {
+  const allHolidays = document.getElementsByClassName('holiday');
+  for (let holiday of allHolidays) {   
+    if (holiday.style.backgroundColor === '') {
+      holiday.style.backgroundColor = 'yellow';
+  } else {
+    holiday.style.backgroundColor = '';
+  }
+  
+  }
+}
