@@ -135,3 +135,18 @@ function colorLegend (color) {
 }
 
 colorLegend('green');
+
+// Exercício 09
+
+function taskSelected () {
+  const myTask = document.querySelector('.task, .task-selected');
+  myTask.addEventListener('click', function(task) { 
+    if (myTask.classList.value !== 'task selected') {
+      task.target.classList.add('selected');
+    } else {
+      task.target.classList.remove('selected');
+    }
+    
+  })
+}
+taskSelected();
