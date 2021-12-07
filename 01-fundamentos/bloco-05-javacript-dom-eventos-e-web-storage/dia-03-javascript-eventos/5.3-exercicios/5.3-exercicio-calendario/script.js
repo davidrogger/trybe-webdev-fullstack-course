@@ -45,3 +45,11 @@ holidayButton.setAttribute('id', 'btn-holiday');
 buttonsContainer.appendChild(holidayButton).innerText = 'Feriados';
 }
 buttonHoliDay();
+
+// Exercício 03
+
+function buttonEvent () {
+  const buttonHoliDay = document.querySelector('#btn-holiday');
+  buttonHoliDay.addEventListener('click', holidayEvent);
+}
+buttonEvent ()
