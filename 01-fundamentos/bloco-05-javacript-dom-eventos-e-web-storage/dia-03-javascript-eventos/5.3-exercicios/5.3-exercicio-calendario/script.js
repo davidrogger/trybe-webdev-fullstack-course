@@ -65,3 +65,14 @@ function holidayEvent () {
   
   }
 }
+
+// Exercício 04
+
+function fridayButton (string) {
+  const buttonsContainer = document.querySelector('.buttons-container');
+  const buttonFriday = document.createElement('button');
+  buttonFriday.innerText = string;
+  buttonFriday.classList.add('btn-friday');
+  buttonsContainer.appendChild(buttonFriday);
+}
+fridayButton('Sexta-Feira');
