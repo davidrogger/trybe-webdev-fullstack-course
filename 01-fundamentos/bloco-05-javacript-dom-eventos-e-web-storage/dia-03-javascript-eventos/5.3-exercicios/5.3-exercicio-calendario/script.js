@@ -36,3 +36,12 @@ function eachDayClass (elementDay, day) {
 }
 
 createDaysOfMonth();
+// Exercicio 02
+
+function buttonHoliDay () {
+const buttonsContainer = document.querySelector('.buttons-container');
+const holidayButton = document.createElement('button');
+holidayButton.setAttribute('id', 'btn-holiday');
+buttonsContainer.appendChild(holidayButton).innerText = 'Feriados';
+}
+buttonHoliDay();
