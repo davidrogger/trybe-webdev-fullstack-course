@@ -126,3 +126,12 @@ taskAdd('cozinhar');
 
 // Exercicio 08
 
+function colorLegend (color) {
+  const myTasks = document.querySelector('.my-tasks');
+  let divTask = document.createElement('div');
+  divTask.style.backgroundColor = color;
+  divTask.classList.add('task');
+  myTasks.appendChild(divTask);
+}
+
+colorLegend('green');
