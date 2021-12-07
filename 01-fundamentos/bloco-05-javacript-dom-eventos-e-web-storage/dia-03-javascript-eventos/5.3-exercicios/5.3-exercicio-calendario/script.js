@@ -16,7 +16,7 @@ createDaysOfTheWeek();
 const daysUl = document.querySelector('#days');
 
 function createDaysOfMonth () {
-  const dezDaysList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
+  const dezDaysList = [29, 30, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
   for (let dayOfMonth of dezDaysList) {
     let day = document.createElement('li');
     day.innerText = dayOfMonth;    
@@ -76,3 +76,21 @@ function fridayButton (string) {
   buttonsContainer.appendChild(buttonFriday);
 }
 fridayButton('Sexta-Feira');
+
+// Exercício 05
+
+function fridayChange (allFridaysBkp) {
+  const allFridays = document.getElementsByClassName('friday');
+  const buttonFriday = document.querySelector('.btn-friday');
+  buttonFriday.addEventListener('click', function() {
+    for (let index = 0; index < allFridays.length; index += 1) {
+      if (allFridays[index].innerText === 'Sextou' ) {
+        allFridays[index].innerText = allFridaysBkp[index];
+      } else {
+        allFridays[index].innerText = 'Sextou';
+      }      
+    }    
+  })  
+}
+let allFridaysBkp = [4, 11, 18, 25];
+fridayChange(allFridaysBkp);
