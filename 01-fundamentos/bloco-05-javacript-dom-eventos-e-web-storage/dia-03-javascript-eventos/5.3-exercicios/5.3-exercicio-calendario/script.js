@@ -57,7 +57,7 @@ buttonEvent ()
 function holidayEvent () {
   const allHolidays = document.getElementsByClassName('holiday');
   for (let holiday of allHolidays) {   
-    if (holiday.style.backgroundColor === '') {
+    if (holiday.style.backgroundColor !== 'yellow') {
       holiday.style.backgroundColor = 'yellow';
   } else {
     holiday.style.backgroundColor = '';
@@ -154,7 +154,7 @@ taskSelected();
 // Exercício 10
 
 function selectDayTask () {
-  let taskSelected = document.querySelector('.task, .selected');
+  let taskSelected = document.querySelector('.task');
   let colorSelected = taskSelected.style.backgroundColor;
   let daysToSelect = document.querySelector('#days');
   daysToSelect.addEventListener('click', function (day) {    
@@ -169,3 +169,39 @@ function selectDayTask () {
   
 }
 selectDayTask ();
+
+// Bônus
+
+function addCommit () {
+  
+  let buttonAdd = document.querySelector('#btn-add');
+  buttonAdd.addEventListener('click', needTextValue);
+  let inputAddByKey = document.querySelector('#task-input');
+   inputAddByKey.addEventListener('keyup', enterPress);
+}
+
+function enterPress (enter) {
+if (enter.key === 'Enter') {
+  needTextValue ();
+}
+}
+
+function createListTask (){
+  let taskInput = document.querySelector('#task-input');
+  let taskList = document.querySelector('.task-list');
+  let newTask = document.createElement('li');
+  newTask.innerText = taskInput.value;
+  taskList.appendChild(newTask);
+}
+
+function needTextValue () {
+  let taskInput = document.querySelector('#task-input');
+  if (taskInput.value.length !== 0) {
+    createListTask();
+  } else {
+    alert('É necessário preencher o campo de compromissos para adicionar algo');
+    
+  }
+}
+
+addCommit();
