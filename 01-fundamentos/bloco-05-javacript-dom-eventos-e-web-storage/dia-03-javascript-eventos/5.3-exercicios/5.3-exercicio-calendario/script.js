@@ -12,5 +12,27 @@ function createDaysOfTheWeek() {
 };
 
 createDaysOfTheWeek();
+// Exercício 01
+const daysUl = document.querySelector('#days');
 
-// Escreva seu código abaixo.
+function createDaysOfMonth () {
+  const dezDaysList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
+  for (let dayOfMonth of dezDaysList) {
+    let day = document.createElement('li');
+    day.innerText = dayOfMonth;    
+    eachDayClass(dayOfMonth, day);
+    daysUl.appendChild(day)
+  }
+}
+
+function eachDayClass (elementDay, day) {
+  day.classList.add('day');
+  if (elementDay === 24 || elementDay === 25 || elementDay === 31) {
+    day.classList.add('holiday');
+  }
+  if (elementDay === 4 || elementDay === 11 || elementDay === 18 || elementDay === 25) {
+    day.classList.add('friday');
+  }
+}
+
+createDaysOfMonth();
