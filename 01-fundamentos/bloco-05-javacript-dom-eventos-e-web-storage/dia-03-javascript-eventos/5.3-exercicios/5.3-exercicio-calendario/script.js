@@ -112,3 +112,17 @@ function zoomOutDay () {
 };
 zoomInDay ();
 zoomOutDay ();
+
+// Exercício 07
+
+function taskAdd (task) {
+  const myTasks = document.querySelector('.my-tasks');
+  let spanItem = document.createElement('span');
+  spanItem.innerText = task;
+  myTasks.appendChild(spanItem);
+}
+
+taskAdd('cozinhar');
+
+// Exercicio 08
+
