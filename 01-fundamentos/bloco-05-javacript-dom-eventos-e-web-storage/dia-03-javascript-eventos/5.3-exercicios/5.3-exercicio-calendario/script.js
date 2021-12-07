@@ -94,3 +94,21 @@ function fridayChange (allFridaysBkp) {
 }
 let allFridaysBkp = [4, 11, 18, 25];
 fridayChange(allFridaysBkp);
+
+// Exercício 06
+
+function zoomInDay () {
+let daysList = document.querySelector('#days');
+daysList.addEventListener('mouseover', function(day) {
+  day.target.style.fontSize = '30px';  
+})
+};
+
+function zoomOutDay () {
+  let daysList = document.querySelector('#days');
+  daysList.addEventListener('mouseout', function(day) {
+    day.target.style.fontSize = '20px';
+  })
+};
+zoomInDay ();
+zoomOutDay ();
