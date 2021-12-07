@@ -150,3 +150,22 @@ function taskSelected () {
   })
 }
 taskSelected();
+
+// Exercício 10
+
+function selectDayTask () {
+  let taskSelected = document.querySelector('.task, .selected');
+  let colorSelected = taskSelected.style.backgroundColor;
+  let daysToSelect = document.querySelector('#days');
+  daysToSelect.addEventListener('click', function (day) {    
+    if (taskSelected.classList.length > 1) {
+      if (day.target.style.backgroundColor !== colorSelected){
+        day.target.style.backgroundColor = colorSelected;
+      } else {
+        day.target.style.backgroundColor = '';
+      }
+    }
+    })
+  
+}
+selectDayTask ();
