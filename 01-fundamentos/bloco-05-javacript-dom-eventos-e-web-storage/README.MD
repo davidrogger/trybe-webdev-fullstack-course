@@ -104,5 +104,11 @@ Usado para visualizar (ele funciona somente para leitura), o elemento pai de um 
 removeChild() = remove a tag desejada
 variavel.innerText.inclusdes('palavra_desejada') = busca dentro do innerText uma palavra, é usado no video uma if, para se for verdadeira a condiçẽso dentro do parentezes, ele remover o item da lista com removeChild.
 
+### Eventos
 
+[Link com lista de eventos](https://www.w3schools.com/jsref/dom_obj_event.asp)
 
+`variavel.addEventListener('evento desejado', função será realizada)`
+
+parametro.target = mostra quem foi que acionou a função.
+parametro.type = mostra qual tipo de evento.
