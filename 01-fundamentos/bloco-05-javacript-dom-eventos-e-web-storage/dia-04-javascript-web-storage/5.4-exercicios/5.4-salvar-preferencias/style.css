@@ -1,0 +1,32 @@
+article {
+  width: 500px;  
+  text-align: justify;
+  padding: 20px;
+  display: inline-block;
+}
+h1, h2 {
+  text-align: center;
+}
+
+main {
+  text-align: center;
+}
+
+footer {
+  border: 2px solid black;
+  display: inline-block;
+  margin: 20px;
+}
+
+select {
+  width: 80px;
+  text-align: center;
+}
+
+section {
+  font-family: monospace;
+  width: 220px;
+  height: 40px;
+  text-align: center;
+  padding: 10px;
+}
