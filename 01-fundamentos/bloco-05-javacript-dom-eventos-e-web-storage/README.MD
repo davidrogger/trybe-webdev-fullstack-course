@@ -112,3 +112,69 @@ variavel.innerText.inclusdes('palavra_desejada') = busca dentro do innerText uma
 
 parametro.target = mostra quem foi que acionou a função.
 parametro.type = mostra qual tipo de evento.
+
+## Web Storage
+
+Mecânismo que permite aplicações web salvar dados no navegador da pessoa. Antes do HTML 5, as aplicações tinham que salvar os dados locais em cookies, para serem enviados para o servidor a cada requisição do navegador.
+
+### Cookies
+
+Quando o servidor envia a página para o navegador, a conexão é desligada e o servidor não tem mais acesso às informações da requisição, como os itens que a pessoa uadicionou ao carrinho de compras ou e-mail que lhe dará acesso a sua conta. Os **Cookies** foram inventados para salvar dados das pessoas usuária no prórpio navegador, dessa forma a página consegue acessar e executar parametros personalizados por pessoa.
+Cookies são salvos no formato chave-valor. Quando o navegador faz uma requisição ao servidor, para acessar uma página, os cookies dessa página são adicionados à requisição, assim o servidor tem acesso aos dados da pessoa.
+É psossivel criar, ler ou deletar cookie, pela propriedade `document.cookie`.
+
+`document.cookie = "email=isabella@email.com";`
+armazena o e-mail, porém quando fechado o navegador esse cookie será apagado por padrão, há possibilidade de determinar uma data para manter o dado.
+
+`document.cookie = "email=isabella@email.com; expires=Thu, 17 Dec 2021 12:00:00 UTC";`
+
+É possivel definir um parâmetro path, para dizer ao navegador qual caminho o cookie que você criou pertence, por padrão ele pertence à página atual:
+
+`document.cookie = "email=isabella@email.com; expires=Thu, 17 Dec 2021 12:00:00 UTC; path=/";`
+
+É possivel também armazenar um cookie em uma variável;
+```
+const myCookie = document.cookie;
+console.log(myCookie) // email=isabella@email.com
+```
+
+Também é possivel alterar o valor do cookie, atribuindo um novo valor;
+`document.cookie = "email=cleyton@email.com; expires=Thu, 17 Dec 2020 12:00:00 UTC";`
+
+E para apagalo, não é necessário atribuir um valor, basta adicionar uma data de validade, que ja passou;
+`document.cookie = "email=; expires=Tue, 01 Dec 2020 12:00:00 UTC;"`
+
+## Local e Session Storage
+
+#### LocalStorage
+
+Salva os dados sem data de expiração, os dados não serão removidos, quando o navegador foe fechado, ficarão disponveis até serem removidos manualmente.
+
+**sessionStorage** salva os dados apenas na sessão atual, os dados são removidos assim que a pessoa fecha a aba ou o navegador.
+```
+console.log(sessionStorage.length) // não possui nada salvo, então o retorno é o valor: 0
+sessionStorage.setItem("firstname", "Adam") //salva uma entrada com a key = "firstname" e value = "Adam"
+sessionStorage.setItem("lastname", "Smith") //salva uma entrada com a key = "lastname" e value = "Smith"
+console.log(sessionStorage.getItem("lastname")) // retorna o valor "Smith"
+console.log(sessionStorage.length) // possui duas entradas, então o retorno é o valor: 2
+sessionStorage.removeItem("lastname") // remove a entrada referente a key = "lastname"
+console.log(sessionStorage.length) // possui uma entrada, então o retorno é o valor: 1
+sessionStorage.clear() // limpa todas as entradas salvas em sessionStorage
+console.log(sessionStorage.length) // não possui nada salvo, então o retorno é o valor: 0
+```
+
+função para adicionar o item ao localStorage;
+`localStorage.setItem('chave', 'Valor');`
+
+função para acessar um item;
+`localSorage.getItem(nomeDachave);`
+
+função para deletar um item:
+`localStorage.removeItem('chave');`
+
+função para limpar toda informação no local.
+`localStorage.clear();`
+
+#### sessionStorage
+
+Possui as mesmas funções do localStorage, porém somente durante a sessão, após fecharmos a aba ou o navegador, será apagado.
