@@ -2,6 +2,7 @@
 const selectStates = document.getElementById('select-states');
 const dataStarts = document.getElementById('input-data-starts');
 const inputSubmit = document.getElementById('input-submit');
+const inputClean = document.getElementById('input-clean');
 
 // https://mundoeducacao.uol.com.br/geografia/estados-brasil.htm
 const allStates = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO', 'DF'];
@@ -20,10 +21,15 @@ function dataStartsFilter(event) {
   }  
 }
 
-function customeSubmit(event) {
+function customSubmit(event) {
   event.preventDefault();
+}
+
+function cleanForms() {
+
 }
 
 allStates.forEach(createState);
 dataStarts.addEventListener('keypress', dataStartsFilter);
-inputSubmit.addEventListener('click', customeSubmit)
+inputSubmit.addEventListener('click', customSubmit);
+inputClean.addEventListener('click', cleanForms)
