@@ -2,9 +2,20 @@ header {
   text-align: center;
 }
 
-main {
+main {  
   margin: 0 auto;
   width: 800px;
+}
+
+.input-container {  
+  flex-direction: column;
+  display: flex;
+  margin: 10px 0;
+}
+
+.row-container {  
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .input-invalid {

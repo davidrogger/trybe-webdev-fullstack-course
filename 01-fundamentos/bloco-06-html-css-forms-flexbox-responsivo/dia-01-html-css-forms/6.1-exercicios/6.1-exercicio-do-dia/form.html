@@ -25,19 +25,19 @@
       <div class="input-container">
         <label for="input-address">Endereço:</label><input id="input-address" class="input-user" type="text" maxlength="200" required>
       </div>
-      <div class="input-container">
-        <label for="input-city">Cidade:</label><input id="input-city" class="input-user" type="text" maxlength="28" required>
-      </div>
-      <div class="input-container">
-        <select name="states" id="select-states" required>
-          <option disabled selected value>Selecione seu estado</option>      
-        </select>
-      </div>
-      <div class="input-container">
-        <label for="radio-type">Tipo de moradia:</label>
-        <input id="radio-house" type="radio" name="radio-type" value="radio-house" required> <label for="radio-house">Casa</label>
-        <input id="radio-apartment" type="radio" name="radio-type" value="radio-apartment" required> <label for="radio-apartment">Apartamento</label> 
-      </div>
+      <div class="input-container row-container">
+        <div>
+          <label for="input-city">Cidade:</label><input id="input-city" class="input-user" type="text" maxlength="28" required>
+          <select name="states" id="select-states" required>
+            <option disabled selected value>Selecione seu estado</option>      
+          </select>
+        </div>
+        <div>
+          <label for="radio-type">Tipo de moradia:</label>
+          <input id="radio-house" type="radio" name="radio-type" value="radio-house" required> <label for="radio-house">Casa</label>
+          <input id="radio-apartment" type="radio" name="radio-type" value="radio-apartment" required> <label for="radio-apartment">Apartamento</label> 
+        </div>
+      </div>      
     </fieldset>
     <fieldset>
       <div class="input-container">
@@ -59,6 +59,7 @@
   <div id="input-buttons"></div>
   <div id="form-conclusion">
     <span id="name-validation"></span>
+    <span id="email-validation"></span>
   </div>
   </main>
 </body>

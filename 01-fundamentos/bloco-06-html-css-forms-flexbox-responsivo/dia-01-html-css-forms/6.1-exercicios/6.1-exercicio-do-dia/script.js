@@ -30,9 +30,9 @@ function checkName(name) {
   if (name.length === 0) {    
     nameValidation.innerText = 'Nome inválido';
     nameValidation.className = 'input-invalid';
-  } else {
-    nameValidation.className = 'input-valid';
+  } else {    
     nameValidation.innerText = 'Nome válido';
+    nameValidation.className = 'input-valid';
   }
 }
 
