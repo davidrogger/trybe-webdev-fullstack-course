@@ -7,6 +7,7 @@ const displayConclusion = document.getElementById('form-conclusion');
 const inputName = document.getElementById('input-name');
 const inputEmail = document.getElementById('input-email');
 
+const inputRadioHouse = document.querySelectorAll('[name="radio-type"]'); // apenas para testar queryselector
 const dataStarts = document.getElementById('input-data-starts');
 
 // https://mundoeducacao.uol.com.br/geografia/estados-brasil.htm
@@ -45,9 +46,12 @@ function checkLength() {
 }
 
 function customSubmit(event) {
-  event.preventDefault();  
+  event.preventDefault();   
   
-  
+}
+
+function cleanRadioButton(index) {
+  index.checked = false;
 }
 
 // Esvazia os valores de cada campo coletado na funcao de cleanForms.
@@ -59,6 +63,7 @@ function cleanInputText(index) {
 function cleanForms() {
   const allInputText = refreshInputUser();
   allInputText.forEach(cleanInputText);
+  inputRadioHouse.forEach(cleanRadioButton);
   displayConclusion.innerText = '';
 }
 
