@@ -25,20 +25,12 @@ function createState(indexValue) {
     selectStates.appendChild(state);
 }
 
-function dataStartsFilter(event) {  
-  if (event.key === 'Enter') {
-    const startsValue = dataStarts.value;
-    
-    console.log(startsValue);
-  }  
-}
-
 function minimalLength(index) {
-if (index === 0) {
-  return false;
-} else {
-  return
-}
+  if (index === 0) {
+    return false;
+  } else {
+    return
+  }
 }
 
 function checkLength() {    
@@ -47,8 +39,7 @@ function checkLength() {
 }
 
 function customSubmit(event) {
-  event.preventDefault();   
-  
+  event.preventDefault();
 }
 
 // remove o checked de todos radios buttons que pertencem ao nome radio-type
@@ -70,8 +61,7 @@ function cleanForms() {
 }
 
 function fullLoad() {
-  allStates.forEach(createState);
-  dataStarts.addEventListener('keypress', dataStartsFilter);
+  allStates.forEach(createState);  
   inputSubmit.addEventListener('click', customSubmit);
   inputClean.addEventListener('click', cleanForms)
 }
