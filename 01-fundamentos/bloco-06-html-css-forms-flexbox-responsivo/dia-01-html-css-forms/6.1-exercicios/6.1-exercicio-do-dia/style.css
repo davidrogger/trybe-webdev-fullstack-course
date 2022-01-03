@@ -6,3 +6,11 @@ main {
   margin: 0 auto;
   width: 800px;
 }
+
+.input-invalid {
+  color: red;
+}
+
+.input-valid {
+  color: green;
+}

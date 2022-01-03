@@ -25,9 +25,14 @@ function dataStartsFilter(event) {
   }  
 }
 
-function checkName(name) {  
-  if (name.length === 0) {
-    
+function checkName(name) {
+  const nameValidation = document.getElementById('name-validation');
+  if (name.length === 0) {    
+    nameValidation.innerText = 'Nome inválido';
+    nameValidation.className = 'input-invalid';
+  } else {
+    nameValidation.className = 'input-valid';
+    nameValidation.innerText = 'Nome válido';
   }
 }
 
@@ -45,6 +50,7 @@ function cleanInputText(index) {
 function cleanForms() {
   const allInputText = document.querySelectorAll('.input-user');
   allInputText.forEach(cleanInputText);
+  displayConclusion.innerText = '';
 }
 
 function fullLoad() {
