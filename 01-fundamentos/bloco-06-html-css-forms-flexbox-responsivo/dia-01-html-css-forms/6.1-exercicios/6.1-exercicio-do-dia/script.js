@@ -7,6 +7,7 @@ const displayConclusion = document.getElementById('form-conclusion');
 const inputName = document.getElementById('input-name');
 const inputEmail = document.getElementById('input-email');
 
+const inputState = document.getElementById('select-states');
 const inputRadioHouse = document.querySelectorAll('[name="radio-type"]'); // apenas para testar queryselector
 const dataStarts = document.getElementById('input-data-starts');
 
@@ -42,7 +43,7 @@ if (index === 0) {
 
 function checkLength() {    
   const allInputText = refreshInputUser();
-  allInputText.forEach(minimalLength)
+  
 }
 
 function customSubmit(event) {
@@ -50,6 +51,7 @@ function customSubmit(event) {
   
 }
 
+// remove o checked de todos radios buttons que pertencem ao nome radio-type
 function cleanRadioButton(index) {
   index.checked = false;
 }
