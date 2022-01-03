@@ -7,7 +7,7 @@ main {
   width: 800px;
 }
 
-.input-container {  
+.input-container, #form-conclusion {  
   flex-direction: column;
   display: flex;
   margin: 10px 0;
