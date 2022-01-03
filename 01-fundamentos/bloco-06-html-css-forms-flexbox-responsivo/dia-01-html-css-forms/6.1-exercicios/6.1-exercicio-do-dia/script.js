@@ -8,7 +8,7 @@ const inputName = document.getElementById('input-name');
 const inputEmail = document.getElementById('input-email');
 
 const inputState = document.getElementById('select-states');
-const inputRadioHouse = document.querySelectorAll('[name="radio-type"]'); // apenas para testar queryselector
+let inputRadioHouse = document.querySelector('[name="radio-type"]:checked');
 const dataStarts = document.getElementById('input-data-starts');
 
 // https://mundoeducacao.uol.com.br/geografia/estados-brasil.htm
@@ -25,26 +25,20 @@ function createState(indexValue) {
     selectStates.appendChild(state);
 }
 
-function minimalLength(index) {
-  if (index === 0) {
-    return false;
-  } else {
-    return
-  }
-}
-
-function checkLength() {    
-  const allInputText = refreshInputUser();
+function minimalLength() { 
   
 }
 
 function customSubmit(event) {
   event.preventDefault();
+   
+  
 }
 
 // remove o checked de todos radios buttons que pertencem ao nome radio-type
-function cleanRadioButton(index) {
-  index.checked = false;
+function cleanRadioButton() {
+  inputRadioHouse = document.querySelector('[name="radio-type"]:checked');
+  inputRadioHouse.checked = false;
 }
 
 // Esvazia os valores de cada campo coletado na funcao de cleanForms.
@@ -56,7 +50,7 @@ function cleanInputText(index) {
 function cleanForms() {
   const allInputText = refreshInputUser();
   allInputText.forEach(cleanInputText);
-  inputRadioHouse.forEach(cleanRadioButton);
+  cleanRadioButton();
   displayConclusion.innerText = '';
 }
 
