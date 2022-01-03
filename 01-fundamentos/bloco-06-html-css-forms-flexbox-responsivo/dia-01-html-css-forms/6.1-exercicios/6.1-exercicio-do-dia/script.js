@@ -29,7 +29,11 @@ function cleanForms() {
 
 }
 
-allStates.forEach(createState);
-dataStarts.addEventListener('keypress', dataStartsFilter);
-inputSubmit.addEventListener('click', customSubmit);
-inputClean.addEventListener('click', cleanForms)
+function fullLoad() {
+  allStates.forEach(createState);
+  dataStarts.addEventListener('keypress', dataStartsFilter);
+  inputSubmit.addEventListener('click', customSubmit);
+  inputClean.addEventListener('click', cleanForms)
+}
+
+window.onload = fullLoad();
