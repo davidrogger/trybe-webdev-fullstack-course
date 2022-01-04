@@ -25,20 +25,54 @@ function createState(indexValue) {
     selectStates.appendChild(state);
 }
 
-function minimalLength() { 
-  
+function minimalLength() {
+  const allInputText = refreshInputUser();
+  let validation = true;
+  for (let index = 0; index < allInputText.length; index += 1) {
+    if (allInputText[index].value.length === 0) {
+      validation = false;
+    }
+  return validation;
+  } 
+}
+
+function radioCheck() {
+  const radioValidation = document.querySelector('[name="radio-type"]:checked');
+  if (radioValidation === null) {
+    return false;
+  }
+  return true;
+}
+
+function displayForm(index) {
+const displayContainer = document.createElement('p');
+displayContainer.innerText = index.value;
+displayConclusion.appendChild(displayContainer);
+}
+
+function validationHandler() {
+  if (minimalLength() && radioCheck()) {
+    displayConclusion.innerText = '';
+    const allInputText = refreshInputUser();
+    allInputText.forEach(displayForm);    
+  } else {
+    displayConclusion.innerText = '';
+    displayConclusion.innerText = 'Por favor revisa se todos campos foram preenchidos';
+  }
 }
 
 function customSubmit(event) {
   event.preventDefault();
-   
+  validationHandler();
   
 }
 
 // remove o checked de todos radios buttons que pertencem ao nome radio-type
 function cleanRadioButton() {
-  inputRadioHouse = document.querySelector('[name="radio-type"]:checked');
-  inputRadioHouse.checked = false;
+  const allRadioTypeHouse = document.getElementsByName('radio-type');
+  for (let index = 0; index < allRadioTypeHouse.length; index += 1) {
+    allRadioTypeHouse[index].checked = false;
+  }
 }
 
 // Esvazia os valores de cada campo coletado na funcao de cleanForms.
