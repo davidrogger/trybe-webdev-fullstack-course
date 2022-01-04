@@ -30,4 +30,4 @@ Dados são enviados atraves da URL.
 
 ### CDN
 
-Content Delivery Network(Rede de distribuição de conteúdo). São servidor com replicas de conteúdo que ajudam no tempo de resposta de aplicações e sua segurança.
+Content Delivery Network(Rede de distribuição de conteúdo). São redes de servidores com replicas de conteúdo que ajudam no tempo de resposta de aplicações e sua segurança.
