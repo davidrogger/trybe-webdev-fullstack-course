@@ -47,6 +47,9 @@ function radioCheck() {
 function displayForm(index) {
 const displayContainer = document.createElement('p');
 displayContainer.innerText = index.value;
+if (index.checked === true) {
+  index.checked.value;
+}
 displayConclusion.appendChild(displayContainer);
 }
 
