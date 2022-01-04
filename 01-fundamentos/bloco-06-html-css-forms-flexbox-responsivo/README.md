@@ -25,3 +25,9 @@ Envia informação ocultamente.
 #### GET
 
 Dados são enviados atraves da URL.
+
+## Bibliotecas Javascript e Frameworks CSS
+
+### CDN
+
+Content Delivery Network(Rede de distribuição de conteúdo). São servidor com replicas de conteúdo que ajudam no tempo de resposta de aplicações e sua segurança.
