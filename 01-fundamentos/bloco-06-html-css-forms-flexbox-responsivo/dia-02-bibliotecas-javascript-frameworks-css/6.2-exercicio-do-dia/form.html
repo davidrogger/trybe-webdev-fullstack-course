@@ -36,16 +36,21 @@
         <input id="input-address" class="input-user form-control" type="text" maxlength="200" placeholder="Endereço" required>
         <label for="input-address">Endereço</label>
       </div>
-      <div class="form-floating mb-3">
-        <div class="form-floating mb-3">
-          <input id="input-city" class="input-user form-control" type="text" maxlength="28" placeholder="Cidade" required>
-          <label for="input-city">Cidade</label>
-          <select name="states" id="select-states" class="input-user form-select"  required>
-            <option value="" disabled selected value>Selecione seu estado</option>      
-          </select>
+      <div class="row mb-3">
+        <div class="col-auto">
+          <div class="form-floating">
+            <input id="input-city" class="input-user form-control" type="text" maxlength="28" placeholder="Cidade" required>
+            <label for="input-city">Cidade</label>
+          </div>
         </div>
-        Tipo de moradia:
-        <div class="form-check form-check-inline">          
+        <div class="col-auto">
+            <select name="states" id="select-states" class="input-user form-select form-select-lg mb-3"  required>
+              <option value="" disabled selected value>Selecione seu estado</option>      
+            </select>
+        </div>
+        <fieldset class="col-auto">
+          <legend>Tipo de moradia</legend>          
+        <div class="form-check form-check-inline mb-3">          
           <input id="radio-house" type="radio" name="radio-type" value="Casa" class="input-user form-check-input" required>
           <label for="radio-house" class="form-check-label">
             Casa
@@ -57,7 +62,8 @@
             Apartamento
           </label> 
         </div>
-      </div>      
+        </fieldset>
+      </div>        
     </fieldset>
     <fieldset>
       <div class="form-floating">
