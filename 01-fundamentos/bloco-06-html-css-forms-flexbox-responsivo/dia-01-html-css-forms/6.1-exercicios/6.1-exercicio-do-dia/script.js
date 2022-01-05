@@ -6,10 +6,11 @@ const displayConclusion = document.getElementById('form-conclusion');
 // Forms
 const inputName = document.getElementById('input-name');
 const inputEmail = document.getElementById('input-email');
-
 const inputState = document.getElementById('select-states');
 let inputRadioHouse = document.querySelector('[name="radio-type"]:checked');
 const dataStarts = document.getElementById('input-data-starts');
+const dateInvalid = document.getElementById('date-invalid');
+const dataInvalid = document.getElementById('data-invalid')
 
 // https://mundoeducacao.uol.com.br/geografia/estados-brasil.htm
 const allStates = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO', 'DF'];
@@ -61,25 +62,6 @@ function displayForm(index) {
     displayConclusion.appendChild(displayContainer);
   }
 }
-
-// Valida se todos os campos foram preenchidos
-function validationHandler() {
-  if (minimalLength() && radioCheck()) {
-    displayConclusion.innerText = '';
-    const allInputText = refreshInputUser();
-    allInputText.forEach(displayForm);    
-  } else {
-    displayConclusion.innerText = '';
-    displayConclusion.innerText = 'Por favor revise se todos campos foram preenchidos';
-  }
-}
-
-// Ativa funcionalidades ao clicar em enviar
-function customSubmit(event) {
-  event.preventDefault();
-  validationHandler();  
-}
-
 // remove o checked de todos radios buttons que pertencem ao nome radio-type
 function cleanRadioButton() {
   const allRadioTypeHouse = document.getElementsByName('radio-type');
@@ -93,12 +75,75 @@ function cleanInputText(index) {
   index.value = '';
 }
 
+// Verificar se o preenchimento do campo de datas está conforme o parametro determinado
+function dateFormat() {
+  const correctDate = /^\d\d\/\d\d\/\d\d\d\d$/;
+  const inputDate = document.getElementById('input-data-starts').value;
+  if (correctDate.test(inputDate)) {
+    return true;
+  }  
+  return false;
+}
+
+// Divido o formato de datas em 3 para verificar se o dia, mês e ano, estão dentro do requerido.
+function dateValidNumbers() {
+  const inputDate = document.getElementById('input-data-starts').value;
+  const inputDateSplit = inputDate.split('/');
+  const inputDay = parseInt(inputDateSplit[0]);
+  const inputMonth = parseInt(inputDateSplit[1]);
+  const inputYear = parseInt(inputDateSplit[2]);
+  if (inputDay <= 0 && inputDay > 31) {
+    return false;
+  }
+  if (inputMonth <= 0 && inputMonth > 12) {
+    return false;
+  }
+  if (inputYear <= 0) {
+    return false;
+  }
+  return true;
+}
+
+function dateValidation() {
+  if (dateFormat() && dateValidNumbers()) {
+    displayConclusion.innerText = '';
+    dateInvalid.innerText = '';
+    return true;
+  }
+  displayConclusion.innerText = '';
+  dateInvalid.innerText = 'Formato de data incorreto! dd/mm/aaaa';
+  return false;
+}
+
 // Coleta todos classes de input do usuário.
 function cleanForms() {
   const allInputText = refreshInputUser();
   allInputText.forEach(cleanInputText);
   cleanRadioButton();
   displayConclusion.innerText = '';
+  dateInvalid.innerText = '';
+  dataInvalid.innerText = '';
+}
+
+
+// Valida se todos os campos foram preenchidos
+function validationHandler() {
+  if (dateValidation() && minimalLength() && radioCheck()) {
+    displayConclusion.innerText = '';
+    dateInvalid.innerText = '';
+    dataInvalid.innerText = '';
+    const allInputText = refreshInputUser();
+    allInputText.forEach(displayForm);    
+  } else { 
+    displayConclusion.innerText = '';   
+    dataInvalid.innerText = 'Por favor revise se todos campos foram preenchidos corretamente';    
+  }
+}
+
+// Ativa funcionalidades ao clicar em enviar
+function customSubmit(event) {
+  event.preventDefault();
+  validationHandler();  
 }
 
 // Executa as funções depois que a página carregar por completo
