@@ -36,15 +36,15 @@
         <input id="input-address" class="input-user form-control" type="text" maxlength="200" placeholder="Endereço" required>
         <label for="input-address">Endereço</label>
       </div>
-      <div class="row mb-3">
-        <div class="col-auto">
+      <div class="row g-3">
+        <div class="col-md-6">
           <div class="form-floating">
             <input id="input-city" class="input-user form-control" type="text" maxlength="28" placeholder="Cidade" required>
             <label for="input-city">Cidade</label>
           </div>
         </div>
-        <div class="col-auto">
-            <select name="states" id="select-states" class="input-user form-select form-select-lg mb-3"  required>
+        <div class="col-md-4">
+            <select name="states" id="select-states" class="input-user form-select"  required>
               <option value="" disabled selected value>Selecione seu estado</option>      
             </select>
         </div>
@@ -66,7 +66,7 @@
       </div>        
     </fieldset>
     <fieldset>
-      <div class="form-floating">
+      <div class="form-floating mb-3">
         <textarea name="" id="input-resume" class="input-user form-control" maxlength="1000" style='height: 200px;' placeholder="Resumo do currículo" required></textarea>
         <label for="input-resume">Resumo do currículo</label>
       </div>
