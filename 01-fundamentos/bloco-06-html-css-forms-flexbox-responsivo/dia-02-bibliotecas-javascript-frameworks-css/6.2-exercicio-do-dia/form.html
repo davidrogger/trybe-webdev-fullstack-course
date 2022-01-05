@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">  
+  <title>Exercicio - Bloco 6.1</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Formulário para cadastro de currículo</h1>
+    <p>Preencha os campos abaixo.</p>
+  </header>
+  <main>
+    <!-- Div onde ficam as informações de conclusão dos forms -->
+    <div id="form-conclusion"></div>
+    <div id="notification-invalid">
+      <p id="data-invalid"></p>
+      <p id="date-invalid"></p>
+    </div>
+    <!-- Inicio do campo do formulário -->
+    <form id="form-resume">
+    <fieldset>      
+      <div class="input-container">
+        <label for="input-name">Nome:</label><input id="input-name" class="input-user" type="text" maxlength="40" required>
+      </div>
+      <div class="input-container">
+        <label for="input-email">E-mail:</label><input id="input-email" class="input-user" type="email" maxlength="50" required>
+      </div>
+      <div class="input-container">
+        <label for="input-cpf">CPF:</label><input id="input-cpf" class="input-user" type="text" maxlength="11" required>
+      </div>
+      <div class="input-container">
+        <label for="input-address">Endereço:</label><input id="input-address" class="input-user" type="text" maxlength="200" required>
+      </div>
+      <div class="input-container row-container">
+        <div>
+          <label for="input-city">Cidade:</label><input id="input-city" class="input-user" type="text" maxlength="28" required>
+          <select name="states" id="select-states" class="input-user" required>
+            <option value="" disabled selected value>Selecione seu estado</option>      
+          </select>
+        </div>
+        <div>
+          <label for="radio-type">Tipo de moradia:</label>
+          <input id="radio-house" type="radio" name="radio-type" value="Casa" class="input-user" required> <label for="radio-house" >Casa</label>
+          <input id="radio-apartment" type="radio" name="radio-type" value="Apartamento" class="input-user" required> <label for="radio-apartment">Apartamento</label> 
+        </div>
+      </div>      
+    </fieldset>
+    <fieldset>
+      <div class="input-container">
+        <label for="input-resume">Resumo do currículo:</label><textarea name="" id="input-resume" class="input-user" cols="50" rows="10" maxlength="1000" required></textarea>
+      </div>
+      <div class="input-container">
+        <label for="input-job">Cargo</label> <input type="text" id="input-job" maxlength="40" required class="input-user">
+      </div>
+      <div class="input-container">
+        <label for="input-job-description">Descrição do cargo</label> <input type="text" id="input-job-description" class="input-user" maxlength="500" required>
+      </div>
+      <div class="input-container">
+        <label for="input-data-starts">Data de início</label><input type="text" id="input-data-starts" class="input-user" placeholder="dd/mm/aaaa" required>
+      </div>
+    </fieldset>
+    <button type="submit" id="input-submit">Enviar Formulário</button>
+    <button type="button" id="input-clean">Limpar Informações</button>
+  </form>
+  <div id="input-buttons"></div>  
+  </main>
+</body>
+<script src="script.js"></script>
+</html>
