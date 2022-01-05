@@ -14,28 +14,32 @@ const dataStarts = document.getElementById('input-data-starts');
 // https://mundoeducacao.uol.com.br/geografia/estados-brasil.htm
 const allStates = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO', 'DF'];
 
+// Funcionalidade para retornar todos itens dentro da classe input-user
 function refreshInputUser() {
   const allInputText = document.querySelectorAll('.input-user');
   return allInputText;
 }
 
+// Cria os elementos option do campo select com os estados do array allStates
 function createState(indexValue) {
     const state = document.createElement('option');
     state.innerText = indexValue;
     selectStates.appendChild(state);
 }
 
+// Verifica a quantidade de caracteres preenchidos para validar se algo preenchido no determinado campo.
 function minimalLength() {
-  const allInputText = refreshInputUser();
-  let validation = true;
+  const allInputText = refreshInputUser();  
   for (let index = 0; index < allInputText.length; index += 1) {
-    if (allInputText[index].value.length === 0) {
-      validation = false;
-    }
-  return validation;
+    let indexTrim = allInputText[index].value.trim();
+    if (indexTrim.length === 0) {
+      return false;
+    }  
   } 
+  return true;
 }
 
+// Verificar se foi selecionado algum dos botoes de radio para validar.
 function radioCheck() {
   const radioValidation = document.querySelector('[name="radio-type"]:checked');
   if (radioValidation === null) {
@@ -44,6 +48,7 @@ function radioCheck() {
   return true;
 }
 
+// Criar elementos paragrafo no container de conclusão do forms
 function displayForm(index) {
   const displayContainer = document.createElement('p');
   if (index.type === 'radio') {
@@ -57,6 +62,7 @@ function displayForm(index) {
   }
 }
 
+// Valida se todos os campos foram preenchidos
 function validationHandler() {
   if (minimalLength() && radioCheck()) {
     displayConclusion.innerText = '';
@@ -64,14 +70,14 @@ function validationHandler() {
     allInputText.forEach(displayForm);    
   } else {
     displayConclusion.innerText = '';
-    displayConclusion.innerText = 'Por favor revisa se todos campos foram preenchidos';
+    displayConclusion.innerText = 'Por favor revise se todos campos foram preenchidos';
   }
 }
 
+// Ativa funcionalidades ao clicar em enviar
 function customSubmit(event) {
   event.preventDefault();
-  validationHandler();
-  
+  validationHandler();  
 }
 
 // remove o checked de todos radios buttons que pertencem ao nome radio-type
@@ -95,6 +101,7 @@ function cleanForms() {
   displayConclusion.innerText = '';
 }
 
+// Executa as funções depois que a página carregar por completo
 function fullLoad() {
   allStates.forEach(createState);  
   inputSubmit.addEventListener('click', customSubmit);

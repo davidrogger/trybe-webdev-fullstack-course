@@ -11,12 +11,12 @@
     <p>Preencha os campos abaixo.</p>
   </header>
   <main>
-    <div id="form-conclusion">
-      <span id="name-validation"></span>
-      <span id="email-validation"></span>
+    <!-- Div onde ficam as informações de conclusão dos forms -->
+    <div id="form-conclusion">      
     </div>
+    <!-- Inicio do campo do formulário -->
     <form id="form-resume">
-    <fieldset>
+    <fieldset>      
       <div class="input-container">
         <label for="input-name">Nome:</label><input id="input-name" class="input-user" type="text" maxlength="40" required>
       </div>
@@ -33,7 +33,7 @@
         <div>
           <label for="input-city">Cidade:</label><input id="input-city" class="input-user" type="text" maxlength="28" required>
           <select name="states" id="select-states" class="input-user" required>
-            <option disabled selected value>Selecione seu estado</option>      
+            <option value="" disabled selected value>Selecione seu estado</option>      
           </select>
         </div>
         <div>
