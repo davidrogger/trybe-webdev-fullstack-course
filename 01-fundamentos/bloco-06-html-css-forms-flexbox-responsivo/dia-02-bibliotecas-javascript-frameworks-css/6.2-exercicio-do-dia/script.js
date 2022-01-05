@@ -8,7 +8,7 @@ const inputName = document.getElementById('input-name');
 const inputEmail = document.getElementById('input-email');
 const inputState = document.getElementById('select-states');
 let inputRadioHouse = document.querySelector('[name="radio-type"]:checked');
-// const dataStarts = document.getElementById('input-data-starts');
+const dataStarts = document.getElementById('input-data-starts');
 // const dateInvalid = document.getElementById('date-invalid');
 // const dataInvalid = document.getElementById('data-invalid')
 
@@ -105,14 +105,8 @@ function cleanInputText(index) {
 // }
 
 function dateValidation() {
-  if (dateFormat() && dateValidNumbers()) {
-    displayConclusion.innerText = '';
-    dateInvalid.innerText = '';
-    return true;
-  }
-  displayConclusion.innerText = '';
-  dateInvalid.innerText = 'Formato de data incorreto! dd/mm/aaaa';
-  return false;
+  const dataInput = document.getElementById('input-data-starts').DataPickerX.init();
+  return dataInput;
 }
 
 // Coleta todos classes de input do usuário.
@@ -150,7 +144,7 @@ function customSubmit(event) {
 function fullLoad() {
   allStates.forEach(createState);  
   inputSubmit.addEventListener('click', customSubmit);
-  inputClean.addEventListener('click', cleanForms)
+  inputClean.addEventListener('click', cleanForms);
 }
 
 window.onload = fullLoad();
