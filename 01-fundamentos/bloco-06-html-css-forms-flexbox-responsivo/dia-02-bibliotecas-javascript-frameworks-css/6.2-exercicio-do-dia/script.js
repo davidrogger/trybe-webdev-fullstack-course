@@ -8,7 +8,8 @@ const inputName = document.getElementById('input-name');
 const inputEmail = document.getElementById('input-email');
 const inputState = document.getElementById('select-states');
 let inputRadioHouse = document.querySelector('[name="radio-type"]:checked');
-const dataStarts = document.getElementById('input-data-starts');
+let picker = new Pikaday({ field: document.getElementById('datepicker'), format: 'dd/mm/yyyy' });
+// const dataStarts = document.getElementById('input-data-starts');
 // const dateInvalid = document.getElementById('date-invalid');
 // const dataInvalid = document.getElementById('data-invalid')
 
