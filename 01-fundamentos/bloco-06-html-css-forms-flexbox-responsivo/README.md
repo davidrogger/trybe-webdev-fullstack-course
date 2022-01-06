@@ -39,3 +39,8 @@ Tem como finalidade facilitar o conoortamento de itens dentro de um container, d
 #### Display: Flex
 
 Define aquele container como um container flex, fazendo os itens dentro dele se tornarem itens flex.
+flex-direction: define a direção dos itens, row, row-reverese, column, column-reverse.
+wrap: quando ativo, proporciona o ajuste dos itens dentro do container, conforme o espaço livre de largura.
+justify-content
+align-items
+align-content
