@@ -31,3 +31,11 @@ Dados são enviados atraves da URL.
 ### CDN
 
 Content Delivery Network(Rede de distribuição de conteúdo). São redes de servidores com replicas de conteúdo que ajudam no tempo de resposta de aplicações e sua segurança.
+
+### Flexbox
+
+Tem como finalidade facilitar o conoortamento de itens dentro de um container, de forma mais responsiva, devido a grande variedades de tipos e telas que existem hoje, celulares, tablets e computadores.
+
+#### Display: Flex
+
+Define aquele container como um container flex, fazendo os itens dentro dele se tornarem itens flex.
