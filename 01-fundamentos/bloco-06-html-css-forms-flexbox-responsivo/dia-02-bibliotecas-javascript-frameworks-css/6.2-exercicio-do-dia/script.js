@@ -6,8 +6,16 @@ const displayConclusion = document.getElementById('form-conclusion');
 const inputName = document.getElementById('input-name');
 const inputEmail = document.getElementById('input-email');
 const inputState = document.getElementById('select-states');
-let inputRadioHouse = document.querySelector('[name="radio-type"]:checked');
 
+// Customização do campo de data
+const dateSetup = {
+mondayFirst: false,
+format: 'dd/mm/yyyy',
+weekDayLabels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'],
+singleMonthLabels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+todayButtonLabel: 'Hoje',
+clearButtonLabel: 'Limpar',
+};
 
 // https://mundoeducacao.uol.com.br/geografia/estados-brasil.htm
 const allStates = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO', 'DF'];
@@ -71,6 +79,7 @@ function customSubmit(event) {
 function fullLoad() {
   allStates.forEach(createState);  
   inputSubmit.addEventListener('click', customSubmit);  
+  document.getElementById('input-date').DatePickerX.init(dateSetup);
 }
 
 window.onload = fullLoad();
