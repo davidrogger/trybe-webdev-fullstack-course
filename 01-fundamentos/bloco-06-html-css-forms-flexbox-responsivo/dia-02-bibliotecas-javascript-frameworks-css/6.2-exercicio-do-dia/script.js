@@ -6,6 +6,7 @@ const displayConclusion = document.getElementById('form-conclusion');
 const inputName = document.getElementById('input-name');
 const inputEmail = document.getElementById('input-email');
 const inputState = document.getElementById('select-states');
+const validate = new window.JustValidate('#form-resume');
 
 // Customização do campo de data
 const dateSetup = {
