@@ -20,17 +20,39 @@ const dateSetup = {
 const validate = new window.JustValidate('#form-resume');
 
 validate
-  .addField('#input-name', [
+  .addField('.input-user', [
     {
       rule: 'required',
       errorMessage: 'Campo Obrigatório.'
     },
+  ])
+  .addField('#input-name', [    
     {
       rule: 'minLength',
       value: 3,
       errorMessage: 'Deve conter no mínimo 3 caracteres.'
     },
-  ]);
+  ])
+  .addField('#input-email', [    
+    {
+      rule: 'email',
+      errorMessage: 'Formato de e-mail inválido.'
+    }
+  ])
+  .addField('#input-cpf', [
+    {
+      rule: 'maxLength',
+      value: 11,
+      errorMessage: 'Quantidade de caracteres inválido.',
+    }
+  ])
+  .addField('#select-states', [
+    {
+      rule: 'required',
+      errorMessage: 'Deve ser selecionado um estado.'
+    }
+  ])
+  .addRequiredGroup('#input-radio', 'Você precisa selecionar um campo.')
 
 
 // https://mundoeducacao.uol.com.br/geografia/estados-brasil.htm
@@ -70,6 +92,8 @@ function validationHandler() {
     const allInputText = refreshInputUser();
     document.getElementById('form-conclusion').scrollIntoView();    
     allInputText.forEach(displayForm);
+  } else {
+    displayConclusion.innerText = '';
   }
 }
 
