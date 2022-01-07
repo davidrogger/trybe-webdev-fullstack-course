@@ -8,24 +8,29 @@ const inputState = document.getElementById('select-states');
 
 // Customização do campo de data
 const dateSetup = {
-mondayFirst: false,
-format: 'dd/mm/yyyy',
-weekDayLabels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'],
-singleMonthLabels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-todayButtonLabel: 'Hoje',
-clearButtonLabel: 'Limpar',
+  mondayFirst: false,
+  format: 'dd/mm/yyyy',
+  weekDayLabels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'],
+  singleMonthLabels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+  todayButtonLabel: 'Hoje',
+  clearButtonLabel: 'Limpar',
 };
 
 // Usando bibliteca de validação do formulário
 const validate = new window.JustValidate('#form-resume');
 
 validate
-.addField('#input-name', [
-  {
-    rule: 'minLength',
-    value: 3,
-  },
-]);
+  .addField('#input-name', [
+    {
+      rule: 'required',
+      errorMessage: 'Campo Obrigatório.'
+    },
+    {
+      rule: 'minLength',
+      value: 3,
+      errorMessage: 'Deve conter no mínimo 3 caracteres.'
+    },
+  ]);
 
 
 // https://mundoeducacao.uol.com.br/geografia/estados-brasil.htm
@@ -39,9 +44,9 @@ function refreshInputUser() {
 
 // Cria os elementos option do campo select com os estados do array allStates
 function createState(indexValue) {
-    const state = document.createElement('option');
-    state.innerText = indexValue;
-    selectStates.appendChild(state);
+  const state = document.createElement('option');
+  state.innerText = indexValue;
+  selectStates.appendChild(state);
 }
 
 // Criar elementos paragrafo no container de conclusão do forms
@@ -76,13 +81,13 @@ function validationHandler() {
     dateInvalid.innerText = '';
     dataInvalid.innerText = '';
     const allInputText = refreshInputUser();
-    allInputText.forEach(displayForm);    
-  } 
+    allInputText.forEach(displayForm);
+  }
 }
 
 // Executa as funções depois que a página carregar por completo
 function fullLoad() {
-  allStates.forEach(createState);    
+  allStates.forEach(createState);
   document.getElementById('input-date').DatePickerX.init(dateSetup);
 }
 
