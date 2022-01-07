@@ -1,12 +1,10 @@
 // Seletores
 const selectStates = document.getElementById('select-states');
-const inputSubmit = document.getElementById('input-submit');
 const displayConclusion = document.getElementById('form-conclusion');
 // Forms
 const inputName = document.getElementById('input-name');
 const inputEmail = document.getElementById('input-email');
 const inputState = document.getElementById('select-states');
-const validate = new window.JustValidate('#form-resume');
 
 // Customização do campo de data
 const dateSetup = {
@@ -17,6 +15,18 @@ singleMonthLabels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 
 todayButtonLabel: 'Hoje',
 clearButtonLabel: 'Limpar',
 };
+
+// Usando bibliteca de validação do formulário
+const validate = new window.JustValidate('#form-resume');
+
+validate
+.addField('#input-name', [
+  {
+    rule: 'minLength',
+    value: 3,
+  },
+]);
+
 
 // https://mundoeducacao.uol.com.br/geografia/estados-brasil.htm
 const allStates = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO', 'DF'];
@@ -70,16 +80,9 @@ function validationHandler() {
   } 
 }
 
-// Ativa funcionalidades ao clicar em enviar
-function customSubmit(event) {
-  event.preventDefault();
-  // validationHandler();  
-}
-
 // Executa as funções depois que a página carregar por completo
 function fullLoad() {
-  allStates.forEach(createState);  
-  inputSubmit.addEventListener('click', customSubmit);  
+  allStates.forEach(createState);    
   document.getElementById('input-date').DatePickerX.init(dateSetup);
 }
 
