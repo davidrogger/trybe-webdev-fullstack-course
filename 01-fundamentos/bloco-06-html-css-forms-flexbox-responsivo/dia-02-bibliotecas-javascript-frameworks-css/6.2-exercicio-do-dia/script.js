@@ -63,27 +63,23 @@ function displayForm(index) {
   }
 }
 
-// Coleta todos classes de input do usuário.
-function cleanForms() {
-  const allInputText = refreshInputUser();
-  allInputText.forEach(cleanInputText);
-  cleanRadioButton();
-  displayConclusion.innerText = '';
-  dateInvalid.innerText = '';
-  dataInvalid.innerText = '';
-}
-
-
 // Valida se todos os campos foram preenchidos
 function validationHandler() {
-  if (dateValidation() && minimalLength() && radioCheck()) {
-    displayConclusion.innerText = '';
-    dateInvalid.innerText = '';
-    dataInvalid.innerText = '';
+  if (validate.isValid === true) {
+    displayConclusion.innerText = '';    
     const allInputText = refreshInputUser();
+    document.getElementById('form-conclusion').scrollIntoView();    
     allInputText.forEach(displayForm);
   }
 }
+
+function submitDisplay() {
+  validationHandler();  
+}
+
+// Funcionalidade submite
+const inputSubmit = document.getElementById('input-submit');
+inputSubmit.addEventListener('click', submitDisplay);
 
 // Executa as funções depois que a página carregar por completo
 function fullLoad() {
