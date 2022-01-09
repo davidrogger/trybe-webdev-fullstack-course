@@ -44,3 +44,27 @@ wrap: quando ativo, proporciona o ajuste dos itens dentro do container, conforme
 justify-content
 align-items
 align-content
+
+# Media Query
+
+Técnica adicionada no CSS 3, que permite adicionar uma mídia no CSS, para adicionar um bloco se a condição for verdadeira.
+
+AT-RULE, indica como ele deve se comportar em uma determinada condição.
+
+Tipo de media, onde pode ser espificado que tipo de media, por padrão é definido como todas as medias.(all, print, screen, speech).
+
+Operador Lógico, and, ',' e not.
+
+Media Features:
+1 - Viewport min-width, max-width
+2- Display quality, resolution, scan, grid
+3 - Color: inverted-corlos, monochrome
+4 - Interaction: any-pointer, any-hover
+
+aplicando condção no CSS
+`@media screen and (max-width: 768px) {}`
+
+aplicando condições que determinal qual arquivo CSS vai ser chamado em determinada condição.
+`link rel='stylesheet' href='' media='screen and (max-width: 768px) and (min-width: 460px)'>`
+
+`backgroun-color: white !important;` forma de ignorar a regra cascata do CSS, definindo que determinada linha tem prioridade, mesmo vindo antes da proximas regra no CSS.
