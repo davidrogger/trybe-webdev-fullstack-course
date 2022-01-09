@@ -44,14 +44,10 @@ article h1 {
   color: white;
 }
 
-article p {
+footer, article p {
   text-align: justify;
   font-size: 20px;
   margin: 0 20px;
-}
-
-footer {
-  text-align: justify;
 }
 
 footer h3 {
