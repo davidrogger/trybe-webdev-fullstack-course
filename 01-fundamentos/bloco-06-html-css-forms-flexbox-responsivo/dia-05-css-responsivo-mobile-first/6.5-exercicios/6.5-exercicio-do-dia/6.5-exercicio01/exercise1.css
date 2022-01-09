@@ -11,15 +11,16 @@
 }
 
 body {
-
+ padding: 0 20px;
 }
 
 article {
-
+  font-size: 20px;
+  text-align: justify;
 }
 
 h1 {
-
+  font-size: 25px;
 }
 
 h2 {
@@ -39,9 +40,54 @@ section {
 }
 
 figure {
-    margin: 0;
+    margin: 20px 0;
 }
 
 figcaption {
   font-size: .8em;
+}
+
+@media screen and (min-width: 550px) {
+  body {
+    background-color: seagreen;
+    padding: 0 30px;
+  }
+
+  article {
+    font-size: 25px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  figure {
+    width: 48%;
+    margin: 0 1%;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  body {
+    background-color: slategray;
+    padding: 0 40px;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  article {
+    font-size: 30px;
+  }
+  figure {
+    width: 30%;
+    margin: 0 1%;
+  }
 }
