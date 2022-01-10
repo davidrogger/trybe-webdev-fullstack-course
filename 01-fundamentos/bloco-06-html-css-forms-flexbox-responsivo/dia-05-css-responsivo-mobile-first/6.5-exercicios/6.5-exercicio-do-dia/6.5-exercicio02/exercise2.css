@@ -48,11 +48,43 @@ footer, article p {
   text-align: justify;
   font-size: 20px;
   margin: 0 20px;
+  padding-bottom: 20px;
 }
 
 footer h3 {
   margin: 20px 0;
   text-align: center;
   background-color: rgb(63, 135, 207);
-  color: white;
+  color: white;  
+}
+
+@media screen and (min-width: 650px) and (max-width: 1025px) {
+  .asides-container {
+    display: flex;    
+  }
+
+  .aside-one, .aside-two {
+    width: 50%;    
+  }
+
+}
+
+@media screen and (min-width: 1025px) {
+  body {
+    font-size: 1.5em;
+  }
+
+  .container {
+    display: flex;
+    flex-flow: column wrap;    
+  }
+
+  .main-content {
+    width: 50%;
+  }
+
+  .asides-container {
+    width: 50%;
+  }
+
 }
