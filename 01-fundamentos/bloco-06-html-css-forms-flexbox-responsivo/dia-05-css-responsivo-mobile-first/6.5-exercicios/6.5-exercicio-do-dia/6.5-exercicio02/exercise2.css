@@ -58,7 +58,7 @@ footer h3 {
   color: white;  
 }
 
-@media screen and (min-width: 650px) and (max-width: 1025px) {
+@media screen and (min-width: 650px) {
   .asides-container {
     display: flex;    
   }
@@ -71,20 +71,7 @@ footer h3 {
 
 @media screen and (min-width: 1025px) {
   body {
-    font-size: 1.5em;
-  }
-
-  .container {
-    display: flex;
-    flex-flow: column wrap;    
-  }
-
-  .main-content {
-    width: 50%;
-  }
-
-  .asides-container {
-    width: 50%;
+    font-size: 2em;
   }
 
 }
