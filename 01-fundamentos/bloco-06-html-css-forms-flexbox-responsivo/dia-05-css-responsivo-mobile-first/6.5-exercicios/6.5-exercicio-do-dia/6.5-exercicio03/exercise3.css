@@ -45,6 +45,7 @@ body {
 }
 
 #content-container {
+  display: flex;
   width: 100%;
   background: #FFF;
 }
@@ -89,6 +90,55 @@ body {
   }
 
   #content {
+    width: 100%;
+  }
+
+  #content-container {
+    flex-direction: column;
+  }
+
+}
+
+@media screen and (min-width: 240px) and (max-width: 360px) {
+  
+  #aside {
+    display: none;
+  }
+
+  body {
+    padding: 0;
+  }
+
+  img {
+    /* object-fit: cover; */
+    max-width: 100%;
+  }
+
+  #navigation {
+    margin-top: 75px;
+  }
+
+  #navigation ul {    
+    flex-direction: column;
+  }
+
+  #navigation li a {
+    border: none;
+  }
+
+  #content {
+    width: 100%;
+    font-size: 25px;
+  }
+
+  #container {
+    display: flex;
+    flex-direction: column;    
+  }
+
+  #header {
+    position: fixed;
+    top: 0px;    
     width: 100%;
   }
 
