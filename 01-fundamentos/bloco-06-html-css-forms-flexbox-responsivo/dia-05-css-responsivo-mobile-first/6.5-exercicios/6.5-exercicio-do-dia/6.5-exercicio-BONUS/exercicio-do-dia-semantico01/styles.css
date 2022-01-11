@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body{    
+  background-color: #3582c4;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav {
+  background-color: white;
+  line-height: 50px;    
+}
+
+p {
+  text-align: justify;
+}
+
+iframe {
+  width: 100%;
+}
+
+body > section:nth-child(2) {
+  background-color: white;
+  color: black;
+  padding: 20px 0;
+}
+
+@media screen (min-width: 600px){
+  
+}
