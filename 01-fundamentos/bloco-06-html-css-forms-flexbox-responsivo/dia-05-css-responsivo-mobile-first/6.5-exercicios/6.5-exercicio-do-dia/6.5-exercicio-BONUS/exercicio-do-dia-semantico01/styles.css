@@ -24,3 +24,13 @@ p {
 iframe {
   width: 100%;
 }
+
+body > section:nth-child(2) {
+  background-color: white;
+  color: black;
+  padding: 20px 0;
+}
+
+@media screen (min-width: 600px){
+  
+}
