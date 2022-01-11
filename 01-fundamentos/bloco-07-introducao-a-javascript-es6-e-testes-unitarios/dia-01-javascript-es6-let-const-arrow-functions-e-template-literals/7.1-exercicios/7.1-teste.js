@@ -34,3 +34,6 @@
 
 // const objetoPessoa = (nome, idade) => ({nome: nome, idade: idade});
 // console.log(objetoPessoa('David', 33));
+
+const trueExpression = (1 + 1 === 2) ? `verdade` : `falso`;
+console.log(trueExpression);
