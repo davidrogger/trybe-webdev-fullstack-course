@@ -30,3 +30,6 @@ let num2 = 10;
 
 `Soma de ${num1} + ${num2} = ${num1 + num2}`
 ```
+
+## Arrow Functions
+
