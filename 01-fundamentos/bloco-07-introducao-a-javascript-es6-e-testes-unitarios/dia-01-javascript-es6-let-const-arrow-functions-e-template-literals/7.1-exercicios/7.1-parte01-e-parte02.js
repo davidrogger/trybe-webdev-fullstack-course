@@ -59,15 +59,29 @@
 
 // console.log(fatorial(5));
 
-const biggerWord = phrase => {
-  const splitPhras = phrase.split(' ');
-  let biggerWordArray = splitPhras[0];
-  for(let index = 0; index < splitPhras.length; index += 1) {
-    if(biggerWordArray.length < splitPhras[index].length) {
-      biggerWordArray = splitPhras[index];
-    }    
-  }
-  return biggerWordArray;
-}
+// const biggerWord = phrase => {
+//   const splitPhras = phrase.split(' ');
+//   let biggerWordArray = splitPhras[0];
+//   for(let index = 0; index < splitPhras.length; index += 1) {
+//     if(biggerWordArray.length < splitPhras[index].length) {
+//       biggerWordArray = splitPhras[index];
+//     }    
+//   }
+//   return biggerWordArray;
+// }
 
-console.log(biggerWord('qual sera a palavra maior aqui =P'));
+// console.log(biggerWord('qual sera a palavra maior aqui =P'));
+
+// Requisito 4
+// Crie um código JavaScript com a seguinte especificação:
+// Não se esqueça de usar template literals
+// Função 1 : Escreva uma função que vai receber uma string como parâmetro. Sua função deverá procurar pela letra x em uma string qualquer que você determinar e substituir pela string que você passou como parâmetro. Sua função deve retornar essa nova string .
+
+// const xWord = word => `Tryber ${word} aqui!`
+
+// console.log(xWord('dale'));
+
+// Um array com escopo global, que é o escopo do arquivo JS , nesse caso, contendo cinco strings com suas principais skills .
+
+// const skills = ['html', 'css', 'javascript', 'unix', 'play'];
+
