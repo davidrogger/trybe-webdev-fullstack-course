@@ -222,7 +222,7 @@ Tem a finalidade de validar o comportamento do nosso código de forma sólida e 
 Desenvolvimento orientado a testes, em certos cenários, favorece a produtividade e a escrita de códigos confiáveis.
 O desenvolvimento orientado a testes é um processo cíclico que pode ser descrito em três etapas, como ilustrado abaixo, o princípio básico do TDD é fazer testes pequenos.
 
-![](./dia-03-primeiros-passos-em-jest/tdd-img.jpg)
+![](./dia-03-primeiros-passos-em-jest/tdd-img.png)
 
 ### Jest
 
