@@ -243,7 +243,10 @@ Jest ja vem instalado e configurado com React.
 
 #### Instalação do Jest
 
-Para conseguir instalar o jest deve-se ter instalado o npm, para verificar se o npm está instalado, use o comando `npm -v`.
+Para conseguir instalar o jest deve-se ter instalado o npm, para verificar se o npm está instalado, use o comando `npm -v`, se ele estiver instalado ele deve retornar a versão do seu npm.
+
+`npm init -y`, altera o script, teste para jest
+`npm install --save-dev jest`
 
 
 
