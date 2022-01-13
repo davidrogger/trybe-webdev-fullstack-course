@@ -112,7 +112,32 @@ const falseExpression = (2 + 2 === 3) ? `isso é verdade` : `isso é mentira`;
 console.log(falseExpression); // isso é mentira
 ```
 
-## Fluxo de exceções
+## Fluxo de exceções - Throw, Try/Catch
 
-[documentação](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/throw)
-Throw é uma exceção definida pelo usuário, 
+[Throw](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/throw) é uma exceção definida para que uma função pare e siga uma instrução após o throw usando o bloco Catch.
+
+```
+try {
+  if (true) throw new Error('mensagem de erro')
+} catch (error) {
+  throw error.message;
+}
+```
+
+## Objetos
+
+### [Object.keys()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)
+
+Coleta e organiza dentro de array as chaves em forma de string dentro de um objeto.
+
+```
+const cliente = {
+  nome: 'Jonas",
+  age: 33,
+}
+
+Object.keys(cliente)
+
+//output
+['nome', 'age']
+```

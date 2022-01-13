@@ -171,3 +171,9 @@ const student2 = {
 // }
 
 // console.log(Object.keys(starships));
+
+// try {
+//   if (true) throw new Error('mensagem de erro');
+// } catch (error) {
+//   throw error.message;
+// }
