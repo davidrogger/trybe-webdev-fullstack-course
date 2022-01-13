@@ -213,3 +213,13 @@ console.log(person)
   } */
 ```
 
+# Bonus bloco 7
+
+## Bonus do Bloco 7.2
+
+[Controle de fluxo e manipulação de erro](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Control_flow_and_error_handling)
+[Erros em JS](https://www.w3schools.com/js/js_errors.asp)
+[Convertendo objetos em arrays](https://www.samanthaming.com/tidbits/76-converting-object-to-array/)
+[Como usar métodos Object no JavaScript | DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-use-object-methods-in-javascript-pt)
+[Video sobre Object.assign](https://www.youtube.com/watch?v=JmGJUzNsGFs)
+[Artigo sobre Object.keys .](https://levelup.gitconnected.com/learn-about-object-keys-in-javascript-cf2967ba6401)
