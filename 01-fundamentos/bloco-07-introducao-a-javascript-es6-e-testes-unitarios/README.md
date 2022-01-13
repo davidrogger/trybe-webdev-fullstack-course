@@ -111,3 +111,8 @@ console.log(trueExpression); // isso é verdade
 const falseExpression = (2 + 2 === 3) ? `isso é verdade` : `isso é mentira`;
 console.log(falseExpression); // isso é mentira
 ```
+
+## Fluxo de exceções
+
+[documentação](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/throw)
+Throw é uma exceção definida pelo usuário, 
