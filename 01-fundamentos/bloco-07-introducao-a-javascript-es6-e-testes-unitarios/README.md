@@ -224,6 +224,16 @@ O desenvolvimento orientado a testes é um processo cíclico que pode ser descri
 
 ![](./dia-03-primeiros-passos-em-jest/tdd-img.png)
 
+Destrinchando cada etapa, o TDD consiste em:
+Escrever um teste que cubra a função que você pretende implementar antes mesmo de executá-la. Este teste irá falhar - afinal, a sua função ainda não foi declarada. Você pode começar do teste mais elementar possível para esse cenário, como verificar se a função que você irá criar existe.
+Implementar apenas o necessário para que o teste passe. No caso do exemplo anterior, você só precisaria declarar a função para passar o teste.
+Refatorar o código para que ele esteja bem escrito e fácil de se entender. O pulo do gato nessa etapa é que você tem um teste já implementado que irá falhar caso você quebre algo ao refatorar o seu código.
+Repetir! Afinal de contas, o desenvolvimento orientado a testes é um ciclo. Volte a etapa 1 e repita esse processo até que todas as funcionalidades da sua função sejam implementadas.
+
+## NodeJS [Assert](https://nodejs.org/api/assert.html)
+
+É uma ferramenta que testa expressões, ele ja vem instalado no NodeJS. o Assert é uma expressão booleana que será sempre `true`, mas em caso de falha, retorna `false`.
+
 ### Jest
 
 Jest é um framework para realização de testes JavaScript desenvolvido pelo Facebook.
