@@ -233,10 +233,17 @@ Repetir! Afinal de contas, o desenvolvimento orientado a testes é um ciclo. Vol
 ## NodeJS [Assert](https://nodejs.org/api/assert.html)
 
 É uma ferramenta que testa expressões, ele ja vem instalado no NodeJS. o Assert é uma expressão booleana que será sempre `true`, mas em caso de falha, retorna `false`.
+Node.js só executa um arquivo por vez, com o comando node `<nome_do_arquivo>` . Se há vários arquivos de teste, é preciso executar um por vez ou escrever um script shell para executar todos os arquivos;
 
 ### Jest
 
 Jest é um framework para realização de testes JavaScript desenvolvido pelo Facebook.
+É um framework de fácil instalação, requer zero configurações e é rápido.(time do airbnb reduziu 1/3 do tempo de execução de sua suíte de 12 para 4min).
+Jest ja vem instalado e configurado com React.
+
+#### Instalação do Jest
+
+Para conseguir instalar o jest deve-se ter instalado o npm, para verificar se o npm está instalado, use o comando `npm -v`.
 
 
 
