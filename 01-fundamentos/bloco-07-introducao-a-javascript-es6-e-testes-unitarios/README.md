@@ -128,7 +128,7 @@ try {
 
 ### [Object.keys()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)
 
-Coleta e organiza dentro de array as chaves em forma de string dentro de um objeto.
+Coleta e organiza dentro de um array as chaves em forma de string dentro de um objeto.
 
 ```
 const cliente = {
@@ -141,3 +141,75 @@ Object.keys(cliente)
 //output
 ['nome', 'age']
 ```
+
+### [Object.values](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/values)
+
+Coleta e organiza dentro de um array os valores referente as chaves de um objeto.
+
+```
+const cliente = {
+  nome: 'Jonas",
+  age: 33,
+}
+
+Object.values(cliente)
+
+//output
+['Jonas', '33']
+```
+
+### [Object.entries](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/entries)
+
+Ele coleta e retorna um array com a chave e o valor.
+
+```
+const cliente = {
+  nome: 'Jonas",
+  age: 33,
+}
+
+Object.entries(cliente)
+
+//output
+[['nome','Jonas'],['age', '33']]
+```
+
+### [Object.assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
+
+Tem a finalidade de copiar todas chaves e valores de um objeto para um destino.
+```
+Object.assign(destino, objeto1);
+Object.assign(destino, objeto1, objeto2);
+Object.assign(destino, objeto1, objeto2, objeto3, objeto4);
+```
+
+```
+const person = {
+  name: 'Alberto',
+  lastName: 'Gomes',
+  age: 20,
+};
+
+const info = {
+  age: 23,
+  job: 'engenheiro',
+};
+
+const family = {
+  children: ['Maria', 'João'],
+  wife: 'Ana',
+};
+
+Object.assign(person, info, family)
+console.log(person)
+
+/* Output
+  { name: 'Alberto',
+  lastName: 'Gomes',
+  age: 23,
+  job: 'engenheiro',
+  children: [ 'Maria', 'João' ],
+  wife: 'Ana'
+  } */
+```
+
