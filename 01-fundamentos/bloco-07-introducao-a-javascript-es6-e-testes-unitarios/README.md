@@ -111,3 +111,115 @@ console.log(trueExpression); // isso é verdade
 const falseExpression = (2 + 2 === 3) ? `isso é verdade` : `isso é mentira`;
 console.log(falseExpression); // isso é mentira
 ```
+
+## Fluxo de exceções - Throw, Try/Catch
+
+[Throw](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/throw) é uma exceção definida para que uma função pare e siga uma instrução após o throw usando o bloco Catch.
+
+```
+try {
+  if (true) throw new Error('mensagem de erro')
+} catch (error) {
+  throw error.message;
+}
+```
+
+## Objetos
+
+### [Object.keys()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)
+
+Coleta e organiza dentro de um array as chaves em forma de string dentro de um objeto.
+
+```
+const cliente = {
+  nome: 'Jonas",
+  age: 33,
+}
+
+Object.keys(cliente)
+
+//output
+['nome', 'age']
+```
+
+### [Object.values](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/values)
+
+Coleta e organiza dentro de um array os valores referente as chaves de um objeto.
+
+```
+const cliente = {
+  nome: 'Jonas",
+  age: 33,
+}
+
+Object.values(cliente)
+
+//output
+['Jonas', '33']
+```
+
+### [Object.entries](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/entries)
+
+Ele coleta e retorna um array com a chave e o valor.
+
+```
+const cliente = {
+  nome: 'Jonas",
+  age: 33,
+}
+
+Object.entries(cliente)
+
+//output
+[['nome','Jonas'],['age', '33']]
+```
+
+### [Object.assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
+
+Tem a finalidade de copiar todas chaves e valores de um objeto para um destino.
+```
+Object.assign(destino, objeto1);
+Object.assign(destino, objeto1, objeto2);
+Object.assign(destino, objeto1, objeto2, objeto3, objeto4);
+```
+
+```
+const person = {
+  name: 'Alberto',
+  lastName: 'Gomes',
+  age: 20,
+};
+
+const info = {
+  age: 23,
+  job: 'engenheiro',
+};
+
+const family = {
+  children: ['Maria', 'João'],
+  wife: 'Ana',
+};
+
+Object.assign(person, info, family)
+console.log(person)
+
+/* Output
+  { name: 'Alberto',
+  lastName: 'Gomes',
+  age: 23,
+  job: 'engenheiro',
+  children: [ 'Maria', 'João' ],
+  wife: 'Ana'
+  } */
+```
+
+# Bonus bloco 7
+
+## Bonus do Bloco 7.2
+
+[Controle de fluxo e manipulação de erro](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Control_flow_and_error_handling)
+[Erros em JS](https://www.w3schools.com/js/js_errors.asp)
+[Convertendo objetos em arrays](https://www.samanthaming.com/tidbits/76-converting-object-to-array/)
+[Como usar métodos Object no JavaScript | DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-use-object-methods-in-javascript-pt)
+[Video sobre Object.assign](https://www.youtube.com/watch?v=JmGJUzNsGFs)
+[Artigo sobre Object.keys .](https://levelup.gitconnected.com/learn-about-object-keys-in-javascript-cf2967ba6401)
