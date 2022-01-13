@@ -213,6 +213,23 @@ console.log(person)
   } */
 ```
 
+## Teste unitário
+
+Tem a finalidade de validar o comportamento do nosso código de forma sólida e precisa, são responsáveis por validar o comportamento de unidades funcionais do código, permitem uma melhor manutenção do seu código, não só verifica se uma função especifica está funcionando, mas também garante que sua aplicação continue funcionando após alguma alteração.
+
+### TDD - Test Driven Development
+
+Desenvolvimento orientado a testes, em certos cenários, favorece a produtividade e a escrita de códigos confiáveis.
+O desenvolvimento orientado a testes é um processo cíclico que pode ser descrito em três etapas, como ilustrado abaixo, o princípio básico do TDD é fazer testes pequenos.
+
+![](./dia-03-primeiros-passos-em-jest/tdd-img.jpg)
+
+### Jest
+
+Jest é um framework para realização de testes JavaScript desenvolvido pelo Facebook.
+
+
+
 # Bonus bloco 7
 
 ## Bonus do Bloco 7.2
