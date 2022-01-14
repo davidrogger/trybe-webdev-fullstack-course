@@ -225,9 +225,9 @@ O desenvolvimento orientado a testes é um processo cíclico que pode ser descri
 ![](./dia-03-primeiros-passos-em-jest/tdd-img.png)
 
 Destrinchando cada etapa, o TDD consiste em:
-Escrever um teste que cubra a função que você pretende implementar antes mesmo de executá-la. Este teste irá falhar - afinal, a sua função ainda não foi declarada. Você pode começar do teste mais elementar possível para esse cenário, como verificar se a função que você irá criar existe.
-Implementar apenas o necessário para que o teste passe. No caso do exemplo anterior, você só precisaria declarar a função para passar o teste.
-Refatorar o código para que ele esteja bem escrito e fácil de se entender. O pulo do gato nessa etapa é que você tem um teste já implementado que irá falhar caso você quebre algo ao refatorar o seu código.
+Escrever um teste que cubra a função que você pretende implementar antes mesmo de executá-la. **Este teste irá falhar** - afinal, a sua função ainda não foi declarada. Você pode começar do teste mais elementar possível para esse cenário, como verificar se a função que você irá criar existe.
+**Implementar apenas o necessário para que o teste passe**. No caso do exemplo anterior, você só precisaria declarar a função para passar o teste.
+**Refatorar o código para que ele esteja bem escrito e fácil de se entender**. O pulo do gato nessa etapa é que você tem um teste já implementado que irá falhar caso você quebre algo ao refatorar o seu código.
 Repetir! Afinal de contas, o desenvolvimento orientado a testes é um ciclo. Volte a etapa 1 e repita esse processo até que todas as funcionalidades da sua função sejam implementadas.
 
 ## NodeJS [Assert](https://nodejs.org/api/assert.html)
@@ -245,7 +245,7 @@ Jest ja vem instalado e configurado com React.
 
 Para conseguir instalar o jest deve-se ter instalado o npm, para verificar se o npm está instalado, use o comando `npm -v`, se ele estiver instalado ele deve retornar a versão do seu npm.
 
-`npm init -y`, altera o script, teste para jest
+`npm init -y`, altere o script, teste para jest
 `npm install --save-dev jest`
 
 ## Expect e matchers
@@ -312,6 +312,10 @@ test('Sunday is not a workday', () => {
 ```
 
 Mais documentações sobre Expect do jest [aqui](https://jestjs.io/docs/pt-BR/expect)
+
+## Bloco describe
+
+É usado para agrupar vários testes, é util para melhorar a aorganização dos testes, describe é usado para separar testes de funções diferentes em um mesmo arquivo, ou para agrupar teste relacionados dentro de uma função complexa, com muitos testes, esses blocos podem ser aninhados arbitrariamente. [exemplos](https://jestjs.io/pt-BR/docs/api#describename-fn)
 
 # Bonus bloco 7
 
