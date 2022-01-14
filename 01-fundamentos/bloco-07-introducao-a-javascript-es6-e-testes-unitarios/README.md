@@ -235,7 +235,7 @@ Repetir! Afinal de contas, o desenvolvimento orientado a testes é um ciclo. Vol
 É uma ferramenta que testa expressões, ele ja vem instalado no NodeJS. o Assert é uma expressão booleana que será sempre `true`, mas em caso de falha, retorna `false`.
 Node.js só executa um arquivo por vez, com o comando node `<nome_do_arquivo>` . Se há vários arquivos de teste, é preciso executar um por vez ou escrever um script shell para executar todos os arquivos;
 
-### Jest
+### [Jest](https://jestjs.io/docs/expect)
 
 Jest é um framework para realização de testes JavaScript desenvolvido pelo Facebook.
 É um framework de fácil instalação, requer zero configurações e é rápido.(time do airbnb reduziu 1/3 do tempo de execução de sua suíte de 12 para 4min).
@@ -248,7 +248,46 @@ Para conseguir instalar o jest deve-se ter instalado o npm, para verificar se o 
 `npm init -y`, altera o script, teste para jest
 `npm install --save-dev jest`
 
+## Expect e matchers
 
+ Função expect é utilizada para dar acesso a um conjunto de métodos chamados matchers . Esses métodos são estruturas de comparação utilizadas em diversas bibliotecas de testes, inclusive no Jest .
+
+### toBe
+
+É o matcher mais simples, que testa igualdade estrita entre o valor passado para expect.
+Exemplo:
+`expect(5).toBe("5")`
+Teste falharia, pois era esperado o númer 5 e não a string 5.
+
+### toEqual
+
+Existem duas formas de atribuir valores, a primeira é para variável e a segunda para propriedade do objeto, essas formas são conhecidas por valor e referência.
+É importante entender que os tipos de dados são separados em primitivos(number, string, boolean, etc) e objetos(Objetos, Funções, Arrays, etc..).
+Logo é necessário o uso para toBe, para variaveis primitivas, enquanto toEqual para objetos.
+
+### [Booleans](https://jestjs.io/docs/using-matchers#truthiness)
+
+As vezes é necessário distinguir teste entre undefined, null e false, mas as vezes você não quer tratar eles diferente, Jest deixa você explicitar o tratamento que você deseja.
+
+`toBeNull` corresponde a apenas `null`
+`toBeUndefined` corresponde a apenas `undefined`
+`toBeDefined` é o oposto de toBeUndefined
+toBeTruthy combina com qualquer coisa que uma instrução if trata como verdadeiro
+toBeFalsy combina com qualquer coisa que uma instrução if trata como falso
+
+### Números
+
+Há matchers para as principais formas de comparar números. Leia [aqui](https://jestjs.io/docs/pt-BR/using-matchers#n%C3%BAmeros) sobre esses matchers.
+
+### Strings
+
+Para comparar string com expressões regulares, utilize o matcher [toMatch](https://jestjs.io/docs/pt-BR/expect#tomatchregexporstring).
+
+### Arrays
+
+Pode-se vericiar se um array contém um determinado item com [toContain](https://jestjs.io/pt-BR/docs/expect#tocontainitem), estruturas mais complexas podemos verificar com toContainEqual. [ToHaveLength](https://jestjs.io/pt-BR/docs/expect#tohavelengthnumber) para vericiar o tamanho de um array ou de uma string.
+
+### Objetos
 
 # Bonus bloco 7
 
