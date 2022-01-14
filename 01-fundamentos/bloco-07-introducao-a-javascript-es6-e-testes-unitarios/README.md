@@ -289,6 +289,30 @@ Pode-se vericiar se um array contém um determinado item com [toContain](https:/
 
 ### Objetos
 
+É bastante comum testar se um objeto possui uma propriedade específica. O matcher [toHaveProperty](https://jestjs.io/pt-BR/docs/expect#tohavepropertykeypath-value) é ideal para esses casos.
+
+### Exceções
+
+É testando se está sendo retornado um erro da forma definida usando o toThrow.
+
+### not
+
+Permite testar o oposto de algo; exemplo:
+```
+const workDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+const weekDays = ['Sunday', ...workDays, 'Saturday'];
+
+test('Sunday is a week day', () => {
+  expect(weekDays).toContain('Sunday');
+});
+
+test('Sunday is not a workday', () => {
+  expect(workDays).not.toContain('Sunday');
+});
+```
+
+Mais documentações sobre Expect do jest [aqui](https://jestjs.io/docs/pt-BR/expect)
+
 # Bonus bloco 7
 
 ## Bonus do Bloco 7.2
