@@ -213,6 +213,110 @@ console.log(person)
   } */
 ```
 
+## Teste unitário
+
+Tem a finalidade de validar o comportamento do nosso código de forma sólida e precisa, são responsáveis por validar o comportamento de unidades funcionais do código, permitem uma melhor manutenção do seu código, não só verifica se uma função especifica está funcionando, mas também garante que sua aplicação continue funcionando após alguma alteração.
+
+### TDD - Test Driven Development
+
+Desenvolvimento orientado a testes, em certos cenários, favorece a produtividade e a escrita de códigos confiáveis.
+O desenvolvimento orientado a testes é um processo cíclico que pode ser descrito em três etapas, como ilustrado abaixo, o princípio básico do TDD é fazer testes pequenos.
+
+![](./dia-03-primeiros-passos-em-jest/tdd-img.png)
+
+Destrinchando cada etapa, o TDD consiste em:
+Escrever um teste que cubra a função que você pretende implementar antes mesmo de executá-la. **Este teste irá falhar** - afinal, a sua função ainda não foi declarada. Você pode começar do teste mais elementar possível para esse cenário, como verificar se a função que você irá criar existe.
+**Implementar apenas o necessário para que o teste passe**. No caso do exemplo anterior, você só precisaria declarar a função para passar o teste.
+**Refatorar o código para que ele esteja bem escrito e fácil de se entender**. O pulo do gato nessa etapa é que você tem um teste já implementado que irá falhar caso você quebre algo ao refatorar o seu código.
+Repetir! Afinal de contas, o desenvolvimento orientado a testes é um ciclo. Volte a etapa 1 e repita esse processo até que todas as funcionalidades da sua função sejam implementadas.
+
+## NodeJS [Assert](https://nodejs.org/api/assert.html)
+
+É uma ferramenta que testa expressões, ele ja vem instalado no NodeJS. o Assert é uma expressão booleana que será sempre `true`, mas em caso de falha, retorna `false`.
+Node.js só executa um arquivo por vez, com o comando node `<nome_do_arquivo>` . Se há vários arquivos de teste, é preciso executar um por vez ou escrever um script shell para executar todos os arquivos;
+
+### [Jest](https://jestjs.io/docs/expect)
+
+Jest é um framework para realização de testes JavaScript desenvolvido pelo Facebook.
+É um framework de fácil instalação, requer zero configurações e é rápido.(time do airbnb reduziu 1/3 do tempo de execução de sua suíte de 12 para 4min).
+Jest ja vem instalado e configurado com React.
+
+#### Instalação do Jest
+
+Para conseguir instalar o jest deve-se ter instalado o npm, para verificar se o npm está instalado, use o comando `npm -v`, se ele estiver instalado ele deve retornar a versão do seu npm.
+
+`npm init -y`, altere o script, teste para jest
+`npm install --save-dev jest`
+
+## Expect e matchers
+
+ Função expect é utilizada para dar acesso a um conjunto de métodos chamados matchers . Esses métodos são estruturas de comparação utilizadas em diversas bibliotecas de testes, inclusive no Jest .
+
+### toBe
+
+É o matcher mais simples, que testa igualdade estrita entre o valor passado para expect.
+Exemplo:
+`expect(5).toBe("5")`
+Teste falharia, pois era esperado o númer 5 e não a string 5.
+
+### toEqual
+
+Existem duas formas de atribuir valores, a primeira é para variável e a segunda para propriedade do objeto, essas formas são conhecidas por valor e referência.
+É importante entender que os tipos de dados são separados em primitivos(number, string, boolean, etc) e objetos(Objetos, Funções, Arrays, etc..).
+Logo é necessário o uso para toBe, para variaveis primitivas, enquanto toEqual para objetos.
+
+### [Booleans](https://jestjs.io/docs/using-matchers#truthiness)
+
+As vezes é necessário distinguir teste entre undefined, null e false, mas as vezes você não quer tratar eles diferente, Jest deixa você explicitar o tratamento que você deseja.
+
+`toBeNull` corresponde a apenas `null`
+`toBeUndefined` corresponde a apenas `undefined`
+`toBeDefined` é o oposto de toBeUndefined
+toBeTruthy combina com qualquer coisa que uma instrução if trata como verdadeiro
+toBeFalsy combina com qualquer coisa que uma instrução if trata como falso
+
+### Números
+
+Há matchers para as principais formas de comparar números. Leia [aqui](https://jestjs.io/docs/pt-BR/using-matchers#n%C3%BAmeros) sobre esses matchers.
+
+### Strings
+
+Para comparar string com expressões regulares, utilize o matcher [toMatch](https://jestjs.io/docs/pt-BR/expect#tomatchregexporstring).
+
+### Arrays
+
+Pode-se vericiar se um array contém um determinado item com [toContain](https://jestjs.io/pt-BR/docs/expect#tocontainitem), estruturas mais complexas podemos verificar com toContainEqual. [ToHaveLength](https://jestjs.io/pt-BR/docs/expect#tohavelengthnumber) para vericiar o tamanho de um array ou de uma string.
+
+### Objetos
+
+É bastante comum testar se um objeto possui uma propriedade específica. O matcher [toHaveProperty](https://jestjs.io/pt-BR/docs/expect#tohavepropertykeypath-value) é ideal para esses casos.
+
+### Exceções
+
+É testando se está sendo retornado um erro da forma definida usando o toThrow.
+
+### not
+
+Permite testar o oposto de algo; exemplo:
+```
+const workDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+const weekDays = ['Sunday', ...workDays, 'Saturday'];
+
+test('Sunday is a week day', () => {
+  expect(weekDays).toContain('Sunday');
+});
+
+test('Sunday is not a workday', () => {
+  expect(workDays).not.toContain('Sunday');
+});
+```
+
+Mais documentações sobre Expect do jest [aqui](https://jestjs.io/docs/pt-BR/expect)
+
+## Bloco describe
+
+É usado para agrupar vários testes, é util para melhorar a aorganização dos testes, describe é usado para separar testes de funções diferentes em um mesmo arquivo, ou para agrupar teste relacionados dentro de uma função complexa, com muitos testes, esses blocos podem ser aninhados arbitrariamente. [exemplos](https://jestjs.io/pt-BR/docs/api#describename-fn)
+
 # Bonus bloco 7
 
 ## Bonus do Bloco 7.2
