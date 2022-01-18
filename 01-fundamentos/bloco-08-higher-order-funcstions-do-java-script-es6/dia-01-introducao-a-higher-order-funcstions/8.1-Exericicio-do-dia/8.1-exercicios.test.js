@@ -1,7 +1,13 @@
-const newEmployees = require('./8.1-exercicio01');
+const ex01 = require('./8.1-exercicio01')();
 
-describe('Testes do primeiro exercicio', () => {
-  it('Function objNameEmail is a function', () => {
-    expect(typeof newEmployees).toBe('function');
-  });  
-})
+describe('Testes do primeiro exercício', () => {
+  it('Function newEmployees is a function', () => {
+    expect(typeof ex01.newEmployees).toBe('function');
+  });
+  it('Function emailGenerator is a function', () => {
+    expect(typeof ex01.emailGenerator).toBe('function');
+  });
+  it('emailGenerator should return a object', () => {
+    expect(typeof ex01.newEmployees(ex01.emailGenerator)).toBe('object');
+  });
+});
