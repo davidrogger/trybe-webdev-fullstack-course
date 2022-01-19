@@ -61,12 +61,11 @@ const books = [
   },
 ];
 
-//3 - Crie um array com todos os objetos que possuem gênero ficção científica ou fantasia.
+// 5 - Crie um array em ordem alfabética apenas com os nomes de todas as pessoas autoras de ficção científica ou fantasia.
 
-const genderFilter = (array, genre1, genre2) => {
-  return array.filter((itemValue) => {
-    return itemValue.genre === genre1 || itemValue.genre === genre2;
-  })
+const genderFilter = (array, gender1, gender2) => {
+  const allGenders = array.filter((itemValue) => (itemValue.genre === gender1) || (itemValue.genre === gender2));
+  return allGenders.map((itemValue) => itemValue.author.name).sort();  
 }
 
 console.log(genderFilter(books, 'Ficção Científica', 'Fantasia'));
