@@ -49,3 +49,17 @@ arrayNumbers.find((itemValue) => itemValue > 25); // retorna 30
 ```
 
 
+## array.some() and array.every()
+
+Some e every, são similares, some, retornar true se um dos valores atenderem as condições estabelecidas no callback, e every, todos valores devem bater para retornar true.
+
+## [array.sort()](https://www.w3schools.com/js/js_array_sort.asp)
+
+É usado para ordenar uma array, em ordem alfabética, em situações numéricas, ele ordena na ordem alfabética dos códigos usando a tabela de caracteres unicode.
+Para ordenar de forma crescente numérica, devemos passar uma função no sorte.
+```
+const points = [40, 100, 1, 5, 25, 10];
+points.sort((a, b) => a - b);
+console.log(points); // [1, 5, 10, 25, 40, 100]
+```
+A lógica é a seguinte: a função recebe, da sort , todos os elementos do array, em pares (elemento1, elemento2) , e vai comparando-os. O formato é meuArray.sort((elemento1, elemento2) => /* logica da função */) . Ou seja: para o array [1, 2, 3, 4] , a função receberá (a=2, b=1) , (3, 2) , (4, 3) como parâmetros e ordenará o array com base em seu resultado. Se a operação de elemento1 com elemento2 der resultado negativo, elemento1 vai para trás. Caso contrário, vai para frente, para, de forma decrescente, só inverter elemento1 - elemento2 para elemento2 - elemento1 .
