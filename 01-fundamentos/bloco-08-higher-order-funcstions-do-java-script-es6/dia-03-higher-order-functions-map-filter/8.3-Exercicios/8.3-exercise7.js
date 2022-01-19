@@ -65,7 +65,7 @@ const books = [
 
 const threeInicials = (array) => {
   const filterValue = array.filter((itemValue) => {
-    const regex = /[A-Z]\.\s[A-Z]\.\s[A-Z]\.\s/
+    const regex = /^[A-Z]\.\s[A-Z]\.\s[A-Z]\.\s/
     return regex.test(itemValue.author.name)
   });
   return filterValue.map((book) => book.name);
