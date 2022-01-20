@@ -137,3 +137,19 @@ Sequencia seria 2 + 3, 5 + 10, 15 +15;
 
 Accumulator sempre vai aderir ao resultado da função.
 
+## spread operator
+
+Foi incluso no ES6, 
+
+## parâmetro rest
+
+## object destructuring
+
+## array destructuring
+
+## default destructuring
+
+## abbreviation object literal
+
+## default params
+
