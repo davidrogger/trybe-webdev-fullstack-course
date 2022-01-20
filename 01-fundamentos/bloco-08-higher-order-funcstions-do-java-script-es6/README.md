@@ -21,6 +21,9 @@ São funções que recebem outra função como parametro ou retornam uma funçã
 
 Syntax
 `array.forEach((itemValue, index, array) => {})`
+itemValue: Obrigatório
+index: opcional
+array: opcional
 
 Essa HOF, obrigatóriamente precisa ter uma função que será executada para cada item do array, indicado no começo da syntax.
 Exemplo
@@ -38,6 +41,9 @@ Somente o ultimo parametro do forEach é opcional na maioria das execuções, el
 
 Syntax
 `array.find((itemValue, index, array) => {})`
+itemValue: Obrigatório
+index: opcional
+array: opcional
 
 Segue o mesmo padrão do forEach, porém só retorna o valor do array, caso a seja verdadeira a confição passada dentro da função callback apontada no find.
 
@@ -63,3 +69,42 @@ points.sort((a, b) => a - b);
 console.log(points); // [1, 5, 10, 25, 40, 100]
 ```
 A lógica é a seguinte: a função recebe, da sort , todos os elementos do array, em pares (elemento1, elemento2) , e vai comparando-os. O formato é meuArray.sort((elemento1, elemento2) => /* logica da função */) . Ou seja: para o array [1, 2, 3, 4] , a função receberá (a=2, b=1) , (3, 2) , (4, 3) como parâmetros e ordenará o array com base em seu resultado. Se a operação de elemento1 com elemento2 der resultado negativo, elemento1 vai para trás. Caso contrário, vai para frente, para, de forma decrescente, só inverter elemento1 - elemento2 para elemento2 - elemento1 .
+
+## [array.filter](https://www.w3schools.com/jsref/jsref_filter.asp)
+
+Usado para filtrar elementos de um array, ele sempre retorna um array com os elementos que atender as condições estabelecidas no callback/função nela.
+
+Syntax
+`array.filter((itemValue, index, array) => {})`
+itemValue: Obrigatório
+index: opcional
+array: opcional
+
+Exemplo:
+```
+const studantsData = [ { nome: 'David', nota: 2 }, { nome: 'Jonas', nota: 7 }, { nome: 'Nizuk', nota: 10 }];
+
+studantsData.filter((itemValue) => itemValue.nota > 5)
+
+retorna um array = [{ nome: 'Jonas' nota: 7 }, { nome: 'Nizuk' nota: 10 }]
+```
+
+
+## [array.map()](https://www.w3schools.com/jsref/jsref_map.asp)
+
+Maps, é usado para retornar um array, com a manipulação do array indicado.
+
+Syntax
+`array.map((itemValue, index, array) => {})`
+itemValue: Obrigatório
+index: opcional
+array: opcional
+
+Exemplo:
+```
+const numbersArray = [2, 5, 6, 11];
+
+numbersArray.map((itemValue) => itemValue * 2);
+
+retorna outra array = [4, 10, 12, 22];
+```
