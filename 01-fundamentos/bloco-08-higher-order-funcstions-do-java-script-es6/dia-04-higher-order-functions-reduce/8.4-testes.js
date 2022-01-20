@@ -111,6 +111,16 @@
 
 // console.log(betterStudantGrade(estudantes));
 
-const numbers = [2, 3, 10, 15];
+// const numbers = [2, 3, 10, 15];
 
-console.log(numbers.reduce((accumulator, itemValue) => accumulator + itemValue, 0))
+// console.log(numbers.reduce((accumulator, itemValue) => accumulator + itemValue, 0))
+
+
+const numbers = [5, 10, 15];
+
+const numberMult2 = (number) => {
+  console.log(number);
+}
+
+numbers.forEach(numberMult2);
+

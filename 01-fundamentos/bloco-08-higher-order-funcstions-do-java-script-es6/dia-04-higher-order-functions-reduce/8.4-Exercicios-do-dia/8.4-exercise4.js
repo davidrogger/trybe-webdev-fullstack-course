@@ -60,3 +60,9 @@ const books = [
     releaseYear: 1928,
   },
 ];
+
+
+const longestNameBook = books.reduce((book, nextBook) => book.name.length > nextBook.name.length ? book : nextBook);
+
+
+console.log((longestNameBook));
