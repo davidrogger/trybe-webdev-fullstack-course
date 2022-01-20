@@ -108,3 +108,32 @@ numbersArray.map((itemValue) => itemValue * 2);
 
 retorna outra array = [4, 10, 12, 22];
 ```
+## [array.reduce()](https://www.w3schools.com/jsref/jsref_reduce.asp)
+
+Segue o mesmo padrão que os anterios, acrescentando uma propriedade, o accumulator;
+
+Syntax
+`array.reduce((accumulator, itemValue, index, array) => {}, accumulatorInicialValue)`
+accumulator: Obrigatório
+itemValue: Obrigatório
+index: opcional
+array: opcional
+
+O accumulator ele é onde fica "acumulado" o resultado de cada itaração com o array, você pode também detarminar qual é o valor inicial do accumulator, sendo até mesmo uma boa prática sempre indicalo, sendo um ponto de partida, para a finalização do reduce.
+
+Exemplo:
+```
+const numbers = [2, 3, 10, 15];
+
+numbers.reduce((accumulator, itemValue) => accumulator + itemValue, 0); // retorna 30;
+```
+
+Neste exemplo é indicado que o valor inicial do accumulator é 0, logo a primeira execução do reduce, ele irá, realizar accumulator (0) + itemValue (2), atualizando o valor do accumulator para 2, que é o resultado da função estabelecida, seguindo de 2 + 3, 5 +10, 15 + 15, resultando em 30.
+Caso o valor inicial do accumulator não seja indicado, ele pega o primeiro valor do array, para representar o valor do accumulator, e o itemValue, começa a ser o segundo valor, seguindo o mesmo array de cima;
+```
+numbers.reduce((accumulator, itemValue) => accumulator + itemValue); // retorna 30;
+```
+Sequencia seria 2 + 3, 5 + 10, 15 +15;
+
+Accumulator sempre vai aderir ao resultado da função.
+
