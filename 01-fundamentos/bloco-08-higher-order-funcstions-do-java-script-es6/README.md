@@ -137,9 +137,26 @@ Sequencia seria 2 + 3, 5 + 10, 15 +15;
 
 Accumulator sempre vai aderir ao resultado da função.
 
-## spread operator
+## [spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
 
-Foi incluso no ES6, 
+Foi incluso no ES6, é usado para unificar arrays ou objetos da seguinte forma.
+
+Syntax
+`...array ou ...obj`
+Usando os 3 pontos a esquerda, pode se unificar arrays/objetos distintos.
+
+Exemplo:
+```
+const array1 = [1, 5, 9];
+const array2 = [4, 7, 8];
+const fusionArray = [...array1, ...array2] //output: [1, 5, 9, 4, 7, 8]
+
+const obj1 = {nome: João, idade: 24}
+const obj2 = {profissao: pintor}
+const fussionObj = {...obj1, ...obj2} //output  { nome: João, idade: 24, profissao: pintor } 
+```
+Lembrando que a ordem colocada, afeta em como o resultado será, se for invertido a posição dos arrays ou objs no exembro, a ordem dos elementos seriam alterados.
+
 
 ## parâmetro rest
 
