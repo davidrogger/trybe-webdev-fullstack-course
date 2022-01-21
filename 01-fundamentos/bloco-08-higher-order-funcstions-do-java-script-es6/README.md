@@ -222,9 +222,21 @@ console.log(Softskills, Hardskills); // Feedbacks HTML
 
 ## array destructuring
 
+Feature do ES6, segue o mesmo padrão referente aos objetos.
 
+Exemplo:
+```
+const names = ['David', 'Jonas', 'Nizuk'];
 
+const [ firstName, secondName, thirdName] = names;
+
+console.log(firstName); // David
+console.log(secondName); // Jonas
+console.log(thirdName); // Nizuk
+```
 ## default destructuring
+
+
 
 ## abbreviation object literal
 
