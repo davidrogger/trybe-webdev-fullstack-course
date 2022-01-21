@@ -158,9 +158,39 @@ const fussionObj = {...obj1, ...obj2} //output  { nome: João, idade: 24, profis
 Lembrando que a ordem colocada, afeta em como o resultado será, se for invertido a posição dos arrays ou objs no exembro, a ordem dos elementos seriam alterados.
 
 
-## parâmetro rest
+## [parâmetro rest](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters)
+
+Feature do ES6, você pode definir para que o parametro recebido seja encapsulado em um array, usando a mesma configuração do spread operator.
+
+Exemplo:
+```
+function parameterRest(...para) {  
+  console.log(para[0]);
+  console.log(para[1]);
+  console.log(para[2]);
+};
+
+parameterRest('ola', [1, 2, 3, 4], true);
+
+// ola
+// 123
+// true
+```
+```
+function parameterRest(...para) {  
+  console.log(para.length);
+};
+
+parameterRest('ola', 1, 5, [1, 5, 9]);
+
+// 4
+```
+
+Lembrando que sempre o parametro passado, será tratado como um array.
 
 ## object destructuring
+
+Mais uma feature do ES6, para acesso de valores de um objeto
 
 ## array destructuring
 
