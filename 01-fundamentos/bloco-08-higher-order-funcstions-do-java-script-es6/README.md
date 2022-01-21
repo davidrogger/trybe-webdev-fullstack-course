@@ -190,9 +190,39 @@ Lembrando que sempre o parametro passado, será tratado como um array.
 
 ## object destructuring
 
-Mais uma feature do ES6, para acesso de valores de um objeto
+Mais uma feature do ES6, para acesso de valores de um objeto.
+
+Exemplo:
+```
+const studant = {
+  name: 'Jonas',
+  school: 'Trybe',
+  age: 30,
+  grades: {
+    Hardskills: 'HTML',
+    Softskills: 'Feedbacks',
+  }
+};
+
+const { name } = studant;
+console.log(name) // Jonas,
+```
+
+Você basicamente atribui a chave name, para ser uma nova variavel, que vai conter o valor da chave, mas também é possivel renomea-lo
+```
+const { name: nome } = studant;
+console.log(nome) // jonas
+```
+E para acessar objetos dentro do objeto
+```
+const { grades: { Softskills, Hardskills } } = studant;
+
+console.log(Softskills, Hardskills); // Feedbacks HTML
+```
 
 ## array destructuring
+
+
 
 ## default destructuring
 

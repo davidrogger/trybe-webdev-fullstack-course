@@ -16,16 +16,30 @@
 // console.log(classAssigned); // Turma B
 // console.log(subject); // Matemática
 
-let a, b, rest;
+// let a, b, rest;
 
-[a, b] = [10, 20];
+// [a, b] = [10, 20];
 
-[a, b, ...rest] = [10, 20, 40, 50]
+// [a, b, ...rest] = [10, 20, 40, 50]
 
-let c = [a, b, ...rest]
+// let c = [a, b, ...rest]
 
 
-console.log(a);
-console.log(b);
-console.log(rest);
-console.log(c);
+// console.log(a);
+// console.log(b);
+// console.log(rest);
+// console.log(c);
+
+const studant = {
+  name: 'Jonas',
+  school: 'Trybe',
+  age: 30,
+  grades: {
+    Hardskills: 'HTML',
+    Softskills: 'Feedbacks',
+  }
+};
+
+const { grades: { Softskills, Hardskills } } = studant;
+
+console.log(Softskills, Hardskills);
