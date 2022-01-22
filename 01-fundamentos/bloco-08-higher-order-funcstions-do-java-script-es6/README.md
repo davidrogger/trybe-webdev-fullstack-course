@@ -266,5 +266,33 @@ Foi definido um valor padrão para retorno caso ele não esteja preenchido, nota
 
 ## abbreviation object literal
 
+É usado para reduzir a repetição na hora de formular um objeto.
+
+Exemplo:
+```
+const newUser = (id, name, email) => {
+  return {
+    id: id,
+    name: name,
+    email: email,
+  };
+};
+```
+No exemplo acima, se torna repetitivo, a escrita do ID, NAME e EMAIL, com o uso de abbreviation, poderiamos declarar da seguinte maneira.
+```
+const newUser = (id, name, email) => {
+  return {
+    id,
+    name,
+    email,
+  };
+};
+```
+
+Ele ja entende que o parametro recebido, deve receber a chave com o nome ID, seguindo do valor apresentando no parametro.
+```
+retorno: console.log(newUser(54, 'isabella', 'isabella@email.com')); // { id: 54, name: 'isabella', email: 'isabella@email.com' }
+```
+
 ## default params
 
