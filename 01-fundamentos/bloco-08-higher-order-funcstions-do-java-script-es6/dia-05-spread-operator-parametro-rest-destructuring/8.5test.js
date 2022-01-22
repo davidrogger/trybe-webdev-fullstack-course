@@ -30,16 +30,28 @@
 // console.log(rest);
 // console.log(c);
 
-const studant = {
-  name: 'Jonas',
-  school: 'Trybe',
-  age: 30,
-  grades: {
-    Hardskills: 'HTML',
-    Softskills: 'Feedbacks',
-  }
-};
+// const studant = {
+//   name: 'Jonas',
+//   school: 'Trybe',
+//   age: 30,
+//   grades: {
+//     Hardskills: 'HTML',
+//     Softskills: 'Feedbacks',
+//   }
+// };
 
-const { grades: { Softskills, Hardskills } } = studant;
+// const { grades: { Softskills, Hardskills } } = studant;
 
-console.log(Softskills, Hardskills);
+// console.log(Softskills, Hardskills);
+
+
+// const person = {
+//   name: 'João',
+//   lastName: 'Jr',
+//   age: 34,  
+// };
+
+// const { nationality ='brazilian' } = person;
+
+// console.log(nationality);
+// console.log(person);

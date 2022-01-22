@@ -236,7 +236,33 @@ console.log(thirdName); // Nizuk
 ```
 ## default destructuring
 
+Feature ES6, é usado em situações em que não queremos que quando solicitado uma chave ou campo que não tem valor, ela retorne um valor padrão determinado nessa destructuring.
 
+Exemplo
+```
+const user = {
+  nome: 'Jonas,
+  age: 20,
+}
+
+console.log(user.birthday);
+```
+
+Usando esse caso, ele retornaria undefined, mas usando default destructuring poderiamos definir, que ele retonaria qualquer outro valor.
+
+Exemplo
+```
+const user = {
+  nome: 'Jonas,
+  age: 20,
+}
+
+const { birthday = '2002' } = user;
+
+console.log(user.birthday); // 2002
+```
+
+Foi definido um valor padrão para retorno caso ele não esteja preenchido, nota, ele não adiciona esse valor ao objeto, ele apenas apresenta esse valor, como padrão por não existir.
 
 ## abbreviation object literal
 
