@@ -296,3 +296,13 @@ retorno: console.log(newUser(54, 'isabella', 'isabella@email.com')); // { id: 54
 
 ## default params
 
+Segue o mesmo padrão do default destructuring, podemos definir um valor padrão dentro da função para caso aquele parametro não seja determinado.
+
+Exemplo:
+```
+const greeting = (user = 'usuário') => console.log(`Welcome ${user}!`);
+
+greeting(); // // Welcome usuário!
+```
+
+Nesse exemplo, caso não seja escrito o nome do usuário ele será considerado como usuário mesmo.

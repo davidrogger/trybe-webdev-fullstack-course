@@ -83,10 +83,22 @@
 // console.log(getNationality(otherPerson)); // Ivan is Russian
 // console.log(getNationality(person));
 
-const getPosition = (latitude, longitude) => ({
-  latitude,
-  longitude,
-});
+// const getPosition = (latitude, longitude) => ({
+//   latitude,
+//   longitude,
+// });
 
-console.log(getPosition(-19.8157, -43.9542));
+// console.log(getPosition(-19.8157, -43.9542));
 
+// const greeting = (user = 'Usuário') => console.log(`Welcome ${user}!`);
+
+// greeting('David'); // Welcome undefined!
+
+
+// Para praticar, escreva uma função multiply que multiplique dois números passados como argumentos. Atribua como default o valor 1 caso não seja passado nenhum valor como segundo parâmetro.
+
+const multiply = (number, value = 1) => {
+  return number * value;
+};
+
+console.log(multiply(8, 10));
