@@ -137,3 +137,172 @@ Sequencia seria 2 + 3, 5 + 10, 15 +15;
 
 Accumulator sempre vai aderir ao resultado da função.
 
+## [spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+
+Foi incluso no ES6, é usado para unificar arrays ou objetos da seguinte forma.
+
+Syntax
+`...array ou ...obj`
+Usando os 3 pontos a esquerda, pode se unificar arrays/objetos distintos.
+
+Exemplo:
+```
+const array1 = [1, 5, 9];
+const array2 = [4, 7, 8];
+const fusionArray = [...array1, ...array2] //output: [1, 5, 9, 4, 7, 8]
+
+const obj1 = {nome: João, idade: 24}
+const obj2 = {profissao: pintor}
+const fussionObj = {...obj1, ...obj2} //output  { nome: João, idade: 24, profissao: pintor } 
+```
+Lembrando que a ordem colocada, afeta em como o resultado será, se for invertido a posição dos arrays ou objs no exembro, a ordem dos elementos seriam alterados.
+
+
+## [parâmetro rest](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters)
+
+Feature do ES6, você pode definir para que o parametro recebido seja encapsulado em um array, usando a mesma configuração do spread operator.
+
+Exemplo:
+```
+function parameterRest(...para) {  
+  console.log(para[0]);
+  console.log(para[1]);
+  console.log(para[2]);
+};
+
+parameterRest('ola', [1, 2, 3, 4], true);
+
+// ola
+// 123
+// true
+```
+```
+function parameterRest(...para) {  
+  console.log(para.length);
+};
+
+parameterRest('ola', 1, 5, [1, 5, 9]);
+
+// 4
+```
+
+Lembrando que sempre o parametro passado, será tratado como um array.
+
+## object destructuring
+
+Mais uma feature do ES6, para acesso de valores de um objeto.
+
+Exemplo:
+```
+const studant = {
+  name: 'Jonas',
+  school: 'Trybe',
+  age: 30,
+  grades: {
+    Hardskills: 'HTML',
+    Softskills: 'Feedbacks',
+  }
+};
+
+const { name } = studant;
+console.log(name) // Jonas,
+```
+
+Você basicamente atribui a chave name, para ser uma nova variavel, que vai conter o valor da chave, mas também é possivel renomea-lo
+```
+const { name: nome } = studant;
+console.log(nome) // jonas
+```
+E para acessar objetos dentro do objeto
+```
+const { grades: { Softskills, Hardskills } } = studant;
+
+console.log(Softskills, Hardskills); // Feedbacks HTML
+```
+
+## array destructuring
+
+Feature do ES6, segue o mesmo padrão referente aos objetos.
+
+Exemplo:
+```
+const names = ['David', 'Jonas', 'Nizuk'];
+
+const [ firstName, secondName, thirdName] = names;
+
+console.log(firstName); // David
+console.log(secondName); // Jonas
+console.log(thirdName); // Nizuk
+```
+## default destructuring
+
+Feature ES6, é usado em situações em que não queremos que quando solicitado uma chave ou campo que não tem valor, ela retorne um valor padrão determinado nessa destructuring.
+
+Exemplo
+```
+const user = {
+  nome: 'Jonas,
+  age: 20,
+}
+
+console.log(user.birthday);
+```
+
+Usando esse caso, ele retornaria undefined, mas usando default destructuring poderiamos definir, que ele retonaria qualquer outro valor.
+
+Exemplo
+```
+const user = {
+  nome: 'Jonas,
+  age: 20,
+}
+
+const { birthday = '2002' } = user;
+
+console.log(user.birthday); // 2002
+```
+
+Foi definido um valor padrão para retorno caso ele não esteja preenchido, nota, ele não adiciona esse valor ao objeto, ele apenas apresenta esse valor, como padrão por não existir.
+
+## abbreviation object literal
+
+É usado para reduzir a repetição na hora de formular um objeto.
+
+Exemplo:
+```
+const newUser = (id, name, email) => {
+  return {
+    id: id,
+    name: name,
+    email: email,
+  };
+};
+```
+No exemplo acima, se torna repetitivo, a escrita do ID, NAME e EMAIL, com o uso de abbreviation, poderiamos declarar da seguinte maneira.
+```
+const newUser = (id, name, email) => {
+  return {
+    id,
+    name,
+    email,
+  };
+};
+```
+
+Ele ja entende que o parametro recebido, deve receber a chave com o nome ID, seguindo do valor apresentando no parametro.
+```
+retorno: console.log(newUser(54, 'isabella', 'isabella@email.com')); // { id: 54, name: 'isabella', email: 'isabella@email.com' }
+```
+
+## default params
+
+Segue o mesmo padrão do default destructuring, podemos definir um valor padrão dentro da função para caso aquele parametro não seja determinado.
+
+Exemplo:
+```
+const greeting = (user = 'usuário') => console.log(`Welcome ${user}!`);
+
+greeting(); // // Welcome usuário!
+```
+
+Nesse exemplo, caso não seja escrito o nome do usuário ele será considerado como usuário.
