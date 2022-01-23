@@ -305,4 +305,4 @@ const greeting = (user = 'usuário') => console.log(`Welcome ${user}!`);
 greeting(); // // Welcome usuário!
 ```
 
-Nesse exemplo, caso não seja escrito o nome do usuário ele será considerado como usuário mesmo.
+Nesse exemplo, caso não seja escrito o nome do usuário ele será considerado como usuário.
