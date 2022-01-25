@@ -139,3 +139,53 @@ test('Testa a função removeCity utilizando o beforeEach', () => {
 Nesse exemplo, a cada inicio de teste o array recebe o nome piraporinha, e depois do teste é criado um array vazio novo no lugar.
 Lembrando que o before e after, caso os testes estejam divididos em describes, eles funcionam apenas dentro daquele describe.
 
+# Application Programming Interface (API)
+
+API permite que aplicações se comuniquem umas com as outras, servindo de ponte para elas. API não é um banco de dados ou um servidor, mas ela é responsavel pelo controle dos pontos de acesso a eles, através de um conjunto de rotinas e padrões de programação.
+
+### Por que precisamos de API's?
+
+Caso você esteja montando uma página, e queira que nessa página seja exibida alguma informação de algum outro site, como twitter, discord, coisas do tipo, se você fosse depender de entrar em contato com eles para tentar coletar essas informações seria bem complicado, logo existe API, que mantem essa comunicação direta.
+Normalmente as API's são desenvolvidas e aprimoradas constamente por grandes empresas de técnologia ou pessoas que precisem coletar dados e disponibilizados de alguma forma.
+
+### Como uma API se diferencia de um back-end padrão de um site
+
+"Toda API é um back-end, mas nem todo back-end é uma API"
+
+Um back-end padrão de um site retornar tempaltes (um arquivo HTML pronto, exemplo) para o front-end de uma única aplicação, através de rotas definidas. Por exemplo, quando você acessa uma página da nossa plataforma, está fazendo um request ao servidor, que te retorna um template como response.
+As APIs também possuem rotas de acesso que permitem a comunicação com o servidor, mas não precisam retornar templates. Geralmente, retornam dados no formato JSON.
+
+O que é JSON e por que usamos?
+
+Java Script Object Notation é basicamente uma forma de representar dados como objetos.
+```
+{
+  "trybers": [
+    {
+      "name": "Lauro Cesar",
+      "github": "lauroandrade",
+      "status": "#vqv"
+    }
+  ]
+}
+```
+JSON está sempre presente em aplicações web modernas, pois é simples, interpretável e ainda funciona muito bem em aplicações JavaScript e é compatível com diversas outras linguagens, que coseguem interpretá-lo e gerar códigos no formato, como Python, java, PHP, Ruby, entre outras.APIs retornam os dados no formato JSON, a fim de manter uma alta escabilidade e independência.
+Apesar do nome, ele não é um objeto JavaScript, apenas é uma estrutura de forma que faz uso de chaves e valores, por não ser um objeto nativo do JS, precisamos traduzir usando JSON.parse() e JSON.stringify().
+
+## Promises
+
+Promises se comprotam de forma muito parecida com as funções que já conhecemos, mas existem 3 pontos de destaque das Promises em relação à outras funções.
+
+1. Elas são assíncronas, elas tem um espaço especial para sua execução sem que travem o fluxo de outras funções.
+2. Elas tem "superpoderes", elas tem funções extras que facilitam o controle do fluxo assíncrono.
+3. Elas são contruidas de uma forma distinta, para criar uma nova promise, é usado um Construtor.
+
+E também possuem 3 estados:
+
+1. Pending, estado inicial, ela está em execução;
+2. Fulfilled, estado de sucesso, significa que tudo deu certo e foi retornado o valor de sucesso.
+3. Rejected, estado de rejeição, significa que algo deu errado e foi retornado o erro que gerou essa rejeição.
+
+Quando utilizamos fetch, recebemos uma promise, com fetch temos dois possiveis retornos, em caso de sucesso, recebemos a response, e caso algo dê errado com a nossa requisição, recebemos as informações sobre o erro. Mas toda promise é assíncrona e para termos o retorno dela, devemos esperar um tempo até essa promessa ser resolvida.
+É usado then() catch() e async/await com try/catch, para garantir que o código que estamos desenvolvendo aguarde o retorno de uma promise, antes de executar os próximos passos.
+
