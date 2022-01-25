@@ -189,3 +189,60 @@ E também possuem 3 estados:
 Quando utilizamos fetch, recebemos uma promise, com fetch temos dois possiveis retornos, em caso de sucesso, recebemos a response, e caso algo dê errado com a nossa requisição, recebemos as informações sobre o erro. Mas toda promise é assíncrona e para termos o retorno dela, devemos esperar um tempo até essa promessa ser resolvida.
 É usado then() catch() e async/await com try/catch, para garantir que o código que estamos desenvolvendo aguarde o retorno de uma promise, antes de executar os próximos passos.
 
+## Fetch API
+
+Contém uma série de recursos desenvolvidos para lidar com requisições http no Javascript. Sua função primária é a fetch(), utilizada para fazer chamadas às URL's das APIs. Trata-se de uma função assíncrona, baseada em uma promise.
+A função fetch pode receber dois parâmetros:
+1. URL do serviço alvo da requisição:
+2. E opcionalmente, pode ser passado um objeto contendo algumas informações sobre requisição de API. Esse objeto, contém chaves como informações específicas para aquela chamada. Essas especificações estão sempre rpesentes na documentação de uso daquele API específica.
+O retorno da chamada varia conforme a API utilizada, não só em conteúdo, mas também formato.
+A função fetch é responsável por enviar requisições a API's. Mas não é sua única responsabilidade. Ela também possui ferramentas para tratar os dados recebidos e devolvê-los, além de lidar com os erros.
+Existem dois principais ferramentas que são usadas para gerir o fluxo assíncrono, o then() e o catch().
+
+#### endpoint
+
+Em APIs é o caminho que retorna de alguma informação específica da API. (pode ser uma URL).
+
+instalando node-fetch
+
+`npm init -y`
+`npm i node-fetch@^2`
+
+Foi utilizado o @^2 ao final do nome do pacote para especificar que deve ser instalado a versão mais atual, mas que não seja maior que versão 2. Essa especificação ocorre visto que a versão 3 do note-fetch foi alterada para ser usada atráves de módulos do JS, podendo ser importada apenas através do import e não mais do require.
+
+
+### then()
+
+É usado em cadeira, um conceito chamado de chaining. Podemos colocar vários then, em sequencia, e o argumento da função interna de um será o retorno do anterior, o mais importnante é que o then, espera a resposta do fech ou then anterior, para começar a sua execução. assim o fluxo fica controlado.
+
+### catch()
+
+Recebe o erro gerado caso a requisição não seja bem sucedida, que é passado para ele como argumento de sua função interna, assim quando o fetch retorna algum erro, todos os then, são pulados, e é executado o primeiro fatch encontrado, o catch também pega qualquer erro que acontece dentro de qualquer then no fluxo anterior a ele, por isso ele é geralmente usado no final.
+
+### async
+
+async é declaro antes da definição de uma função;
+Mas ela sozinha não resolve possiveis problemas, por isso ela é usada em conjunto com await.
+Await só pode ser usado dentro de fuma função com async, e ela faz o que o nome propoem, espera, por uma resposta para continuar sua execução.
+
+## Para fixar sobre o bloco do dia
+
+1. O que é um código que é executado de modo assíncrono? Qual é a diferença disso para um código que é executado de modo síncrono?
+
+Um código executado de forma assíncrono é um código independente que não "bloqueia" o caminho dos demais códigos, que teriam que esperar ele concluir a função dele, para dar continuidade, ja o código síncrono, segue uma sequencia, que um depende do outro na sequencia para seu funcionamento.
+
+2. Quando você tem que enfileirar várias callbacks , que problema surge?
+
+Fora a falta de legibilidade do código, alguma delas pode retonar algum erro, parando todo fluxo.
+
+3. Por que as Promises são uma forma de resolver esse problema?
+
+Por elas serem assíncronas e serem independentes.
+
+4. Quando você vai se comunicar com uma API , tal comunicação deve ser síncrona ou assíncrona? Lembre-se de que o serviço ao qual você está se conectando pode demorar muito ou pouco para dar retorno, pode estar fora do ar etc.
+
+Assíncrono, para evitar a quebra do fluxo.
+
+5. Dada a resposta anterior, o que é fetch e para que ele serve?
+
+fetch é uma forma de criar um fluxo dentro da assíncronidade, garantindo que temos um fluxo, interno aquela função, idependente do fluxo "global".
