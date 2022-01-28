@@ -189,12 +189,12 @@ E também possuem 3 estados:
 Quando utilizamos fetch, recebemos uma promise, com fetch temos dois possiveis retornos, em caso de sucesso, recebemos a response, e caso algo dê errado com a nossa requisição, recebemos as informações sobre o erro. Mas toda promise é assíncrona e para termos o retorno dela, devemos esperar um tempo até essa promessa ser resolvida.
 É usado then() catch() e async/await com try/catch, para garantir que o código que estamos desenvolvendo aguarde o retorno de uma promise, antes de executar os próximos passos.
 
-## Fetch API
+## [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 
 Contém uma série de recursos desenvolvidos para lidar com requisições http no Javascript. Sua função primária é a fetch(), utilizada para fazer chamadas às URL's das APIs. Trata-se de uma função assíncrona, baseada em uma promise.
 A função fetch pode receber dois parâmetros:
 1. URL do serviço alvo da requisição:
-2. E opcionalmente, pode ser passado um objeto contendo algumas informações sobre requisição de API. Esse objeto, contém chaves como informações específicas para aquela chamada. Essas especificações estão sempre rpesentes na documentação de uso daquele API específica.
+2. E opcionalmente, pode ser passado um objeto contendo algumas informações sobre requisição de API. Esse objeto, contém chaves como informações específicas para aquela chamada. Essas especificações estão sempre presentes na documentação de uso daquele API específica.
 O retorno da chamada varia conforme a API utilizada, não só em conteúdo, mas também formato.
 A função fetch é responsável por enviar requisições a API's. Mas não é sua única responsabilidade. Ela também possui ferramentas para tratar os dados recebidos e devolvê-los, além de lidar com os erros.
 Existem dois principais ferramentas que são usadas para gerir o fluxo assíncrono, o then() e o catch().
@@ -217,7 +217,7 @@ Foi utilizado o @^2 ao final do nome do pacote para especificar que deve ser ins
 
 ### catch()
 
-Recebe o erro gerado caso a requisição não seja bem sucedida, que é passado para ele como argumento de sua função interna, assim quando o fetch retorna algum erro, todos os then, são pulados, e é executado o primeiro fatch encontrado, o catch também pega qualquer erro que acontece dentro de qualquer then no fluxo anterior a ele, por isso ele é geralmente usado no final.
+Recebe o erro gerado caso a requisição não seja bem sucedida, que é passado para ele como argumento de sua função interna, assim quando o fetch retorna algum erro, todos os then, são pulados, e é executado o primeiro fetch encontrado, o catch também pega qualquer erro que acontece dentro de qualquer then no fluxo anterior a ele, por isso ele é geralmente usado no final.
 
 ### async
 
