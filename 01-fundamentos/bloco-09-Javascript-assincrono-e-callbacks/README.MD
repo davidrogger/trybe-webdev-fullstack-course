@@ -233,7 +233,7 @@ Um código executado de forma assíncrono é um código independente que não "b
 
 2. Quando você tem que enfileirar várias callbacks , que problema surge?
 
-Fora a falta de legibilidade do código, alguma delas pode retonar algum erro, parando todo fluxo.
+Fora a falta de legibilidade do código, dificuldade em realizar manutenção na função.
 
 3. Por que as Promises são uma forma de resolver esse problema?
 
@@ -246,3 +246,11 @@ Assíncrono, para evitar a quebra do fluxo.
 5. Dada a resposta anterior, o que é fetch e para que ele serve?
 
 fetch é uma forma de criar um fluxo dentro da assíncronidade, garantindo que temos um fluxo, interno aquela função, idependente do fluxo "global".
+
+### [Testando códigos assíncronos](https://jestjs.io/docs/asynchronous)
+
+Jest fornece algumas soluções com o objetivo de que os testes guardem o momento certo para testar a função isso evita falsos positivos usando async/await.
+**Nunca** se deve testar requisições reais para um API, pois elas apresentam diversas variações, se o teste você realizou hoje numa API de previsão do tempo e ela apresenta sol, e no dia seguinte chuva, ela provavel muda o retorno, tendo uma resposta diferente resultando em um erro, e também existe possibilidade URL da API estar incorreta, falha de conexão e instabilidade no servidor que gerencia a API.
+Por isso normalmente é usado uma simulação na execução da função, para poder definir o retorno que ela terá, dessa forma, é possivel controlar diversos cenários, como sucesso e falha.
+
+[Exercícios do bloco](https://github.com/davidrogger/9.3-content-async-test)
