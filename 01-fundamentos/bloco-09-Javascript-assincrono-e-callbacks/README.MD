@@ -253,3 +253,4 @@ Jest fornece algumas soluções com o objetivo de que os testes guardem o moment
 **Nunca** se deve testar requisições reais para um API, pois elas apresentam diversas variações, se o teste você realizou hoje numa API de previsão do tempo e ela apresenta sol, e no dia seguinte chuva, ela provavel muda o retorno, tendo uma resposta diferente resultando em um erro, e também existe possibilidade URL da API estar incorreta, falha de conexão e instabilidade no servidor que gerencia a API.
 Por isso normalmente é usado uma simulação na execução da função, para poder definir o retorno que ela terá, dessa forma, é possivel controlar diversos cenários, como sucesso e falha.
 
+[Exercícios do bloco](https://github.com/davidrogger/9.3-content-async-test)
