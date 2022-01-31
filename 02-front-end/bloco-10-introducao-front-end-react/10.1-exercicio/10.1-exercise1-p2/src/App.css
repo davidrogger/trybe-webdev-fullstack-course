@@ -1,0 +1,41 @@
+body {
+  background-color: gray;
+}
+
+.header {
+  margin: 0;
+  display: flex;
+  line-height: 80px;
+  justify-content: center;    
+  color: white;
+}
+
+.footer {    
+  text-align: right;
+  color: navajowhite;  
+}
+
+p {
+  margin: 0;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  border: 1px dashed white;
+  border-radius: 20px;
+}
+
+.card {
+  margin: 20px 0;
+  background-color: whitesmoke;
+  box-sizing: border-box;
+  border-radius: 10px;
+  width: 450px;
+  padding: 20px;
+}
+
+.card h4 {
+  margin-top: 0;
+}
