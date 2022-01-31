@@ -32,3 +32,37 @@ Diferente dos elementos DOM do navegador, os elementos React são objetos simple
 ### Classes
 
 Em React os componentes podem ser divididos em Componentes de classe e Componentes funcionais. Quando um componente precisa ser alterado, utilizamos componentes de classe, para que possamos utilizar seus estados para realizar essas alterações. É importante lembrar que um componente de classe, no React, sempre estende o Component.
+
+### Componentes
+
+Compoentes são a base de toda aplicação React, nós permitem segmentar uma página web em blocos de códigos independentes e reutilizáveis, além de tornar o ambiente de desenvolvimento um local mais organizado.
+Conceitualmente, compoentes React são funções ou classes JavaScript, que podem aceitar parâmetros, chamados de props(do inglês properties), e retornam elementos React responsáveis por determinarem o que será renderizado na tela.
+
+Existem duas madeira de definirmos um componente:
+
+Exemplos:
+
+1. Via função JavaScript:
+```
+  function Greeting(props) {
+    return (<h1>Hello, {props.name}</h1>);
+  }
+
+  export default Greeting;
+```
+
+2. Via classe :
+```
+  import React from 'react';
+
+  class Greeting extends React.Component {
+    render() {
+      return (<h1>Hello, {this.props.name}</h1>);
+    }
+  }
+
+  export default Greeting;
+```
+### Props
+
+São umas das partes mais importantes de um componente, elas que passam os valores para o componentem, assim como os parâmetros de uma função.
