@@ -20,4 +20,15 @@ Como é um pacote que a única coisa que ele faz é criar todos os arquivos nece
 
 ### JSx
 
+Javascript Syntax Extension, é uma extensão de sintaxe para Javascript ele é recomendado na documentação do React, pois demonstra como a interface deverá se comportar de forma lógica e descritiva.
 
+### ReactDOM.render
+
+É responsável por renderizar e atualizar seu código dentro do HTML, exibindo seus elementos React.
+Toda vez que fizermos uma alteração no código, seja por meio de função ou interação de quem usa, o ReactDOM, compara o elemento novo e seus elementos filhos com os anteriores e aplica mudanças somente onde é necessário.
+
+Diferente dos elementos DOM do navegador, os elementos React são objetos simples e utilizam menos recursos.
+
+### Classes
+
+Em React os componentes podem ser divididos em Componentes de classe e Componentes funcionais. Quando um componente precisa ser alterado, utilizamos componentes de classe, para que possamos utilizar seus estados para realizar essas alterações. É importante lembrar que um componente de classe, no React, sempre estende o Component.
