@@ -27,7 +27,8 @@ class App extends Component {
     return (
       <div className='App'>
         <h1>Orders recenetly created</h1>
-        
+        <Order order={headphone}/>
+        <Order order={energyDrink}/>
       </div>
     )
   }
