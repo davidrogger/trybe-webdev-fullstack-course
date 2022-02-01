@@ -36,42 +36,71 @@
 
 // --------------------------------------------------------------------------------------------------------------
 
-const fetchUsdCurrencies = async () => {
-  const baseUrl = 'https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest';
-  const usdEndPoint = '/currencies/usd.min.json';
-  const url = baseUrl.concat(usdEndPoint);
+// const fetchUsdCurrencies = async () => {
+//   const baseUrl = 'https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest';
+//   const usdEndPoint = '/currencies/usd.min.json';
+//   const url = baseUrl.concat(usdEndPoint);
 
-  const usdCurrencies = await fetch(url)
-    .then((response) => response.json())
-    .then((data) => data.usd)
-    .catch((error) => error.toString());
+//   const usdCurrencies = await fetch(url)
+//     .then((response) => response.json())
+//     .then((data) => data.usd)
+//     .catch((error) => error.toString());
 
-  return usdCurrencies;
-}
+//   return usdCurrencies;
+// }
 
-const fetchCoins = async () => {
-  const url = 'https://api.coincap.io/v2/assets';
+// const fetchCoins = async () => {
+//   const url = 'https://api.coincap.io/v2/assets';
 
-  const coins = await fetch(url)
-    .then((response) => response.json()) // converte para json a resposta
-    .then((data) => data.data) // acessa o objeto data que está dentro do parametro data(onde está o array).
-    .catch((error) => error.toString()); //Converte o erro em uma string.
-  return coins;
-}
+//   const coins = await fetch(url)
+//     .then((response) => response.json()) // converte para json a resposta
+//     .then((data) => data.data) // acessa o objeto data que está dentro do parametro data(onde está o array).
+//     .catch((error) => error.toString()); //Converte o erro em uma string.
+//   return coins;
+// }
 
-const setCoins = async () => {
-  const coins = await fetchCoins(); // Espera pelo retorno da função fetch para coletar os arrays com as informações necessárias.
-  const usdCurrencies = await fetchUsdCurrencies();
-  const coinsList = document.getElementById('ranking-list');
-  coins
-    .filter((_, index) => index < 10) // Cria um array com os 10 primeiros elementos [0~9]
-    .forEach((coin) => { // Para cada elemento filtrado ele manipula o DOM da lista OL, colocando os valores em forma de lista.
-      const newLi = document.createElement('li');
-      const usdPrice = Number(coin.priceUsd);
-      const brlPrice = usdPrice * usdCurrencies.brl;
-      newLi.innerText = `${coin.name} (${coin.symbol}): BRL: ${brlPrice.toFixed(2)}`;
-      coinsList.appendChild(newLi);
-    })
-}
+// const setCoins = async () => {
+//   const coins = await fetchCoins(); // Espera pelo retorno da função fetch para coletar os arrays com as informações necessárias.
+//   const usdCurrencies = await fetchUsdCurrencies();
+//   const coinsList = document.getElementById('ranking-list');
+//   coins
+//     .filter((_, index) => index < 10) // Cria um array com os 10 primeiros elementos [0~9]
+//     .forEach((coin) => { // Para cada elemento filtrado ele manipula o DOM da lista OL, colocando os valores em forma de lista.
+//       const newLi = document.createElement('li');
+//       const usdPrice = Number(coin.priceUsd);
+//       const brlPrice = usdPrice * usdCurrencies.brl;
+//       newLi.innerText = `${coin.name} (${coin.symbol}): BRL: ${brlPrice.toFixed(2)}`;
+//       coinsList.appendChild(newLi);
+//     })
+// }
 
-window.onload = () => setCoins();
+
+// codigo do miguel
+// const cryptoCoin = async () => {
+//   const CRYPTO_URL = 'https://api.coincap.io/v2/assets';
+
+//   try {
+//     const moedas = await fetch(CRYPTO_URL);
+//     const data = await moedas.json();
+//     return data;
+//   } catch(err) {
+//     console.log(`Deu ruim...${err}`)
+//   }
+// }
+
+// const cryptoNames = async () => {
+//   const uList = document.querySelector('#ranking-list');
+//   const objCryptoCoin = await cryptoCoin();
+//   objCryptoCoin.filter((iter) => iter.rank <= 10)
+//   const { name, symbol, priceUsd } = objCryptoCoin;
+//   const lis = document.createElement('li')
+//   uList.innerText = `${name} (${symbol}): ${priceUsd}`
+//     uList.appendChild(lis)
+// }
+
+
+
+
+
+
+// window.onload = () => cryptoNames;
