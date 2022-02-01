@@ -89,9 +89,9 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 
 ##### Bloco 12: React
 
-- [ ] 12-1: _Components com estado_
-- [ ] 12-2: _Eventos e formul&Aacute;rios no React_
-- [ ] 12-3: _[Projeto - Movie Cards Library Stateful]()_
+- [x] 11-1: _Components com estado e eventos_
+- [ ] 11-2: _Formulário no React_
+- [ ] 11-3: _[Projeto - Super Trunfo]()_
 
 ##### Bloco 13: React
 
