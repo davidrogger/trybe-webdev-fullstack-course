@@ -17,9 +17,9 @@
 }
 
 .pokedex-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: stretch;
+  display: flex;    
+  width: 100%;
+  flex-wrap: wrap;  
 }
 
 .info-container {
@@ -35,5 +35,6 @@
   border: 2px dashed rgba(143, 22, 22, 0.39);
   margin: 10px 10px;
   border-radius: 5px;
-  padding: 10px;
+  padding: 10px;  
+  flex-grow: 1;
 }
