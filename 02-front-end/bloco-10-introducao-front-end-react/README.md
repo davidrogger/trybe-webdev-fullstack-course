@@ -66,3 +66,28 @@ Exemplos:
 ### Props
 
 São umas das partes mais importantes de um componente, elas que passam os valores para o componentem, assim como os parâmetros de uma função.
+
+### Keys
+
+São importantes para que o React consiga indentificar com precisão, quais itens foram adicionados, removidos ou atualizados.
+
+
+react System limit for number of file watchers reached
+
+npm cache clear 
+
+npm cache verify 
+
+Ubuntu
+
+sudo gedit /etc/sysctl.conf
+
+Add a line at the bottom
+
+fs.inotify.max_user_watches=524288
+
+Then save and exit!
+
+sudo sysctl -p
+
+https://stackoverflow.com/questions/55763428/react-native-error-enospc-system-limit-for-number-of-file-watchers-reached
