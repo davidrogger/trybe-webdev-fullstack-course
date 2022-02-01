@@ -1,0 +1,39 @@
+@import url('http://fonts.cdnfonts.com/css/pokemon-solid');
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.head-container {
+  text-align: center;
+  background-color: red;
+  color: yellow;
+  line-height: 120px;
+  font-size: 30px;
+  font-family: 'Pokemon Solid', sans-serif;
+  border-bottom: 5px solid navy;
+  box-sizing: border-box;
+}
+
+.pokedex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: stretch;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.pokemon-container {
+  display: flex;
+  justify-content: space-between;
+  min-width: 250px;
+  border: 2px dashed rgba(143, 22, 22, 0.39);
+  margin: 10px 10px;
+  border-radius: 5px;
+  padding: 10px;
+}
