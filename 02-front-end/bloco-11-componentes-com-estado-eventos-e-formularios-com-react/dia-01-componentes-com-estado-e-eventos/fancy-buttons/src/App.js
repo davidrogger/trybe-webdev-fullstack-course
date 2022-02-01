@@ -1,25 +1,32 @@
 import React, { Component } from 'react'
 import './App.css';
 
-function firstButton() {
-  console.log('Ha')
-}
-
-function secondButton() {
-  console.log('du')
-}
-
-function thirdButton() {
-  console.log('ken')
-}
-
 class App extends Component {
-  render() {
+  constructor() {
+    super();
+    this.firstButton = this.firstButton.bind(this);
+    this.secondButton = this.secondButton.bind(this);
+    this.thirdButton = this.thirdButton.bind(this);
+  }
+
+  firstButton() {
+    console.log(this)
+    console.log('Ha')
+  }
+  
+  secondButton() {
+    console.log('du')
+  }
+  thirdButton() {
+    console.log('ken')    
+  }
+
+  render() {    
     return (
       <div>
-        <button onClick={firstButton}>Ha</button>
-        <button onClick={secondButton}>du</button>
-        <button onClick={thirdButton}>ken</button>
+        <button onClick={this.firstButton}>Ha</button>
+        <button onClick={this.secondButton}>du</button>
+        <button onClick={this.thirdButton}>ken</button>
       </div>
     )
   }
