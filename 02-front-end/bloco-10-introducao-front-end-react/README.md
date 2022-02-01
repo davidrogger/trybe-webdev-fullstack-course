@@ -151,6 +151,15 @@ MeuComponente.propTypes = {
   }),
 };
 ```
+É também possivel adicionar um props padrão no caso da ausencia da definição dele:
+
+Exemplo:
+```
+UserName.defaultProps = {
+  name: 'Strange'
+}
+```
+
 react System limit for number of file watchers reached
 
 npm cache clear 
