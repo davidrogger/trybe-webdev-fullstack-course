@@ -8,30 +8,36 @@ class App extends Component {
     this.secondButton = this.secondButton.bind(this);
     this.thirdButton = this.thirdButton.bind(this);
     this.state = {
-      countClick: 0
+      countClick1: 0,
+      countClick2: 0,
+      countClick3: 0
     }
 
   }
 
   firstButton() {    
     this.setState((state, _props) => ({
-      countClick: state.countClick +1
+      countClick1: state.countClick1 +1
     }))
   }
   
   secondButton() {
-    console.log('du')
+    this.setState((state, _props) => ({
+      countClick2: state.countClick2 +1
+    }))
   }
   thirdButton() {
-    console.log('ken')    
+    this.setState((state, _props) => ({
+      countClick3: state.countClick3 +1
+    }))
   }
 
   render() {    
     return (
       <div>
-        <button onClick={this.firstButton}>{this.state.countClick}</button>
-        <button onClick={this.secondButton}>du</button>
-        <button onClick={this.thirdButton}>ken</button>
+        <button onClick={this.firstButton}>{this.state.countClick1}</button>
+        <button onClick={this.secondButton}>{this.state.countClick2}</button>
+        <button onClick={this.thirdButton}>{this.state.countClick3}</button>
       </div>
     )
   }
