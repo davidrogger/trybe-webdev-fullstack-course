@@ -142,4 +142,11 @@ class App extends React.Component {
 export default App;
 ```
 
+State vs Props
+
+Props é uma forma de passar dados de pai para filho.
+
+State é reservado para dados que seu componente controla.
+
+
 

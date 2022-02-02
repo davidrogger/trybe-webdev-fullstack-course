@@ -26,18 +26,23 @@ class App extends Component {
       countClick2: state.countClick2 +1
     }))
   }
+
   thirdButton() {
     this.setState((state, _props) => ({
       countClick3: state.countClick3 +1
     }))
   }
 
+  buttonColor(num) {
+    return num % 2 === 0 ? 'green' : 'white';
+  }
+
   render() {    
     return (
       <div>
-        <button onClick={this.firstButton}>{this.state.countClick1}</button>
-        <button onClick={this.secondButton}>{this.state.countClick2}</button>
-        <button onClick={this.thirdButton}>{this.state.countClick3}</button>
+        <button onClick={this.firstButton} style={ {background: this.buttonColor(this.state.countClick1)} }>{this.state.countClick1}</button>
+        <button onClick={this.secondButton} style={ {background: this.buttonColor(this.state.countClick2)} }>{this.state.countClick2}</button>
+        <button onClick={() => this.setState((state) => ({countClick3: state.countClick3 + 1}))} style={ {background: this.buttonColor(this.state.countClick3)} }>{this.state.countClick3}</button>
       </div>
     )
   }
