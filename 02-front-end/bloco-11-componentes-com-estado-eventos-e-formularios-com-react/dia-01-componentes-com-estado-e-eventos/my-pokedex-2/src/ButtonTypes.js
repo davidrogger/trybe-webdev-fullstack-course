@@ -1,16 +1,14 @@
 import React, { Component } from "react";
 
 class ButtonTypes extends Component {
-render () {
+  render () {
+  const type = this.props.buttons
   return (
     <div>
-      <button>Fire</button>
-      <button>Psychic</button>
+      <button onClick={() => this.props.filterButton(type)}>{type}</button>      
     </div>
   )
 }
-
-
 }
 
 export default ButtonTypes;

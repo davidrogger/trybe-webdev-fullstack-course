@@ -8,47 +8,61 @@ class Pokedex extends Component {
     super(props);
     this.state = {
       pokePosition: 0,
-      pokeFilter: 'all'
+      pokeFilter: 'All'
     }
 
     this.nextPokemon = this.nextPokemon.bind(this);
+    this.filterButton = this.filterButton.bind(this);
 
+  }
+
+  filterButton(type) {
+    this.setState({ pokePosition: 0 })
+    this.setState({ pokeFilter: type });
   }
 
   filterPokemon() {
     const { pokeFilter } = this.state;
-    if (pokeFilter !== 'all') {      
-      const pokeFiltered = pokemons.filter(({ type }) => {        
+    if (pokeFilter !== 'All') {
+      const pokeFiltered = pokemons.filter(({ type }) => {
         return type === pokeFilter;
       });
       return pokeFiltered;
     } else {
       return pokemons;
-    }    
+    }
   }
 
   nextPokemon(pokelist) {
     if (this.state.pokePosition === pokelist.length - 1) {
       this.setState({ pokePosition: 0 })
     } else {
-      console.log(this.state.pokePosition)
       this.setState((state) => ({
         pokePosition: state.pokePosition + 1,
       }))
     }
   }
 
+  allPokeTypes() {
+    const allTypes = pokemons.map((pokemon) => pokemon.type);
+    allTypes.push('All');
+    return allTypes.filter((type, index) => allTypes.indexOf(type) === index);
+  }
+
   render() {
     const pokeFiltered = this.filterPokemon();
     const pokeDisplay = pokeFiltered[this.state.pokePosition];
     const pokeFilter = this.filterPokemon();
+    const typeButtons = this.allPokeTypes();
 
     return (
       <main className='pokedex-container'>
         <Pokemon key={pokeDisplay.id} pokemon={pokeDisplay} />
         <div className='button-container'>
-          <button onClick={() => this.nextPokemon(pokeFilter)} disabled={ pokeFilter.length <= 1 }>Next Pokemon</button>
-          <ButtonTypes />
+          <button onClick={() => this.nextPokemon(pokeFilter)} disabled={pokeFilter.length <= 1}>Next Pokemon</button>
+          <div className='type-buttons'>
+            {typeButtons.map((type) => <ButtonTypes key={type} filterButton={this.filterButton} buttons={type} />)}
+          </div>
         </div>
       </main>
     )
