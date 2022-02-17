@@ -15,7 +15,7 @@ class Pokemon extends Component {
         <div className="image-container">
           <img src={image} alt='render pokemon sprite preview' />
         </div>        
-      </div>
+      </div>     
     )
   }
 }
