@@ -148,5 +148,7 @@ Props é uma forma de passar dados de pai para filho.
 
 State é reservado para dados que seu componente controla.
 
+### Formulários no React
 
+Assim como todos os demais dados do React, os dados de uma formulário devem ser salvos no estado, a partir do momento que a informação do forms não é mais salvo no próprio elemento do DOM, mas no Estado do componente é passado a dizer que esse elemento é um componente controlado.
 
