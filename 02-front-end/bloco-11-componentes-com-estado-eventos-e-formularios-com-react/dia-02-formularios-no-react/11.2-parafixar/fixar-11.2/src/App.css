@@ -19,3 +19,8 @@ textarea {
   resize: none;
   height: 150px;
 }
+
+.error {
+  border: 1px dashed red;
+  box-sizing: border-box;
+}
