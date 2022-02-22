@@ -9,3 +9,11 @@
 .inputRequired {
   border: 1px dashed red;
 }
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 0 auto;
+  width: 300px;
+}
