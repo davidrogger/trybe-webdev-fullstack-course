@@ -22,12 +22,12 @@ class Pokemon extends Component {
 
 Pokemon.propTypes = {
   pokemon: PropsTypes.shape({
-    name: PropsTypes.string.isRequired,
-    type: PropsTypes.string.isRequired,
+    name: PropsTypes.string,
+    type: PropsTypes.string,
     averageWeight: PropsTypes.shape({
-      value: PropsTypes.number.isRequired,
-      measurementUnit: PropsTypes.string.isRequired,
-    })
+      value: PropsTypes.number,
+      measurementUnit: PropsTypes.string,
+    }).isRequired
   })
 }
 

@@ -1,0 +1,26 @@
+.App {
+   text-align: center;
+}
+
+.forms {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.areaText {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;  
+}
+
+textarea {
+  resize: none;
+  height: 150px;
+}
+
+.error {
+  border: 1px dashed red;
+  box-sizing: border-box;
+}
