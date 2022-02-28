@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.fetchJoke = this.fetchJoke.bind(this);
     this.saveJoke = this.saveJoke.bind(this);
@@ -29,6 +29,15 @@ class App extends Component {
   componentDidMount() {
     this.fetchJoke();
     console.log('did mount');
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log("shouldComponentUpdate");
+    return true;
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log("componentDidUpdate");
   }
 
   saveJoke() {
