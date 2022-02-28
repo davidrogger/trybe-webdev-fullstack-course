@@ -1,25 +1,65 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super();
+
+    this.fetchJoke = this.fetchJoke.bind(this);
+    this.saveJoke = this.saveJoke.bind(this);
+
+    this.state = {
+      jokeObj: undefined,
+      loading: true,
+      jokeList: [],
+    }
+    console.log('constructure');
+  }
+
+  async fetchJoke() {
+    const fetchHeader = { headers: { Accept: 'application/json' } };
+    const fetchResponse = await fetch('https://icanhazdadjoke.com/', fetchHeader);
+    const fetchData = await fetchResponse.json();
+
+    this.setState({
+      jokeObj: fetchData,
+    }, () => console.log('state update'));
+  }
+
+  componentDidMount() {
+    this.fetchJoke();
+    console.log('did mount');
+  }
+
+  saveJoke() {
+
+  }
+
+  renderJokeElement() {
+    const { jokeObj: { joke } } = this.state;
+    return (
+      <div>
+        <p>{joke}</p>
+        <button type="button" onClick={this.saveJoke}>Salvar Piada!</button>
+      </div>
+    )
+  }
+
+  render() {    
+    const { jokeList } = this.state;
+    const loadingElement = <span>Loading...</span>
+    console.log('render');
+
+    return (
+      <main className='joke-container'>
+        <span>
+          {jokeList.map(({ id, joke}) => <p key={id}> {joke} </p>)}
+        </span>
+
+        <span> Renderização condicional</span>
+      </main>
+    );
+  }
 }
 
 export default App;
