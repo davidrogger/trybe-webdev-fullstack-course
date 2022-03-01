@@ -7,13 +7,12 @@ class App extends Component {
 
     this.fetchJoke = this.fetchJoke.bind(this);
     this.saveJoke = this.saveJoke.bind(this);
+    this.renderJokeElement = this.renderJokeElement.bind(this);
 
     this.state = {
       jokeObj: undefined,
-      loading: true,
       jokeList: [],
     }
-    console.log('constructure');
   }
 
   async fetchJoke() {
@@ -23,25 +22,20 @@ class App extends Component {
 
     this.setState({
       jokeObj: fetchData,
-    }, () => console.log('state update'));
+    });
   }
 
   componentDidMount() {
     this.fetchJoke();
-    console.log('did mount');
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log("shouldComponentUpdate");
-    return true;
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    console.log("componentDidUpdate");
   }
 
   saveJoke() {
-
+    const { jokeObj } = this.state;
+    this.setState((prevState) => ({
+      jokeList: [...prevState.jokeList, jokeObj],
+      jokeObj: undefined,
+    }));
+    this.fetchJoke();
   }
 
   renderJokeElement() {
@@ -55,17 +49,18 @@ class App extends Component {
   }
 
   render() {    
-    const { jokeList } = this.state;
+    const { jokeList, jokeObj } = this.state;
     const loadingElement = <span>Loading...</span>
-    console.log('render');
 
     return (
       <main className='joke-container'>
         <span>
-          {jokeList.map(({ id, joke}) => <p key={id}> {joke} </p>)}
+          { jokeList.map(({ id, joke}) => <p key={id}> {joke} </p>)}
+        </span>
+        <span>
+          { !jokeObj ? loadingElement : this.renderJokeElement() }
         </span>
 
-        <span> Renderização condicional</span>
       </main>
     );
   }
