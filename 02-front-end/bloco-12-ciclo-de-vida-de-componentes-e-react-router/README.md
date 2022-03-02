@@ -29,3 +29,5 @@ Principais métodos funcionam da seguinte maneira:
 
 **componentWillUnmount** - dispara uma ou mais ações antes de o componente ser desmontado.
 
+fork - ricky and morty
+fork - dog image
