@@ -96,7 +96,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 ##### Bloco 12: Ciclo de Vida de Componentes e React Router
 
 - [x] 12-1: _Ciclo de vida de componentes_
-- [ ] 12-2: _React Router_
+- [x] 12-2: _React Router_
 - [ ] 13-3: _[Projeto - Trybe Tunes]()_
 
 ##### Bloco 14: Metodologias &Aacute;geis
