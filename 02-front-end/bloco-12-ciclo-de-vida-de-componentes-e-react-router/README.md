@@ -1,6 +1,6 @@
 anotações pessoais...
 
-# Ciclo de vida de componentes
+# [Ciclo de vida de componentes](https://pt-br.reactjs.org/docs/react-component.html#commonly-used-lifecycle-methods)
 
 [Diagrama de ciclos](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
 
@@ -18,11 +18,11 @@ Principais métodos funcionam da seguinte maneira:
 
 **constructor** - recebe as props e define o estado;
 **render** - renderiza o componente, inserindo-o no DOM;
-**componentDidMount** - dispara uma ou mais ações após o componente ser inserido no DOM.
+**componentDidMount(prevProps, prevState, snapshot)** - dispara uma ou mais ações após o componente ser inserido no DOM.
 
 ## Atualização:
 
-**shouldComponentUpdate** - possibilita autorizar ou não o componente a atualizar;
+**shouldComponentUpdate((nextProps, nextState))** - possibilita autorizar ou não o componente a atualizar;
 **componentDidUpdate** - dispara uma ou mais ações após o componente ser atualizado;
 
 ## Desmontagem:
