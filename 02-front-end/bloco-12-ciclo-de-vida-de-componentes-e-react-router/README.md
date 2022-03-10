@@ -18,12 +18,12 @@ Principais métodos funcionam da seguinte maneira:
 
 **constructor** - recebe as props e define o estado;
 **render** - renderiza o componente, inserindo-o no DOM;
-**componentDidMount(prevProps, prevState, snapshot)** - dispara uma ou mais ações após o componente ser inserido no DOM.
+**componentDidMount** - dispara uma ou mais ações após o componente ser inserido no DOM.
 
 ## Atualização:
 
 **shouldComponentUpdate((nextProps, nextState))** - possibilita autorizar ou não o componente a atualizar;
-**componentDidUpdate** - dispara uma ou mais ações após o componente ser atualizado;
+**componentDidUpdate(prevProps, prevState, snapshot)** - dispara uma ou mais ações após o componente ser atualizado;
 
 ## Desmontagem:
 
@@ -85,4 +85,7 @@ class Header extends Component {
 Foi determinado que ao clicar em Home, o caminho seria atualizado com o mesmo caminho da raiz, sendo a página inicial, e foi determinado o metodo exact, para que ela não apareça quando for acessado os demais caminhos, pois todos possuem o caminho inicial com /.
 
 O segundo component no browser, foi usado uma forma de enviar para o component as props do route, que normalmente possui dados como history, location, e match, para mostrar a possibilidade de enviar os props para os componentes via route, caso necessário(ainda não foi exemplificado, quando seria usado, apensa demostrado que é possivel passar parametros via endereço caso necessário).
+
+## Componente Switch
+
 
