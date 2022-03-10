@@ -22,3 +22,5 @@ Evidencia quais linhas do código foram testadas e quais não estão sendo explo
 Se o resultado mostra que há uma cobertura alta, podemos dizer que o código foi bastante testado e tem uma chance menor de conter erros, mas não diz nada sobre qualidade do código, o que só pode ser medido pela **Cobertura dos casos de Uso**.
 
 Casos de uso são possibilidades de usos do sistema. Exemplo: quais passos a pessoa usuária precisa seguir para fazer um login no sistema e o que é esperado ao final do login tanto no sucesso quanto na falha? E se a pessoa não digitar o user? ou a senha? E se a senha estiver incorreta? Cada uma dessas situações é um caso de uso diferente. Mais importante do que garantir a cobertura do código, algo que ja é crucial, é garantir que seus testes abordam todos os casos de uso da sua aplicação. Para isto é preciso criar testes automatizados que simulam uma pessoal acessando a página fazendo um sequência de ações que resulta naquele caso de uso.
+
+# [Jest-dom](https://github.com/testing-library/jest-dom)
