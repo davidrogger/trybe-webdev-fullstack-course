@@ -46,3 +46,5 @@ test('renders learn react link', () => {
 });
 ```
 Para usar o seletor/query getByText, precisamos usar o screen.getByText, ele é muito parecido com os seletores, do DOM, como o document.getElementById() ou document.querySelector(). Ao usar o screen.getByText(), será retornado um elemento html. A vantagem de usar o screen é que não será necessário atualizar e desestruturar a chamada do render para todo teste que você fizer, pois é possível consultar e utilizar todos os elementos do DOM através do próprio screen. Ele receberá um objeto com os elementos contidos no DOM e poderá acessar as propriedades desse objeto atráves dele.
+
+[Exercicio do dia 01](https://github.com/davidrogger/exercise-todo-list)
