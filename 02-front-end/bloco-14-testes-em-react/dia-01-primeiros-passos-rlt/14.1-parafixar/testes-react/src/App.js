@@ -33,9 +33,9 @@ class App extends Component {
           />
         </label>
         <input
+          data-testid="id-send"
           id="btn-enviar"
           type="button"
-          data-testid="id-send"
           value="Enviar"
           onClick={ () => this.changeSaveEmail(email) }
         />
