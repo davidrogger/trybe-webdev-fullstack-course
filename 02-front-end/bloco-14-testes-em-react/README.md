@@ -186,3 +186,6 @@ test("#somar", () => {
 ```
 
 [Respositório para treinar mais mocks](https://github.com/davidrogger/exercise-digimon-finders)
+
+# Testando React Router
+
