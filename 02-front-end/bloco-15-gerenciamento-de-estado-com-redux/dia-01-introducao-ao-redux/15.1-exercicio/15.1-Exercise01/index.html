@@ -33,6 +33,7 @@
     <p>Color: <span id="value">white</span></p>
     <button id="previous">Previous color</button>
     <button id="next">Next color</button>
+    <button id="random">Random color</button>
   </div>
   <script>
     const ESTADO_INICIAL = {
@@ -41,23 +42,30 @@
     };
     const reducer = (state = ESTADO_INICIAL, action) => {
       const lastColorIndex = state.colors.length - 1;
+      const randomIndex = Math.floor(Math.random() * state.colors.length);
       switch (action.type) {
         case 'NEXT_COLOR':
           return {
             ...state,
             index: state.index === lastColorIndex ? 0 : state.index + 1,
-          }
+          };
         case "PREVIOUS_COLOR":
           return {
             ...state,
             index: state.index === 0 ? lastColorIndex : state.index - 1,
-          }
+          };
+          case "RANDOM_COLOR":
+            return {
+              ...state,
+              index: randomIndex,
+            }
         default: return state;
       };
     };
     const store = Redux.createStore(reducer);
     const previousBtn = document.getElementById('previous');
     const nextBtn = document.getElementById('next');
+    const randomBtn = document.getElementById('random');
 
     previousBtn.addEventListener('click', () => {
       store.dispatch({ type: 'PREVIOUS_COLOR' })
@@ -68,6 +76,11 @@
       store.dispatch({ type: 'NEXT_COLOR' })
       console.log('next')
     });
+
+    randomBtn.addEventListener('click', () => {
+      store.dispatch({type: "RANDOM_COLOR"});
+      console.log('random');
+    })
 
     store.subscribe(() => {
       const curreValue = document.getElementById('value');
