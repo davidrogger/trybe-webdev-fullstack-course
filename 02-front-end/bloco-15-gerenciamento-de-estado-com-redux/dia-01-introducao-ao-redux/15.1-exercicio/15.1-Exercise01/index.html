@@ -1,42 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
-    <style>
-      body {
-        height: 100vh;
-        margin: 0;
-        padding: 0;
-      }
 
-      #container {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
 
-      button {
-        height: 50px;
-        width: 200px;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="container">
-      <p>Color: <span id="value">white</span></p>
-      <button id="previous">Previous color</button>
-      <button id="next">Next color</button>
-    </div>
-    <script>
-      const ESTADO_INICIAL = {
-        colors: ['white', 'black', 'red', 'green', 'blue', 'yellow'],
-        index: 0,
+    #container {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    button {
+      height: 50px;
+      width: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <p>Color: <span id="value">white</span></p>
+    <button id="previous">Previous color</button>
+    <button id="next">Next color</button>
+  </div>
+  <script>
+    const ESTADO_INICIAL = {
+      colors: ['white', 'black', 'red', 'green', 'blue', 'yellow'],
+      index: 0,
+    };
+    const reducer = (state = ESTADO_INICIAL, action) => {
+      const lastColorIndex = state.colors.length - 1;
+      switch (action.type) {
+        case 'NEXT_COLOR':
+          return {
+            ...state,
+            index: state.index === lastColorIndex ? 0 : state.index + 1,
+          }
+        case "PREVIOUS_COLOR":
+          return {
+            ...state,
+            index: state.index === 0 ? lastColorIndex : state.index - 1,
+          }
+        default: return state;
       };
-    </script>
-  </body>
+    };
+    const store = Redux.createStore(reducer);
+    const previousBtn = document.getElementById('previous');
+    const nextBtn = document.getElementById('next');
+
+    previousBtn.addEventListener('click', () => {
+      store.dispatch({ type: 'PREVIOUS_COLOR' })
+      console.log('previous')
+    });
+
+    nextBtn.addEventListener('click', () => {
+      store.dispatch({ type: 'NEXT_COLOR' })
+      console.log('next')
+    });
+
+    store.subscribe(() => {
+      const curreValue = document.getElementById('value');
+      const containerValue = document.getElementById('container');
+      const curreState = store.getState();
+      console.log(curreState)
+      const { colors, index } = curreState;
+      const curreColor = colors[index];
+      curreValue.innerText = curreColor;
+      containerValue.style.backgroundColor = curreColor;
+    })
+  </script>
+</body>
+
 </html>
