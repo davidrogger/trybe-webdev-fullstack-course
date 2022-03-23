@@ -22,3 +22,5 @@ instalação do redux:
 npm init -y
 npm i redux
 ```
+
+## [Combinação de reducers](https://redux.js.org/api/combinereducers/)
