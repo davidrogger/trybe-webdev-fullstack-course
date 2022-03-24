@@ -24,3 +24,29 @@ npm i redux
 ```
 
 ## [Combinação de reducers](https://redux.js.org/api/combinereducers/)
+
+## Usando Redux no React
+
+instalação npm install react-redux
+
+Extensões uteis:
+Redux Devtools
+pacote adicional redux-devtools-extension = npm install --save redux-devtools-extension
+Caso não esteja instalado ela apresentará erros.
+
+para o funcionamento dessa extensão deve-se passar composeWithDevTools como segunro parametro na criação do store:
+
+```
+import { createStore } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+import rootReducer from '../reducers';
+
+const store = createStore(rootReducer, composeWithDevTools());
+
+export default store;
+```
+
+[exercicio para fixar no repositório fork](https://github.com/davidrogger/exercises-redux-step-by-step)
+
+
