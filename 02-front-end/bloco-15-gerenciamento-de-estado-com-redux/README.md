@@ -29,6 +29,9 @@ npm i redux
 
 instalação npm install react-redux
 
+`npm install --save redux react-redux`
+O npm install é o comando usado para instalar dependências; seguido por --save para salvar o pacote instalado no package.json; seguido de redux, que é a biblioteca que possui a implementação do Redux; e react-redux, que é a biblioteca que realiza a conexão entre o Redux e o React.
+
 Extensões uteis:
 Redux Devtools
 pacote adicional redux-devtools-extension = npm install --save redux-devtools-extension
@@ -47,7 +50,7 @@ const store = createStore(rootReducer, composeWithDevTools());
 export default store;
 ```
 
-[exercicio para fixar no repositório fork](https://github.com/davidrogger/exercises-redux-step-by-step)
+
 
 #### Checklist react-redux: Passo a passo para guardar no coração e colar na parede
 
@@ -92,4 +95,8 @@ criar a função mapDispatchToProps se necessário;
 fazer o connect se necessário.
 #theend
 
+
+[exercicio para fixar no repositório fork](https://github.com/davidrogger/exercises-redux-step-by-step)
+
+[exercico para fixar no repositório fork](https://github.com/davidrogger/exercise-react-with-redux-intro)
 
