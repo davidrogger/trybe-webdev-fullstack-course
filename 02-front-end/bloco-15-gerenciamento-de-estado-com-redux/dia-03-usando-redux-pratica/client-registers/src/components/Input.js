@@ -10,7 +10,7 @@ class Input extends Component {
       type={ type }
       id={ id }
       placeholder={ placehold }
-      // value={ value }
+      value={ value }
       onChange={ changeHandler }
       />
       

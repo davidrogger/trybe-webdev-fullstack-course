@@ -10,13 +10,13 @@ class NotFound extends Component {
     return (
       <div className="notFound-container">
         <h1>
-        Error 404
+          Error 404
         </h1>
         <em>
-        Page Not Found
+          Page Not Found
         </em>
         <Button
-        onClick={ () => backBtn(this.props) }
+          onClick={ () => backBtn(this.props) }
         >
           Voltar
         

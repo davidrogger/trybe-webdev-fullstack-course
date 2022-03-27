@@ -1,7 +1,8 @@
 import { LOGIN_STATUS } from "../reducers/loginReducer"
 
- const changeLogin = () => ({
+ const changeLogin = (email) => ({
   type: LOGIN_STATUS,
+  email,
 })
 
 export default changeLogin;

@@ -27,8 +27,6 @@ class Login extends Component {
     this.setState({
       fullfilled: emailTest && passwordTest,
     });
-
-
   }
 
   changeHandler = ({ target }) => {
@@ -40,7 +38,8 @@ class Login extends Component {
 
   loginBtn = () => {
     const { changeLogin, history } = this.props;
-    changeLogin();
+    const { email } = this.state;
+    changeLogin(email);
     history.push('/customers-record');
   }
 
@@ -78,7 +77,7 @@ class Login extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  changeLogin: () => dispatch(changeLogin()),
+  changeLogin: (email) => dispatch(changeLogin(email)),
 })
 
 export default  connect(null, mapDispatchToProps)(Login);

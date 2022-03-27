@@ -3,22 +3,32 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 
-import Header from '../components/Header';
+import CustomerCard from '../components/CustomerCard';
 
-import CustomerForms from '../components/CustomerForms';
+import Header from '../components/Header';
 
 class CustomersRecord extends Component {
 
+  customersList = (customers) => {
+    return customers.map(({ name, age, email }, index) => (
+      <CustomerCard key={index} name={name} age={age} email={email} />
+    ))
+  }
+
   render() {
-    const { login } = this.props;
+    const { login, customers } = this.props;
+    const customersDisplay = customers.length === 0;
+    const customerEmpty = `Nenhum cliente cadastrado`;
     return login ? (
       <>
         <Header />
         <div className="painel-container">
           <h1>
-            New Customer
+            Customer Recorded
           </h1>
-          <CustomerForms />
+          {customersDisplay
+          ? customerEmpty
+          : this.customersList(customers) }
         </div>
       </>
     ) : <Redirect to="/please-login" />;

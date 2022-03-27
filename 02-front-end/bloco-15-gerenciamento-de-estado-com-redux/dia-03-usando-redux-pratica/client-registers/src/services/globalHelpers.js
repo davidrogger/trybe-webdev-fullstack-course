@@ -1,6 +1,6 @@
 const backBtn = (props) => {
   const { history } = props;
-  history.goBack()
+  history.push('/');
 }
 
 export default backBtn;
