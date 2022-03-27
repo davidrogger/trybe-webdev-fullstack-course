@@ -100,3 +100,5 @@ fazer o connect se necessário.
 
 [exercico para fixar no repositório fork](https://github.com/davidrogger/exercise-react-with-redux-intro)
 
+# [Bloco 15.3](https://github.com/davidrogger/exercise-forms-redux)
+
