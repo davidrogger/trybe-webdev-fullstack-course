@@ -40,7 +40,7 @@ class Login extends Component {
     const { changeLogin, history } = this.props;
     const { email } = this.state;
     changeLogin(email);
-    history.push('/customers-record');
+    history.push('/customers');
   }
 
   render() {
