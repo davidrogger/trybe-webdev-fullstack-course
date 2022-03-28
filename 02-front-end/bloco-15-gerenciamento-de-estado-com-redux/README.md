@@ -168,4 +168,4 @@ class MyConectedAppToRedux extends Component {
 
 ```
 
-
+[Mais Exercicio do bloco 15.4] (https://github.com/davidrogger/exercise-redux-thunk)
