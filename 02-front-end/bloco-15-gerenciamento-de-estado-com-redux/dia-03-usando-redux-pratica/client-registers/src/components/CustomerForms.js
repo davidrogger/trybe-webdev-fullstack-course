@@ -6,7 +6,7 @@ import { Button } from 'react-bootstrap';
 
 import { connect } from 'react-redux';
 
-import recordCustomer from '../store/actions/recordCustomers';
+import { recordCustomer } from '../store/actions/recordCustomers';
 
 class CustomerForms extends Component {
   constructor(props) {
@@ -30,6 +30,8 @@ class CustomerForms extends Component {
     });
   }
 
+  idGenerator = () => Math.random().toString(16).slice(2);
+
   changeHandler = ({ target }) => {
     const { id, value } = target;
     this.setState({
@@ -40,7 +42,8 @@ class CustomerForms extends Component {
   sentForms = () => {
     const { customerRegister } = this.props;
     const { name, age, email } = this.state;
-    const newCustomer = { name, age, email };
+    const id = this.idGenerator();
+    const newCustomer = { id, name, age, email };
     customerRegister(newCustomer);
     this.setState({
       name: '',

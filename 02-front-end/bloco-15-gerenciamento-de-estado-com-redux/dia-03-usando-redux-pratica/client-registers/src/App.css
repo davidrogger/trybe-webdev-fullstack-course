@@ -85,6 +85,8 @@
   border: 1px solid gray;
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 50px;
 }
 
 .customer-card-container p {

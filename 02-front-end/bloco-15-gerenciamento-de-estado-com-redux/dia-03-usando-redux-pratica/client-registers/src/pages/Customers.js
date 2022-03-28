@@ -10,8 +10,8 @@ import Header from '../components/Header';
 class CustomersRecord extends Component {
 
   customersList = (customers) => {
-    return customers.map(({ name, age, email }, index) => (
-      <CustomerCard key={index} name={name} age={age} email={email} />
+    return customers.map(({ id, name, age, email }) => (
+      <CustomerCard key={id} id={id} name={name} age={age} email={email} />
     ))
   }
 

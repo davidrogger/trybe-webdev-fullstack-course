@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 
+import { connect } from 'react-redux';
+
+import { deleteCustomer } from '../store/actions/recordCustomers';
+
 class CustomerCard extends Component {
   render() {
-    const { name, age, email, removeCustomer } = this.props;
+    const { name, age, email, id, deleteCustomer } = this.props;
     return (
       <div className="customer-card-container">
         <p>
@@ -14,10 +18,18 @@ class CustomerCard extends Component {
         <p>
           email: {email}
         </p>
-        <button>X</button>
+        <button
+        onClick={ () => deleteCustomer(id) }
+        >
+          X
+        </button>
       </div>
     )
   }
 }
 
-export default CustomerCard;
+const mapDispatchToProps = (dispatch) => ({
+  deleteCustomer: (id) => dispatch(deleteCustomer(id)),
+})
+
+export default connect(null, mapDispatchToProps)(CustomerCard);
