@@ -14,9 +14,11 @@ function App({ isFetching, src, fetchDog }) {
           onClick={ fetchDog }
           type="button"
         >
-          Novo Doguinho
+          { !src ? 'Buscar Doguinho' : 'Buscar Outro Doguinho' }
         </button>
-        <img style={ { width: '100%' } } src={ src } alt="dog" />
+        { src ? (
+          <img style={ { width: '100%' } } src={ src } alt="dog" />
+        ) : <p>Busque um doguinho</p>}
       </div>
     )
   );

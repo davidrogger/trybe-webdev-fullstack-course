@@ -2,11 +2,11 @@ export const GET_IMAGE = 'GET_IMAGE';
 export const REQUEST_IMAGE = 'REQUEST_IMAGE';
 export const FAILED_REQUEST = 'FAILED_REQUEST';
 
-const firstImage = 'https://images.dog.ceo/breeds/terrier-cairn/n02096177_342.jpg';
+// const firstImage = 'https://images.dog.ceo/breeds/terrier-cairn/n02096177_342.jpg';
 
 const INITIAL_STATE = {
   isFetching: false,
-  imagePath: firstImage,
+  imagePath: '',
   error: '',
 }
 
