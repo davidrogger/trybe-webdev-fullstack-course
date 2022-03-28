@@ -1,6 +1,9 @@
 import React from 'react';
 import './App.css';
 
+import { connect } from 'react-redux'
+import { fetchDog } from './store/actions';
+
 function App({ isFetching, src, fetchDog }) {
   return (
     isFetching ? <p>Loading...</p>
@@ -19,4 +22,13 @@ function App({ isFetching, src, fetchDog }) {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  src: state,
+  isFetching: state.isFetching,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchDog: () => dispatch(fetchDog())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

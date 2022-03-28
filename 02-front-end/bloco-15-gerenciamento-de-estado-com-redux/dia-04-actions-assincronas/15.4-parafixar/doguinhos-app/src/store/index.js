@@ -1,8 +1,8 @@
 import { combineReducers, createStore } from 'redux';
 
-const tempReducer = {}
+import { reducer } from './reducers';
 
-const rootReducer = combineReducers({ tempReducer });
+const rootReducer = combineReducers({ reducer });
 
 const store = createStore(rootReducer);
 
