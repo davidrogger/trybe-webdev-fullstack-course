@@ -41,7 +41,9 @@ São páginas web, que não recarregam.
 
 ## BrowserRouter e route
 
-Não é nativo do React, é necessário instalar por npm install react-router-dom@v5 (@v5 seria a versao que será instalada).
+Não é nativo do React, é necessário instalar por
+`npm install react-router-dom@v5`
+(@v5 seria a versao que será instalada).
 É um componente que encapsula sua aplicação, de forma a te possibilitar fazer uso de navegação.
 
 Route é o componente fundamental em React Router, que estabelece o mapeamento entre o caminho de URL declarado com o componente.
