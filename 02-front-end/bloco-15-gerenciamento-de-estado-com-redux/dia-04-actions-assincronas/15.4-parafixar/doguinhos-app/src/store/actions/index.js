@@ -8,8 +8,8 @@ const failedRequest = (error) => ({ type: FAILED_REQUEST, payload: error });
 
 export const fetchDog = () => {
   return async (dispatch) => {
-    dispatch(requestDog());
     try {
+      dispatch(requestDog());
       const response = await fetch('https://dog.ceo/api/breeds/image/random');
       const data = await response.json();
       return  dispatch(getImage(data));
