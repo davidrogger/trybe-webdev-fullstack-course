@@ -169,3 +169,6 @@ class MyConectedAppToRedux extends Component {
 ```
 
 [Mais Exercicio do bloco 15.4] (https://github.com/davidrogger/exercise-redux-thunk)
+
+
+[Exercicio de testes realizados em outro repositório](https://github.com/davidrogger/exercise-react-with-redux-intro)
