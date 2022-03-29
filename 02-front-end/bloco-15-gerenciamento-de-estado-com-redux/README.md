@@ -102,3 +102,70 @@ fazer o connect se necessário.
 
 # [Bloco 15.3](https://github.com/davidrogger/exercise-forms-redux)
 
+# Redux Thunk
+
+Pacote para suporte assícrono, ja que o redux trabalha somente com funcionalidades síncronas.
+
+instalação do redux-thunk: `npm install redux-thunk`
+
+àra habilitar o uso na aplicação é preciso fazer o uso da função applayMiddleware() do Redux:
+
+```
+// arquivo onde a redux store é criada
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import reducer from '/path/to/your/root/reducer';
+
+...
+
+const store = createStore(reducer, applyMiddleware(thunk));
+...
+```
+
+Para usar junto com o composeWithDevTools, o apply deve ser passado como parametro dentro do compose.
+
+`const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));`
+
+Thunk é uma função que encapsula uma operação para que ela seja feita posteriormente, é uma função que vai ser retornada por outra função com mais lógica adicionada.
+
+Para o uso devido do redux-thunk a action creator precisa retornar uma função, que pode fazer uso de dispatch e getState da store como parâmetro.
+
+exemplo:
+```
+export const REQUEST_MOVIES = 'REQUEST_MOVIES';
+export const RECEIVE_MOVIES = 'RECEIVE_MOVIES';
+
+// action creator que retorna um objeto, que você tem feito até então
+const requestMovies = () => ({
+  type: REQUEST_MOVIES});
+
+// outro action creator que retorna um objeto, que você tem feito até então
+const receiveMovies = (movies) => ({
+  type: RECEIVE_MOVIES,
+  movies});
+
+// action creator que retorna uma função, possível por conta do pacote redux-thunk
+export function fetchMovies() {
+  return (dispatch) => { // thunk declarado
+    dispatch(requestMovies());
+    return fetch('alguma-api-qualquer.com')
+      .then((response) => response.json())
+      .then((movies) => dispatch(receiveMovies(movies)));
+  };
+}
+
+// componente onde você usaria a action creator fetchMovies assíncrona como uma outra qualquer
+...
+class MyConectedAppToRedux extends Component {
+  ...
+  componentDidMount() {
+    const { dispatch, fetchMovies } = this.props;
+    dispatch(fetchMovies()); // enviando a action fetchMovies
+  }
+  ...
+}
+...
+
+```
+
+[Mais Exercicio do bloco 15.4] (https://github.com/davidrogger/exercise-redux-thunk)
