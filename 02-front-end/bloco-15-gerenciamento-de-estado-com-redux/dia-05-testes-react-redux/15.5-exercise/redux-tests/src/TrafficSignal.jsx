@@ -34,7 +34,6 @@ const altText = (signalColor) => {
 }
 
 function TrafficSignal({ signalColor, changeSignal }) {
-  console.log(signalColor);
   return (
     <div>
       <div className="button-container">
