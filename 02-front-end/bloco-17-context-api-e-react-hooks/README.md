@@ -1,0 +1,3 @@
+anotações pessoais...
+
+# Context API do React
