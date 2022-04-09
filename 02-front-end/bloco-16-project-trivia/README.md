@@ -1,0 +1,1 @@
+Bloco somente para desenvolvimento do projeto da Trívia.
