@@ -13,4 +13,25 @@ A segunda forma de criar um componente é com o componente funcional, que utiliz
 
 ## useState
 
+o useState é o hook mais comum e ele permite o uso do state e outros recursos do React sem escrever uma classe.
+
+```
+import React, { useState } from "react";
+
+function App() {
+  const [counter, setCounter] = useState(0);
+  return (
+    <div>
+      <div>Counter: {counter}</div>
+      <button type="button" onClick={() => setCounter(counter + 1)}>
+        Increase Counter
+      </button>
+    </div>
+  );
+}
+
+export default App;
+```
+
+
 ## useContext
