@@ -13,7 +13,7 @@ A segunda forma de criar um componente é com o componente funcional, que utiliz
 
 ## useState
 
-o useState é o hook mais comum e ele permite o uso do state e outros recursos do React sem escrever uma classe.
+O useState é o hook mais comum e ele permite o uso do state e outros recursos do React sem escrever uma classe.
 
 ```
 import React, { useState } from "react";
@@ -32,6 +32,60 @@ function App() {
 
 export default App;
 ```
-
-
 ## useContext
+
+Ele funciona como um Consumer, mas de uma forma menos complexa tornando o código bem mais legível.
+
+Precisamos primeiro importar dele do react;
+
+```
+import { createContext } from 'react';
+
+const AppContext = createContext();
+
+export default AppContext;
+```
+
+e configurarmos um provider;
+
+
+```
+import React, { useState } from 'react';
+import AppContext from './AppContext';
+
+function Provider({ children }) {
+  const [stateA, setStateA] = useState('initialStateA');
+  const [stateB, setStateB] = useState('initialStateB');
+  const contextValue = {
+    stateA,
+    setStateA,
+    stateB,
+    setStateB,
+  };
+
+  return (
+    <AppContext.Provider value={contextValue}>
+      {children}
+    </AppContext.Provider>
+  );
+}
+
+export default Provider;
+```
+
+Com o context e o provider criados, adicionamos à aplicação;
+
+```
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+import App from './App'
+import Provider from '../utils/Provider'
+
+ReactDOM.render(
+  <Provider>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+)
+```
