@@ -110,6 +110,8 @@ Para que isso aconteça o hook recebe, geralmente, dois parâmetros, que são um
 | ------------------------------------------------------------- |
 | O comportamento deste modelo será semelhante ao `componentDidUpdate` e ele será executado sempre que houver mudança em alguma das variáveis especificadas. |
 
-
+| `useEffect(() => () => {} , []);` |
+| --------------------------------- |
+| Este caso é mais específico, pois ele pode agregar a utilização de um dos dois últimos exemplos, o `componentDidMount` ou `componentDidUpdate` dependendo do segundo parâmetro, e a função presente no retorno se comporta como `componentWillUnmount`. Ou seja, quando o componente desmonta a função retornada pelo `useEffect` é executada. Você deve definir essa função sempre que precisar limpar algo criado por seu efeito (como algum _timer_, por exemplo) |
 
 ## Hooks customizados
