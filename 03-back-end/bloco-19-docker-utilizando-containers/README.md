@@ -113,3 +113,13 @@ O terminal deve retornar uma mensagem com dicas, conforme a seguir:
 
 Quando damos o comando docker run hello-world, estamos pedindo para que ele busque em seu repositório oficial uma imagem chamada hello-world. Trata-se de um exemplo simples de um contêiner, que ao final nos retorna uma mensagem de texto. Falaremos mais sobre isso adiante!
 Voilà 👌 Temos o Docker prontinho para utilizarmos! 🐋
+
+# Desinstalando o Docker Engine
+
+`sudo apt-get purge docker-ce docker-ce-cli containerd.io`
+
+Para remover contêiners, volumes (que veremos nas próximas aulas) e configurações personalizadas que não são removidas automaticamente pelo apt-get, utilize os seguintes comandos:
+```
+sudo rm -rf /var/lib/docker
+sudo rm -rf /var/lib/containerd
+```
