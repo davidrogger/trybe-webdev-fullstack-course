@@ -4,8 +4,8 @@ anotações pessoais...
 
 É uma funcionalidade nativa do React, usado para compartilhar para todos os filhos do componente sem a necessidade de se passar props e callbacks manualmente.
 
-[Exercício do bloco 17.1](https://github.com/davidrogger/exercise-contextAPI-refactoring)
-[Exercício do bloco 17.2](https://github.com/davidrogger/exercise-react-hooks-refactoring)
+1. [Exercício do bloco 17.1](https://github.com/davidrogger/exercise-contextAPI-refactoring)
+2. [Exercício do bloco 17.2](https://github.com/davidrogger/exercise-react-hooks-refactoring)
 
 # React Hooks
 
@@ -90,3 +90,28 @@ ReactDOM.render(
   document.getElementById('root')
 )
 ```
+
+## useEffect
+
+É uma junção do component did mount, update e willunmount.
+Ele leva esse nome por conta dos efeitos colaterais que são produzidos na aplicação diante de um evento ou variável que precisa ser observada, seja a montagem do componente, alteração de um estado, ou a desmontagem do componente.
+
+Para que isso aconteça o hook recebe, geralmente, dois parâmetros, que são uma callback e um array:
+
+|`useEffect(() => {});`|
+| -------------------- |
+| Esta configuração executará a função toda vez que o componente sofrer qualquer tipo de alteração e renderizar, **repetidas vezes**. Ela precisa ser utilizada com **cautela**, pois facilmente resulta em **loops infinitos**. |
+
+| `useEffect(() => {}, []);` |
+| -------------------------- |
+| Neste caso, a função será executada similarmente ao `componentDidMount`, rodando apenas uma vez e na montagem do componente. |
+
+| `useEffect(() => {}, [variável1, variável2, ... variávelN]);` |
+| ------------------------------------------------------------- |
+| O comportamento deste modelo será semelhante ao `componentDidUpdate` e ele será executado sempre que houver mudança em alguma das variáveis especificadas. |
+
+| `useEffect(() => () => {} , []);` |
+| --------------------------------- |
+| Este caso é mais específico, pois ele pode agregar a utilização de um dos dois últimos exemplos, o `componentDidMount` ou `componentDidUpdate` dependendo do segundo parâmetro, e a função presente no retorno se comporta como `componentWillUnmount`. Ou seja, quando o componente desmonta a função retornada pelo `useEffect` é executada. Você deve definir essa função sempre que precisar limpar algo criado por seu efeito (como algum _timer_, por exemplo) |
+
+## Hooks customizados
