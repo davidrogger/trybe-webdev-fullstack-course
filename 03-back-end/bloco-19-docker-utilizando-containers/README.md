@@ -181,3 +181,51 @@ Para visualizar o ultimo container criado:
 **Port:** A porta que estamos utilizando para nos comunicar com o contêiner.
 **Names:** O apelido do contêiner. Quando não é definido um, ele é criado aleatóriamente.
 
+Quando executamos algum comando relacionado ao contêiner, podemos nos referenciar tanto pelo campo ID(inteiro ou parte dele), quanto pelo campo name.
+
+#### Comando adicional antes de terminar o contêiner
+
+É possivel executar comandos de terminal no contêiner antes que ele seja encerrado.
+`docker container run <nome-da-imagem>:<tag> <comando> <argumentos-do-comando>`
+
+Exemplo:
+`docker container run ubuntu echo 'Hello Tryber!!'`
+
+#### Rodando o contêiner de forma interativa
+
+E se quisermos, por exemplo, utilizar um terminal dentro do contêiner (à la inception)? É só passar o parâmetro -ti⁸ ao comando run que dá acesso a esse terminal*:
+O comando -ti são dois comandos juntos:
+-t que indica pro Docker que estamos requisitando um terminal no contêiner que consiga imprimir o retorno dos nossos comandos;
+-i que estabelece uma interface de comunicação física com esse terminal, no caso, por meio do teclado.
+
+## Principais comandos do CLI
+
+[Documentação de comandos](https://docs.docker.com/engine/reference/commandline/docker/)
+
+Deve-se criar um novo contêiner e rodá-lo logo em seguida:
+```
+docker container run <parâmetros> <imagem>:<tag>
+```
+
+O parâmetro --name define um <nome-da-sua-escolha> para aquele contêiner (ao invés de um nome aleatório):
+```
+docker container run --name <nome-da-sua-escolha> <imagem>:<tag>
+```
+
+Modo 'Cleanup': O parâmetro --rm deve garantir que o contêiner seja removido ao final da execução (útil para testar imagens sem ficar acumulando contêiners novos):
+```
+docker container run --rm <imagem>:<tag>
+```
+
+O parâmetro -d (de --detach, desacoplado em português) rodará esse contêiner em segundo plano¹:
+```
+docker container run -d <imagem>:<tag>
+```
+Trabalhar em segundo plano significa que a aplicação está rodando, porém de forma assíncrona ao comando. Ou seja, embora não esteja visível, o processo está funcionando por de trás dos panos. É possível validar isso com o comando docker ps -a.
+
+(Comando antigo)² Abreviação do comando docker container run:
+`docker run <parâmetros> <imagem>:<tag>`
+
+Nas versões mais novas, o Docker vem adotando comandos mais verbosos, nos quais identificamos a entidade (container, image etc) que estamos trabalhando, antes de realizar o comando, o que o torna o processo mais semântico.
+Isso não significa, contudo, que os comandos das primeiras versões estejam depreciados (isto é, caíram em desuso), mas pode ser um alerta para futuras versões.
+
