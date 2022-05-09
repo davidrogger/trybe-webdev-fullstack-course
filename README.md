@@ -6,7 +6,7 @@ _"A Trybe &eacute; uma escola do futuro para qualquer pessoa que queira melhorar
 
 O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda introdu&ccedil;&atilde;o ao desenvolvimento de software, front-end, back-end, ci&ecirc;ncia da computa&ccedil;&atilde;o, engenharia de software, metodologias &Aacute;geis e habilidades comportamentais.
 
-## Fundamentos do Desenvolvimento Web :hourglass_flowing_sand:
+## Fundamentos do Desenvolvimento Web :heavy_check_mark:
 
 ##### Bloco 1: Introdu&ccedil;&atilde;o - Unix & Shell
 
@@ -54,14 +54,14 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] 6-3: _CSS Flexbox - Part 1_
 - [x] 6-4: _CSS Flexbox - Part 2_
 - [x] 6-5: _CSS Responsivo - Mobile First_
-- [ ] 6-6: _[Projeto - P&Aacute;gina inicial do Facebook]()_
+- [ ] 6-6: _[Projeto - Trybewarts]()_
 
 ##### Bloco 7: JavaScript ES6 & Testes Unit&Aacute;rios
 
 - [x] 7-1: _JavaScript ES6 - let, const, arrow functions e template literals_
 - [x] 7-2: _JavaScript ES6 - Fluxo de exceção e Objects_
 - [x] 7-3: _Primeiros passos em Jest_
-- [ ] 7-4: _[Projeto - JavaScript Testes Unit&Aacute;rios]()_
+- [ ] 7-4: _[Projeto - JavaScript Testes Unitários]()_
 
 ##### Bloco 8: JavaScript ES6
 
@@ -79,7 +79,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] 9-3: _Jest - Testes Assíncronos_
 - [ ] 9-4: _[Projeto - Carrinho de Compras]()_
 
-## Desenvolvimento Front-end :hourglass_flowing_sand:
+## Desenvolvimento Front-end :heavy_check_mark:
 
 ##### Bloco 10: Introdução - React
 
@@ -91,7 +91,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 
 - [x] 11-1: _Components com estado e eventos_
 - [x] 11-2: _Formulário no React_
-- [ ] 11-3: _[Projeto - Super Trunfo]()_
+- [ ] 11-3: _[Projeto - Super Tryunfo]()_
 
 ##### Bloco 12: Ciclo de Vida de Componentes e React Router
 
@@ -133,19 +133,19 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 
 ##### Bloco 19: Projeto Final de Front-end
 
-- [ ] 19-1: _[Projeto - App de Receitas]()_
+- [ ] 18-1: _[Projeto - App de Receitas]()_
 
 ## Desenvolvimento Back-end :hourglass_flowing_sand:
 
-##### Bloco 20: Introdu&ccedil;&atilde;o - Bancos de dados relacionais
+##### Bloco 19: Docker: Utilizando Containers
 
-- [ ] 20-1: _Banco de dados SQL_
-- [ ] 20-2: _Encontrando dados em um banco de dados_
-- [ ] 20-3: _Filtrando dados de forma espec&atilde;­fica_
-- [ ] 20-4: _Manipulando tabelas_
-- [ ] 20-5: _[Projeto - All For One]()_
+- [x] 19-1: _Introdução - Back-end_
+- [x] 19-2: _Utilizando Containers - Docker_
+- [ ] 19-3: _Manipulação e Criação de Imagens no Docker_
+- [ ] 19-4: _Orquestrando Containers com Docker Compose_
+- [ ] 19-5: _[Projeto - Docker Todo-List]()_
 
-##### Bloco 21: Bancos de dados relacionais
+##### Bloco 20: Introdução à SQL
 
 - [ ] 21-1: _Fun&ccedil;&atilde;µes mais usadas no SQL_
 - [ ] 21-2: _Descomplicando JOINs e UNIONs_
