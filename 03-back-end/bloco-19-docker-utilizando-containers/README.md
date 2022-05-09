@@ -7,12 +7,6 @@ Ele usa um conceito de containerização.
 O contêiner é um processo Docker que, internamente, possui tudo aquilo que é necessário para seu funcionamento: Sistema Operacional (Binários e Bibliotecas) e recursos necessários para sua aplicação;
 A imagem é uma espécie de "fotografia" de um contêiner. Resgatamos uma imagem quando queremos iniciar um novo contêiner a partir de uma estrutura já conhecida.
 
-#### Container
-
-Lembram muito, mas não são máquinas virtuais, já que podemos roda uma aplicação Linux em qualquer ambiente através deles.
-Um contêiner não é uma máquina virtual pois, embora compartilhem de mesmas caracterísitcas, o contêiner é uma instância isolada (tem apenas uma finalidade) e compartilha dos mesmos recursos do sistema operacional hospedeiro ao que damos o nome de virtualização a nível de sistema operacional.
-Um contêiner não deve ser utilizado para abrigar várias aplicações. Justamente por isso que ele ocupa muito menos espaço que uma VM. Sua tendência é de manter somente o essencial no seu contéudo.
-
 ### Instalando Docker
 
 Instalando no Ubuntu via terminal:
@@ -134,3 +128,28 @@ Para remover contêiners, volumes (que veremos nas próximas aulas) e configura�
 sudo rm -rf /var/lib/docker
 sudo rm -rf /var/lib/containerd
 ```
+
+#### Container
+
+Lembram muito, mas não são máquinas virtuais, já que podemos roda uma aplicação Linux em qualquer ambiente através deles.
+Um contêiner não é uma máquina virtual pois, embora compartilhem de mesmas caracterísitcas, o contêiner é uma instância isolada (tem apenas uma finalidade) e compartilha dos mesmos recursos do sistema operacional hospedeiro ao que damos o nome de virtualização a nível de sistema operacional.
+Um contêiner não deve ser utilizado para abrigar várias aplicações. Justamente por isso que ele ocupa muito menos espaço que uma VM. Sua tendência é de manter somente o essencial no seu contéudo.
+
+#### Imagens
+
+Imagens podem se referir a praticamente qualquer tipo de contêiner. Um exemplo disso é pensar o próprio sistema operacional Ubuntu, que possui [uma imagem oficial no Docker Hub](https://hub.docker.com/_/ubuntu).
+
+O [Docker Hub](https://hub.docker.com/) é o principal repositório de imagens Docker atualmente. Nele, possuimos o que é chamado de [Registro](https://docs.docker.com/registry/introduction/) onde requisitamos essas imagens.
+
+O registry é um sistema de armazenamento e entrega no qual podemos ter um usuário com nossas próprias imagens. Possui certa similaridade com o GitHub, já que podemos dar pull nessas imagens para uso posterior.
+
+## Fluxo padrão
+
+![fluxo docker](/03-back-end/bloco-19-docker-utilizando-containers/images/docker-flow.webp)
+
+#### Dockerfile
+
+Possui as instruções necessárias para que possamos gerar uma imagem, aqui vão instruções de qual sistema operacional usar, tal como quais comandos devem ser executados quando a imagem for rodada em um contêiner.
+Após isso, podemos dar push ou pull (como em um repositório do GitHub) em uma imagem no Registry.
+Pode-se dar pull na sua própria imagem (caso tenha dado push nela) ou em outra de sua escolha, como ocorreu anteriormente no hello-world.
+
