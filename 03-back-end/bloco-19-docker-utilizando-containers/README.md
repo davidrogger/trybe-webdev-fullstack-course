@@ -2,6 +2,17 @@ anotações pessoais...
 
 # Docker
 
+Foi desenvolvido com o objetivo de resolver os problemas de compatibilidade, com ele conseguimos definir exatamente como nossa aplicação deve rodar, desde configurações e bibliotecas a sistema operacional.
+Ele usa um conceito de containerização.
+O contêiner é um processo Docker que, internamente, possui tudo aquilo que é necessário para seu funcionamento: Sistema Operacional (Binários e Bibliotecas) e recursos necessários para sua aplicação;
+A imagem é uma espécie de "fotografia" de um contêiner. Resgatamos uma imagem quando queremos iniciar um novo contêiner a partir de uma estrutura já conhecida.
+
+#### Container
+
+Lembram muito, mas não são máquinas virtuais, já que podemos roda uma aplicação Linux em qualquer ambiente através deles.
+Um contêiner não é uma máquina virtual pois, embora compartilhem de mesmas caracterísitcas, o contêiner é uma instância isolada (tem apenas uma finalidade) e compartilha dos mesmos recursos do sistema operacional hospedeiro ao que damos o nome de virtualização a nível de sistema operacional.
+Um contêiner não deve ser utilizado para abrigar várias aplicações. Justamente por isso que ele ocupa muito menos espaço que uma VM. Sua tendência é de manter somente o essencial no seu contéudo.
+
 ### Instalando Docker
 
 Instalando no Ubuntu via terminal:
