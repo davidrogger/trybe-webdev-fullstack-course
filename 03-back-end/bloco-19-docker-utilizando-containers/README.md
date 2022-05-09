@@ -229,3 +229,129 @@ Trabalhar em segundo plano significa que a aplicação está rodando, porém de 
 Nas versões mais novas, o Docker vem adotando comandos mais verbosos, nos quais identificamos a entidade (container, image etc) que estamos trabalhando, antes de realizar o comando, o que o torna o processo mais semântico.
 Isso não significa, contudo, que os comandos das primeiras versões estejam depreciados (isto é, caíram em desuso), mas pode ser um alerta para futuras versões.
 
+## Criar um contêiner sem executá-los
+
+Cria um contêiner com a imagem de referência, mas não o executa imediatamente:
+```
+docker container create <parâmetros> <imagem>:<tag>
+```
+
+O parâmetro -it nesse contexto, deve garantir que, ao iniciar o contêiner, ele se mantenha ativo e disponha de um terminal de acesso:
+```
+docker container create -it <imagem>:<tag>
+```
+
+(Comando antigo) Abreviação do comando docker container create:
+```
+docker create <parâmetros> <imagem>:<tag>
+```
+
+### Listar contêiners
+
+Lista (ls, list em inglês) todos os contêiners ativos:
+```
+docker container ls
+```
+
+Lista todos os contêiners ativos e inativos:
+```
+docker container ls -a
+```
+
+Lista o último contêiner criado independente do seu estado:
+```
+docker container ls -l
+```
+
+(Comando antigo) Abreviação do comando docker container ls (que também pode ser chamado como docker container ps):
+```
+docker ps <parâmetro>
+```
+
+### Iniciar, reiniciar, pausar, resumir e parar um contêiner
+
+Inicia³ um contêiner usando referências de sua identificação única (campo CONTAINER ID, parcialmente ou inteiro), ou pelo nome (campo NAMES) que foi definido:
+```
+docker container start <CONTAINER ID || NAMES>
+```
+
+Note que o comando start difere do comando run. O start apenas inicia o contêiner que já havia sido criado (mas estava inativo), enquanto o run cria e executa um novo container!
+
+Reinicia um contêiner usando as referências citadas anteriormente:
+```
+docker container restart <CONTAINER ID || NAMES>
+```
+
+Pausa um contêiner usando as referências citadas anteriormente:
+```
+docker container pause <CONTAINER ID || NAMES>
+```
+
+Tira um contêiner do modo de pausa usando as referências citadas anteriormente:
+```
+docker container unpause <CONTAINER ID || NAMES>
+```
+
+Encerra um contêiner usando as referências citadas anteriormente:
+```
+docker container stop <CONTAINER ID || NAMES>
+```
+
+(Comando antigo) Abreviações para os comandos anteriores:
+```
+docker <start || restart || pause || unpause || stop> <CONTAINER ID || NAMES>
+```
+
+É possível realizar essas operações passando mais de uma referência de contêiner por vez, como no exemplo abaixo:
+
+![multi commands](/03-back-end/bloco-19-docker-utilizando-containers/images/docker-container-start-stop-tip.gif)
+
+### Retomando o acesso a um contêiner interativo rodando em segundo plano
+
+Caso você tenha iniciado um contêiner em segundo plano utilizando -dit, você pode acessar esse contêiner rodando o comando attach:
+```
+docker container attach <CONTAINER ID || NAMES>
+```
+
+Abreviação do comando docker container attach <CONTAINER ID || NAMES>:
+```
+docker attach <CONTAINER ID || NAMES>
+```
+
+### Excluindo contêiners específicos
+
+Se o contêiner não estiver ativo, esse comando deve removê-lo:
+```
+docker container rm <CONTAINER ID || NAMES>
+```
+
+Se o contêiner estiver ativo, você deve passar o parâmetro -f (forçar) para parar sua execução e depois efetuar a remoção:
+```
+docker container rm -f <CONTAINER ID || NAMES>
+```
+
+(Comando antigo) Abreviação do comando docker container rm:
+```
+docker rm <CONTAINER ID || NAMES>
+```
+
+### Limpando contêiners que não estão sendo utilizados
+
+⚠️ USE COM MODERAÇÃO ⚠️ Esse comando remove todos os contêiners inativos do seu computador. O comando pede confirmação e o resultado é conforme a imagem a seguir:
+```
+docker container prune
+```
+
+![prune-container](/03-back-end/bloco-19-docker-utilizando-containers/images/docker-container-prune.png)
+
+### Monitorando os processos dentro de um contêiner
+
+O comando top, assim como nos terminais Linux, traz as informações sobre os processos que estão sendo rodados, mas dentro daquele contêiner. Logo, não inclui serviços que são compartilhados com o sistema hospedeiro, por exemplo. Ele é útil para quando estamos os rodando em segundo plano:
+```
+docker container top <CONTAINER ID || NAMES>
+```
+
+![top-command](/03-back-end/bloco-19-docker-utilizando-containers/images/docker-container-top.gif)
+
+Aqui o contêiner é rodado com um comando dd if=/dev/zero of=/dev/null que, no nosso caso, serve para estressar o contêiner, mostrando-o na lista de processos.
+
