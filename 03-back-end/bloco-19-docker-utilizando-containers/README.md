@@ -153,3 +153,31 @@ Possui as instruções necessárias para que possamos gerar uma imagem, aqui vã
 Após isso, podemos dar push ou pull (como em um repositório do GitHub) em uma imagem no Registry.
 Pode-se dar pull na sua própria imagem (caso tenha dado push nela) ou em outra de sua escolha, como ocorreu anteriormente no hello-world.
 
+O registro mais comum é o Docker Hub, mas temos outros exemplos, como a imagem expõe.
+
+Por último, rodamos a imagem em um contêiner, utilizando o comando run.
+
+Após isso, temos que dizer para o contêiner o que deve acontecer: se ele deve se manter ativo ou não. Caso o contrário, o contêiner é encerrado, o que faz parte de seu ciclo de vida.
+
+Sintaxe para os comandos do docker:
+`docker <comando> <sub-comando> <parâmetros>`
+
+Podemos abreviar alguns comandos, como foi o caso do docker run hello-world, que também poderia ser escrito como docker container run hello-world. Utilizaremos esta última forma por ser mais atual e verbosa.
+
+Para saber quais contâiner estão ativos com o seguinte comando:
+`docker container ls`
+
+Para visualizar todos incluindos os inativos:
+`docker container ls -a`
+
+Para visualizar o ultimo container criado:
+`docker container ls -l`
+
+**Contrainer ID:** Identificador único.
+**Image:** O nome da imagem utilizada para a criação do contêiner.
+**Command:** O comando executado/ em execução dentro do contêiner.
+**Created:** Quando foi criado o contêiner.
+**Status:** O status atual.
+**Port:** A porta que estamos utilizando para nos comunicar com o contêiner.
+**Names:** O apelido do contêiner. Quando não é definido um, ele é criado aleatóriamente.
+
