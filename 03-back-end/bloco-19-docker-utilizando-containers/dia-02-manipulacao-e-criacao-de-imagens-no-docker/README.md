@@ -258,3 +258,46 @@ A seguir será substituido a linha de CMD pelo entrypoint:
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
 ```
 
+## Gerando uma imagem a partir do nosso Dockerfile
+
+Para consolidar as instruções criadas no dockerfile e gerar a imagem, usamos o comando
+```
+docker image build -t <name:tag> <origem_docker_file>
+```
+
+Temos o comando docker acompanhado da instância image e do subcomando build, isso retorna um log do processo build:
+```
+docker image build -t react-dockerized:v1 .
+
+Sending build context to Docker daemon  870.4kB
+Step 1/10 : FROM node:14-alpine AS build
+ ---> fe39f43f1d22
+Step 2/10 : WORKDIR /app
+ ---> Running in e42203ccae10
+Removing intermediate container e42203ccae10
+ ---> 890531fc8024
+Step 3/10 : COPY package*.json ./
+ ---> 7c756629dd86
+Step 4/10 : RUN npm install
+ ---> Running in 379b2754f2f6
+
+# ... demais passos
+
+Removing intermediate container 1be22b2c3906
+ ---> 9392a56b85dc
+Successfully built 9392a56b85dc
+Successfully tagged react-dockerized:v1
+```
+
+É utilizado o parâmetro -t (de tag) com o valor react-dockerizad:v1 (esta sendo puxado uma tag v1 para a imagem) e o ponto ".", indica que o dockerfile se encontra na mesma pasta em que o comando está sendo executado.
+
+Após a execução da build, pode-se listar a imagem e verificar a presença dela:
+```
+docker images
+```
+
+Para ver a aplicação funcionando, basta roda o projeto no terminal interativo, definindo qual porta do nosso localhost será atribuida para qual porta do contêiner.
+```
+docker run -dit -p 8000:80 --name reactdockerized react-dockerized:v1
+```
+
