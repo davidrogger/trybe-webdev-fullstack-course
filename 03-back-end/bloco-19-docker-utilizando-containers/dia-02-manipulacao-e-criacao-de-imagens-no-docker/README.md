@@ -325,3 +325,27 @@ Esse valor pode ser resgatado posteriormente através do comando `docker inspect
 }
 ```
 
+## ENV
+
+Em ambientes de desenvolvimento de apps é muito importante o uso de enviroment variables e isso também pode ser adotado em nossos contêiners.
+
+Variáveis de ambiente são valores que são definidos dentro do escopo do sistema operacional, ou seja, são valores que estão disponíveis para todas as aplicações que estão instaladas dentro daquele SO.
+
+No Dockerfile podemos definir nossas variáveis durante a criação da imagem utilizando o comando ENV:
+```
+ENV <ENV NAME> <ENV VALUE>
+```
+
+Podemos utilizá-la por exmeplo, para setar o ambiente onde vamos rodar o app.
+```
+ENV NODE_ENV production
+```
+
+Ao rodar nossos contêineres também podemos passar variáveis. Basta utilizar a tag --env ou -e:
+```
+docker container run \
+   --env myCat=fluffy \
+   --env myName=johnDoe \
+   <IMAGE NAME>
+```
+
