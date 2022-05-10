@@ -132,3 +132,49 @@ FROM nginx:1.16.0-alpine AS prod
 COPY --from=build /app/build /usr/share/nginx/html
 ```
 
+## Expose
+
+É usado para especificar as portas de acesso da nossa aplicação dentro do contêiner.
+```
+EXPOSE <PORTA-DO-APP-NO-CONTAINER>
+```
+
+Exemplo:
+```
+EXPOSE 3000
+```
+
+Por padrão o Nginx usa a porta 80 para executar as aplicações, pode-se expor ela em nosso Dockerfile:
+```
+# FROM node:14-alpine AS build
+# WORKDIR /app
+# COPY package*.json ./
+# RUN npm install
+# COPY . .
+# RUN npm run build
+
+# FROM nginx:1.16.0-alpine AS prod
+# COPY --from=build /app/build /usr/share/nginx/html
+EXPOSE 80
+```
+
+Quando formos rodar um container utilizando uma imagem que expõe uma porta, precisamos atribuir uma porta do nosso sistema hospedeiro que direcionará para a porta do sistema convidado.
+
+Isso é feito com o parâmetro -p:
+```
+docker container run \
+   -p <PORTA-HOST>:<PORTA-GUEST> \
+   <IMAGEM>:<TAG>
+```
+
+Exemplo, uma aplicação que serve na porta 80 que está exposta no Dockerfile e queremos acessá-la a partir da porta 3000 do host:
+```
+docker container run \
+   -p 3000:80 \
+   --rm \
+   -dit \
+   yeasy/simple-web:latest
+```
+
+Após rodar o container, basta acessar o localhost:3000, para visualizar o "Real Visit Results"
+
