@@ -31,3 +31,53 @@ Para criarmos um container com uma porta padronizada do docker, usando o servido
 
 O prefixo -P faz com que o docker gere as portas de forma automatica, mas caso seja necessário gerar um container com portar predefinidas é usado o prefixo -p seguindo das portas que você precisa, inicialmente indicamos a porta local, e na sequencia a porta do container, exemplo, porta local 80 e porta do container 80: docker `container run -d -p 80:80 httpd:2.4`
 
+## Dockerfile
+
+É um arquivo de configuração usado pelo Docker com a descrição passo a passo do que você deseja que aconteça.
+
+## FROM
+
+Ao criarmos uma nova imagem, sempre devemos baseá-la em uma outra, e para isso utilizamos o FROM. Por exemplo, para criar uma nova imagem que rodará sob um ubuntu:
+```
+FROM ubuntu:latest
+```
+
+## WORKDIR
+
+Com o comando WORKDIR podemos definir um "diretório de trabalho" que será utilizado como base para a execução dos comandos. Sua estrutura é a seguinte:
+```
+WORKDIR /diretorio/que/sera/utilizado
+```
+
+## COPY
+
+É usado para copiar os arquivos para dentro da nossa imagem.
+```
+COPY ["./app", "/usr/src/app"]
+```
+Com o comando COPY conseguimos montar nossa estrutura do código fonte dentro da imagem. Porém, para executá-la precisaríamos apontar para o diretório que definimos anteriormente como nosso diretório de trabalho (WORKDIR).
+Vale ressaltar que no COPY tanto a sintaxe na forma exec (COPY ["arquivo1", "arquivo2", "./destino"]) como na shell (COPY arquivo1 arquivo2 ./destino) são aceitas*.
+
+Nesse exemplo será copiado todos os arquivos que começam com package para o diretório atual, a pasta /app, usando a forma exec:
+```
+# FROM node:14-alpine AS build
+# WORKDIR /app
+COPY package*.json ./
+```
+
+## RUN
+
+É usado para executar uma lista de comandos durante a criação da imagem.
+```
+RUN ["<COMANDO>", "<SUBCOMANDO>", "<PARAMETRO-1>", ... , "<PARAMETRO-N>"]
+```
+
+Exemplo Dockerfile:
+```
+# FROM node:14-alpine AS build
+# WORKDIR /app
+# COPY package*.json ./
+RUN npm install
+```
+É possível fazer esse comando de instalação pois a imagem Node já possui esses aplicativos internamente.
+
