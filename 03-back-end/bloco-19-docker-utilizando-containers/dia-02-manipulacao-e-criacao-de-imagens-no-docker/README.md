@@ -178,3 +178,37 @@ docker container run \
 
 Após rodar o container, basta acessar o localhost:3000, para visualizar o "Real Visit Results"
 
+## CMD
+
+O comando CMD sempre é executado quando o contêiner é iniciado, pode acontecer de mais de um CMD ser definido em um mesmo Dockerfile, mas somente um terá efeito.
+O CMD possui 2 formas: a que vimos até aqui para a execução de comandos shell e as formas para executáveis.
+
+Exemplo:
+O primeiro argumente é o executável e os demais são seus parâmetros:
+```
+CMD ["/bin/echo", "Hello World"]
+```
+
+Normalmente o CMD é uzado para executar o comando que irá rodar com o contêiner.
+Poderia ser usado como exemplo o start de um app:
+```
+CMD npm start
+```
+
+Caso o contêiner seja executado passando um comando no RUN, o comando passado sobrescreverá o comando definido no CMD.
+
+Pode-se usar o CMD no Dockerfile da seguinte forma:
+```
+# FROM node:14-alpine AS build
+# WORKDIR /app
+# COPY package*.json ./
+# RUN npm install
+# COPY . .
+# RUN npm run build
+
+# FROM nginx:1.16.0-alpine AS prod
+# COPY --from=build /app/build /usr/share/nginx/html
+# EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+```
+
