@@ -374,3 +374,59 @@ RUN chown -R node:node /app
 USER node
 CMD [“node”, “index.js”]
 ```
+
+## Layers e Cache
+
+Ao criarmos as imagens cada comando é considerado uma camada. Podemos ver detalhadamento ao gerar uma build:
+
+![layer-image](/03-back-end/bloco-19-docker-utilizando-containers/images/dockerfile-layers.webp)
+
+É importante entender essa arquitetura para explorarmos uma de seus principais funções: o uso de cache.
+
+Esse termo remete ao uso de uma memória cache, que na prática é um armazenamento rápido e temporário que pode ser utilizado junto a algum recurso.
+Nesse o contexto, o nosso cache mantém armazenadas camadas de uma image após seu processo de build.
+
+Caso o Docker identifique que não houve mudança naquela Step, ele irá utilizar o cache do último build.
+
+Exemplo:
+```
+# Step 1
+FROM node:10-alpine
+# Step 2
+WORKDIR /usr/src/app
+# Step 3
+COPY [".", "./"]
+# Step 4
+RUN ["npm", "install"]
+# Step 5
+ENTRYPOINT [ "npm", "start" ]
+```
+
+Uma vez que é realizado o build dessa imagem, ela não repetirá nenhum desses passos, a menos que haja alguma alteração.
+
+Realizando a alteração em qualquer parte do código fonte, todos os passos apartir do step 3 que utilizam diretamente o arquivo, serão reexecutados.
+
+Agora se a alteração foi em alguma parte do código e não teve nenhuma relação com as dependências. Será executado o comando `npm install` novamente, mesmo que não tenhamos atualizado, adicionando ou removido nenhum dependência.
+
+Ilustração de como é feito esse algoritmo:
+![algoritmo de cache do dockerfile](/03-back-end/bloco-19-docker-utilizando-containers/images/dockerfile-cache-algorithm.webp)
+
+Para tirarmos melhor proveito dessa estrutura é recomendado dividirmos em partes cada etapa do processo e sempre deixando as etaps mais propensas a alterações para baixo do nosso pipeline(nossa segmentação de instruções).
+
+Vamos a uma nova versão do nosso Dockerfile de exmeplo:
+```
+# Step 1
+FROM node:10-alpine
+# Step 2
+WORKDIR /usr/src/app
+# Step 3
+COPY ["./package.json", "./package-lock.json", "./"]
+# Step 4
+RUN ["npm", "install"]
+# Step 5
+COPY ["./src", "./"]
+# Step 6
+ENTRYPOINT [ "npm", "start" ]
+```
+
+Nessa nova versão temos mais steps, porém, caso haja alteração somente me nosso código fonte, apenas os passos a partir do quinto passo, serão repetidos, evitando a reinstalação das dependências. Esse é um exemplo simples mas qjá podemos perceber grande ganho em nosso Dockerfle. Em arquivos mais complexos esse ganho é ainda maior.
