@@ -212,3 +212,49 @@ Pode-se usar o CMD no Dockerfile da seguinte forma:
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
+## Entrypoint
+
+Ele é mais recomendado para declararmos comandos de inicialização do app, pois diferente do CMD, o comando não será sobrescrito pelo RUN, ao executarmos o contêiner.
+Exemplo:
+```
+ENTRYPOINT ["/bin/echo", "Hello World"]
+```
+
+Ao definir um entrypoint, é alterado o comportamento do CMD que, ao ser utilizado, irá rodar como base para o comando definido pelo entrypoint apenas como "parâmetros adicionais" à ele. Por exemplo:
+Ao iniciar o contêiner será executado um `echo Hello World`.
+```
+ENTRYPOINT [ "/bin/echo" ]
+CMD [ "Hello World" ]
+```
+
+Exemplo de como o container sobreescreve o CMD:
+
+Seria escrito Hello World conforme abaixo
+```
+ENTRYPOINT ["/bin/echo", "Hello"]
+CMD ["World"]
+```
+
+Com esse mesmo Dockerfile, usando o seguinte container:
+```
+docker container run nossa-hello-world-image John
+```
+
+Teriamos um echo de `Hello John`.
+Pois o CMD seria substituido pelo comando passado no container run.
+
+A seguir será substituido a linha de CMD pelo entrypoint:
+```
+# FROM node:14-alpine AS build
+# WORKDIR /app
+# COPY package*.json ./
+# RUN npm install
+# COPY . .
+# RUN npm run build
+
+# FROM nginx:1.16.0-alpine AS prod
+# COPY --from=build /app/build /usr/share/nginx/html
+# EXPOSE 80
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
+```
+
