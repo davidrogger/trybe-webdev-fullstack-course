@@ -81,3 +81,34 @@ RUN npm install
 ```
 É possível fazer esse comando de instalação pois a imagem Node já possui esses aplicativos internamente.
 
+## Passos intermediários
+
+Como é usado o npm install é interessante criar um arquivo chamado dockerignore para adicionarmos a ele a node_modules, de modo que ela não seja copiada.
+```
+touch .dockerignore
+
+node_modules
+```
+
+Definindo a cópia de todos os arquivos com o comando:
+```
+# FROM node:14-alpine AS build
+# WORKDIR /app
+# COPY package*.json ./
+# RUN npm install
+COPY . .
+```
+
+Também devemos adicionar um comando para executar o processo de build da aplicação no Dockerfile:
+Esses comandos podem variar dependendo da aplicação que você for rodar.
+
+Em uma aplicação React há um script para gerar uma versão otimizada da página criada:
+```
+# FROM node:14-alpine AS build
+# WORKDIR /app
+# COPY package*.json ./
+# RUN npm install
+# COPY . .
+RUN npm run build
+```
+
