@@ -112,3 +112,23 @@ Em uma aplicação React há um script para gerar uma versão otimizada da pági
 RUN npm run build
 ```
 
+## NGINX
+
+Multi-stage build, é a divisão do script do Dockerfile em mais de uma parte.
+[Documentação multi-stage build](https://docs-docker-com.translate.goog/develop/develop-images/multistage-build/?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt-BR&_x_tr_pto=nui)
+
+Nessa segunda parte será definido no Dockerfile os comandos do ambiente de produção, no qual será utilizado o servidor HTTP NGINX, que é um software de código aberto para servidores web, originalmente utilizado para navegação HTTP, mas que atualmente também tem outras funcionalidades.
+
+Será definido na imagem de origem do Nginx, como o alias "prod", em seguida, será copiado as informações da imagem apelidada de "build" e sua respectiva pasta para o diretório do servidor, como a seguir:
+```
+# FROM node:14-alpine AS build
+# WORKDIR /app
+# COPY package*.json ./
+# RUN npm install
+# COPY . .
+# RUN npm run build
+
+FROM nginx:1.16.0-alpine AS prod
+COPY --from=build /app/build /usr/share/nginx/html
+```
+
