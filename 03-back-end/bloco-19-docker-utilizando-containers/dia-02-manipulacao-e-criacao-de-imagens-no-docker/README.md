@@ -301,3 +301,27 @@ Para ver a aplicação funcionando, basta roda o projeto no terminal interativo,
 docker run -dit -p 8000:80 --name reactdockerized react-dockerized:v1
 ```
 
+## Dockerfile comandos adicionais
+
+## LABEL
+Labels são mecanismos para atribuir metadatas aos seus objetos Docker, como imagens e contêineres.
+Com o parâmetro LABEL é possível fazer essas definições em nosso Dockerfile.
+
+A documentação oficial recomenda o uso de labels para organizar nossas imagens, registrar informações de licenças, anotar relacionamentos entre contêiner e outros componentes, ou qualquer outra informações que façam sentido ao objetivo do contêiner ou da sua aplicação.
+
+As informações são registradas seguindo o parâmetro de "chave e valor", caso uma chave steja repetida, a última sobrescreverá as anteriores:
+```
+LABEL <KEY>=<VALUE>
+```
+É comum registrarmos o maintener da imagem para um possível contato posterior para tirar dúvidas ou sugerir contribuições:
+```
+LABEL maintener="John Doe <john.doe@trybe.com.br>"
+```
+
+Esse valor pode ser resgatado posteriormente através do comando `docker inspect <CONTAINER ID || NAME>`, onde o valor estará no atributo Labels:
+```
+"Labels": {
+   "maintener": "John Doe <john.doe@trybe.com.br>"
+}
+```
+
