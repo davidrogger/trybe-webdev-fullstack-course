@@ -24,3 +24,26 @@ Ao associarmos um contêiner a essa rede, ela passa a compartilhar toda stack de
 ## None
 
 Essa é uma rede que não possui nenhum driver associado. Dessa maneira, ao atribuir um contêiner a ela, o mesmo ficará isolado. Ela é útil quando temos contêineres que utilizam arquivos para execução de comandos ou para se comunicar, por exmeplo: um contêiner de backup ou que rode apenas um script localmente.
+
+## Criando Nossa Rede
+
+A forma mais recomendada de comunicarmos nossos contêineres é criando nossa própria rede. Por meio dela, conseguirmos referenciar um contêiner a partir de outro, utilizando seu nome.
+```
+docker network create -d bridge minha-rede
+```
+
+Para vincularmos nosso contêiner à rede criada durante sua execução:
+```
+docker container run \
+    -itd \
+    --network minha-rede \
+     --name meu-container \
+     busybox
+```
+
+Para listar as redes: `docker network ls`
+
+Minha-rede seria a rede e o meu container o container
+Para conectar a network ao container: `docker network connect minha-rede meu-container`
+e para desconectar é usado o mesmo comando alterando para: `disconnect`
+
