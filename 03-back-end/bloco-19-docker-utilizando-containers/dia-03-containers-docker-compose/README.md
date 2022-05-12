@@ -21,3 +21,6 @@ Vamos ver um exemplo de como isso funciona, utilizando uma imagem busybox:
 
 Ao associarmos um contêiner a essa rede, ela passa a compartilhar toda stack de rede do host, da máquina que roda o ambiente Docker.
 
+## None
+
+Essa é uma rede que não possui nenhum driver associado. Dessa maneira, ao atribuir um contêiner a ela, o mesmo ficará isolado. Ela é útil quando temos contêineres que utilizam arquivos para execução de comandos ou para se comunicar, por exmeplo: um contêiner de backup ou que rode apenas um script localmente.
