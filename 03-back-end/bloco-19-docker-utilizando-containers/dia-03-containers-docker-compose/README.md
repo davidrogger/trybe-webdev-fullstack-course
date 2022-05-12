@@ -17,3 +17,7 @@ Todos os contêineres associados a essa rede poderão se comunicar via protocolo
 Uma outra possíovel maneira de fazermos a descoberta do IP automaticamente pelo nome, é utilizando a opção `--link`. Porém a pr´orpia documentação do Docker desencoraja seu uso e alerta que essa flag (`--link`) pode ser removida eventualmente.
 Vamos ver um exemplo de como isso funciona, utilizando uma imagem busybox:
 
+## Host
+
+Ao associarmos um contêiner a essa rede, ela passa a compartilhar toda stack de rede do host, da máquina que roda o ambiente Docker.
+
