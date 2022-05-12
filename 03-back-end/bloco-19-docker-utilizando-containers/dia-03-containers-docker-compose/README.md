@@ -47,3 +47,96 @@ Minha-rede seria a rede e o meu container o container
 Para conectar a network ao container: `docker network connect minha-rede meu-container`
 e para desconectar é usado o mesmo comando alterando para: `disconnect`
 
+## Volumes - Mapeando pastas para utilização em contêineres
+
+É usado para manter informações salvas de um container.
+usar um volume significa mapear uma pasta do nosso sistema hospedeiro, para o sistema convidado. Assim ela é vinculada ao contêiner e essa pasta permanecerá mesmo que esse contêiner seja removido.
+
+Exemplo: Queremos desenvolver nossa página HTML de forma que ela rode dentro do servidor http Apache, que não está instalado em nossa máquina. À medida que formos desenvolvendo nossa página HTML, precisamos que o nosso ambiente de desenvolvimento permaneça no contêiner. Para isso, a primeira coisa que vamos fazer é criar a seguinte página HTML:
+```
+<!DOCTYPE html>
+   <html>
+      <head>
+      <title>Docker é muito bom!</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   </head>
+   <body>
+      <h1>Minha primeira página rodando em Docker.</h1>
+      <p>Estou começando minha primeira página em HTML.</p>
+   </body>
+</html>
+```
+
+Salve o arquivo com o nome primeiro-teste.html em alguma pasta local de fácil acesso.
+* Aqui usaremos o caminho /home/trybe/meu-site.
+Agora, vamos criar um contêiner que manterá um volume vinculado a essa nossa pasta local, para que qualquer alteração que fizermos em nosso HTML seja refletida no servidor http em nosso contêiner.
+Para isso, vamos usar no comando run, o parâmetro -v (de 'volume') da forma -v <PASTA-LOCAL>:<PASTA-CONTAINER>:
+```
+docker run -d --name site-trybe2 -p 8881:80 -v "/home/trybe/meu-site/:/usr/local/apache2/htdocs/" httpd:2.4
+```
+
+Vamos entender esse comando que acabamos de executar nos concentrando na flag -v:
+
+. Essa flag cria um volume e é seguida pelo endereço do diretório em nossa máquina /home/trybe/meu-site/ acompanhada do endereço no diretório do servidor /usr/local/apache2/htdocs/, o qual será vinculado.
+. Esse diretório é específico para armazenar os arquivos que vão ser acessados no servidor http Apache, e pode ser diferente caso você opte por usar outro aplicativo.
+. Qualquer modificação que realizarmos no arquivo HTML em nossa máquina local será refletido pelo contêiner no endereço da pasta do nosso servidor Apache.
+
+Agora, acesse o site mantido pelo servidor Apache acessando o endereço http://localhost:8881/primeiro-teste.html no navegador e lá estará o aquivo HTML que você acabou de criar.
+Bora fazer um teste!? 💪
+Acesse novamente o arquivo primeiro-teste.html que acabamos de criar e edite-o da seguinte forma:
+```
+<!DOCTYPE html>
+   <html>
+      <head>
+      <title>Docker é muito bom!</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   </head>
+   <body>
+      <h1>Minha primeira página rodando em Docker, que maravilha!</h1>
+      <p>Estou começando minha primeira página em HTML e estou muito feliz! #VQV</p>
+   </body>
+</html>
+```
+
+O que podemos concluir com isso?
+1- Podemos criar um ambiente de desenvolvimento baseado apenas no uso de contêineres, o que facilita o trabalho dos times de desenvolvimento, já que o volume pode ser compartilhado entre o time e acessado via diferentes contêineres.
+2- Tendo um volume na sua máquina, você pode utilizar outros contêineres sem perder seus arquivos!
+3- Quando usamos o volume, mesmo que o contêiner seja excluído, o volume será mantido. Isso quer dizer que tudo que colocarmos na pasta /usr/local/apache2/htdocs/, do contêiner, ficará preservado na pasta /home/trybe/meu-site em nossa máquina.
+Bora exemplificar essa afirmação fazendo os seguinte comandos:
+```
+docker inspect site-trybe2 #que é o nome que demos ao nosso container
+```
+
+Teremos uma saída com muitas informações, mas o mais importante nesse momento é o "Mounts" que nos mostra através da propriedade Source onde está o volume desse container em nosso Docker Host.
+```
+"Mounts": [
+   {
+      "Type": "bind",
+      "Source": "/home/trybe/meu-site",
+      "Destination": "/usr/local/apache2/htdocs",
+      "Mode": "",
+      "RW": true,
+      "Propagation": "rprivate"
+   }
+]
+```
+
+Agora que confirmamos que temos um volume criado em nosso Docker Host, faremos a exclusão de nosso contêiner e verificaremos se junto com ele nossa pasta /home/trybe/meu-site também será excluída. Para isso, em posse do id do nosso contêiner primeiro precisamos pará-lo com o comando:
+```
+docker stop site-trybe2
+```
+
+Agora que paramos o nosso contêiner, vamos excluí-lo com o comando:
+```
+docker rm site-trybe2
+```
+
+Também é possivel especificar os volumes da nossa imagem no nosso Dockerfile, usando o comando VOLUME.
+```
+VOLUME ["/data"]
+```
+
+Toda vez que criarmos um contêiner que mapeia um volume, ele alocará espaço para esse volume no seu sistema. Por tanto, é sempre importante verificar seus volumes utilizando docker volume ls e remover aqueles que você não utiliza, seja com o comando `docker volume rm <VOLUME NAME>`, seja com `docker volume prune`(esse comando remove todos os volumes que não estão sendo utilizados por contêineres).
+
+Também é possivel remover volumes automaticamente ao remover contêineres, utilizando o comando `docker container rm -v <CONTAINER ID || NAMES>`, onde o -v indica para o docker que o volume associado ao contêiner também deve ser removido.
+
