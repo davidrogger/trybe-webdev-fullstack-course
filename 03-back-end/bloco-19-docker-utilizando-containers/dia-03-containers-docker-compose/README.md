@@ -259,3 +259,26 @@ services:
     restart: always
 ```
 
+## Ports
+
+Uma configuração importante é a porta. No docker-compose temos o parãmetro ports que se comparta da mesma maneira que o -p do docker, no exmeplo vamos usar a porta 3000 para o frond-end e a porta 3001 para o back-end.
+```
+version: '3'
+services:
+  frontend:
+    image: mjgargani/compose-example:frontend-trybe1.0
+    restart: always
+    ports:
+      - 3000:3000
+  backend:
+    image: mjgargani/compose-example:backend-trybe1.0
+    restart: always
+    ports:
+      - 3001:3001
+  database:
+    image: mjgargani/compose-example:database-trybe1.0
+    restart: always
+```
+
+O primeiro parâmetro (**3000**:3000) é para a porta do host e o segundo (3000:**3000**) é a porta exposta do contêiner.
+
