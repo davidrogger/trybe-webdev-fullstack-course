@@ -342,3 +342,38 @@ services:
 
 Os services serão iniciados respeitando a ordem das dependências, database será iniciado antes do backend, que será iniciado antes do frontend.
 
+# Gerenciando Services
+
+## Up
+
+Comando `docker-compose up`, o Compose irá executar todos os contêineres especificados, baixando as imagens do repositório ou montando localmente a partir do Dockerfile, de acordo com o que foi especificado no arquivo, nesse momento além de executar os contêineres o compose irá criar os demais objetos espeicificados, como redes e volumes.
+Da mesma forma como rodamos os contêineres no modo daemon, podemos fazer no docker-compose up, utilizando o parãmetro -d
+
+Caso tenha sido dado um nome diferente do padrão para o seu arquivo Compose, o parâmetro -f pode ser utilizado. Lembra-se que ele pertence ao comando docker-compose, ele precisa ser passado logo após o comando.
+
+Exemplo:
+```
+docker-compose -f meu-arquivo-compose.yaml up
+ou
+docker-compose -f meu-arquivo-compose.yml stop
+```
+A sintaxe `docker-compose <COMMAND> -f` não funcionará.
+
+Se o arquivo possuir o nome padrão(docker-compose.yaml), não é necessário passar a flag, apenas lembra-se de estar no mesmo diretório do arquivo.
+
+Pode-se usar o comando espeicificando o service.
+Exemplo:
+```
+docker-compose up backend
+```
+
+O compose irá iniciar o database, que foi definido no docker-compose como dependência do service backend, por meio do parâmetrp depends_on.
+
+Caso seja usado o parâmetro build (que recebe o caminho do _Dockerfile) da aplicação ao invés da imagem, o _Compose irá construir a imagem se isso não tiver sido feito anteriormente. Uma vez que a imagem seja 'construida' pelo compose, ele utilizará essa imagem já criada na próxima vez que executarmos o up, sem atualizá-la.
+para forçar um novo build pode-se usar o tag --build especificando um service, caso não seja especificado ele irá tentar buildar todas as imagens possiveis novamente.
+```
+docker-compose up --build <SERVICE NAME>
+```
+
+É comum usar o --build durante o desenvolvimento, para refletir as atualizações no ambiente do Compose.
+
