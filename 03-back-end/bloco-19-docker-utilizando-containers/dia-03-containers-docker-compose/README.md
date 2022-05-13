@@ -391,3 +391,12 @@ Usado para listar os container ativos. Será listando somente os containers pert
 docker-compose ps
 ```
 
+## Stop
+
+Com ele todos os containers irão ser parados, mas diferente do Down, ele não irão remover as redes e outros objetos criados pelo Up.
+Assim como o Up é possivel determinar qual service será parado, respeitando as dependências.
+Exemplo:
+```
+docker-compose stop backend
+```
+O backend será parado antes do database, ao executarmos esse comando.
