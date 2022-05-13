@@ -377,3 +377,10 @@ docker-compose up --build <SERVICE NAME>
 
 É comum usar o --build durante o desenvolvimento, para refletir as atualizações no ambiente do Compose.
 
+## Down
+
+Com ele todos os containers irão ser parados e os objetos criados pelo up, como as redes.
+```
+docker-compose down
+```
+
