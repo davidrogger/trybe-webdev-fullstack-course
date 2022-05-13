@@ -140,3 +140,10 @@ Toda vez que criarmos um contêiner que mapeia um volume, ele alocará espaço p
 
 Também é possivel remover volumes automaticamente ao remover contêineres, utilizando o comando `docker container rm -v <CONTAINER ID || NAMES>`, onde o -v indica para o docker que o volume associado ao contêiner também deve ser removido.
 
+## Docker Compose
+
+É uma ferramenta para definir e rodar aplicações multi-containers Docker. Com ele, podemos automatizar a implantação e gerenciamento dos contêineres.
+Usamos para definir quais contêineres irão rodar e a partir de qual imagem deles serão criados.
+Para isso é usado um único arquivo YAML com todos os detalhes e especificações para subirmos os serviços de um ambiente em uma certa ordem pré-determinada, sem a necessidade de subir cada um dos contêineres que compõe a aplicação com seus parâmetros específicos no run.
+
+Compose irá trabalhar em conjunto com o Dockerfile.
