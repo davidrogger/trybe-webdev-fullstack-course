@@ -416,3 +416,38 @@ Pode-se também utilizar a flag -f ou --follow para acompanhar em tempo real as 
 docker-compose logs -f --tail=100 <SERVICE NAME>
 ```
 
+# Compose File - Parte II
+
+## Volumes
+
+É possivel também usar volumes por meio do nosso arquivo compose.
+Pode-se definir os volumes da mesma maneira que é feito no comando docker container run, tanto como bind como da forma nomeada.
+
+Usando uma forma mais extensa dele:
+
+```
+version: "3.8"
+services:
+  web:
+    image: nginx:alpine
+    volumes:
+      - type: volume
+        source: mydata
+        target: /data
+        volume:
+          nocopy: true
+      - type: bind
+        source: ./static
+        target: /opt/app/static
+
+  db:
+    image: postgres:latest
+    volumes:
+      - "/var/run/postgres/postgres.sock:/var/run/postgres/postgres.sock"
+      - "dbdata:/var/lib/postgresql/data"
+
+volumes:
+  mydata:
+  dbdata:
+```
+
