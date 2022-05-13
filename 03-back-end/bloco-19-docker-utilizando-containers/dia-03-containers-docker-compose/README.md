@@ -311,3 +311,34 @@ Mesmo tendo a env configurada em seu ambiente, ela só será passada ao contêin
 
 No Contexto do Docker, secret é um dado que não deve ser transmitido por uma rede ou armazenada sem criptografia em um DOckerfile ou até mesmo no código fonte de sua aplicação, como uma senha ou uma chave privada SSH. [Documentação sobre ambiente](https://docs.docker.com/compose/environment-variables/).
 
+## Depends On
+
+Garante a ordem de inicialização e encerramento de services, com ele conseguimos estabelecer dependências entre os serviços.
+
+Exemplo:
+```
+version: "3.8"
+services:
+  frontend:
+    image: mjgargani/compose-example:frontend-trybe1.0
+    restart: always
+    ports:
+      - 3000:3000
+    depends_on:
+      - "backend"
+  backend:
+    image: mjgargani/compose-example:backend-trybe1.0
+    restart: always
+    ports:
+      - 3001:3001
+    environment:
+      - DB_HOST=database
+    depends_on:
+      - "database"
+  database:
+    image: mjgargani/compose-example:database-trybe1.0
+    restart: always
+```
+
+Os services serão iniciados respeitando a ordem das dependências, database será iniciado antes do backend, que será iniciado antes do frontend.
+
