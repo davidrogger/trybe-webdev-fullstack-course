@@ -408,3 +408,11 @@ Semelhante ao stop, com ele podemos iniciar os services parados referentes à aq
 docker-compose start
 ```
 
+## Logs
+
+Com ele pode-se ver os logs dos services de maneira semelhante com os contêineres. É possivel especificar um service para visualizar os logs de todos os seus contêineres ou ver todos os logs daquele ambiente, conforme arquivo do compose.
+Pode-se também utilizar a flag -f ou --follow para acompanhar em tempo real as saídas dos contêineres e o --tail para definir o número de linhas para ser exebido a partir do final do log.
+```
+docker-compose logs -f --tail=100 <SERVICE NAME>
+```
+
