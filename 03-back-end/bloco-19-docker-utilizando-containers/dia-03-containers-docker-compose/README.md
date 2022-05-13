@@ -400,3 +400,11 @@ Exemplo:
 docker-compose stop backend
 ```
 O backend será parado antes do database, ao executarmos esse comando.
+
+## Start
+
+Semelhante ao stop, com ele podemos iniciar os services parados referentes à aquele arquivo compose. (pode-se usar o nome do server para iniciar também)
+```
+docker-compose start
+```
+
