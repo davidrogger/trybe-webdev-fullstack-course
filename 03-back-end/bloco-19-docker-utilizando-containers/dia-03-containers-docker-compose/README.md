@@ -187,3 +187,9 @@ services: # Definição dos containers
     # ... outras configurações
 ```
 
+## Version
+
+Todo arquivo docker-compose.yaml deve iniciar com a tag version. Para evitar que o docker-compse.yaml fique incompatível com versões mais recentes do compose.
+
+[Versões do Compose](https://docs.docker.com/compose/compose-file/compose-versioning/#versioning)
+
