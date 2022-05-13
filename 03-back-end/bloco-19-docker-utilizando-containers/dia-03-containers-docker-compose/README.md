@@ -147,3 +147,22 @@ Usamos para definir quais contêineres irão rodar e a partir de qual imagem del
 Para isso é usado um único arquivo YAML com todos os detalhes e especificações para subirmos os serviços de um ambiente em uma certa ordem pré-determinada, sem a necessidade de subir cada um dos contêineres que compõe a aplicação com seus parâmetros específicos no run.
 
 Compose irá trabalhar em conjunto com o Dockerfile.
+
+# Instalando Docker Compose
+
+Se você estiver utilizando Windows ou Mac, o Docker Compose já é instalado junto com o Docker Desktop. Caso esteja utilizando alguma distro Linux, basta utilizar o seguinte comando para realizar a instalação:
+```
+sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+```
+
+Aplicando permissões:
+```
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
+Validando a instalação:
+```
+docker-compose --version
+```
+
+[Guia oficial de instação](https://docs.docker.com/compose/install/#install-compose)
