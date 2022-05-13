@@ -384,3 +384,10 @@ Com ele todos os containers irão ser parados e os objetos criados pelo up, como
 docker-compose down
 ```
 
+## Ps
+
+Usado para listar os container ativos. Será listando somente os containers pertencentes ao arquivo do Compose.
+```
+docker-compose ps
+```
+
