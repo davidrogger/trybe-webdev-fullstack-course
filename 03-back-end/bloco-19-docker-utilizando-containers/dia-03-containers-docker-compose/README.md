@@ -193,3 +193,37 @@ Todo arquivo docker-compose.yaml deve iniciar com a tag version. Para evitar que
 
 [Versões do Compose](https://docs.docker.com/compose/compose-file/compose-versioning/#versioning)
 
+## Services
+
+São os "tipos" dos contêineres que iremos rodar. Podemos por exmeplo, escalar nossa API em 4 contêineres diferentes, de forma que teremos um service que é a nossa API, porém com 4 contêineres em execução. Dessa forma, ao escrevermos nosso arquivo, temos que pensar em services, pois é assim que iremos defini-los.
+
+Exemplo de como ficaria o arquivo Compose:
+```
+version: '3'
+services:
+  frontend::
+
+  backend:
+
+  database:
+```
+
+No exemplo é dado um nome aos serviços, porém não é especificado o que deverá ser executado, todo contêiner é criado de uma image, precisamos especificar nos serviços:
+
+1. image: para especificar uma imagem, seja local ou a ser baixada no Docker Hub;
+2. build para apontar um diretŕoio com o Dockerfile a partir do qual o Compose irá buildar a imagem.
+
+Exemplo do arquivo docker-compse:
+```
+version: '3'
+services:
+  frontend:
+    image: mjgargani/compose-example:frontend-trybe1.0
+  backend:
+    image: mjgargani/compose-example:backend-trybe1.0
+  database:
+    image: mjgargani/compose-example:database-trybe1.0
+```
+
+O arquivo irá funcionar como se estivessem sendo executados três docker container run, um para cada serviço. Agora é necessário definir os demais parâmetros para os nossos contêineres.
+
