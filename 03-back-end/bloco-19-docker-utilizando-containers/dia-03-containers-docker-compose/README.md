@@ -166,3 +166,24 @@ docker-compose --version
 ```
 
 [Guia oficial de instação](https://docs.docker.com/compose/install/#install-compose)
+
+## Compose File - Parte I
+
+O arquivo Docker Compose é onde conseguimos especificar todos os parâmetros que antes rodávamos unitariamente utilizando `docker container run`. Também podemos criar os demais objetos utilizados pro eles, como redes e volumes.
+
+Mepar todos os comandos e estruturá-los em um único arquivo tem diversas vantagens. Uma delas, especialmente vantajosa quando estamos trabalhando com muitos contêiners, é evitar a necessidade de digitar inúmeros parâmetros em linha de comando com o run.
+Toda configuração do **Docker Compose** é feita por meio de um arquivo YAML, o nome padrão usado é `docker-compose.yaml`, porém pode ser usado qualquer outro.
+```
+version: "<VERSÃO-DO-COMPOSE>"
+services: # Definição dos containers
+  <MEU-CONTAINER-1>:
+    image: <MINHA-IMAGEM:VERSÃO> # Exemplo carregando uma imagem já _buildada_
+    # ... outras configurações
+  <MEU-CONTAINER-2>:
+    build: <CAMINHO-DO-DOCKERFILE> # Exemplo gerando uma build a partir de um `Dockerfile`
+    # ... outras configurações
+  <MEU-CONTAINER-N>:
+    image: <MINHA-IMAGEM:VERSÃO>
+    # ... outras configurações
+```
+
