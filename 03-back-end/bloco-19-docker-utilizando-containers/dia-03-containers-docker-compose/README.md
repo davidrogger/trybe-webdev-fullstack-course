@@ -282,3 +282,32 @@ services:
 
 O primeiro parâmetro (**3000**:3000) é para a porta do host e o segundo (3000:**3000**) é a porta exposta do contêiner.
 
+## Environment
+
+Com ele conseguimos configurar as variáveis de ambiente de nosso contêiner. Em uma situação que precisamos passar para nosso back-end uma parte da URL onde o banco de dados irá rodar, em uma variável chamada DB_HOST. Nosso exmeplo ficaria:
+```
+version: '3'
+services:
+  frontend:
+    image: mjgargani/compose-example:frontend-trybe1.0
+    restart: always
+    ports:
+      - 3000:3000
+  backend:
+    image: mjgargani/compose-example:backend-trybe1.0
+    restart: always
+    ports:
+      - 3001:3001
+    environment:
+      - DB_HOST=database
+  database:
+    image: mjgargani/compose-example:database-trybe1.0
+    restart: always
+```
+
+Está sendo passado a variável DB_HOST, que está em nosso host, para a variável "DB_HOST" do container, onde o back-end está esperando por ela.
+Mesmo tendo a env configurada em seu ambiente, ela só será passada ao contêiner se especificada aqui, da mesma maneira como fazemos com o parâmetro -e ou --env no comando run.
+É possivel utilizarmos variaveis de ambiente. No caso de uma variável API_SECRET por se tratar de um dado sensível, não podemos colocá-lo em um arquivo a ser versionado como parte de nossa aplicação, porém ainda temos que especificar ao compose qual variável irá ser passada para qual contêiner.
+
+No Contexto do Docker, secret é um dado que não deve ser transmitido por uma rede ou armazenada sem criptografia em um DOckerfile ou até mesmo no código fonte de sua aplicação, como uma senha ou uma chave privada SSH. [Documentação sobre ambiente](https://docs.docker.com/compose/environment-variables/).
+
