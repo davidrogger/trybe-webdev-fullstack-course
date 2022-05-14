@@ -172,7 +172,7 @@ docker-compose --version
 O arquivo Docker Compose é onde conseguimos especificar todos os parâmetros que antes rodávamos unitariamente utilizando `docker container run`. Também podemos criar os demais objetos utilizados pro eles, como redes e volumes.
 
 Mepar todos os comandos e estruturá-los em um único arquivo tem diversas vantagens. Uma delas, especialmente vantajosa quando estamos trabalhando com muitos contêiners, é evitar a necessidade de digitar inúmeros parâmetros em linha de comando com o run.
-Toda configuração do **Docker Compose** é feita por meio de um arquivo YAML, o nome padrão usado é `docker-compose.yaml`, porém pode ser usado qualquer outro.
+Toda configuração do **Docker Compose** é feita por meio de um arquivo YAML, o nome padrão usado é `docker-compose.yaml`, porém pode ser usado qualquer outro nome.
 ```
 version: "<VERSÃO-DO-COMPOSE>"
 services: # Definição dos containers
