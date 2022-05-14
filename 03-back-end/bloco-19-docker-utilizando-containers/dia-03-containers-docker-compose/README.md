@@ -451,3 +451,67 @@ volumes:
   dbdata:
 ```
 
+## Networks
+
+Containers precisam estar na mesma rede para conseguir se comunicar utilizando o `name`.
+Utilizando o Docker compose, isso já é realizado de maneira padrão. Ao iniciar um novo arquivo, será criada uma rede padrão bridge para comunicação de todos os serviçoes espeicifcados, dessa forma conseguimos facilmente comunicar todos os services.
+
+Se for apontado para o localhost:3000, o contêiner irá acessar a própria porta e não irá encontrar nada, pois o banco está em outro serviço. Por isso deve-se usar o nome do service.
+
+Para isso, basta utilizar a opção networks em nossos serviços, definindo uma rede para um serviço específico de forma semelhante ao volume, definimos as redes a serem criadas.
+
+A sintaxe básica é a seguinte:
+```
+version: "<VERSÃO-DO-COMPOSE>"
+services:
+  <MEU-CONTAINER-1>:
+    image: <MINHA-IMAGEM:VERSÃO>
+    networks:
+      - <NETWORK-1>
+    # ... outras configurações
+  <MEU-CONTAINER-2>:
+    build: <CAMINHO-DO-DOCKERFILE>
+    networks:
+      - <NETWORK-1>
+      - <NETWORK-1>
+    # ... outras configurações
+  <MEU-CONTAINER-N>:
+    image: <MINHA-IMAGEM:VERSÃO>
+    # ... outras configurações
+
+networks:
+  <NETWORK-1>:
+```
+
+Um exemplo, possuimos um ambiente com 3 services,um front-end e dois back-ends e mais um banco de dados. nessa arquteture, apenas os back-ends acessam o banco de dados e o front-end acessa os back-ends. Paracriarmosesse isolamento, nosso YAML ficaria semelhante ao exemplo abaixo:
+```
+version: '3'
+
+services:
+  frontend-a:
+    build: ./frontend_a
+    networks:
+      - frontend
+
+  backend-a:
+    build: ./backend_a
+    networks:
+      - backend
+      - frontend
+
+  backend-b:
+    build: ./backend_b
+    networks:
+      - backend
+      - frontend
+
+  db:
+    image: mysql
+    networks:
+      - backend
+
+networks:
+  frontend:
+  backend:
+```
+
