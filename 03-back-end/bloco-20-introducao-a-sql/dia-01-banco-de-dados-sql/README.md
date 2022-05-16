@@ -64,7 +64,7 @@ Sem ter acesso à estrutura interna de como essa tabela foi criada, tente respon
 `NOT NULL`
 
 Outra tabela:
-![Iagem para exercicio2](/03-back-end/bloco-20-introducao-a-sql/20.imagens/table2.png)
+![Imagem para exercicio2](/03-back-end/bloco-20-introducao-a-sql/20.imagens/table2.png)
 
 1. Que tipo de constraint a coluna city_id possui?
 
@@ -73,4 +73,15 @@ Outra tabela:
 2. Qual é o motivo de a coluna country_id não possuir nomes de country (país)? Ela é algum tipo de chave primária ou estrangeira?
 
 `Ela é usada como chave estrageira, para identificação dessa informação em uma tabela externa.`
+
+Mais uma exercicio:
+![Imagem para exercicio3](/03-back-end/bloco-20-introducao-a-sql/20.imagens/table3.png)
+
+1. Qual coluna possui uma primary key?
+
+`film_id`
+
+2. Qual coluna possui uma foreign key?
+
+`category_id`
 
