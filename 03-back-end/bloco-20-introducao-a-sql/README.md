@@ -49,3 +49,20 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'SetRootP
 Comando para criar um novo usuário:
 
 CREATE USER 'trybe'@'localhost' IDENTIFIED BY 'trybe;
+
+Comando para verificar se o serviço do mysql está rodando:
+```
+sudo systemctl status mysql
+```
+
+Deve retornar uma mensagem de active
+
+Caso o serviço esteja parado use o comando:
+```
+systemctl start mysql
+```
+
+Comando para parar:
+```
+systemctl stop mysql
+```
