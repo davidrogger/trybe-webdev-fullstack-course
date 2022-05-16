@@ -19,3 +19,6 @@ Armazenam os dados em forma de tabela onde existem linhas e colunas e sua estrut
 
 Pode também usar estruturas pré-definidas não sendo obrigatório, ou seja os dados podem ser inseridos dinâmicamente sem precisar alterar a estrutura do seu banco de dados, não ha uma linguagem de pesquisa fixa.
 
+# SQL
+
+**S**tructured **Q**uery **L**anguage é a linguagem mais usada para criar, pesquisar, extrair e manipular dados dentro de um banco de dados relacional.
