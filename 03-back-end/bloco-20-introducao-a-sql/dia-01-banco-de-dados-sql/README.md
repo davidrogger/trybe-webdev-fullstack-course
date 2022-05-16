@@ -45,3 +45,21 @@ Dentro de uma banco de dados é possivel restringir a forma como os dado podem o
 - **FOREIGN KEY** Garante que o valor seja uma chave estrangeira da tabela, ou seja, faça referência à chave primária (valor em uma coluna com constraint PRIMARY KEY) de outra tabela, permitindo um relacionamento entre tabelas.
 - **DEFAULT** Garante que, caso nenhum valor seja inserido na coluna (ou caso a pessoa usuária insira um valor nulo), a constraint colocará o valor padrão passado para ela.
 
+Para fixar:
+
+![Imagem para exercicio](/03-back-end/bloco-20-introducao-a-sql/20.imagens/table1.png)
+
+Sem ter acesso à estrutura interna de como essa tabela foi criada, tente responder as seguintes perguntas:
+
+1. Quais constraints a coluna address_id poderia ter? Por quê?
+
+`PRIMARY KEY`
+
+2. A coluna city_id é um número. Consegue identificar que tipo de constraint foi aplicado a ela?
+
+`FOREIGN KEY`
+
+3. A coluna address (endereço) possui uma constraint. Qual tipo de constraint seria interessante ser aplicado a ela para que sempre exista um valor na coluna quando uma nova linha for criada?
+
+`NOT NULL`
+
