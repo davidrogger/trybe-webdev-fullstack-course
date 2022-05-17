@@ -143,3 +143,30 @@ Exemplo; a entidade pessoal, possui propriedades como, altura, peso, idade, esco
 
 A entidade é a nossa tabela dentro de um banco de dados e as propriedades fazem parte dessa tabela.
 As entidades são individuais e não se relacionam entre si, porém às vezes, elas são ligadas umas às outras através de relacionamentos.
+
+# Link entre dados
+
+É comum termos diferentes tabelas, cada uma armazenando seus respectivos dados, mas que em conjunto tem um significado maior. Num exemplo de sorveteria, poderíamos ter outras 2 tabelas que se relacionariam com a tabela de sabores: empresas fornecedoras e pedidos.
+Para não duplicarmos dados em tabelas diferentes, é possivel estabelecer relacionamentos entre as tabelas.
+Em um banco de dados existem quatro tipos de relacionamentos.
+
+## Um para um
+
+Uma linha da tabela A só deve possuir uma linha correspondente na tabela B ou vice-versa.
+
+Esse tipo de relacionamento é usado normalmente quando se quer dividir as informações de uma tabela maior em tabelas menores por questões de performance, a fim de evitar tabelas com dezenas de colunas, ou por várias outras questões específicas de um negócio. Pode ser encontrado em alguns contéudos com a abreviação: 1:1.
+
+## Um para Muitos ou Muitos para Um
+
+Esse é um dos tipos mais comuns de relacionamento. Em cenários assim, uma linha na tabela A pode ter várias linhas correspondentes na tabela B, mas uma linha da tabela B só pode possuir uma linha correspondente na tabela A.
+Exemplo:
+Uma caterogira pode estar ligada a vários livros; porém um livro deve possuir apenas uma categoria. Pode ser encontrado em alguns conteúdos com a abreviação: N:1 ou 1:N, depende da regra de negocio.
+
+## Muitos para Muitos
+
+O tipo de relacionamento muitos para muitos acontece quando uma linha na tabela A pode possuir muitas linhas correspondentes na tabela B e vice-versa.
+
+Pode ser visto também como dois relacionamento um para muitos ligados por uma tabela intermediária, como é o caso da tabela filme_ator do banco sakila. Podemos chamar essa tabela de intermediária de tabela de junção. Ela é usada para guardar informações de como as tabelas se relacionam entre si.
+Dessa maneira, quando queremos demostrar que um filme pode contar com vários atores, e também que os atores podem atuar em vários filmes, surge a necessidade de um relacionamento muitos para muitos. Pode ser encontrado em alguns conteúdos com a abreviação: N:N.
+
+
