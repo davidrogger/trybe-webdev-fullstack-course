@@ -85,3 +85,54 @@ Mais uma exercicio:
 
 `category_id`
 
+# MySQL Comandos
+
+Entrando no banco de dados:
+```
+mysql -u USUARIO -p
+```
+
+Para visualizar os bancos que estão instalados atualmente:
+```
+show databases;
+```
+
+Por convenção é utilizado as palavras chave do SQL em caixa alta para diferenciar das indicações de tabelas e colunas, no final de cada comando deve-se usar o ; para seu funcionamento.
+
+1. a - USE é usado para definir a referência do banco de dados que será utilizado na query:
+
+USE nome_do_banco_de_dados_que_quero_conectar;
+EX:
+```
+USE trybe;
+```
+
+1. b - Outra forma de fazer referência ao banco, sem ter que rodar o USE é no formato banco_de_dados.tabela:
+
+SELECT * FROM banco_de_dados.tabela:
+EX:
+```
+SELECT * FROM trybe.students;
+```
+2. Para retornar todas as tabelas inicializadas no seu server:
+```
+SHOW TABLES;
+```
+
+3. Visualizar estrutura de uma tabela:
+
+DESCRIBE nome_da_tabela;
+EX:
+```
+DESCRIBE students;
+```
+
+4. Criar um banco de dados:
+
+CREATE DATABASE nome_do_banco_de_dados;
+
+EX:
+```
+CREATE DATABASE trybe;
+```
+
