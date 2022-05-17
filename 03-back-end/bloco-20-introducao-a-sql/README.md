@@ -66,3 +66,12 @@ Comando para parar:
 ```
 systemctl stop mysql
 ```
+
+# Configurando Inicialização MYSQL
+
+Por padrão após a instalação o servidor vai estar configurado para iniciar junto ao sistema.
+
+Para desativar essa inicialização automática:
+```
+sudo systemctl disable mysql
+```
