@@ -48,7 +48,28 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'SetRootP
 
 Comando para criar um novo usuário:
 
-CREATE USER 'trybe'@'localhost' IDENTIFIED BY 'trybe;
+CREATE USER 'trybe'@'localhost' IDENTIFIED BY 'trybe12345';
+
+[Link interessante para lidar com password policy](https://stackoverflow.com/questions/43094726/your-password-does-not-satisfy-the-current-policy-requirements)
+
+SHOW VARIABLES LIKE 'validate_password%';
+The output should be something like that :
+
++--------------------------------------+-------+
+| Variable_name                        | Value |
++--------------------------------------+-------+
+| validate_password.check_user_name    | ON    |
+| validate_password.dictionary_file    |       |
+| validate_password.length             | 6     |
+| validate_password.mixed_case_count   | 1     |
+| validate_password.number_count       | 1     |
+| validate_password.policy             | LOW   |
+| validate_password.special_char_count | 1     |
++--------------------------------------+-------+
+then you can set the password policy level lower, for example:
+
+SET GLOBAL validate_password.length = 6;
+SET GLOBAL validate_password.number_count = 0;
 
 Comando para verificar se o serviço do mysql está rodando:
 ```
@@ -96,3 +117,16 @@ sudo rm -rf /etc/mysql
 ```
 
 Para confirmar a remoção dele: `mysql --version`
+
+# Instalando uma interface gráfica (MySQL WorkBench)
+
+[Link para download](https://dev.mysql.com/downloads/workbench/)
+
+Não é necessário criar uma conta. Procure pelo link "No thanks, just start my download" e faça o download.
+
+Onde foi feito o download, rode o comando a seguir e aceite a instalação:
+```
+sudo apt install ./nome-do-arquivo
+#ex no Ubuntu 20.04: sudo apt install ./mysql-workbench-community_8.0.21-1ubuntu20.04_amd64.deb
+```
+
