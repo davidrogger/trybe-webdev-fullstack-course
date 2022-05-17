@@ -130,3 +130,7 @@ sudo apt install ./nome-do-arquivo
 #ex no Ubuntu 20.04: sudo apt install ./mysql-workbench-community_8.0.21-1ubuntu20.04_amd64.deb
 ```
 
+Recursos Adicionais:
+
+1. [Resetar Senha de Usuário](https://stackoverflow.com/questions/42153059/mysqld-safe-directory-var-run-mysqld-for-unix-socket-file-dont-exists)
+2. 
