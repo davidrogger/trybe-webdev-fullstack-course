@@ -75,3 +75,24 @@ Para desativar essa inicialização automática:
 ```
 sudo systemctl disable mysql
 ```
+
+# Desinstalando o MySQL server
+
+Removendo todos os pacotes:
+```
+sudo apt-get remove mysql-server mysql-client mysql-common
+```
+
+Removendo arquivos de dependências:
+```
+sudo apt-get autoremove
+sudo apt-get autoclean
+```
+
+Removendo os arquivos do mysql:
+```
+sudo rm -rf /var/lib/mysql
+sudo rm -rf /etc/mysql
+```
+
+Para confirmar a remoção dele: `mysql --version`
