@@ -136,3 +136,10 @@ EX:
 CREATE DATABASE trybe;
 ```
 
+# O que é uma entidade?
+
+Entidade em banco de dados, é o alvo que possui as propriedades para o banco.
+Exemplo; a entidade pessoal, possui propriedades como, altura, peso, idade, escolaridade...
+
+A entidade é a nossa tabela dentro de um banco de dados e as propriedades fazem parte dessa tabela.
+As entidades são individuais e não se relacionam entre si, porém às vezes, elas são ligadas umas às outras através de relacionamentos.
