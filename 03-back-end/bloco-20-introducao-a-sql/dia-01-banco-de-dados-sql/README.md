@@ -169,4 +169,43 @@ O tipo de relacionamento muitos para muitos acontece quando uma linha na tabela 
 Pode ser visto também como dois relacionamento um para muitos ligados por uma tabela intermediária, como é o caso da tabela filme_ator do banco sakila. Podemos chamar essa tabela de intermediária de tabela de junção. Ela é usada para guardar informações de como as tabelas se relacionam entre si.
 Dessa maneira, quando queremos demostrar que um filme pode contar com vários atores, e também que os atores podem atuar em vários filmes, surge a necessidade de um relacionamento muitos para muitos. Pode ser encontrado em alguns conteúdos com a abreviação: N:N.
 
+# EXERCICIO DO BLOCO
+
+EXERCICIOS REALIZADOS NO WORKBENCH MYSQL
+
+1. Exercício 1: Descubra como fazer uma pesquisa em qualquer tabela sem utilizar uma linha de código usando o MySql Workbench.
+
+`Clicar com o botão direito na tabela desejada dentro do banco desejado, e selecionar ROW.`
+
+2. Exercício 2: Descubra como é possível criar uma tabela sem usar código SQL usando o MySql Workbench.
+
+`Clicar com o botão direito no banco de dados que deseja criar uma nova tabela e create table.`
+
+3. Exercício 3: Feito isso, crie uma tabela com as seguintes restrições:
+Nome da tabela: Filme
+Colunas:
+FilmeId - primary key, tipo int, incrementa por 1 cada vez que um valor é inserido automaticamente;
+Descricao - não permite nulos, tipo texto (varchar(100));
+AnoLancamento - não permite nulos, tipo int;
+Nota - permite nulos, tipo int;
+
+`Mesmo passo anterior inserindo cada coluna de forma dinâmica conforme o workbench oferece.`
+
+4. Exercício 4: Analise a tabela city e encontre a tabela à qual a coluna country_id faz referência.
+
+`tabela contray`
+
+Exercício 5: Após resolver o exercício anterior, responda: qual tipo de relacionamento a tabela city faz com a tabela country?
+
+`N:1, São varias cidades para um país`
+
+Exercício 6: Qual tipo de relacionamento a tabela country faz com a tabela city?
+
+`1:N Um país para muitas cidades`
+
+Exercício 7: Abra tabela por tabela do banco sakila e encontre no mínimo 3 exemplos de um relacionamentos 1:N ou N:1.
+
+1. **filme_category** varios film_id com 1 categoria_id
+2. **customer** varios store_id com 1 customer_id
+3. **payment_id** varios customer_id ou staff_id para 1 payment_id
 
