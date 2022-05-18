@@ -155,3 +155,12 @@ Exemplo, para limitar os 10 primeiros valores;
 
 Ele irá mostrar apenas as 10 primeiras linhas da tabela rental.
 
+# LIMIT OFFSET
+
+É usado para pular linhas do resultado.
+Exemplo, para pular os 3 primeiro valores da mesma busca anterior, exibindo apenas 10 resultados;
+
+`SELECT * FROM sakila.rental LIMITE 10 OFFSET 3;`
+
+Apresentaria 10 linhas, pulando as 3 primeiros.
+
