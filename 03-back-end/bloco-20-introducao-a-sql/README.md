@@ -1,3 +1,5 @@
+anotações pessoais do bloco...
+
 # Instalando MySQL Server
 
 Ferramentas que serão usadas: **MySQL Server** e **MySQL Workbench**
