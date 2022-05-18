@@ -164,3 +164,43 @@ Exemplo, para pular os 3 primeiro valores da mesma busca anterior, exibindo apen
 
 Apresentaria 10 linhas, pulando as 3 primeiros.
 
+# ORDER BY
+
+Para ordenar as linhas de forma ascendente e descendente é usado o comando ORDER BY a seguir:
+Usando a tabela de estudantes anterior.
+
+`SELECT * FROM Escola.Estudantes`
+```
+'Rafael', '25'
+'Amanda', '30'
+'Roberto', '45'
+'Carol', '19'
+'Amanda', '25'
+```
+
+`SELECT * FROM Escola.Estudante ORDER BY nome ASC;`
+
+```
+'Amanda', '30'
+'Amanda', '25'
+'Carol', '19'
+'Rafael', '25'
+'Roberto', '45'
+```
+
+Queremos que os alunos mais novos apareçam primeiro de forma ordenada por nome:
+
+`SELECT * FROM Escola.Estaudante ORDER BY nome ASC, idade ASC;`
+
+```
+'Amanda', '25'
+'Amanda', '30'
+'Carol', '19'
+'Rafael', '25'
+'Roberto', '45'
+```
+
+Caso não seja declarada a ordem, por padrão ele orderna de forma ascendente, então o código poderia ficar assim:
+
+`SELECT * FROM Escola.Estudante ORDER BY nome, idade;`
+
