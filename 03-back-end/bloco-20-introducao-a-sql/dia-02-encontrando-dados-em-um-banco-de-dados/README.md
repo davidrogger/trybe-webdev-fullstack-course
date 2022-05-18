@@ -103,3 +103,29 @@ SELECT * FROM <tables que você quiser> resposta ótima do gabarito
 3. Na tabela sakila.address, monte uma query que exiba a rua e o distrito de cada registro em uma coluna apenas, e dê a essa coluna o nome Endereço.
 
 `SELECT CONCAT(address, ' ', district) AS 'Endereço' FROM sakila.address;`
+
+# Parafixar4
+
+1. Monte uma query para encontrar pares únicos de nomes e idades.
+
+`SELECT DISTINCT nome, idade FROM Escola.Estudantes;`
+
+2. Quantas linhas você encontraria na query anterior?
+
+`5`
+
+3. Monte uma query para encontrar somente os nomes únicos.
+
+`SELECT DISTINCT nome FROM Escola.Estudantes;`
+
+4. Quantas linhas você encontraria na query anterior?
+
+`4`
+
+5. Monte uma query para encontrar somente as idades únicas.
+
+`SELECT DISTINCT idade FROM Escola.Estudantes;`
+
+Quantas linhas você encontraria na query anterior?
+
+`4`
