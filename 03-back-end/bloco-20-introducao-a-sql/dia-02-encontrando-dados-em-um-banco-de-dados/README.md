@@ -359,7 +359,7 @@ FROM Scientists.Projetcs;
 8. Escreva uma query para exibir o nome dos projetos em ordem alfabética descendente.
 ```
 SELECT Name FROM Scientists.Projects
-ORDER BY Name;
+ORDER BY Name DESC;
 ```
 9. Escreva uma query que exiba a string "O projeto Name precisou de Hours horas para ser concluído." para cada projeto.
 
@@ -378,7 +378,7 @@ LIMITE 3;
 ```
 11. Escreva uma query para exibir o código de todos os projetos da tabela AssignedTo sem que haja repetições.
 
-`SELECT DISTINCT(Scientist) FROM Scientists.AssignedTo;`
+`SELECT DISTINCT(Project) FROM Scientists.AssignedTo;`
 
 12. Escreva uma query para exibir o nome do projeto com maior quantidade de horas.
 ```
@@ -393,7 +393,7 @@ LIMIT 1;
 ```
 SELECT Name AS 'Segundo Maior quantidade de horas'
 FROM Scientists.Projects
-ORDER BY Hours DESC
+ORDER BY Hours ASC
 LIMIT 1
 OFFSET 1;
 ```
@@ -402,7 +402,7 @@ OFFSET 1;
 SELECT *
 FROM Scientists.Projects
 ORDER BY Hours
-LIMIT 4;
+LIMIT 5;
 ```
 15. Escreva uma query que exiba a string "Existem Number cientistas na tabela Scientists.", em que Number se refira a quantidade de cientistas.
 ```
