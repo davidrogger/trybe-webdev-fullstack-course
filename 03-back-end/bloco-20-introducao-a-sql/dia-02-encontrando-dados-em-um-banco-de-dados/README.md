@@ -145,3 +145,13 @@ Quantas linhas você encontraria na query anterior?
 3. Quantos emails temos cadastrados nessa tabela?
 
 `SELECT COUNT(email) FROM sakila.staff;`
+
+# LIMIT
+
+É um parametro, para determinar um limite de visualização.
+Exemplo, para limitar os 10 primeiros valores;
+
+`SELECT * FROM sakila.rental LIMITE 10;`
+
+Ele irá mostrar apenas as 10 primeiras linhas da tabela rental.
+
