@@ -90,7 +90,7 @@ SHOW TABLES;
 SELECT * FROM <tables que você quiser> resposta ótima do gabarito
 ```
 
-# Parafixar3
+# Parafixar CONCAT
 
 1. Na tabela sakila.film, monte uma query que exiba o título e o ano de lançamento dos filmes em uma coluna e dê a ela o nome Lançamento do Filme.
 
@@ -104,7 +104,7 @@ SELECT * FROM <tables que você quiser> resposta ótima do gabarito
 
 `SELECT CONCAT(address, ' ', district) AS 'Endereço' FROM sakila.address;`
 
-# Parafixar4
+# Parafixar DISTINCT
 
 1. Monte uma query para encontrar pares únicos de nomes e idades.
 
