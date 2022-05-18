@@ -81,7 +81,7 @@ Transactional Control Language - Lida com as transações dentro de suas pesquis
 
 ```
 SHOW COLUMNS FROM filme;
-SELECT title, description, release_year FROM filme;
+SELECT title, description, release_year FROM film;
 ```
 
 5. Utilize o SELECT para explorar todas as tabelas do banco de dados.
