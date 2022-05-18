@@ -12,3 +12,12 @@ Data Definition Language - Todos os comandos que lidam com o esquema, a descriç
 - ALTER: Para laterar a estrutura de qualquer objeto;
 - DROP: Permite deletar objetos;
 - TRUNCATE: Apenas esvazia os dados dentro de uma tabela, mais a mantém no banco de dados.
+
+## DML
+
+Data Manipulation Language - Comandos que são usados para manipular dados. São utilizados para armazenar, modificar, buscar e excluir dados em um banco de dados. Os comandos e usos mais comuns nesta categoria são:
+
+- SELECT: Usado para buscar dados em um banco de dados;
+- INSERT: Insere dados em uma tabela;
+- UPDATE: Altera dados dentro de uma tabela;
+- DELETE: Excluir dados de uma tabela.
