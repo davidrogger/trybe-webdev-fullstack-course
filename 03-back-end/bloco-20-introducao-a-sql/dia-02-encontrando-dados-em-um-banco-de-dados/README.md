@@ -28,3 +28,12 @@ Data Control Language - Mais focado nos comandos que concedem direitos, permiss�
 
 - GRANT: Concede acesso a um usuário;
 - REVOKE: Remove acessos concedidos através do comando GRANT.
+
+## TCL
+
+Transactional Control Language - Lida com as transações dentro de suas pesquisas.
+
+- COMMIT: Muda suas alterações temporárias para permanentes no seu banco de dados.
+- ROLLBACK: Desfaz todo o impacto realizado por um comando;
+- SAVEPOINT: Define pontos para os quais uma transação pode voltar. É uma maneira de voltar para pontos específicos de sua query;
+- TRANSACTION: Comandos que definem onde, como e em que escopo suas transações são executadas.
