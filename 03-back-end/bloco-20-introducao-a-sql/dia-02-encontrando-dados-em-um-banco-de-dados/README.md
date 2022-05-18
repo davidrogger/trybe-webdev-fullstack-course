@@ -59,3 +59,33 @@ Transactional Control Language - Lida com as transações dentro de suas pesquis
 5. Monte uma query que exiba a data e hora atuais. Dê a essa coluna o nome "Data Atual".
 
 `SELECT now() AS 'Data Atual;`
+
+# Parafixar2
+
+`USE sakila;`
+
+1. Escreva uma query que selecione todas as colunas da tabela city;
+
+`SELECT * FROM city;`
+
+2. Escreva uma query que exiba apenas as colunas first_name e last_name da tabela customer;
+
+`SELECT first_name, last_name FROM customer;`
+
+3. Escreva uma query que exiba todas as colunas da tabela rental;
+
+`SELECT * FROM rental;`
+
+4. Escreva uma query que exiba o título, a descrição e a data de lançamento dos filmes registrados na tabela film;
+[Comando para visualizar as colunas de uma tabela](https://stackoverflow.com/questions/1526688/get-table-column-names-in-mysql)
+
+```
+SHOW COLUMNS FROM filme;
+SELECT title, description, release_year FROM filme;
+```
+
+5. Utilize o SELECT para explorar todas as tabelas do banco de dados.
+```
+SHOW TABLES;
+SELECT * FROM <tables que você quiser> resposta ótima do gabarito
+```
