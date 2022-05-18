@@ -129,3 +129,19 @@ SELECT * FROM <tables que você quiser> resposta ótima do gabarito
 Quantas linhas você encontraria na query anterior?
 
 `4`
+
+# Parafixar COUNT
+
+![BD sakila](/03-back-end/bloco-20-introducao-a-sql/20.imagens/sampleSelect1.png)
+
+1. Quantas senhas temos cadastradas nessa tabela?
+
+`SELECT COUNT(password) FROM sakila.staff;`
+
+2. Quantas pessoas temos no total trabalhando para nossa empresa?
+
+`SELECT COUNT(staff_id) FROM sakila.staff;`
+
+3. Quantos emails temos cadastrados nessa tabela?
+
+`SELECT COUNT(email) FROM sakila.staff;`
