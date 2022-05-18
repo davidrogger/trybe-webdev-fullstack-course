@@ -21,3 +21,10 @@ Data Manipulation Language - Comandos que são usados para manipular dados. São
 - INSERT: Insere dados em uma tabela;
 - UPDATE: Altera dados dentro de uma tabela;
 - DELETE: Excluir dados de uma tabela.
+
+## DCL
+
+Data Control Language - Mais focado nos comandos que concedem direitos, permissões e outros tipos de controle ao sistema de banco de dados.
+
+- GRANT: Concede acesso a um usuário;
+- REVOKE: Remove acessos concedidos através do comando GRANT.
