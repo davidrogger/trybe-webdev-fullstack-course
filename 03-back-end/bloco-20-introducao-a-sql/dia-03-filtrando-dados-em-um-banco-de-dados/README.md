@@ -215,3 +215,14 @@ ORDER BY name;
 
 No exemplo acima, será apresentado os resultados de todas linhas entre Italian e mandarin.
 
+## BETWEEN com datas
+
+Deve ser usado o valor padrão de datas a seguir: YYYYY-MM-DD HH:MM:SS, sendo os valores de horas, minutos e segundos opcionais.
+```
+SELECT rental_id, rental_date FROM sakila.rental
+WHERE rental_date
+BETWEEN '2005-05-27' AND '2005-07-17';
+```
+
+Consulta acima, retorna as colunas rental_id e rental_date, entre os meses 05 e 07;
+
