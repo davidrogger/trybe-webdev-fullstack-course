@@ -194,3 +194,24 @@ SELECT * FROM sakila.customer
 WHERE customer_id IN (1, 2, 3, 4, 5);
 ```
 
+# BETWEEN
+
+Você pode usar o between para determinar um alcance de busca, determinando que entre um valor especifico inicial e um valor final, devem aparecer todos os resultados;
+```
+SELECT title, length FROM sakila.film
+WHERE length BETWEEN 50 and 120;
+```
+
+Resultado da busca acima, seria os valores entre os valores indicados incluindo eles.
+
+## BETWEEN com strings
+
+Para encontrar uma faixa de valores em que os valores são strings podemos digitar a palavra por completo para encontrar os valores.
+```
+SELECT * FROM sakila.language
+WHERE name BETWEEN 'Italian' AND 'Mandarin'
+ORDER BY name;
+```
+
+No exemplo acima, será apresentado os resultados de todas linhas entre Italian e mandarin.
+
