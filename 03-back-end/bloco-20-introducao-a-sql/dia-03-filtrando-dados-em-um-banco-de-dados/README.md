@@ -168,3 +168,29 @@ SELECT * FROM sakila.film
 WHERE description LIKE '%monkey%'
 AND description LIKE '%sumo%';
 ```
+
+# Englobando uma faixa de resultados com IN e BETWEEN
+
+# Operador IN
+
+É possivel juntar várias condições nas suas queries usando os operadores AND e OR. No entanto, ainda é necessário digitar cada condição separadamente;
+```
+SELECT * FROM sakila.actor
+WHERE first_name = 'PENELOPE'
+OR first_name = 'NICK'
+OR first_name = 'ED'
+OR first_name = 'JENNIFER';
+```
+
+Uma forma melhor de fazer essa mesma pesquisa seria usando o IN:
+```
+SELECT * FROM sakila.actor
+WHERE first_name IN ('PENELOPE', 'NICK', 'ED', 'JENNIFER');
+```
+
+Esse mesmo processo pode ser realizado para números;
+```
+SELECT * FROM sakila.customer
+WHERE customer_id IN (1, 2, 3, 4, 5);
+```
+
