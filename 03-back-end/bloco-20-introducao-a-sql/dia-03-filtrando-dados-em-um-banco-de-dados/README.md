@@ -80,3 +80,43 @@ WHERE rating = 'NC-17'
 ORDER BY rental_rate ASC, title ASC
 LIMIT 50;
 ```
+
+# Criando pesquisas mais dinâmicas e maleáveis usando o LIKE
+
+O **LIKE** é usado para buscar por meio de uma sequência específica de caracteres.
+Existe dois 'curingas' ou modificadores que são normalmente usados com o LIKE:
+
+**%** - O sinal de percentual, que pode representar zero, um ou múltiplos caracteres.
+
+**_** - O underscore (às vezes chamado de underline, no Brasil), representa um único caractere
+
+Procurando um titulo de filme com o final 'don';
+```
+SELECT * FROM sakila.film
+WHERE title LIKE '%don';
+```
+
+Um titulo que começa com uma letra e termina com outra;
+```
+SELECT * FROM sakila.film
+WHERE title LIKE 'p%r';
+```
+
+Usando underscore, o resultado a seguir será de qualquer titulo que o segundo caracter é igual a C;
+```
+SELECT * FROM sakila.film
+WHERE title LIKE '_C%';
+```
+
+A seguir qualquer titulo com 8 caracteres;
+```
+SELECT * FROM sakila.filme
+WHERE title LIKE '________';
+```
+
+A seguir todas as palavras com no mínimo 3 caracteres e que iniciam com E;
+```
+SELECT * FROM sakila.films
+WHERE title LIKE 'E__%';
+```
+
