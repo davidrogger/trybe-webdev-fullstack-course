@@ -262,3 +262,50 @@ WHERE rating IN ('G', 'PG', 'PG-13')
 ORDER BY title
 LIMIT 500;
 ```
+
+# Datas
+
+[Tipos de dados](https://www.mysqltutorial.org/mysql-data-types.aspx) temporais.
+
+- DATE: Possui apenas data, no formato YYYY-MM-DD na faixa de 1001-01-01 até 9999-12-31
+- DATETIME Possui data e tempo, no formato YYYY-MM-DD HH:MM:SS com a faixa de 1000-01-01 00:00:00 até 9999-12-31 23:59:59
+
+# Maneiras de encontrar dados por data
+```
+SELECT * FROM sakila.payment
+WHERE DATE(payment_date) = '2005-07-31';
+```
+Será mostrada todos elementos que possui a coluna payment_date igual a data indicada.
+
+Usando LIKE para valores aproximados:
+```
+SELECT * FROM sakila.payment
+WHERE payment_date LIKE '2005-07-31%';
+```
+
+Resultado encontra todos pagamentos deste dia, ignorando o tempo.
+```
+SELECT * FROM sakila.payment
+WHERE payment_date LIKE '2005-08-20 00:30:52';
+```
+Resultado encontra o pagamento com dia e hora exatos.
+
+Usando BETWEEN:
+```
+SELECT *
+FROM sakila.payment
+WHERE payment_date BETWEEN '2005-05-26 00:00:00' AND '205-05-27 23:59:59';
+```
+
+Resultado da pesquisa, encontra pagamentos especificando um valor mínimo e um valor máxim para a data.
+
+# Selecionando paenas partes de uma data
+
+-- Teste cada um dos comandos a seguir:
+SELECT DATE(payment_date) FROM sakila.payment; -- YYYY-MM-DD
+SELECT YEAR(payment_date) FROM sakila.payment; -- Ano
+SELECT MONTH(payment_date) FROM sakila.payment; -- Mês
+SELECT DAY(payment_date) FROM sakila.payment; -- Dia
+SELECT HOUR(payment_date) FROM sakila.payment; -- Hora
+SELECT MINUTE(payment_date) FROM sakila.payment; -- Minuto
+SELECT SECOND(payment_date) FROM sakila.payment; -- Segundo
