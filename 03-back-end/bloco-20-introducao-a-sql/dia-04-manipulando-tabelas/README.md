@@ -22,4 +22,20 @@ INSERT INTO nome_da_tabela (coluna1, coluna2) VALUES
 ('valor_5', 'valor_6');
 ```
 
+## Ignorando linhas existentes
+
+| id | name |
+| --- | --- |
+| 1 | Nissim |
+| 2 | Garrison |
+| 3 | Benjamin |
+| 4 | Gloria |
+```
+INSERT IGNORE INTO pessoas (id, name) VALUES
+(4, 'Gloria'),
+(5, 'Amanda');
+```
+
+Caso não fosse usado o ignore ele retornaria um erro, e não iria inserir a Amanda, com ignore ele ignora a parte com erro, e adicionaria o valor.
+
 
