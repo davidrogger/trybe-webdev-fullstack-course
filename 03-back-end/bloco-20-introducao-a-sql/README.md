@@ -151,3 +151,11 @@ Recursos Adicionais:
 3. [Documentação Oficial MySQL](https://dev.mysql.com/doc/refman/8.0/en/)
 4. [Tutorial Sobre tipos de comando SQL do W3Schools](https://www.w3schools.in/mysql/ddl-dml-dcl/)
 5. [Tutorial sobre tipos de comando SQL do Java T Point](https://www.javatpoint.com/dbms-sql-command)
+
+# 20.3
+
+1. [Quiz prêmio nobel com MySQL](https://sqlzoo.net/wiki/Nobel_Quiz)
+2. [Desafios do HackerRank sobre conhecimentos básicos](https://www.hackerrank.com/domains/sql?filters%5Bsubdomains%5D%5B%5D=select)
+3. [Lidando com datas no MySQL](https://popsql.com/learn-sql/mysql/how-to-query-date-and-time-in-mysql)
+4. [Recrusos para aprender e praticar SQL](https://www.w3resource.com/mysql/mysql-tutorials.php)
+5. [Dates area more troublesome than they seem!](https://www.youtube.com/watch?v=-5wpm-gesOY)
