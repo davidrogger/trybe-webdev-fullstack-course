@@ -11,3 +11,15 @@ Sintax para inserir dados em uma tabela:
 INSERT INTO nome_da_tabela (coluna1, coluna2)
 VALUES ('valor_coluna1', 'valor_coluna2');
 ```
+
+## Inserindo várias linhas de uma vez
+
+Inserindo múltiplas linhas em uma tabela com uma única query:
+```
+INSERT INTO nome_da_tabela (coluna1, coluna2) VALUES
+('valor_1', 'valor_2'),
+('valor_3', 'valor4'),
+('valor_5', 'valor_6');
+```
+
+
