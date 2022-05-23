@@ -38,4 +38,6 @@ INSERT IGNORE INTO pessoas (id, name) VALUES
 
 Caso não fosse usado o ignore ele retornaria um erro, e não iria inserir a Amanda, com ignore ele ignora a parte com erro, e adicionaria o valor.
 
+## Inserindo valores em colunas com auto_increment
 
+Colunas que possui auto_increment é omitida no INSERT, caso fosse inserido na tabela superior id como auto_increment, seria inserido somente o nome, e ele seguiria a contagem incremental.
