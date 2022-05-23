@@ -41,3 +41,15 @@ Caso não fosse usado o ignore ele retornaria um erro, e não iria inserir a Ama
 ## Inserindo valores em colunas com auto_increment
 
 Colunas que possui auto_increment é omitida no INSERT, caso fosse inserido na tabela superior id como auto_increment, seria inserido somente o nome, e ele seguiria a contagem incremental.
+
+## INSERT SELECT (Inserindo dados de uma outra tabela)
+
+É possivel inserir dados a partir de outro tabela usando o INSERT INTO SELECT:
+```
+INSERT INTO tabelaA (coluna1, coluna2)
+  SELECT tabelaB.coluna1, tabelaB.coluna2
+  FROM tabelaB
+  WHERE tabelaB.nome_da_coluna <> 'algumvalor'
+  ORDER BY tabelaB.coluna_de_ordenacao;
+
+```
