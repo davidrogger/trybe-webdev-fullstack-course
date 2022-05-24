@@ -262,3 +262,50 @@ WHERE actor_id = 7; -- actor_id = 7 é o Id de GRACE
 ```
 
 Após excluir as referências, podemos excluir o ator com o nome "GRACE":
+
+## DELETE VS TRUNCATE
+
+Se tem certeza absoluta de que quer excluir os registros de uma tabela de uma maneira mais rápida, para efeitos de testes ou necessidade, o TRUNCATE é mais rápido que o DELETE. A função principal e única do TRUNCATE é de limpar (excluir todos os registros) de uma tabela, não sendo possível especificar o WHERE. Por isso, o TRUNCATE só pode ser usado nesse cenário.
+```
+TRUNCATE banco_de_dados.tabela;
+```
+Caso precise excluir condicionalmente, usando regras e especificações, use sempre o comando DELETE juntamente com o WHERE.
+
+# Parafixar
+
+1. Exclua do banco de dados o ator com o nome de "KARL".
+```
+DELETE FROM sakila.film_actor
+WHERE actor_id = (
+SELECT actor_id FROM sakila.actor
+WHERE first_name = 'karl');
+
+DELETE FROM sakila.actor
+WHERE first_name = 'karl';
+```
+2. Exclua do banco de dados os atores com o nome de "MATTHEW".
+```
+SELECT actor_id FROM sakila.actor
+WHERE first_name = 'matthew';
+
+DELETE FROM sakila.film_actor
+WHERE actor_id = (8, 103, 181) -- numeros encontrando com o SELECT acima
+```
+3. Exclua da tabela film_text todos os registros que possuem a palavra "saga" em suas descrições.
+```
+DELETE FROM sakila.filme_text
+WHERE description LIKE '%saga%';
+```
+4. Apague da maneira mais performática possível todos os registros das tabelas film_actor e film_category.
+```
+TRUNCATE sakila.film_actor;
+TRUNCATE sakila.film_actor;
+```
+5. Inspecione todas as tabelas do banco de dados sakila e analise quais restrições ON DELETE foram impostas em cada uma. Use o Table Inspector para fazer isso (aba DDL).
+
+----
+
+6. Exclua o banco de dados e o recrie (use as instruções no início desta aula).
+```
+DROP Schema sakila;
+```
