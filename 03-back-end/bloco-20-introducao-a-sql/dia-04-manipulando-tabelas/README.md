@@ -139,3 +139,24 @@ END);
 
 [Link com mais informações sobre o case](https://www.w3schools.com/sql/func_mysql_case.asp)
 
+## Fazendo um UPDATE de forma sequencial
+
+Se o comando ORDER BY for usado juntamente com o UPDATE, os resultados serão alterados na ordem em que forem encontrados.
+
+Se o comando LIMIT for usado em conjunto com o UPDATE, um limite será imposto na quantidade de resultados que podem ser alterados. Caso Contrário, todos os resultados que satisfizerem a condição serão atualizados.
+
+Os valores entre colchetes([]) são opcionais:
+```
+UPDATE nome_da_tabela
+SET coluna1 = valor1, coluna 2 = valor2
+[WHERE condições]
+[ORDER BY expressao [ ASC | DESC]]
+[LIMIT quantidade_resultados];
+
+UPDATE sakila.staff
+SET password = 'FavorResetarSuaSenha123'
+WHERE active = 1
+ORDER BY last_update
+LIMIT 2;
+```
+
