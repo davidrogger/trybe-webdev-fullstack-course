@@ -88,3 +88,24 @@ INSERT INTO sakila.store (manager_staff_id, address_id) VALUES
 (5, 10);
 ```
 
+# UPDATE
+
+| staff_id | first_name | last_name |
+| --- | --- | --- |
+| 1 | Devidi | Nizuk |
+
+Sintaxe:
+```
+UPDATE sakila.staff
+SET first_name = 'David'
+WHERE first_name = 'Deividi'
+```
+```
+UPDATE nome_da_tabela
+SET propriedade_a_ser_alterada = 'novo valor para coluna'
+WHERE alguma_condicao; -- importantíssimo aplicar o WHERE para não alterar a tabela inteira!
+```
+
+Uma curiosidade sobre o UPDATE e o DELETE no MySQL Server é que, por padrão, existe uma configuração chamada safe updates mode que só vai te permitir executá-los caso eles incluam quais ID's devem ser modificados.
+
+Para evitar essa restrição deve-se usar o seguinte comando: `SET SQL_SAFE_UPDATES = 0`
