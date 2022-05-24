@@ -109,3 +109,12 @@ WHERE alguma_condicao; -- importantíssimo aplicar o WHERE para não alterar a t
 Uma curiosidade sobre o UPDATE e o DELETE no MySQL Server é que, por padrão, existe uma configuração chamada safe updates mode que só vai te permitir executá-los caso eles incluam quais ID's devem ser modificados.
 
 Para evitar essa restrição deve-se usar o seguinte comando: `SET SQL_SAFE_UPDATES = 0`
+
+## Alterando mais de uma coluna ao mesmo tempo
+
+Basta inserir o nome da coluna que seja alterar, em seguida definir o id do usuário.
+```
+UPDATE sakila.staff
+SET first_name = 'David', last_name = 'Rogger'
+WHERE staff_id = 1;
+```
