@@ -159,3 +159,13 @@ Recursos Adicionais:
 3. [Lidando com datas no MySQL](https://popsql.com/learn-sql/mysql/how-to-query-date-and-time-in-mysql)
 4. [Recrusos para aprender e praticar SQL](https://www.w3resource.com/mysql/mysql-tutorials.php)
 5. [Dates area more troublesome than they seem!](https://www.youtube.com/watch?v=-5wpm-gesOY)
+
+# 20.4
+
+1. [Tutorial sobre INSERT do Guru99](https://www.guru99.com/insert-into.html)
+2. [Tutorial sobre INSERT do MySQL Tutorial](https://www.mysqltutorial.org/mysql-insert-statement.aspx)
+3. [Tutorial sobre UPDATE do MySQL Tutorial](https://www.mysqltutorial.org/mysql-update-data.aspx)
+4. [Tutorial sobre DELETE e UPDATE do Guru99](https://www.guru99.com/delete-and-update.html)
+5. [Tutorial sobre DELETE do MYSQL Tutorial](https://www.mysqltutorial.org/mysql-delete-statement.aspx)
+6. [Tutorial sobre DELETE do Tech On The Net](https://www.techonthenet.com/mysql/delete.php)
+7. [Documentação sobre restrições de chaves estrangeiras no MySQL](https://dev.mysql.com/doc/refman/5.7/en/create-table-foreign-keys.html)
