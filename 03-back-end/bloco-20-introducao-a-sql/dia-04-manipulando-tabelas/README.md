@@ -160,3 +160,24 @@ ORDER BY last_update
 LIMIT 2;
 ```
 
+## --safe-updates
+
+A opção --safe-updates exige que o mysql execute a seguinte instrução ao se conectar ao servidor:
+```
+SET sql_safe_updates=1, sql_select_limit=1000, max_join_size=1000000;
+```
+
+- sql_select_limit=1000: limita o conjunto de resultados SELECT a 1.000 linhas, a menos que a instrução inclua LIMIT.
+
+- max_join_size=1.000.000: faz com que as instruções SELECT de várias tabelas produzam um erro se o servidor estimar que deve examinar mais de 1.000.000 combinações de linhas.
+
+Você pode desabilitar o --safe-updates utilizando o comando SET:
+```
+SET SQL_SAFE_UPDATES = 0;
+```
+
+Ou configurar para um modo mais conveniente para você, alterando os valores das variáveis:
+```
+SET sql_safe_updates=1, sql_select_limit=500, max_join_size=10000;
+```
+
