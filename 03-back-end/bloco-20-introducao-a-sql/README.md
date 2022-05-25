@@ -137,7 +137,6 @@ Recursos Adicionais:
 1. [Resetar Senha de Usuário](https://stackoverflow.com/questions/42153059/mysqld-safe-directory-var-run-mysqld-for-unix-socket-file-dont-exists)
 
 # 20.1
-
 1. [Diferença entre dados, informações e conhecimento](https://www.estrategiaconcursos.com.br/blog/dados-informacao-conhecimento-uma-apresentacao)
 2. [Importância dos bancos de dados na sociedade](https://tecnoblog.net/responde/banco-de-dados-importancia/)
 3. [O que é um banco de dados?](https://www.homehost.com.br/blog/tutoriais/mysql/o-que-e-um-banco-de-dados/)
@@ -145,7 +144,6 @@ Recursos Adicionais:
 5. [SQL vs NoSQL, como são diferentes?](https://www.treinaweb.com.br/blog/sql-vs-nosql-qual-usar)
 
 # 20.2
-
 1. [Introdução ao básico do SQL com prática](https://sqlzoo.net/wiki/SELECT_basics)
 2. [W3Schools Curso SQL Online](https://www.w3schools.com/sql/)
 3. [Documentação Oficial MySQL](https://dev.mysql.com/doc/refman/8.0/en/)
@@ -153,7 +151,6 @@ Recursos Adicionais:
 5. [Tutorial sobre tipos de comando SQL do Java T Point](https://www.javatpoint.com/dbms-sql-command)
 
 # 20.3
-
 1. [Quiz prêmio nobel com MySQL](https://sqlzoo.net/wiki/Nobel_Quiz)
 2. [Desafios do HackerRank sobre conhecimentos básicos](https://www.hackerrank.com/domains/sql?filters%5Bsubdomains%5D%5B%5D=select)
 3. [Lidando com datas no MySQL](https://popsql.com/learn-sql/mysql/how-to-query-date-and-time-in-mysql)
@@ -161,7 +158,6 @@ Recursos Adicionais:
 5. [Dates area more troublesome than they seem!](https://www.youtube.com/watch?v=-5wpm-gesOY)
 
 # 20.4
-
 1. [Tutorial sobre INSERT do Guru99](https://www.guru99.com/insert-into.html)
 2. [Tutorial sobre INSERT do MySQL Tutorial](https://www.mysqltutorial.org/mysql-insert-statement.aspx)
 3. [Tutorial sobre UPDATE do MySQL Tutorial](https://www.mysqltutorial.org/mysql-update-data.aspx)
