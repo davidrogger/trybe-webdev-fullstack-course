@@ -11,5 +11,6 @@ services:
       - mysql-network
     environment:
       MYSQL_ROOT_PASSWORD: '@mysql2022'
+      # MYSQL_INITDB_SKIP_TZINFO: 'America/Sao_Paulo' ou comando no terminal TZ='America/Sao_Paulo'; export TZ
 networks:
   mysql-network:
