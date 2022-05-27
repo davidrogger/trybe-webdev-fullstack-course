@@ -433,3 +433,33 @@ HAVING 'nomes cadastrados' > 2;
 
 É importante entender que, quando usamos o HAVING, estamos filtrando somente os resultados gerados após o GROUP BY ter sido executado.
 
+# Para fixar
+
+1. Usando a query a seguir, modifique-a de forma que exiba apenas as durações médias que estão entre 115.0 a 121.50. Além disso, dê um alias (apelido) à coluna gerada por AVG(length), de forma que deixe a query mais legível. Finalize ordenando os resultados de forma decrescente.
+```
+    SELECT rating, AVG(length)
+    FROM sakila.film
+    GROUP BY rating;
+```
+
+Resultado:
+```
+SELECT rating, AVG(length) AS avg_rating
+FROM sakila.film
+GROUP BY rating
+HAVING avg_rating BETWEEN(115.0) AND 121.50;
+```
+
+2. Usando a query a seguir, exiba apenas os valores de total do custo de substituição que estão acima de $3950.50. Dê um alias que faça sentido para SUM(replacement_cost), de forma que deixe a query mais legível. Finalize ordenando os resultados de forma crescente.
+```
+    SELECT rating, SUM(replacement_cost)
+    FROM sakila.film
+    GROUP by rating;
+```
+```
+SELECT rating, SUM(replacement_cost) AS total_rating
+FROM sakila.film
+GROUP by rating
+HAVING total_rating > 3950.50
+ORDER BY total_rating;
+```
