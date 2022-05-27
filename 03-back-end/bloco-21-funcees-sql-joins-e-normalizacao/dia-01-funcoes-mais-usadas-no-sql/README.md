@@ -146,3 +146,15 @@ SELECT
     AS 'público-alvo'
 FROM sakila.film;
 ```
+
+# Funções matemáticas do MySQL
+
+Divisão de inteiros com DIV e como encontrar seus restos com o MOD
+
+```
+SELECT 10 DIV 3; -- 3
+SELECT 10 DIV 2; -- 5
+SELECT 14 DIV 3; -- 4
+SELECT 13 DIV 2; -- 6
+```
+
