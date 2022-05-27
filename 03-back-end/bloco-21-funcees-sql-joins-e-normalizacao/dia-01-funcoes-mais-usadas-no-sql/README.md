@@ -261,3 +261,40 @@ SELECT ROUND(7 + (RAND() * 6));
 4. Temos uma taxa de inscrição de 85.234% no curso de fotografia para iniciantes. Qual é o valor aproximado para cima dessa média?
 
 `SELECT CEIL(85.234);`
+
+# Trabalhando com datas
+```
+SELECT CURRENT_DATE(); -- YYYY-MM-DD
+SELECT NOW(); -- YYYY-MM-DD HH:MM:SS
+```
+
+Podemos calcular a diferença entre dias entre duas datas usando o DATEDIFF e a diferença de tempo entre dois horários usando o TIMEDIFF. EM ambos os casos, o segundo valor é subtraído do primeiro para calular o resultado.
+```
+-- 30, ou seja, a primeira data é 30 dias depois da segunda
+SELECT DATEDIFF('2020-01-31', '2020-01-01');
+
+-- -30, ou seja, a primeira data é 30 dias antes da segunda
+SELECT DATEDIFF('2020-01-01', '2020-01-31');
+
+-- -01:00:00, ou seja, há 1 hora de diferença entre os horários
+SELECT TIMEDIFF('08:30:10', '09:30:10');
+
+-- -239:00:00, ou seja, há uma diferença de 239 horas entre as datas
+SELECT TIMEDIFF('2021-08-11 08:30:10', '2021-08-01 09:30:10');
+```
+
+Podemos usar CURRENT_DATE() e NOW() em conjunto com os comandos de manipulação de datas e tempo para encontrar resultados dinâmicos da seguinte maneira:
+```
+SELECT YEAR(CURRENT_DATE()); -- retorna o ano atual
+SELECT HOUR(NOW()); -- retorna a hora atual
+```
+
+# Para fixar
+
+1. Monte uma query que exiba a diferença de dias entre '2030-01-20' e hoje.
+
+`SELECT DATEDIFF('2030-01-20', NOW()); -- 2795 dias`
+
+2. Monte uma query exiba a diferença de horas entre '10:25:45' e '11:00:00'.
+
+`SELECT TIMEDIFF('10:25:45', '11:00:00'); -- -00:34:15`
