@@ -65,3 +65,15 @@ FROM sakila.actor AS a
 INNER JOIN sakila.film_actor AS fa ON a.actor_id = fa.actor_id
 INNER JOIN sakila.film AS f ON fa.film_id = f.film_id;
 ```
+
+# LEFT JOIN e RIGHT JOIN
+
+Quando há uma certa diferença na quantidade de informação realizando o join entre tabelas, podemos definir uma tabela "principal" a tabela da esquerda LEFT é a tabela inicial indicado no FROM e a tabela da direita é a que realizamos o JOIN
+```
+SELECT colunas
+FROM banco.tabela -- ESQUERDA
+INNER || LEFT || RIGHT JOIN banco.tabela -- DIREITA
+```
+
+Quando definimos a esquerda, damos prioridades as linhas formadas pela tabela da esquerda, quando indicamentos a direita, é formulada as linhas com a direita como base.
+
