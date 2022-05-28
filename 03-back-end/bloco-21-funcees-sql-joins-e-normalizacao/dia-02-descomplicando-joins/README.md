@@ -118,3 +118,16 @@ FROM hr.employees AS e
 INNER JOIN hr.employees AS m ON e.MANAGER_ID = m.EMPLOYEE_ID
 GROUP BY Gerente;
 ```
+
+# UNION e UNION ALL
+
+Usado para unir informações de diferentes tabelas:
+```
+SELECT first_name, last_name FROM sakila.actor
+UNION
+SELECT first_name, last_name from sakila.customer;
+```
+
+Seguindo a sintaxe superior, seria retornado a união das duas tabelas, ignorando repetições, para fazer uma copia ignorando repetições seria usado o UNION ALL.
+
+Durante a união deve-se conter a mesma quantidade de colunas para o union funcionar
