@@ -77,3 +77,19 @@ INNER || LEFT || RIGHT JOIN banco.tabela -- DIREITA
 
 Quando definimos a esquerda, damos prioridades as linhas formadas pela tabela da esquerda, quando indicamentos a direita, é formulada as linhas com a direita como base.
 
+# SELF JOIN
+
+É possível fazer pesquisas e comparações dentro da própria tabela através do SELF JOIN.
+É usado em casos em que uma tabela faz join consigo mesma. Você pode utiliza rqualquer dos tipos de JOIn vistos para realizar um SELF JOIN.
+
+Utilizando o schema hr como exemplo, se quisermos buscar o nome das pessoas colaboradoras e das respectivas gerências (manager), podemos montar a seguinte query usando SELF JOIN:
+```
+SELECT
+    CONCAT(Employee.FIRST_NAME, " ", Employee.LAST_NAME) AS "Nome da Pessoa Colaboradora",
+    CONCAT(Manager.FIRST_NAME, " ", Manager.LAST_NAME) AS "Nome Gerente"
+FROM
+	employees AS Employee
+INNER JOIN
+	employees AS Manager ON Employee.MANAGER_ID = Manager.EMPLOYEE_ID;
+```
+
