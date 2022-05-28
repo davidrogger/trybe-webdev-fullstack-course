@@ -80,7 +80,7 @@ Quando definimos a esquerda, damos prioridades as linhas formadas pela tabela da
 # SELF JOIN
 
 É possível fazer pesquisas e comparações dentro da própria tabela através do SELF JOIN.
-É usado em casos em que uma tabela faz join consigo mesma. Você pode utiliza rqualquer dos tipos de JOIn vistos para realizar um SELF JOIN.
+É usado em casos em que uma tabela faz join consigo mesma. Você pode utilizar qualquer dos tipos de JOIn vistos para realizar um SELF JOIN.
 
 Utilizando o schema hr como exemplo, se quisermos buscar o nome das pessoas colaboradoras e das respectivas gerências (manager), podemos montar a seguinte query usando SELF JOIN:
 ```
@@ -93,3 +93,28 @@ INNER JOIN
 	employees AS Manager ON Employee.MANAGER_ID = Manager.EMPLOYEE_ID;
 ```
 
+# Para fixar:
+
+Para fixar esses conceitos, tente encontrar as seguintes informações, utilizando o schema hr:
+
+1. Queremos saber o Nome das pessoas colaboradoras e suas respectivas gerências (manager) cujos departamentos (department) são diferentes.
+```
+SELECT
+    CONCAT(e.FIRST_NAME, " ", e.LAST_NAME) AS "Funcionario",
+    CONCAT(m.FIRST_NAME, " ", m.LAST_NAME) AS "Gerente"
+FROM
+	hr.employees AS e
+INNER JOIN
+	hr.employees AS m ON e.MANAGER_ID = m.EMPLOYEE_ID
+WHERE e.department_id <> m.department_id;
+```
+2. Exiba o Nome e a quantidade de pessoas lideradas de cada pessoa gerente.
+```
+SELECT * FROM hr.employees;
+SELECT
+	CONCAT(m.first_name, ' ', m.last_name) AS Gerente,
+    COUNT(e.EMPLOYEE_ID) AS 'Quantidade de Funcionarios'
+FROM hr.employees AS e
+INNER JOIN hr.employees AS m ON e.MANAGER_ID = m.EMPLOYEE_ID
+GROUP BY Gerente;
+```
