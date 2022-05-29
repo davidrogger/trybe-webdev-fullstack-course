@@ -212,3 +212,8 @@ SELECT
     ) AS address
 FROM sakila.customer AS tabela_externa;
 ```
+
+# Subquery ou JOIN
+
+Por meio do JOIN poderia ser também feitas as consultas anteriores, então cabe a escolha entre um e outro dependendo de sua afinidade e por performance da busca, usando o execution plan, existem outras formas.
+
