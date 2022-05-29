@@ -167,3 +167,12 @@ LIMIT 15 OFFSET 63;
 
 Ela é uma query aninhada que é availiada dentro de um par de parênteses. Ela pode conter expressões simples, como adições e subtrações, mas não se limite a isso, uma vez que podemos utilizar praticamente todos os comandos já vistos até o momento dentro de uma subquery.
 
+## Usando uma SUBQUERY como fonte de dados para o FROM.
+```
+SELECT f.title, f.rating
+FROM (
+    SELECT *
+    FROM sakila.film
+    WHERE rating = 'R'
+) AS f;
+```
