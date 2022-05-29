@@ -176,3 +176,16 @@ FROM (
     WHERE rating = 'R'
 ) AS f;
 ```
+
+## Preenchendo uma coluna de um SELECT por meio de uma SUBQUERY.
+```
+SELECT
+    address,
+    district,
+    (
+        SELECT city
+        FROM sakila.city
+        WHERE city.city_id = sakila.address.city_id
+    ) AS city
+FROM sakila.address;
+```
