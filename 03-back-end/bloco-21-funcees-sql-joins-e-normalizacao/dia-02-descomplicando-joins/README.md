@@ -217,3 +217,7 @@ FROM sakila.customer AS tabela_externa;
 
 Por meio do JOIN poderia ser também feitas as consultas anteriores, então cabe a escolha entre um e outro dependendo de sua afinidade e por performance da busca, usando o execution plan, existem outras formas.
 
+# Stored Procedures, stored functions e triggers
+
+Podem te ajudar a seguir um conceito de programação chamado DRY, que preza pela redução de código repetido, quando possível.
+
