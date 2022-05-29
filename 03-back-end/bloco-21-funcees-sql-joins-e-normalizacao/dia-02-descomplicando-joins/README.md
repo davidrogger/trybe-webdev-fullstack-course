@@ -200,3 +200,15 @@ WHERE city_id in (
     WHERE city in ('Sasebo', 'San Bernardino', 'Athenai', 'Myingyan')
 );
 ```
+
+## Usando uma tabela externa, de fora da SUBQUERY, dentro dela.
+```
+SELECT
+    first_name,
+    (
+        SELECT address
+        FROM sakila.address
+        WHERE address.address_id = tabela_externa.address_id
+    ) AS address
+FROM sakila.customer AS tabela_externa;
+```
