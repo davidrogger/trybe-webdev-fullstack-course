@@ -162,3 +162,8 @@ UNION ALL
 ORDER BY full_name
 LIMIT 15 OFFSET 63;
 ```
+
+# Subquery
+
+Ela é uma query aninhada que é availiada dentro de um par de parênteses. Ela pode conter expressões simples, como adições e subtrações, mas não se limite a isso, uma vez que podemos utilizar praticamente todos os comandos já vistos até o momento dentro de uma subquery.
+
