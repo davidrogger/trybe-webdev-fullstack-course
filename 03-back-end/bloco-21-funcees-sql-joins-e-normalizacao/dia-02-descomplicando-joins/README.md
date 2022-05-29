@@ -189,3 +189,14 @@ SELECT
     ) AS city
 FROM sakila.address;
 ```
+
+## Filtrando resultados com WHERE usando como base os dados retornados de uma subquery
+```
+SELECT address, district
+FROM sakila.address
+WHERE city_id in (
+    SELECT city_id
+    FROM sakila.city
+    WHERE city in ('Sasebo', 'San Bernardino', 'Athenai', 'Myingyan')
+);
+```
