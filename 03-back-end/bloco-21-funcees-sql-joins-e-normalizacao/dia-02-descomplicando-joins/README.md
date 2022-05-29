@@ -221,3 +221,33 @@ Por meio do JOIN poderia ser também feitas as consultas anteriores, então cabe
 
 Podem te ajudar a seguir um conceito de programação chamado DRY, que preza pela redução de código repetido, quando possível.
 
+Podemos armazenar blocos de código para serem usados psoteriormente no MySQL de duas maneiras:
+
+1. Stored Procedure
+2; Stored Function
+
+Como o próprio nome ja diz, o código fica armazenado no servidor do banco de dados para que possa ser utilizado sem a necessidade de reescrever uma funcionalidade.
+
+Para tonar a leitura do código mais fácil e a manutenção simples, siga o seguinte padrão ao nomear suas procedures e functions:
+```
+-- Verbo + Resultado
+
+ObterTotalDeVendas
+ExibirRankMaximo
+ObterClienteMaisAtivo
+CalcularNivelEngajamento
+MontarNomeCompleto
+```
+## Stored Procedures
+Pontos fortes:
+
+- Centraliza o código SQL em um servidor de banco de dados, o que possibilita que a manutenção das queries seja feita diretamente no servidor. Assim, mudanças são refletidas imediatamente em aplicações que utilizam o banco de dados sem haver a necessidade de refazer o deploy;
+- Evita a necessidade de reescrever algo específico para cada linguagem, plataforma ou framework;
+- Propaga mudanças feitas em uma stored procedure imediatamente para todas as aplicações que a usam, reduzindo a necessidade de refatorar o código em todos os ambientes que tuilizam o banco de dados.
+
+Pontos fracos:
+
+- Viola um dos princípios de separation of concerns, diz respeito a focar em resolver um único problema na sua regra de negócio, dados e apresentações permitindo então estarem separados e desacoplados, uma vez que stored procedures podem conter regras de negócio e ficam armazenadas no banco de dados.
+- Debugar esse código armazenado é mais difícil
+- Não há como versionar o código de uma stored procedure tão facilmente
+
