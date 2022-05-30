@@ -87,3 +87,39 @@ Os comandos create database ou create schema fazem a mesma coisa, na prática, n
 
 Criando o banco **albuns**: `CREATE DATABASE IF NOT EXISTS albuns;`
 
+## Criando e modelando tabelas de acordo com o diagrama ER
+
+## Principais tipos de dados no MySQL
+
+# Booleanos
+
+Eles podem receber 1 ou 0, e caso não especificado seu valor padrão é nulo.
+
+# Caracteres
+
+Podem ser fixo(CHAR) é determinado um tamanho, você pode inserir menos que o valor determinado, mas ele sempre irá ocupar o valor máximo, e o VARCHAR, que ocupa até o valor determinado, sendo dinâmicamente alocado no tamanho usado.
+
+# Números
+
+Podem ser valores exatos e inteiros.
+
+Tinyint = 0 a 255 unsigned ou -128 a 127 signed
+
+Unsigned - Permite armazenar somente valorse positivos
+Signed - Permite armazenar valores negativos e positivos
+
+Outros valores exatos inteiros: smallint, mediumint, int, bigint.
+
+## Valores exatos com precisão decimal
+
+- Decimal - permite definir quantidade máxima de número e sua precisão. EX: DECIMAL(5.2 = 199.99
+- FLOAT/REAL - Tem a precisão de uma casa decimal. Ex: 10.9
+- DOUBLE - Tem a precisão de duas casas decimais. EX: 49.90
+
+# Temporais
+
+1. DATE - Armazena valores no padrão YYYY-MM-DD
+2. TIME - Armazena valores no padrão HH:MM:SS
+3. YEAR - Armazena somente o ano entre 1901 e 2155
+4. DATETIME - Junta o DATE e o TIME no padrão na faixa de 1000-01-01 00:00:00 até 9999-12-31 23:59:59
+5. TIMESTAMP - Igual ao datetime mas também opera com base em fuso horário que pode ser definido no servidor.
