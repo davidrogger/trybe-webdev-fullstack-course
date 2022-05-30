@@ -36,3 +36,19 @@ Um atributo é tudo aquilo que pode ser usado para descrever algo.
 
 Algo a ser notado aqui é que algumas informações precisam ser deduzidas, como, por exemplo, a coluna que armazena o identificador único dos registros (aqui chamado de id), que todas tabelas precisam ter.
 
+## Relacionamentos
+
+Os relacionamentos servem para representar como uma entidade deve estar ligada com outras no banco de dados.
+Existem três tipos de relacionamentos,
+
+- Um para um 1:1
+Nesse tipo de relacionamento, uma linha da tabela A deve possuir apenas uma linha correspondente na Tabela B e vice-versa.
+
+- Um para muitos ou muitos para um (1:N ou N:1)
+
+Esse é um dos tipos mais comuns de relacionamento. Em cenários assim, uma linha na tabela A pode ter várias linhas correspondentes na Tabela B, mas uma linha da tabela B só pode possuir uma linha correspondente na Tabela A.
+
+- Muitos para Muitos (N:N)
+
+O relacionamento muitos para muitos acontece quando uma linha na tabela A pode possuir muitas linhas correspondentes na tabela B e vice-versa.
+
