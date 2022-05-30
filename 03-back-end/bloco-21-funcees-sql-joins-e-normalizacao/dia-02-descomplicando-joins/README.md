@@ -395,3 +395,41 @@ SELECT 'ACE GOLDFINGER' INTO @movie_title;
 CALL NameGenerator(@movie_title);
 SELECT @movie_title;
 ```
+
+# Desafios stored procedure
+
+Para todos os desafios abaixo, certifique-se de que a função possa ser chamada e o resultado dela seja usado corretamente. Utilize o banco de dados sakila.
+
+1. Monte uma procedure que exiba os 10 atores mais populares, baseado em sua quantidade de filmes. Essa procedure não deve receber parâmetros de entrada ou saída e, quando chamada, deve exibir o id do ator ou atriz e a quantidade de filmes em que atuaram.
+```
+USE sakila;
+DELIMITER $$
+
+CREATE PROCEDURE TenPopularActors()
+BEGIN
+	SELECT actor_id, COUNT(*) AS total_films FROM sakila.film_actor
+	GROUP BY actor_id
+    ORDER BY total_films DESC
+    LIMIT 10;
+END $$
+DELIMITER ;
+CALL TenPopularActors();
+```
+2. Monte uma procedure que receba como parâmetro de entrada o nome da categoria desejada em uma string e que exiba o id do filme, seu titulo, o id de sua categoria e o nome da categoria selecionada. Use as tabelas film, film_category e category para montar essa procedure.
+```
+USE sakila
+DELIMITER $$
+
+CREATE PROCEDURE filmByCategory(IN category VARCHAR(100))
+BEGIN
+	SELECT fc.film_id, fi.title, ca.category_id
+	FROM sakila.category AS ca
+	INNER JOIN sakila.film_category AS fc ON ca.category_id = fc.category_id
+	INNER JOIN sakila.film AS fi ON fi.film_id = fc.film_id
+	WHERE ca.`name` = category;
+END $$
+DELIMITER ;
+CALL filmByCategory('animation');
+```
+3. Monte uma procedure que receba o email de um cliente como parâmetro de entrada e diga se o cliente está ou não ativo, através de um parâmetro de saída.
+
