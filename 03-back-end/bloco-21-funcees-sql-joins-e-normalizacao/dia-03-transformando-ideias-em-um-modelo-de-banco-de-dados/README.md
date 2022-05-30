@@ -62,3 +62,28 @@ De olho na dica 👀: Por questão de convenções e boas práticas na criação
 Lembre-se 🧠: Existem várias maneiras de se modelar um banco de dados. Então, caso pense diferente do modelo abaixo, entenda que existem diversas formas de se resolver um mesmo problema.
 
 A ideia de um diagrama ER é prover uma representação gráfica para a estrutura de seu banco de dados, descrevendo suas entidades com seus atributos e como elas se relacionam. Essa visualização pode te ajudar tanto a criar e modelar seu banco de dados quanto a entender se sua modelagem precisa ser alterada ou se houve algum erro ao pensar na organização de suas entidades. Com esse diagrama você consegue pensar um pouco mais antes de começar a escrever as queries para criar as tabelas.
+
+# Criando um banco de dados para conter suas tabelas
+```
+-- Cria um banco de dados com o nome especificado.
+CREATE DATABASE nome_do_banco_de_dados;
+
+-- Sinônimo de CREATE DATABASE, também cria um banco de dados.
+CREATE SCHEMA nome_do_banco_de_dados;
+
+-- Verifica se o banco de dados ainda não existe.
+-- Essa verificação é comumente utilizada junto ao CREATE DATABASE para evitar
+-- a tentativa de criar um banco de dados duplicado, o que ocasionaria um erro.
+IF NOT EXISTS nome_do_banco_de_dados;
+
+-- Lista todos os bancos de dados existentes.
+SHOW DATABASES;
+
+-- Define o banco de dados ativo para uso no momento.
+USE nome_do_banco_de_dados;
+```
+
+Os comandos create database ou create schema fazem a mesma coisa, na prática, normalmente, são utilizados em conjunto com o comando IF NOT EXISTS que é responsavel pela verificação da não existência do banco. Esse procedimento é feito para evitar a tentativa de criar um banco de dados duplicado, que resultaria em um erro.
+
+Criando o banco **albuns**: `CREATE DATABASE IF NOT EXISTS albuns;`
+
