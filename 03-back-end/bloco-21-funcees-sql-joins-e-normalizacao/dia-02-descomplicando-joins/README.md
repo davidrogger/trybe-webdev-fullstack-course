@@ -280,3 +280,41 @@ DELIMITER ;
 Para chamar o procedure
 
 `CALL ShowAllActors();`
+
+# Elementos da Stored Procedures
+
+1. Delimiter: A palavra-chave DELIMITER é usada para definir qual símbolo representa o final da procedure declarada. No exemplo foi usado $$, porém é permitido usar outros símbolos como || ou até mesmo ; para retornar ao DELIMITER como padrão default. Não é permitido usar \, pois é um caracter especial do MySQL.
+O DELIMITER precisa ser usado para que o MySQL não interprete o primeiro ponto e vírgula encontrado como o final da declaração na sua procedure.
+
+2. Variáveis: O MySQL possui a funcionalidade de criar e usar variáveis, assim como em outras linguagens de programação.
+Essas variáveis também podem ser usadas em procedures.
+No MySQL existem três principais tipos de variáveis, sendo elas:
+- User-defined variable;
+- Local Variable;
+- Server System Variable
+
+A forma mais comum é por meio da User-defined variable que para criar variáveis e atribuir valores a elas, você pode fazer da seguinte maneira:
+```
+SET @my_school = 'BeTrybe';
+SELECT @my_school;
+```
+
+3. Tipos de dados: Existem vários tipos de dados no MySQL que vão além de apenas numéricos e strings.
+- Tipo de valor que representa;
+- O Espaço ocupado e se possui comprimento fixo ou variável;
+- Se os valores podem ser indexados ou não;
+- Comparação de valores de um tipo de dado específico pelo MySQL
+
+Os principais tipos de dados do MySQL são:
+
+Tipos de String
+- VARCHAR: Uma string não binária de comprimento variável;
+- CHAR: Uma string não binária (caractere) de comprimento fixo;
+- TEXT: Uma pequena string não binária.
+
+Tipos Numéricos
+- TYNINT: Um número inteiro muito pequeno;
+- INT: Um inteiro padrão;
+- BIGINT: Um grande número inteiro;
+- DECIMAL: Um número de ponto fixo.
+
