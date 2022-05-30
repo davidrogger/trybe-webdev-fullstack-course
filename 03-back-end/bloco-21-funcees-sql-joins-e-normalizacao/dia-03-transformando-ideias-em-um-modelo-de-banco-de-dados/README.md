@@ -24,3 +24,15 @@ São uma representação de algo do mundo real dentro do banco de dados e que no
 - Entidade 2: `Artista`;
 - Entidade 3: `Estilo Musical`;
 - Entidade 4: `Canção`.
+
+## Atributos
+
+Um atributo é tudo aquilo que pode ser usado para descrever algo.
+
+- Álbum: `album_id`, `titulo`, `preco`, `estilo_id` e `artista_id`;
+- Artista: `artista_id` e `nome`;
+- Estilo Musical: `estilo_id` e `nome`;
+- Canção: `cancao_id`, `nome` e `album_id`.
+
+Algo a ser notado aqui é que algumas informações precisam ser deduzidas, como, por exemplo, a coluna que armazena o identificador único dos registros (aqui chamado de id), que todas tabelas precisam ter.
+
