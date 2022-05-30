@@ -318,3 +318,29 @@ Tipos Numéricos
 - BIGINT: Um grande número inteiro;
 - DECIMAL: Um número de ponto fixo.
 
+# Construindo a primeira stored procedure
+
+Tipos:
+- Procedure sem parâmetros;
+- Procedure com parâmetros de entrada (IN);
+- Procedure com parâmetros de saída (OUT);
+- Procedure com parâmetros de entrada e saída(INOUT)
+
+Exemplo: Foi criada uma procedure que recebe como parâmetro uma sílaba (syllable) e busca na tabela actor todos atores quem contêm aquela sílaba no nome.
+```
+USE sakila;
+DELIMITER $$
+
+CREATE PROCEDURE ShowActorsWithSyllable(IN syllable VARCHAR(100))
+BEGIN
+    SELECT *
+    FROM sakila.actor
+    WHERE first_name LIKE CONCAT('%', syllable, '%');
+END $$
+
+DELIMITER ;
+
+-- Como usar:
+
+CALL ShowActorsWithSyllable('lope');
+```
