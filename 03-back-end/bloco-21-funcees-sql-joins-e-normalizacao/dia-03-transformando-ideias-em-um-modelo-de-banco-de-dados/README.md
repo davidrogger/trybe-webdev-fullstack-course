@@ -1,5 +1,7 @@
 anotações pessoais do dia...
 
+Criando um banco de dados de um algum de musicas
+
 # Database Design - Como modelar um banco de dados
 
 1. Identificar as entidades, atributos e relacionamentos com base na descrição do problema: Por exemplo, a entidade álbum possui os atributos títulos e preço e se relaciona com entidade artista.
@@ -14,3 +16,11 @@ anotações pessoais do dia...
 
 Primeiramente você deve identificar as entidades, atributos e relacionamentos com base na descrição do problema, que é criar um catálogo de albuns musicas. Porém, antes disso é necessário entender o significado de cada um deles.
 
+## Entidades
+
+São uma representação de algo do mundo real dentro do banco de dados e que normalmente englobam toda uma ideia.
+
+- Entidade 1: `Álbum`;
+- Entidade 2: `Artista`;
+- Entidade 3: `Estilo Musical`;
+- Entidade 4: `Canção`.
