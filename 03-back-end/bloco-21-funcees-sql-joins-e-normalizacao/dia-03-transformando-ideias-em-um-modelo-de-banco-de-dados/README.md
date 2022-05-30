@@ -52,3 +52,7 @@ Esse é um dos tipos mais comuns de relacionamento. Em cenários assim, uma linh
 
 O relacionamento muitos para muitos acontece quando uma linha na tabela A pode possuir muitas linhas correspondentes na tabela B e vice-versa.
 
+# Construindo um diagrama entidade-relacionamento
+
+Existe diversas ferramenta spara modelas os relacionamentos em bancos de dados. Hoje será usado a [draw.io](https://draw.io/) para criar os modelos. Você pode aprender como utilizar essa ferramenta assistindo a este [vídeo](https://www.youtube.com/watch?v=VgTRNqn2fn0).
+
