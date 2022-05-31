@@ -123,3 +123,54 @@ Outros valores exatos inteiros: smallint, mediumint, int, bigint.
 3. YEAR - Armazena somente o ano entre 1901 e 2155
 4. DATETIME - Junta o DATE e o TIME no padrão na faixa de 1000-01-01 00:00:00 até 9999-12-31 23:59:59
 5. TIMESTAMP - Igual ao datetime mas também opera com base em fuso horário que pode ser definido no servidor.
+
+# Primary key e foreign key
+
+# Primary Key
+É um identificador único de uma tabela para evitar redundância na tabela.
+
+# Foreign key
+
+É uma coluna ou grupo de colunas em que uma tabela que identifica unicamente uma linha em outra tabela criando um vinculo entre as tabelas.
+
+## Chave primária composta
+
+Uma chave primária pode ser formada por uma ou mais colunas de uma tabela. Por mais que só possamos ter uma única chave primária por tabela, essa chave pode ser simples ou composta.
+
+Exemplo:
+```
+  DROP SCHEMA IF EXISTS Brasil;
+  CREATE SCHEMA Brasil;
+  USE Brasil;
+
+  CREATE TABLE cidades(
+    cidade VARCHAR(100) NOT NULL,
+    estado VARCHAR(10) NOT NULL,
+    populacao INTEGER,
+    CONSTRAINT PRIMARY KEY(cidade)
+  );
+```
+Criada uma chave primária simples utilizando o campo cidade. ao tentar inserir os dados abaixo, receberiamos um erro:
+```
+    INSERT INTO cidades(cidade, estado, populacao)
+	VALUES('Rio Claro','SP',185421),
+		  ('Rio Claro','RJ',17216);
+```
+
+Pois há uma violação da chave primária, pois Rio Claro, estaria duplicado e isto não é permitido, A solução para o problema seria criar uma chave primária composta. A chave composta é aquela criada com duas ou mais colunas, passando a utilizar a junção desses dados para formar um valor único e assim bloquear a duplicidade.
+```
+    DROP SCHEMA IF EXISTS Brasil;
+    CREATE SCHEMA Brasil;
+    USE Brasil;
+
+    CREATE TABLE cidades(
+	    cidade VARCHAR(100) NOT NULL,
+	    estado VARCHAR(10) NOT NULL,
+	    populacao INTEGER,
+	    CONSTRAINT PRIMARY KEY(cidade, estado)
+    );
+
+    INSERT INTO cidades(cidade, estado, populacao)
+	VALUES('Rio Claro','SP',185421),
+		  ('Rio Claro','RJ',17216);
+```
