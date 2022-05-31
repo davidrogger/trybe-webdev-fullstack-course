@@ -208,3 +208,16 @@ CREATE TABLE cancao (
     FOREIGN KEY (album_id) REFERENCES album(album_id)
 ) ENGINE=InnoDB;
 ```
+
+# Normalização
+
+Permite que você aprofunde seus conhecimentos nas estruturas relacionais fundamentais, o que colabora para a tomada de decisão mais assertiva e segura.
+Normalização é uma técnica para organizar tabelas relacionadas no banco de dados com o objetivo de reduzir a redundância de dados.
+Os problemas que ela resolve são:
+
+- Tabelas ocupando espaços desncessários
+- Anomalia de Inserção, ao termos uma tabela de livros, termos que inserir o mesmo dado varias vezes, com a normalização apenas direcionamos para tabela onde aquele autor está.
+- Anomalia de Atualização, quando aquele determinado dado recebe alguma atualização como ele está centralizado e referenciado em uma tabela, apenas atualizando ela, todos demais seriam atuaizados juntamente, caso não, teriamos que atualizar item por item.
+- Anomalia de Exclusão, ao excluir um dado descentralizado, podemos perder referencias que poderia ser utilizadas posteriormente.
+
+Separar os dados relacioandos em tabelas diferentes
