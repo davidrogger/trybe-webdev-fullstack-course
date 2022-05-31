@@ -264,3 +264,10 @@ Dessa forma, depois de normalizar, teŕiamos duas tabelas:
 
 A função da normalização não é necessariamente reduzir o número de colunas mas remover redundâncias e possíveis anomalias de inclusão, alteração ou remoção de dados.
 
+# 3ª Forma Normal
+
+- A tabela deve estar na 1ª e 2ª formas normais
+- A tabela não deve conter atributos (colunas) que não sejam dependentes exclusivamente da PK (chave primária).
+
+[Normalização de uma tabela de exemplo](https://docs.microsoft.com/pt-br/office/troubleshoot/access/database-normalization-description#normalizing-an-example-table)
+
