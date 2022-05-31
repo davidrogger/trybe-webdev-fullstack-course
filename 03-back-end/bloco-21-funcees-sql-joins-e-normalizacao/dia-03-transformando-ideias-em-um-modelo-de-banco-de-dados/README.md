@@ -220,4 +220,14 @@ Os problemas que ela resolve são:
 - Anomalia de Atualização, quando aquele determinado dado recebe alguma atualização como ele está centralizado e referenciado em uma tabela, apenas atualizando ela, todos demais seriam atuaizados juntamente, caso não, teriamos que atualizar item por item.
 - Anomalia de Exclusão, ao excluir um dado descentralizado, podemos perder referencias que poderia ser utilizadas posteriormente.
 
-Separar os dados relacioandos em tabelas diferentes
+Separar os dados relacioandos em tabelas diferentes.
+
+# 1ª Forma Normal
+
+Para iniciar a organização de um banco de dados, devemos nos atentar para a Primeira forma normal - base de todas as outras seus preceitos são:
+
+- Colunas devem possuir apenas um valor;
+- Valores em uma coluna devem ser do mesmo tipo de dados;
+Cada coluna deve possuir um nome único;
+- A ordem dos dados registrados em uma tabela não deve afetar a integridade dos dados.
+
