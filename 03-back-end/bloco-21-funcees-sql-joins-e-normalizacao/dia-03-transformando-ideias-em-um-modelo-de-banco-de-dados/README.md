@@ -224,10 +224,43 @@ Separar os dados relacioandos em tabelas diferentes.
 
 # 1ª Forma Normal
 
-Para iniciar a organização de um banco de dados, devemos nos atentar para a Primeira forma normal - base de todas as outras seus preceitos são:
+Para iniciar a organização de um banco de dados, devemos nos atentar para a Primeira forma normal seus preceitos são:
 
 - Colunas devem possuir apenas um valor;
 - Valores em uma coluna devem ser do mesmo tipo de dados;
 Cada coluna deve possuir um nome único;
 - A ordem dos dados registrados em uma tabela não deve afetar a integridade dos dados.
+
+# 2 Forma Normal
+
+- A tabela deve estar na 1ª forma normal
+- A tabela não deve possuir dependências parciais.
+
+Uma dependência parcial pode ser considerada como qualquer coluna que não depende exclusivamente da chave primária da tabela para existir.
+
+Exemplo:
+
+| id | nome | data_matricula | curso |
+| --- | --- | --- | --- |
+| 1 | Samuel | 2020-09-01 | Física |
+| 2 | Joana | 2020-08-15 | Biologia |
+| 3 | Taís | 2020-07-14 | Contabilidade |
+| 4 | André | 2020-06-12 | Biologia |
+
+A coluna curso pode ser considerada uma dependância parcial, pois é possível mover os valores dessa coluna para uma outra tabela. Os dados dessa tabela podem existir independente de existir uma pessoa estudante vinculada a esse curso ou não.
+Dessa forma, depois de normalizar, teŕiamos duas tabelas:
+
+| id | nome |
+| -- | -- |
+| 1 | Física |
+| 2 | Biologia |
+| 3 | Contabilidade |
+
+| id | nome | data_matricula | curso_id |
+| 1 | Samuel | 2020-09-01 | 1 |
+| 2 | Joana | 2020-08-15 | 2 |
+| 3 | Taís | 2020-07-14 | 3 |
+| 4 | André | 2020-06-12 | 2 |
+
+A função da normalização não é necessariamente reduzir o número de colunas mas remover redundâncias e possíveis anomalias de inclusão, alteração ou remoção de dados.
 
