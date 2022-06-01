@@ -70,3 +70,12 @@ O node.js não possui suporte a módulos ES6 por padrão, sendo necessário o us
 # CommonJS
 
 É o sistema de módulos implementados pelo Node.js nativamente.
+
+# Exportando módulos
+
+Para exportar no CommoJS é usado a seguinte sintaxe;
+```
+const brl = 5.37
+
+module.exports = brl;
+```
