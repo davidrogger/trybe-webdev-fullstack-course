@@ -79,3 +79,46 @@ const brl = 5.37
 
 module.exports = brl;
 ```
+
+# Imprortando módulos
+
+## Módulos locais
+
+Quando queremos importar um módulo local, precisamos passar para o require o caminho do módulo, seguindo a mesma assinatura. Por exemplo, require('./meuModulo'), não é necessária usar a extensão js, por padrão pois ele ja procura por extensões js e json.
+Além de importamos um arquivo como módulo, podemos importar uma pasta. Isso é útil, pois muitas vezes um módulo está dividido em vários arquivos, mas desejamos importar todas as suas funcionlidades de uma vez só. Nesse caso, a psta precisa conter um arquivo chamado index.js, que importa cada um dos arquivos do módulo e os exporta da forma mais conveniente.
+
+Exemplo:
+```
+// meuModulo/funcionalidade-1.js
+
+module.exports = function () {
+  console.log('funcionalidade1');
+}
+```
+```
+// meuModulo/funcionalidade-2.js
+
+module.exports = function () {
+  console.log('funcionalidade2');
+}
+```
+```
+// meuModulo/index.js
+const funcionalidade1 = require('./funcionalidade-1');
+const funcionalidade2 = require('./funcionalidade-2');
+
+module.exports = { funcionalidade1, funcionalidade2 };
+```
+
+Quando importamos o módulo meuModulo, teremos um objeto contendo duas propriedades, que são as funcionalidades que exportamos dentro de meuModulo/index.js
+
+Para importarmos e utilizarmos o módulo meuModulo, basta passar o caminho da pasta como argumento para a função require;
+```
+// minha-aplicacao/index.js
+const meuModulo = require('./meuModulo');
+
+console.log(meuModulo); // { funcionalidade1: [Function: funcionalidade1], funcionalidade2: [Function: funcionalidade2] }
+
+meuModulo.funcionalidade1();
+```
+
