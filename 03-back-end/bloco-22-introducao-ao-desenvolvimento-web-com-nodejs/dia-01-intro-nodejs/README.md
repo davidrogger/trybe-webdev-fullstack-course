@@ -24,3 +24,7 @@ Em um mundo em que a técnologica está cada vez mais inserida em diversas área
 Muitas das vantagens do Node.js vêm do fato de que a linuagem executada por ele é o JavaScript.
 Por ser uma linageum extramente versátil, estando presente em diversos ambientes, sua versatilidade e baixa curva de aprendizado conferem ao Node um poder incrível para resolver as mais diversas situações.
 
+# Node Melhor técnologia para tudo?
+
+Não existe solução para todos os problemas, quando o assunto é tecnologia. A melhor ferramenta sempre depende do caso de uso e dos recursos disponíveis para desempenhar uma determinada tarefa.
+
