@@ -161,10 +161,12 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 
 ##### Bloco 22: Bancos de dados relacionais
 
-- [ ] 22-1: _Transformando ideias em um modelo de banco de dados_
-- [ ] 22-2: _Normaliza&ccedil;&atilde;o, Formas Normais e Dumps_
-- [ ] 22-2: _Transformando ideias em um modelo de banco de dados - Parte 2_
-- [ ] 22-3: _[Projeto - One For All]()_
+- [x] 22-1: _Intro - Node.js - Um motor JavaScript_
+- [ ] 22-2: _Node.js - Fluxo Assíncrono_
+- [ ] 22-3: _Mocha, Chai e Sion - Testes de Back-end com Node.js_
+- [ ] 22-4: _Express - HTTP com node.js_
+- [ ] 22-5: _Express - Middlewares_
+- [ ] 22-6: _[Projeto - Talker Manager]()_
 
 ##### Bloco 23: Introdu&ccedil;&atilde;o - NoSQL
 
