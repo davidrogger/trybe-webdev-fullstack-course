@@ -19,3 +19,8 @@ Permite que alguns recursos sejam implementados na plataforma para facilitar o t
 Bibliotecas como [socket.io](https://socket.io/) permitem que, com poucas linhas de código, aplicações em tempo real relativamente complexas sejam criadas por completo.
 Em um mundo em que a técnologica está cada vez mais inserida em diversas áreas, ter suporte nativo da plataforma que tuilizamos para aplicações em tempo real com certeza é muito bem0vindo e nisso node.js oferece uma grande vantagem.
 
+# Node.js Javascript
+
+Muitas das vantagens do Node.js vêm do fato de que a linuagem executada por ele é o JavaScript.
+Por ser uma linageum extramente versátil, estando presente em diversos ambientes, sua versatilidade e baixa curva de aprendizado conferem ao Node um poder incrível para resolver as mais diversas situações.
+
