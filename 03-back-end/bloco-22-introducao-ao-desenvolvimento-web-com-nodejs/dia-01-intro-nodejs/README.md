@@ -51,3 +51,19 @@ São definidos juntamente à aplicação. Representam funcionalidades ou partes 
 
 São aqueles ciados por outras pessoas e disponibilizados para uso atráves do npm. Conforme mencionado, nós também podemos criar e publicar nossos próprios móduols, seja para utilizarmos em diversas aplicações diferentes, seja para permitir que outras pessoas os utilizem.
 
+# Maneiras de importar e exportar módulos
+
+Quando queremos utilizar o conteúdo de um módulo ou pacote de outro arquivo no Node.js, precisamos importar esse módulo/pacote para o contexto atual no qual estamos.
+Existem dois sistemas de módulos difundidos na comunidade Javascript
+- Módulos ES6;
+- Módulos CommonJS
+
+# ES6
+
+O nome ES6 vem de ECMAScript 6, que é a especificação seguida pelo JavaScript.
+Na especificação do ES6, os módulos são importandos utilizando a palavra-chave import, tendo como contrapartida a palavra-chave export para exportá-los.
+O node.js não possui suporte a módulos ES6 por padrão, sendo necessário o uso de transpiladores para que esse recurso esteja disponível, como o Babel, ou supersets da linguagem, como o TypeScript.
+
+- Transpiladores são ferramentas que leem o código-fonte escrito em uma linageum como o Node.js e produzem o código equivalente em outra linagem.
+- Supersets são linguagens que tuilizam um transpilador para adicionar novas funcionlidades ao JavaScript.
+
