@@ -67,3 +67,6 @@ O node.js não possui suporte a módulos ES6 por padrão, sendo necessário o us
 - Transpiladores são ferramentas que leem o código-fonte escrito em uma linageum como o Node.js e produzem o código equivalente em outra linagem.
 - Supersets são linguagens que tuilizam um transpilador para adicionar novas funcionlidades ao JavaScript.
 
+# CommonJS
+
+É o sistema de módulos implementados pelo Node.js nativamente.
