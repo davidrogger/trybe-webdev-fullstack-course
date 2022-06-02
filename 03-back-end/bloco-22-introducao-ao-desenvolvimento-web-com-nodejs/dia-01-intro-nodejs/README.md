@@ -122,3 +122,13 @@ console.log(meuModulo); // { funcionalidade1: [Function: funcionalidade1], funci
 meuModulo.funcionalidade1();
 ```
 
+# Módulos internos
+
+Para utilizarmos um módulo interno, devemos passar onome do pacote como parâmetro para função require. Por exmeplo, require('fs') importa o pacote fs, responsável pelo sistema de arquivos.
+Uma vez que importamos um pacote, podemos utilizá-lo no nosso código como uma variável da seguinte forma:
+```
+const fs = requires('fs'):
+
+fs.readFileSync('/.meuArquivo.txt'):
+```
+
