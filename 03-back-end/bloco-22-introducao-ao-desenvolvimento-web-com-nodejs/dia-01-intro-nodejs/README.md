@@ -188,3 +188,11 @@ Por exemplo, se tivermos um pacote que calcula o IMC, de uma pessoal cujo códig
 
 Dessa forma, qualquer pessoa que for utilizar seu script vai ter certeza de como inicializar, pois só vai precisar executar o `npm start`.
 
+## NPM INSTALL
+
+Responsável pro baixar e instalar pacotes Node.js do NPM para o nosso pacote. Vamos descobrir algumas formas de usá-lo:
+
+- npm install <nome do pacote>: baixa o pacote do registro do NPM e o adiciona ao objeto dependencies do package.json
+- npm install -D <nome do pacote>: baixa o pacote do registro do NPM, porém o adiciona ao objeto devDependencies do pacoage.json, indicando que o pacote em questão não é necessário para executar a aplicação. Ele é necessário para desenvolvimento, ou seja, para alterar o código daquela aplicação. Isso é muito útil ao colocar a aplicação no ar, pois pacotes marcados como devDependencies podem ser ignorados, já que vamos apenas executar a aplicação, e não modificá-la.
+- npm install: baixa e instala todos os pacotes listados no objetos de dependencies e devDependencies do package.json. Ele sempre deve ser executado ao clonar o repositório de um pacote para garantir que todas as dependências desse pacote estão instaladas.
+
