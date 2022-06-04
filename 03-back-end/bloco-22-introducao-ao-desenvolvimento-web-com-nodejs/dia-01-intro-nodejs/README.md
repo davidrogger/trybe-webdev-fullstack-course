@@ -169,3 +169,22 @@ Um exemplo o script chamado lint, que executa a ferramenta do linter:
 ```
 
 Para executa-lo é usado o comando `npm run lint`, podem ser criados quantos scripts forem necessários, para realizar tarefas até mesmo scripst que chamam outros scripts criando assim "pipelines" issto é muito útil, quando trabalhamos com supersets do JavaScript como o TypeScript, ou transpiladores como o Babel, pois ambos exigem que executemos comandos adicionais antes de iniciar nossos pacotes.
+
+## NPM START
+
+Age como um atalho para o comando npm run start, um vez que sua função é executar o script start definido no package.json.
+Como conveção, todo pacote que pode ser executado pelo terminal (como CLIs, APIs e afins) deve ter um script start como o comando necessário para executar a aplicação principal daquele pacote.
+
+Por exemplo, se tivermos um pacote que calcula o IMC, de uma pessoal cujo código está no arquivo imc.js é comum criarmos o seguinte script:
+```
+{
+  // ...
+  "scripts": {
+    "start": "node imc.js"
+  }
+  // ...
+}
+```
+
+Dessa forma, qualquer pessoa que for utilizar seu script vai ter certeza de como inicializar, pois só vai precisar executar o `npm start`.
+
