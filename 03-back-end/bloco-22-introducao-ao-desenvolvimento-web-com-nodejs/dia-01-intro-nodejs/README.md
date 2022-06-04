@@ -150,3 +150,7 @@ Um pacote é um conjunto de arquivos que exportam um ou mais módulos Node. Nem 
 
 [Comandos NPM](https://github.com/tryber/Trybe-CheatSheets/blob/master/backend/nodejs/npm/README.md)
 
+## NPM INIT
+
+Permite criar de forma rápida e simplificada um novo pacote Node.js na pasta onde é executado.
+Ao executar o comando `npm init` é solicitada algumas informações para realizar a criação da configuração do package.json, para criação do arquivo com consigurações padrões é usado p `npm init -y`.
