@@ -154,3 +154,18 @@ Um pacote é um conjunto de arquivos que exportam um ou mais módulos Node. Nem 
 
 Permite criar de forma rápida e simplificada um novo pacote Node.js na pasta onde é executado.
 Ao executar o comando `npm init` é solicitada algumas informações para realizar a criação da configuração do package.json, para criação do arquivo com consigurações padrões é usado p `npm init -y`.
+
+## NPM RUN
+
+O comando run faz com que o npm execute um determinado script configurado no package.json. Scripts são "atalhos" que podemos definir para executar determinadas tarefas relacionadas ao pacote atual.
+Para criar um script, precisamos alterar o package.json e adicionar uma nova chave ao objeto scripts. O valor dessa chave deve ser o comando que desejamos que seja executado quando chamarmos aquele script.
+Um exemplo o script chamado lint, que executa a ferramenta do linter:
+```
+{
+  "scripts": {
+    "lint": "eslint ."
+  }
+}
+```
+
+Para executa-lo é usado o comando `npm run lint`, podem ser criados quantos scripts forem necessários, para realizar tarefas até mesmo scripst que chamam outros scripts criando assim "pipelines" issto é muito útil, quando trabalhamos com supersets do JavaScript como o TypeScript, ou transpiladores como o Babel, pois ambos exigem que executemos comandos adicionais antes de iniciar nossos pacotes.
