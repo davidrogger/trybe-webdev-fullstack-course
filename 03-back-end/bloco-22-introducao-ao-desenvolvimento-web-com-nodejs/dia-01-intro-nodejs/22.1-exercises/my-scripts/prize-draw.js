@@ -20,6 +20,7 @@ const playerAnswerCheck = (answer) => {
 }
 
 const game = () => {
+  console.table('Welcome to the guessing game!');
   while (playGame.start) {
     playGame.keepPlayingQuestion = true;
     guessingGame()

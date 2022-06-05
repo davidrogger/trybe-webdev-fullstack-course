@@ -1,8 +1,21 @@
-const imc = require('./imc');
-const { questionFloat } = require('readline-sync');
+const { questionInt } = require('readline-sync');
 
-const weight = questionFloat('Please insert your weight like in this quote "70.0"KG ');
-const height = questionFloat('Now insert your height like in this quote "1.70"meters ');
+const scripts = [
+  './imc',
+  './speed',
+  './prize-draw'
+];
 
-imc(weight, height);
+console.log('Functions avalible');
+console.log('0 - IMC calculator');
+console.log('1 - AVG car');
+console.log('2 - Prize draw');
 
+const answer = questionInt('Which function do you want to use? ');
+
+if( answer === 0 || answer === 1 || answer === 2) {
+  const app = require(scripts[answer]);
+  app();
+} else {
+  console.log('Invalid answer');
+}
