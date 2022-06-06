@@ -36,3 +36,9 @@ Toda API de módulos nativos do Node.js utiliza esse mesmo formato de callbacks.
 
 A principal desvantagem do uso das callbacks é que o resultado de uma operação só existirá dentro daquela callback, ou seja, se precisarmos executar um comando depois de outro teremos que colocar uma callback dentro de outro, aumentando o nível de indentiação, resultando na dificuldade de ler e fazer a manutenção no código.
 
+# Promises
+
+As promises foram introduzidas à especificação do JavaScript em 2015, como ferramenta de melhoramento da legibilidade do código, basicamente uma forma de resolver a bagunça que as callbacks causavam. Quando usamos Promises, ainda estamos utilizando um tipo de callback, mas que possui uma API mais legível e intuitiva.
+
+Em JavaScript, as Promises funcionam do mesmo jeito que uma promessa na vida real, uma pessoal pede algo, e outra promete a realização, no cumprimento dela, ela é resolvida, ou caso aconteça algum impedimento a promessa pode ser rejeitada.
+
