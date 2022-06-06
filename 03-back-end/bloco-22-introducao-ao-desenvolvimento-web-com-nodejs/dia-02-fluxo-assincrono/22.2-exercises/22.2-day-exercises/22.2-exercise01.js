@@ -12,3 +12,5 @@ function promiseNumber(num1, num2, num3) {
 // console.log(promiseNumber(1000, '200', 20)); // <rejected> Error: Just numbers allowed
 // console.log(promiseNumber(1000, 'oi', 20)); // <rejected> Error: Just numbers allowed
 // console.log(promiseNumber(10, 10, 20)); // <rejected> Error: Value too low
+
+module.exports = promiseNumber;
