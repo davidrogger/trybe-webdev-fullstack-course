@@ -1,4 +1,4 @@
-const exircise08 = (number) => {
+const exercise08 = (number) => {
   return new Promise((resolve, reject) => {
     const divisibleByFive = number % 5 === 0;
     const divisibleByThree = number % 3 === 0;
@@ -9,4 +9,6 @@ const exircise08 = (number) => {
   })
 }
 
-console.log(exircise08(21));
+exercise08(3)
+  .then((response) => console.log(response))
+  .catch((err) => console.error(`Something wrong ${err}`));
