@@ -81,3 +81,12 @@ Não sendo necessario a instalação global, para executar o teste basta rodar n
 
 `npm run test || npm test`
 
+# TDD - Transformando requisitos em testes
+
+Se antes de tentarmos implementar o código já começarmos traduzindo as espcificações em testes e então já desenvolver pensando neles?
+
+Pensando dessa forma que surgiu o conceito de TDD (Test Driven Development), em tradução livre, Desenvolvimento Orientado a Testes. Essa metodologia é bastante difundida e pode trazer muitos benefícios para o desenvolvimento.
+A prática do TDD consiste em começar a escrever os testes que traduzem e validam os comportamentos esperados para aquele código antes de começar a implementação.
+
+A ideia principal é começarmos escrevendo o código pensando em como será testado, ou seja, ter em mente quasi cenários devemos cobrir e também como nosso código precisa estar estruturado para que possamos testá-lo. Códigos menos estruturados normalmente são mais difícies de serem testados.
+
