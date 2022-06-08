@@ -20,3 +20,7 @@ anotações pessoais do bloco...
 - [Entendendo funções callback em JavaScript](https://medium.com/totvsdevelopers/entendendo-fun%C3%A7%C3%B5es-callback-em-javascript-7b500dc7fa22)
 - [ECMAScript proposal: Top-level await](https://github.com/tc39/proposal-top-level-await)
 
+# 22.3
+
+- [Artigo Test Doubles](https://medium.com/rd-shipit/test-doubles-mocks-stubs-fakes-spies-e-dummies-a5cdafcd0daf)
+- [Vídeo: TDD Test Driven Development](https://www.youtube.com/watch?v=bLdEypr2e-8)
