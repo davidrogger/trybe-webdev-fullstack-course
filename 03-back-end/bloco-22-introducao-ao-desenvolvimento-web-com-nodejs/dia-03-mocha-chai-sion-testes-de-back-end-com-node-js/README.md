@@ -32,3 +32,26 @@ Voltando ao exemplo do carro, por fim, no teste ponta-aponta(PaP) fazemos um tes
 - describe: nos permite adicionar uma descrição para um teste específico ou um grupo de testes.
 - it: nos permite sinalizar exatamente o cenário que estamos testando naquele ponto.
 
+# Aferindo testes com o Chai
+
+Nos ajuda com as asserções, ele fornece maneiras de dizermos o que queremos testar e então ele validará se o resultado condiz com o esperado.
+
+Com as asserções podemos verificar o resultado que uma determinada função retornou, [documentação do chai com seus asserts](https://www.chaijs.com/api/bdd/).
+
+Para tornar nosso teste ainda mais legível, o chai nos fornece outros getters encadeáveis que possuem um papel puramente estético como o to e o b, que nos permite escrever nossa assertion da seguinte maneira:
+```
+const { expect } = require('chai');
+
+const calculaSituacao = require('../examples/calculaSituacao');
+
+describe('Quando a média for menor que 7', () => {
+  it('retorna "reprovacao"', () => {
+    const resposta = calculaSituacao(4);
+
+    expect(resposta).to.be.equals('reprovacao');
+  });
+});
+```
+
+[Um pouco mais sobre langueage chains](https://www.chaijs.com/api/bdd/#method_language-chains)
+
