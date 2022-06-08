@@ -29,3 +29,6 @@ Voltando ao exemplo do carro, por fim, no teste ponta-aponta(PaP) fazemos um tes
 
 É um framework de testes para JS, isso significa que ele nos ajuda a arquitetar os nosso testes, fornecendo a estrutura e interface para escrevermos os nossos testes.
 
+- describe: nos permite adicionar uma descrição para um teste específico ou um grupo de testes.
+- it: nos permite sinalizar exatamente o cenário que estamos testando naquele ponto.
+
