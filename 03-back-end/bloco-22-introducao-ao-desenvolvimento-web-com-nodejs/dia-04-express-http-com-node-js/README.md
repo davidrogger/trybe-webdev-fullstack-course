@@ -18,3 +18,11 @@ AS API's seguem uma especificação podem ser Open API ou GRPC API.
 # Segurança
 
 Quando lidando com endpoint expostos é importante adesão de criptografia para os dados e certificação SSL(HTTPS) a certificação trás mais credibilidade para aplicação.
+
+# Express
+
+É um framework Node.js criado para facilitar a criação de APIs HTTP com Node. Ele foi construído pensando em um padrão de APIS chamado REST.
+Existem outras ferrametnas semelhantes no mercado, mas ele é pergamente adotado pela comunidade hoje, e seu lançamento foi no final de 2010 deixando ele mais maduro para o uso, e ele é um framework sem opinião, isso significa que ele não impõe um padrão de desenvolvimento na hora de escrever sua aplicação.
+
+Hoje ele faz parte do [Node.js Foundation](https://openjsf.org/) mostrando o quão relevante ele é para a comunidade.
+
