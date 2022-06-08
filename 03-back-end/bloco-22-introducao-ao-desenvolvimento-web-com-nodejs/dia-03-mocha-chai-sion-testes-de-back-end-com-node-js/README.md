@@ -100,3 +100,24 @@ Para isso existe o conceito de Test Double, que são objetos que figem ser outro
 
 Para ajudar com esse tipo de coisa, é usado a ferramenta SION.
 
+# Sinon
+
+É uma ferramenta que fornece funções para diversos tipos dos Test Doubles.
+
+## Stubs
+
+É um tipo de test double usado para simular interações com dependências externas ao que estamos testando de fato(é comum referir-se ao sistema sendo testado como SUT, System under test);
+
+Instalando: `npm i --save-dev sinon`
+
+Criando um stub para função de leitura do fs:
+
+const fs = require('fs');
+const sinon = require('sinon');
+```
+sinon.stub(fs, 'readFileSync')
+  returns('Valor a ser retornado);
+```
+
+É necessario importar o módulo fs e então farmos para o sinon criar um stub para a função readFileSync, que retornará "Valor a ser retornado", conforme especificado no returns.
+
