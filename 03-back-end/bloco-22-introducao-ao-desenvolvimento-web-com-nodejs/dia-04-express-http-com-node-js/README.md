@@ -12,3 +12,9 @@ São como o proprio nome diz, o final do endereço que lidam com informações e
 A-dress vem do endereço de onde ele está hospetadada
 B-inding como você vai poder acessar esse dado se é uma regra ou metodo.
 C-ontract é algo que você pode ver dado a requisição que foi feita. Exemplo: se você está fazendo uma requisição de produtos, você irá ter acesso aos produtos.
+
+AS API's seguem uma especificação podem ser Open API ou GRPC API.
+
+# Segurança
+
+Quando lidando com endpoint expostos é importante adesão de criptografia para os dados e certificação SSL(HTTPS) a certificação trás mais credibilidade para aplicação.
