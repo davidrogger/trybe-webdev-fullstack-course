@@ -90,3 +90,13 @@ A prática do TDD consiste em começar a escrever os testes que traduzem e valid
 
 A ideia principal é começarmos escrevendo o código pensando em como será testado, ou seja, ter em mente quasi cenários devemos cobrir e também como nosso código precisa estar estruturado para que possamos testá-lo. Códigos menos estruturados normalmente são mais difícies de serem testados.
 
+# Isolando nossos testes
+
+Atenção a um ponto: os testes não devem realizar operações de IO (input / output), eles não devem acessar nem o disco, nem a rede.
+
+Quando criamos aplicações de front-end, estamos na maior parte do tempo manipulando o DOM. Quando falamos de Javascript no back-end com Node.js, constantemente estamos realizando operações com IO, ou seja, nossa aplicação se comunica com o sistema de arquivos ou com a rede. Exemplos dessas comunicações são a leitura e escrita de arquivos, chamadas a APIs ou consultas em um banco de dados.
+
+Para isso existe o conceito de Test Double, que são objetos que figem ser outros objetos para fins de testes.
+
+Para ajudar com esse tipo de coisa, é usado a ferramenta SION.
+
