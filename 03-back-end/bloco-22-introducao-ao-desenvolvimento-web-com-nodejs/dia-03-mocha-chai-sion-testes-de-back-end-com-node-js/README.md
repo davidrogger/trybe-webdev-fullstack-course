@@ -17,3 +17,7 @@ Testes unitários: Trabalham presumindo um escopo limitado a um pequeno fragment
 
 Imagine o teste unitário de um carro, o motor precisa ser testado para saber se ele tem potência e torque; já os peneus necessitam de testes para saber se têm boa aderência no asfalto. Também testamos o assento do motorista para saber se é confortável e ergonômico e testamos o volante para saber se é fácil manusear e esterçar.
 
+Testes de integração: trabalham presumindo a junção de múltiplos escopos (que tecnicamente devem possuir, cada um seus próprios testes) com interações entre eles.
+
+Usando o carro como exemplo, no teste de integração, ao aceletar testamos se o motor permanece em uma velocidade constante e se ao esterçar o volante, os pneus dianteiros são orientados corretamente para a direção desejada. Testamos também se ao se acomodar no assento do motorista, é fácil manusear o volante e o câmbio.
+
