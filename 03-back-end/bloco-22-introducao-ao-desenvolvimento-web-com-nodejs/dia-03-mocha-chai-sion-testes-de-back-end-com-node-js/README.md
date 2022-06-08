@@ -55,3 +55,29 @@ describe('Quando a média for menor que 7', () => {
 
 [Um pouco mais sobre langueage chains](https://www.chaijs.com/api/bdd/#method_language-chains)
 
+# Executando o teste
+
+Precisamos criar nosso pacote node para incluir os scripts necessários no package.json
+```
+npm init
+```
+
+O mocha é responsável por executar nossos testes. Ele entenderá as palavras reservadas describe e it, assim como a estrutura do nosso teste.
+Ele poderia ser intalado de maneira global(npm i -g mocha) e bateria chamalo diretamente no terminal, passando o arquivo de teste (mocha tests/calculaSituacao.js).
+
+Mas uma forma mais recomandad é de utilizarmos o pacote que já temos instalado. Para isso, é adicionado um novo script ao package.json, que chama o mocha e informa um arquivo ou diretório de testes:
+```
+{
+// ...
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha tests"
+  },
+// ...
+}
+```
+
+Não sendo necessario a instalação global, para executar o teste basta rodar no terminal o script test.
+
+`npm run test || npm test`
+
