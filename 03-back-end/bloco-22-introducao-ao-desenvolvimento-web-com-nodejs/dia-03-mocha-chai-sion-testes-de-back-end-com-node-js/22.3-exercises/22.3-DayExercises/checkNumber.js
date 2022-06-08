@@ -1,17 +1,14 @@
 function checkNumber(number) {
 
-  try {
-    if(!number && number !== 0) throw new Error('The function should have a number parameter!')
+    const validParameter = (!number && number !== 0) || typeof(number) !== 'number';
+    if(validParameter) throw new Error('The function should have a number as parameter!')
     const baseNumber = 0;
     if(number > baseNumber) return 'positive';
     if(number < baseNumber) return 'negative';
     return 'neutral';
-  } catch (err) {
-    console.log(`Something went wrong. \n Error: ${err.message}`)
-  }
 
 }
 
-checkNumber(0);
+// checkNumber('1');
 
 module.exports = checkNumber;

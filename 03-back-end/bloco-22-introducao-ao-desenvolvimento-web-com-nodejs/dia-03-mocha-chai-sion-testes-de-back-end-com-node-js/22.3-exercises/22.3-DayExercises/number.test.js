@@ -2,6 +2,9 @@ const { expect } = require('chai');
 const checkNumber = require('./checkNumber');
 
 describe('Number function test return', () => {
+  it('Should have a number as parameter', () => {
+    expect(() => checkNumber('1')).to.throw('The function should have a number as parameter!');
+  })
   it('Should be string', () => {
     const returnFunction = checkNumber(1);
     expect(returnFunction).to.be.a('string');
