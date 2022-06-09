@@ -294,3 +294,26 @@ app.post('/recipes', function (req, res) {
 
 Na primeira linha os atributos id, name e price foram desestruturados do objeto req.body para que, na segunda linha, esses valores sejam utilizados para inserir um novo objeto dentro do array receitas.
 Na terceira e ultima linha, a resposta foi retornada como status 201, que serve para sinalizar que ocorreu uma operação de persistência de uma informação e um json com o atributo message. Pronto, agora você tem uma rota que permite cadastrar novas receitas no array.
+
+## Headers
+
+Assim como é possível enviar informações no **body** da requisição, também é possível enviar informações no **header** da mesma. Imagine que você precisa ter uma rota que recebe um token para ser validada, a regra de validação é checar se o token possui 16 caracteres:
+```
+// ...
+
+app.get('/validateToken', function (req, res) {
+  const token = req.headers.authorization;
+  if (token.length !== 16) return res.status(401).json({message: 'Invalid Token!'})';
+
+  res.status(200).json({message: 'Valid Token!'})'
+});
+
+// ...
+```
+
+Exemplo usando HTTPie para fazer uma requisição enviando informações no headers:
+```
+http :3001/validateToken Authorization:abc # vai devolver token inválido
+http :3001/validateToken Authorization:S6xEzQUTypw4aj5A # vai devolver token válido
+```
+
