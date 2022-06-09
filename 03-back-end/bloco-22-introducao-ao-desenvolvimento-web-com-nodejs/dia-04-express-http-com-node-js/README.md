@@ -339,3 +339,52 @@ app.put('/recipes/:id', function (req, res) {
 // ...
 ```
 
+No frond-end, para fazer requisições do tipo PUT e DELETE através do fetch api:
+```
+// Requisição do tipo PUT
+fetch(`http://localhost:3001/recipes/2`, {
+  method: 'PUT',
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    name: 'Macarrão ao alho e óleo',
+    price: 40
+  })
+});
+
+// Requisição do tipo DELETE
+fetch(`http://localhost:3001/recipes/4`, {
+  method: 'DELETE',
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  }
+});
+```
+
+Quando se é feita uma requisição para uma rota que não existe por padrão o Express retorna a seguinte linha:
+```
+http GET :3001/xablau
+> <!DOCTYPE html>
+> <html lang="en">
+> <head>
+> <meta charset="utf-8">
+> <title>Error</title>
+> </head>
+> <body>
+> <pre>Cannot GET /xablau</pre>
+> </body>
+> </html>
+```
+
+Porém ela não é intuitiva para identificar que aquela rota não existe, para retornar uma resposta mais intuitiva é interessante usar o médoto app.all:
+```
+//...
+app.all('*', function (req, res) {
+	return res.status(404).json({ message: `Rota '${req.path}' não existe!`});
+});
+
+app.listen(3001);
+```
