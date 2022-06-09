@@ -14,6 +14,16 @@ app.get('/drinks', (req, res) => {
   res.json(drinks);
 });
 
+app.get('/drinks/:id', (req, res) => {
+  const { id } = req.params;
+  const drink = drinks.find((item) => item.id === Number(id));
+
+  if(!drink) return res.status(404).json({ message: 'Drink not found!' });
+
+  res.status(200).json(drink);
+
+});
+
 app.listen(3001, () => {
   console.log('Listen Port 3001');
 });

@@ -140,3 +140,43 @@ const cors = require('cors');
 
 app.use(cors());
 ```
+
+# Parâmetros de rota
+
+Caso precisemos acessar objetos específicos, o Express tem alguns recursos que vaibilizam passar informações para além da rota que você deseja buscar.
+Páginas seguindo o mesmo template com informações diferentes são um exemplo de uso de parâmetro de rota, seguindo o padrão http://<site>/noticias/489 ou http://<site>/pedidos/713.
+Para facilitar o processo é utilizado parâmetros de rota, que no express, podem ser definidos assim: </rota>/<:parametro> onde :parametro vai servir para qualquer valor que vier na URL com aquele prefixo.
+
+No caso da API de receitas, pode-se montar uma rota que recebe o id como parâmetro:
+```
+// const express = require('express');
+// const app = express();
+//
+// const recipes = [
+//   { id: 1, name: 'Lasanha', price: 40.0, waitTime: 30 },
+//   { id: 2, name: 'Macarrão a Bolonhesa', price: 35.0, waitTime: 25 },
+//   { id: 3, name: 'Macarrão com molho branco', price: 35.0, waitTime: 25 },
+// ];
+//
+// app.get('/recipes', function (req, res) {
+// 	res.json(recipes);
+// });
+
+app.get('/recipes/:id', function (req, res) {
+  const { id } = req.params;
+  const recipe = recipes.find((r) => r.id === Number(id));
+
+  if (!recipe) return res.status(404).json({ message: 'Recipe not found!'});
+
+  res.status(200).json(recipe);
+});
+
+// app.listen(3001, () => {
+//   console.log('Aplicação ouvindo na porta 3001');
+// });
+```
+
+No código acima, o que fizemos foi adicionar uma rota /recipes/:id
+Qualquer rota que chegar nesse formato, independentemente do id ser um número ou string, vai cair na segunda rota (ao invés de cair na rota /recipes definida no tópico anterior).
+Para cessar o valor do parâmetro evniado na URL é feita a desestruturação do atributo id do objeto req.params. Note que o objeto req traz informações a respeito da requisição. É importante que o nome do parâmetro noemado na rota seja igual ao atributo que você está desestruturando. Por exemplo, se na definição da rota estivesse escrito /recipes/:nome teríamos que usar const { nome } = req.params.
+
