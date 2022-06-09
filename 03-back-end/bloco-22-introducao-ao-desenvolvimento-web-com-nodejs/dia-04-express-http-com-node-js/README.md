@@ -55,3 +55,57 @@ Após instalar devemos adicionar o uso do node no script do package.json
 
 Ele não deve ser utilizado para rodar a aplicação para o usuário final, por reiniciar toda hora que o arquivo sofre alguma alteração, deve-se usar como `node index.js`.
 
+# Roteamento
+
+O aspecto mais básico de uma API HTTP se dá através de suas rotas, também chamadas de endpoints. Uma rota ou endpoint é definida pelo método HTTP e caminho.
+
+No express. uma rota é registrada utilizando a assinatura app.METODO(caminho, callback), onde a função de callback recebe três parâmetros: request, response e next.
+
+- request: geralmetne chamado de req, contém as informações enviadas pelo cliente ao servidor;
+- next: função que diz para o Express que aquela callback terminou de ser executada, e que ele deve prosseguir para executar a próxima callback para aquela rota. Este parâmetro é opcional.
+```
+const express = require('express');
+const app = express();
+
+/* Rota com caminho '/', utilizando o método GET */
+app.get('/', function (req, res) {
+  res.send('Hello World!');
+});
+
+/* Rota com caminho '/', utilizando o método POST */
+app.post('/', function (req, res) {
+  res.send('Hello World!');
+});
+
+/* Rota com caminho '/', utilizando o método PUT */
+app.put('/', function (req, res) {
+  res.send('Hello World!');
+});
+
+/* Rota com caminho '/', utilizando o método DELETE */
+app.delete('/', function (req, res) {
+  res.send('Hello World!');
+});
+
+/* Rota com caminho '/' para qualquer método HTTP */
+app.all('/', function (req, res) {
+  res.send('Hello World!');
+});
+
+/* Ou podemos encadear as requisições para evitar repetir o caminho */
+app
+  .route('/')
+  .get(function (req, res) {
+		// Requisições para rota GET `/` são resolvidas aqui!
+    res.send('Hello World! Get');
+  })
+  .post(function (req, res) {
+		// Requisições para rota POST `/` são resolvidas aqui!
+    res.send('Hello World! post');
+  });
+
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!');
+});
+```
+
