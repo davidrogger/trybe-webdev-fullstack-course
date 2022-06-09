@@ -1,5 +1,9 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+
 const app = express();
+
+app.use(bodyParser.json());
 
 const drinks = [
   { id: 1, name: 'Refrigerante Lata', price: 5.0 },
@@ -14,11 +18,21 @@ app.get('/drinks', (req, res) => {
   res.json(drinks);
 });
 
+app.post('/drinks', (req, res) => {
+  const { id, name, price } = req.body;
+  drinks.push({ id, name, price });
+  res.status(201).json({ message: `add ${name} with sucess!`});
+
+});
+
 app.get('/drinks/search', ( req, res) => {
   const { name } = req.query;
   const searchDrinks = drinks.filter((drink) => drink.name.includes(name));
   res.status(200).json(searchDrinks);
+
 })
+
+
 
 app.get('/drinks/:id', (req, res) => {
   const { id } = req.params;
@@ -31,7 +45,7 @@ app.get('/drinks/:id', (req, res) => {
 });
 
 app.listen(3001, () => {
-  console.log('Listen Port 3001');
+  console.log('Listen Port 3001!');
 });
 
 
