@@ -180,3 +180,45 @@ No código acima, o que fizemos foi adicionar uma rota /recipes/:id
 Qualquer rota que chegar nesse formato, independentemente do id ser um número ou string, vai cair na segunda rota (ao invés de cair na rota /recipes definida no tópico anterior).
 Para cessar o valor do parâmetro evniado na URL é feita a desestruturação do atributo id do objeto req.params. Note que o objeto req traz informações a respeito da requisição. É importante que o nome do parâmetro noemado na rota seja igual ao atributo que você está desestruturando. Por exemplo, se na definição da rota estivesse escrito /recipes/:nome teríamos que usar const { nome } = req.params.
 
+# Query String
+
+É usado em funcionalidades de pesquisa, quando se utiliza além da barra de pesquisa, filtros avançados para definir o preço máximo, marca e outras classificações em e-commerces.
+```
+// ...
+
+app.get('/recipes/search', function (req, res) {
+  const { name } = req.query;
+  const filteredRecipes = recipes.filter((r) => r.name.includes(name));
+  res.status(200).json(filteredRecipes);
+});
+
+
+// app.get('/recipes/:id', function (req, res) {
+// 	const { id } = req.params;
+// 	const recipe = recipes.find((r) => r.id === Number(id));
+//  if (!recipe) return res.status(404).json({ message: 'Recipe not found!'});
+//
+//  res.status(200).send(recipe);
+// });
+
+// ...
+```
+
+A rota ficou apenas com o prefixo /recipes/search, já que os parâmetros enviados via query string não dependem desse prefixo e sim das informações que vem após o uso da ? na URL. é importante entender que é possível colocar na URL quantos parâmetros forem necessários, desde que eles sigam o formato <chave>=valor e que entre cada parâmetro exista o & para definir que ali está sendo passado um novo parâmetro.
+
+Quando houver rotas com um mesmo radical e uma dela tuilizar parâmetro de rota, as rotas mais específicas sempre devem ser definidas antes. Isso por que ao resolver uma rota, o Express verifica rota por rota qual corresponde à URL que chegou. Se a rota for /recipessearch depois da rota /recipes/:id, o Express vai entender a palavra search como um id e vai chamar a callback da rota /recipes/:id.
+
+Agora dicionando a possibilidade de filtro pelo preço:
+```
+// ...
+
+app.get('/recipes/search', function (req, res) {
+	const { name, maxPrice } = req.query;
+	const filteredRecipes = recipes.filter((r) => r.name.includes(name) && r.price < Number(maxPrice));
+	res.status(200).json(filteredRecipes);
+})
+
+// ...
+```
+
+Não foi preciso alterar a definição da rota, apenas foi feita uma alteração no código da callback para desestruturar também o atributo maxPrice do objeto req.query. Além disso, foi adicionado uma condição na chamada da função filter para filtrar os objetos pelo nome e pelo valor do atributo maxPrice enviado na requisição.
