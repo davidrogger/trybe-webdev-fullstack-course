@@ -26,3 +26,32 @@ Existem outras ferrametnas semelhantes no mercado, mas ele é pergamente adotado
 
 Hoje ele faz parte do [Node.js Foundation](https://openjsf.org/) mostrando o quão relevante ele é para a comunidade.
 
+# Criando uma aplicação com Express
+```
+mkdir hello-express
+cd hello-express
+npm init -y
+```
+
+instalando: `npm i express`
+
+Criando um arquivo js na sequencia.
+
+# Nodemon
+
+Para facilitar o fluxo de desenvolvimento usamos o Nodemon, que reinicia a aplicação toda vez que editarmos e salvamos os nossos arquivos. Para utilizar esse pacote, vamos começar instalando ele.
+
+`npm i nodemon -D`
+
+Após instalar devemos adicionar o uso do node no script do package.json
+```
+//...
+// "scripts": {
+//    "test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "nodemon index.js"
+//  },
+// ...
+```
+
+Ele não deve ser utilizado para rodar a aplicação para o usuário final, por reiniciar toda hora que o arquivo sofre alguma alteração, deve-se usar como `node index.js`.
+
