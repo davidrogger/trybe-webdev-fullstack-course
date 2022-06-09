@@ -109,3 +109,34 @@ app.listen(3000, function () {
 });
 ```
 
+# Estruturando uma API
+
+Ao invés de utilizar o método .send, vamos usar o json, ja que o send consegue retornar a resposta de uma requisição de uma forma genérica, adaptando o tipo do retorno ao que será retornado, para deixar mais evidente o que vai ser devolvido é usado o .json.
+```
+const express = require('express');
+
+const app = express();
+
+const recipes = [
+  { id: 1, name: 'Lasanha', price: 40.0, waitTime: 30 },
+  { id: 2, name: 'Macarrão a Bolonhesa', price: 35.0, waitTime: 25 },
+  { id: 3, name: 'Macarrão com molho branco', price: 35.0, waitTime: 25 },
+];
+
+app.get('/recipes', (req, res) => {
+  res.json(recipes);
+});
+
+app.listen(3001, () => {
+  console.log('Aplicação ouvindo na porta 3001');
+});
+```
+
+Para uma aplicação back-end receber requisições de uma aplicação front-end, ou qualquer outra aplicação, é precisa instalar um módulo que libera o acesso da nossa API para outras aplicações. Para isso basta instalar um módulo chamado cors usando npm i cors e adicionar as seguintes linhas no seu arquivo index.js
+```
+// const express = require('express');
+// const app = express();
+const cors = require('cors');
+
+app.use(cors());
+```
