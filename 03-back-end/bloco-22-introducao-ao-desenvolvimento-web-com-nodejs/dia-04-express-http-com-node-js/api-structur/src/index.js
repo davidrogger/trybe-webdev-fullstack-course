@@ -71,6 +71,10 @@ app.get('/drinks/:id', (req, res) => {
 
 });
 
+app.all('*', (req, res) => {
+  return res.status(404).json({ message: `Route ${req.path} not found` })
+});
+
 app.listen(3001, () => {
   console.log('Listen Port 3001!');
 });
