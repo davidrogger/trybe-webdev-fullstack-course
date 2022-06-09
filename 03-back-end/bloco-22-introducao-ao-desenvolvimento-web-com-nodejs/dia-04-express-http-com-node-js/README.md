@@ -222,3 +222,75 @@ app.get('/recipes/search', function (req, res) {
 ```
 
 Não foi preciso alterar a definição da rota, apenas foi feita uma alteração no código da callback para desestruturar também o atributo maxPrice do objeto req.query. Além disso, foi adicionado uma condição na chamada da função filter para filtrar os objetos pelo nome e pelo valor do atributo maxPrice enviado na requisição.
+
+# Recebendo dados no body da requisição
+
+Como visto é possível receber dados da URL via query string, porém em casos de dados sensíveis como uma senha ou número de algum documento importante, enviado via URL qualquer pessoa que conseguir espiar o tráfego da rede entre o cliente o servidor vai ter acesso a essa informação. Uma forma que o protocolo HTTP encontrou para resolver isso foi criando o tráfego atraves do corpo da requisição, onde o que acontece é uma compressão dos dados enviados que só serão descomprimidos do lado do back-end. Além de não deixar as informações trafegadas tão exposta, isso deixa a requisição um pouco mais rápida, ja que ocorre um processo de serialização dos dados enviados. Porém para enviar dados no body da requisição, geralmetne você precisa usar algum tipo especifico de requisição, como o verbo HTTP POST.
+
+Para isso é necessário instalar o pacote bodyParse. Para conseguir remontar os dados enviados precisamos parsear as informações para um formato compreensível para o back-end, esse formato é o JSON.
+```
+npm i body-parser
+```
+
+No express, é possível ter rotas com o mesmo caminho desde que o método (ou verbo) HTTP utilizado seja diferente, na outra rota foi definido o que acontece para o método GET.
+
+Por padrão as requisições são feitas no navegador ou no fetch como GET, para modificar o fetch seria necessario um segundo parâmetro de um objeto passando as configurações de method, headers, body.
+
+Exemplo:
+```
+fetch(`http://localhost:3001/recipes/`, {
+  method: 'POST',
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    id: 4,
+    name: 'Macarrão com Frango',
+    price: 30
+  })
+});
+```
+
+- method: Método HTTP utilizado. Existem 4 que são mais utilizados (GET, POST, PUT e DELETE);
+
+- headers: Define algumas informações sobre a requisição como o atributo Accept que diz qual o tipo de dado esperado como resposta dessa requisição e o Content-Type que sinaliza que no corpo da requisição está sendo enviado um JSON;
+
+- body: É o corpo da requisição. Como no HTTP só é possível trafegar texto, é necessário transformar o objeto JavaScript que você quer enviar para uma string JSON. Por isso que o lado do back-end é necessário utilizar o body Parser para transformar as informações que foram trafegadas como string JSON, de volta para um objeto Javascript.
+
+Não é possível fazer requisiçoes POST diretamente pelo navegador como foi feito para requisição para rota GET / recipes.
+Por isso deve-se usar aplicações como o Insomnia ou Postman para fazer requisições de qualquer tipo diferente do GET.
+
+Usando o HTTPie para exemplificar a inserção de um item ao array da nossa API
+```
+http POST :3001/recipes id:=4 name='Macarrão com Frango' price:=30 // execute apenas essa linha!
+> HTTP/1.1 201 Created
+> Connection: keep-alive
+> Content-Length: 32
+> Content-Type: application/json; charset=utf-8
+> Date: Sat, 21 Aug 2021 19:26:46 GMT
+> ETag: W/"20-bnfMbzwQ0XaOf5RuS+0mkUwjAeU"
+> Keep-Alive: timeout=5
+> X-Powered-By: Express
+>
+> {
+>     "message": "Recipe created successfully!"
+> }
+```
+
+Nos campos id e price foi utilizado := enquanto em name apenas =, Isso acontece pois o operador = envia os dados como string, enquanto com := o dado é enviado como número.
+Como no exemplo é uma lista de receitas através de um array, sempre que a aplicação é reiniciada, o array volta ao formato original, com os 3 objetos definidos direto no código. Por tanto, caso as receitas que foram inseridas sumam repentinamente da listagem, provavelmente foi por isso, os dados estão armazenados em memória.
+```
+// ...
+
+app.post('/recipes', function (req, res) {
+	const { id, name, price } = req.body;
+	recipes.push({ id, name, price});
+	res.status(201).json({ message: 'Recipe created successfully!'});
+});
+
+// ...
+```
+
+Na primeira linha os atributos id, name e price foram desestruturados do objeto req.body para que, na segunda linha, esses valores sejam utilizados para inserir um novo objeto dentro do array receitas.
+Na terceira e ultima linha, a resposta foi retornada como status 201, que serve para sinalizar que ocorreu uma operação de persistência de uma informação e um json com o atributo message. Pronto, agora você tem uma rota que permite cadastrar novas receitas no array.
