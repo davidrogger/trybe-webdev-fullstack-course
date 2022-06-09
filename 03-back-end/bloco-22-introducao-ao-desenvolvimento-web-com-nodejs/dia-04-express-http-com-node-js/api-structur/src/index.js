@@ -14,8 +14,24 @@ const drinks = [
   { id: 6, name: 'Água Mineral 500 ml', price: 5.0 },
 ];
 
+const findIndexItem = (array, id) => array.findIndex((item) => item.id === Number(id));
+
+const drinkNotFound = (res) => res.status(404).json({ message: 'Drink not found!' });
+
 app.get('/drinks', (req, res) => {
   res.json(drinks);
+});
+
+app.put('/drinks/:id', (req, res) => {
+  const { id } = req.params;
+  const { name, price } = req.body;
+  const indexId = findIndexItem(drinks, id);
+  const notFound = -1;
+  if(indexId === notFound) return res.status(404).json({ message: 'Recipe not found!'});
+
+  drinks[indexId] = { ...drinks[indexId], name, price };
+
+  res.status(204).end();
 });
 
 app.post('/drinks', (req, res) => {
@@ -32,13 +48,24 @@ app.get('/drinks/search', ( req, res) => {
 
 })
 
+app.delete('/drinks/:id', (req, res) => {
+  const { id } = req.params;
+  const indexId = findIndexItem(drinks, id);
+  const notFound = -1;
+  if(indexId === notFound) return drinkNotFound(res);
 
+  const qtToRemove = 1;
+  drinks.splice(indexId, qtToRemove);
+
+  res.status(204).end();
+
+});
 
 app.get('/drinks/:id', (req, res) => {
   const { id } = req.params;
   const drink = drinks.find((item) => item.id === Number(id));
 
-  if(!drink) return res.status(404).json({ message: 'Drink not found!' });
+  if(!drink) return drinkNotFound(res);
 
   res.status(200).json(drink);
 
