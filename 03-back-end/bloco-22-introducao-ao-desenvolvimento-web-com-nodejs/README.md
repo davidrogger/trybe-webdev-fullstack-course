@@ -24,3 +24,11 @@ anotações pessoais do bloco...
 
 - [Artigo Test Doubles](https://medium.com/rd-shipit/test-doubles-mocks-stubs-fakes-spies-e-dummies-a5cdafcd0daf)
 - [Vídeo: TDD Test Driven Development](https://www.youtube.com/watch?v=bLdEypr2e-8)
+
+# 22.4
+
+- [Documentação Express - Rotas](https://expressjs.com/pt-br/guide/routing.html)
+- [Documentação Express - Middleware](https://expressjs.com/pt-br/guide/writing-middleware.html)
+- [Página do MDN sobre Node + Express](https://developer.mozilla.org/pt-BR/docs/Learn/Server-side/Express_Nodejs/Introduction)
+- [Rest with Node and Express](https://www.robinwieruch.de/node-express-server-rest-api)
+- [Middleware [Node js Design Patterns]](https://www.youtube.com/watch?v=lI2MiMEn9HQ)
