@@ -38,3 +38,56 @@ app.use((req, _res, next) => {
 ```
 
 Sempre que uma requisição http for executada, o middleware criado imprimirá no console as informações contidas no parâmetro req. Lembrando que isso só afetará as rotas que forem declaradas abaixo da definição do app.use.
+
+# Router middleware
+
+É um middleware que agrupa várias rotas em um mesmo lugar, como se fosse uma versão mini do app do Express. Ele é depois "plugado" no "app principal".
+
+Analise o arquivo index.js na src
+
+O uso de mais de um parâmetro na chamada à função app.use. Isso diz ao Express que queremos que aquele middleware (no caso o router) seja executado para qualquer rota que comece com aquele caminho, evitando a repetição de nomes, por isso é definido router.get('/:id) o caminho acessado seria o "recipes/:id".
+
+Routers suportam que qualquer tipo de middleware seja registrado. Se tivermos vários endpoints com autenticação e vários endpoints abertos, podemos criar um router, e registrar nele nosso middleware de autenticação, bem como todas as rotas que precisam ser autenticadas, registrando as rotas abertas diretamente no app.
+```
+/* recipesRouter.js */
+// const express = require('express');
+// const router = express.Router();
+
+const authMiddleware = require('./auth-middleware');
+router.use(authMiddleware);
+
+// ...
+
+// module.exports = router;
+```
+```
+/* index.js */
+// const express = require('express');
+// const bodyParser = require('body-parser');
+const authMiddleware = require('./auth-middleware');
+
+// const app = express();
+// app.use(bodyParser.json());
+
+// Esta rota não passa pelo middleware de autenticação!
+app.get('/open', function (req, res) {
+	res.send('open!')
+});
+
+// Esta rota passa pelo middleware de autenticação!
+app.get('/fechado', authMiddleware, function (req, res) {
+	res.send('closed!')
+});
+
+const recipesRouter = require('./recipesRouter');
+
+/* Todas as rotas com /recipes/<alguma-coisa> entram aqui e vão para o roteador. */
+app.use('/recipes', recipesRouter);
+
+// app.all('*', function (req, res) {
+// 	return res.status(404).json({ message: `Rota '${req.path}' não existe!`});
+// });
+
+
+// app.listen(3001, () => { console.log('Ouvindo na porta 3001'); });
+```
