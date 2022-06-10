@@ -91,3 +91,38 @@ app.use('/recipes', recipesRouter);
 
 // app.listen(3001, () => { console.log('Ouvindo na porta 3001'); });
 ```
+
+# Lidando com erros
+
+A diferença de um middle ware de erro para um middleware comum é que a assinatura dele recebe quatro parâmetros em vez de três, `function (err, req, res, next) {}`
+
+O express utiliza a quantidade de parâmetros que uma função recebe para determinar se ela é um middleware de erro ou um middleware comum. Mesmo não utilizando os parâmetros de req, res ou next, o middleware de erro precisa recebê-los, pode ser adicionado um underline no começo do nome do parâmetro para indicar que ele não recebe nada. Isso é uma boa prática e sinaliza para quem está lendo o código que aquele parâmetro não é utilizado. `function (err, _req, _res, _next)`.
+
+Também é possível encadear middlewares de erro, no mesmo esquema dos outros middlewares, simplesmente colocando-os na sequência em que devem ser executados:
+```
+app.use(function logErrors(err, req, res, next) {
+  console.error(err.stack);
+  /* passa o erro para o próximo middleware */
+  next(err);
+});
+
+app.use(function (err, req, res, next) {
+  res.status(500);
+  res.json({ error: err });
+});
+```
+
+Usando o next(err) indica ao express que ele não deve continuar executando nenhum middleware ou rota que não seja de erro. Quando passamos qualquer parâmetro para o next, o Express entende que é um erro e deixa de executar middlewares comuns, passando a execução para o próximo middleware de erro registrado para aquela rota, router ou aplicação.
+
+Esse detalhe é importante, pois se um erro acontece dentro de um rota ou middleware e nós não o capturamos e o passamos para a função next, os middlewares de erro não serão chamados para tratar aquele erro. Fazendo noss API ficar sem responder aquela requisição.
+
+Sempre realize tratamento de erros nas suas rotas e middlewares, passando o erro para a função next, caso necessário.
+
+Um exemplo onde o erro fica "flutuando" e não existe resposta do servidor é quando utilizamos um middleware async. Como o Express não faz .catch na promise retornada pelo middleware, ele não sabe que ocorreu um erro, a não ser que nós capturemos esse erro e o passemos para a função next.
+
+O parâmetro passado para a função next, sempre é um indicador que ele vai redirecionar para o middleware de erro, e não para passar um objeto qualquer entre dois middlewares.
+
+Esse tipo de erro pode acontecer ao fazer uma query para um banco, e ter várias possíveis falhas, como o banco não estar respondendo, queries escritas erradas, as credenciais estarem erradas.
+
+Para que não seja necessário ter que criar estruturas try/catch sempre que formos utilizar códigos que eventuralmente podem disparar exceções podemos usar um pacote chamado express-rescue.
+
