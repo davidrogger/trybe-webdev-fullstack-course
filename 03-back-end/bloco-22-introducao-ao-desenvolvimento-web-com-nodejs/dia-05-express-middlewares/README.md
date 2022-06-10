@@ -126,3 +126,30 @@ Esse tipo de erro pode acontecer ao fazer uma query para um banco, e ter várias
 
 Para que não seja necessário ter que criar estruturas try/catch sempre que formos utilizar códigos que eventuralmente podem disparar exceções podemos usar um pacote chamado express-rescue.
 
+# Pacote express-rescue
+
+Está disponível no npm e nos ajuda com a tarefa de garantri que os erros sempre sejam tratados.
+Primeiro é necessário fazer a instalação `npm i express-rescue`
+
+Para adicionar o express-rescue, basta passarmos o nosso middleware como parâmetro para a função rescue que foi importada. Essa função vai gerar um novo moddleware que vai fazer o tratamento de erros da middleware sem precisamor escrver o try/catch.
+
+Ele simplesmente executa nosso middleware original dentro de um bloco de try/catch, caso ocorra qualquer erro, dando fluxo ao erro do express.
+
+O uso correto do middleware de erro, possibilita centralizar o tratamento de erros da aplicação em partes específicas dela. Isso facilita a construção dos middlewares de rotas, pois você não precisa ficar tratando erros em todos os middlewares. Se algo der errado em qualquer rota que estiver envelopada pelo express-rescue, esse erro vai ser tratado pelo middleware de erros mais próximo.
+
+É muito comum ter um middleware de erro genérico, e outros middlewares que convertem erros para esse formato genérico:
+```
+/* errorMiddleware.js */
+
+module.exports = (err, req, res, next) => {
+  if (err.code && err.status) {
+    return res.status(err.status).json({ message: err.message, code: err.code });
+  }
+
+  return res.status(500).json({ message: err.message });
+}
+```
+
+Foi convertido um erro de leitura de arquivo para um erro que o middleware de erros sabe formatar. Nos middlewares comuns precisamos nos preocupar apenas com o minho feliz, ao passo que nos middlewares de erro nos preocupamos apenas com o fluxo de erros.
+
+Também é utilizado um array para passar mais de um middleware para uma mesma rota. Poderia ser passado como parâmetro, mas um array deixa mais explícita a intenção de realmente utilizar vários middlewares em uma mesma rota.
