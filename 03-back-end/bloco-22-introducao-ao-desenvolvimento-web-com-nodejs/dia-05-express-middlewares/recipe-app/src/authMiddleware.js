@@ -4,7 +4,7 @@ const validUser = {
 };
 
 const authMiddleware = (req, res, next) => {
-  const { username, password } = req.header;
+  const { username, password } = req.headers;
 
   if (!username || !password) {
     return res.status(401).json({ message: 'Username or password can\'t be blank!' });
