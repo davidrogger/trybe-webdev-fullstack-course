@@ -12,4 +12,7 @@ Essas funções recebem três parâmetros, req, res e next. Eles podem retornar 
 Usado quando precisamos reaproveitar um middleware para todas as rotas da aplicação.
 Exemplo, quando vamos criar uma forma de autenticar se um determinado usuário pode ter acesso à nossa API de receitas. Para isso, será necessário enviar as informações de nome de usuário e senha pelo Header da requisição.
 
+## Passando valores entre middlewares com objeto req
+
+Middlewares também podem modificar o objeto req, e essas modificações serão recebidas pelos próximos middlewares caso next seja chamado. Geralmetne utilizamos isso para propagar informações de um middleware para o outro.
 
