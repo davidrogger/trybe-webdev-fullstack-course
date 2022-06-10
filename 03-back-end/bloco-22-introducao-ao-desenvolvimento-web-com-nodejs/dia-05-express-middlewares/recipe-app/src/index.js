@@ -1,9 +1,16 @@
 const express = require('express');
+const authMiddleware = require('./authMiddleware');
 
 const app = express();
 app.use(express.json());
 
-const invalidData = { message: 'Invalid data!' };
+const invalidDataMessage = { message: 'Invalid data!' };
+
+app.get('/open', (req, res) => {
+  res.send('open!');
+});
+
+app.use(authMiddleware);
 
 const recipes = [
   { id: 1, name: 'Lasanha', price: 40.0, waitTime: 30 },
@@ -13,7 +20,7 @@ const recipes = [
 
 const validateName = (req, res, next) => {
   const { name } = req.body;
-  if(!name) return res.status(400).json(invalidData);
+  if(!name) return res.status(400).json(invalidDataMessage);
   next();
 };
 
@@ -22,7 +29,7 @@ const validatePrice = (req, res, next) => {
   const priceNumber = Number(price);
   const isNegative = priceNumber < 0;
   const isNotANumber = typeof priceNumber !== 'number';
-  if(isNegative && isNotANumber) return res.status(400).json(invalidData);
+  if(isNegative && isNotANumber) return res.status(400).json(invalidDataMessage);
   next()
 }
 
