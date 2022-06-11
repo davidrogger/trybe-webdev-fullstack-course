@@ -1,8 +1,12 @@
 const express = require('express');
+const postSalesValidation = require('./postSalesValidation');
+
 const router = express.Router();
 
-router.use(express,json());
+router.post('/', [ postSalesValidation, (req, res) => {
+  const { productName } = req.body;
 
-router.post('/', (req, res) => {
-  const { productName, infos: { saleDate, warrantyPeriod } } = req.body;
-});
+  res.status(200).json({ message: `item ${productName}` });
+}]);
+
+module.exports = router;

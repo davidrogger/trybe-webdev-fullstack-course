@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sales": "nodemon ./exercise01"
+    "start": "nodemon ./exercise01"
   },
   "keywords": [],
   "author": "",
