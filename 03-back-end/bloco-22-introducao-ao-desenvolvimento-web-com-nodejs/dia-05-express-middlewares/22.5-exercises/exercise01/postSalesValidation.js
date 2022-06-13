@@ -52,7 +52,11 @@ const salesDateCheck = (date, res) => {
 
   if(propertyRequired({ warrantyPeriod }, res)) return;
 
-  if( Number(warrantyPeriod) < 1 || Number(warrantyPeriod) > 3) {
+  const periodNumber = Number(warrantyPeriod);
+  const validPeriods = [1, 2, 3];
+  const invalidPeriod = validPeriods.every((period) => periodNumber !== period);
+
+  if(invalidPeriod) {
     res.status(400).json({ message: 'warrantyPeriod need to be between 1 and 3' });
     return;
   };
