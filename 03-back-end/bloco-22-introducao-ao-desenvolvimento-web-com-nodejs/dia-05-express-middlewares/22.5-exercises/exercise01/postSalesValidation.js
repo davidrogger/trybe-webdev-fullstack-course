@@ -57,7 +57,11 @@ const salesDateCheck = (date, res) => {
     return;
   };
 
-    next();
+  const newSale = { productName, infos };
+
+  req.newSale = newSale;
+
+  next();
 };
 
 module.exports = postSalesValidation;
