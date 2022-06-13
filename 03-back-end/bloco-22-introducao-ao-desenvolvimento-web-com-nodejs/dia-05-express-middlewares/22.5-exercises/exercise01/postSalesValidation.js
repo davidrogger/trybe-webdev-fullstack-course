@@ -1,5 +1,3 @@
-const moment = require('moment');
-
 const propertyRequired = (item, res) => {
   const itemName = Object.keys(item).join();
   if ( !item[itemName] ) {
@@ -14,9 +12,13 @@ const salesDateCheck = (date, res) => {
   
   if( !day || !month || !year) return true;
   
-  if( !moment(date).isValid()) return true;
+  const dayValidation = day < 31 && day > 0;
+  const monthValidation = month < 12 && month > 0;
+  const yearValidation = year > 1000;
 
-  return false;
+  if(dayValidation && monthValidation && yearValidation) return false;
+
+  return true;
 
 }
 
@@ -49,6 +51,11 @@ const salesDateCheck = (date, res) => {
   };
 
   if(propertyRequired({ warrantyPeriod }, res)) return;
+
+  if( Number(warrantyPeriod) < 1 || Number(warrantyPeriod) > 3) {
+    res.status(400).json({ message: 'warrantyPeriod need to be between 1 and 3' });
+    return;
+  };
 
     next();
 };

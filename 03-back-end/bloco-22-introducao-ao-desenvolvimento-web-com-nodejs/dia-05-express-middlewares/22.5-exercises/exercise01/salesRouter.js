@@ -6,7 +6,7 @@ const router = express.Router();
 router.post('/', [ postSalesValidation, (req, res) => {
   const { productName } = req.body;
 
-  res.status(200).json({ message: `item ${productName}` });
+  res.status(201).json({ message: `Sale of ${productName} create with sucess!` });
 }]);
 
 module.exports = router;
