@@ -23,8 +23,17 @@ Três camadas:
 
 Algumas vezes a camada de controladores pode se comunicar direto com a camada de modelo, dispensando o uso da camada de serviço, principalmente em situações em que não temos uma regra de negócio tão complexa. Isso deve ser usado apenas em casos específicos, e uma vez que um endpoint exija o uso de uma camada de serviço, o ideal é que todos os outros também utilizem essa camada, para que a arquitetura seja respeitada e a aplicação não se torne "bagunçada".
 
-# Recursos adicionais
+# Model
 
-- [Software Architecture Guide - Martin Fowler](https://martinfowler.com/architecture/)
-- [O que são regras de negócio e quais as vantagens de aplicá-las em uma empresa](https://www.heflo.com/pt-br/automacao-processos/o-que-sao-regras-de-negocio/)
-- [Entenda o que são e confira 10 exemplos de regras de negócio](https://www.heflo.com/pt-br/definicoes/regra-de-negocio/)
+É onde manipulamos e definimos a estrutura dos nosso dados. Todo acesso aos dados deve passar por essa camada.
+Os dados que a aplicação utiliza podem estar armazenados em um banco de dados, acessados através de uma API externa, arquivos ou outros dispositivos de armazenamento.
+
+Ele é o responsável por abstrair completamente os detalhes de acesso e armazenamento, fornecendo somente uma API que permita requisitar e manipular esses dados. Por exemplo, é responsabilidade de camada de model estabelecer uma conexão com o banco de dados.
+
+As demais camadas não devem saber se o banco utilizado é MySQL ou qualquer outro banco (PostgreSQL, MongoDB, etc) ou se sequer há um banco de dados. O model se encarrega de fazer o mapeamento dos dados armazenados para as entidades existentes no domínio do seu negócio.
+
+É no model que verificaremos se, ao criar uma nova pessoa usuário, são válidas as regras de negócio definidas.
+O modelo deve ser completamente desacoplado das demais camadas, ele não pode ter conhecimento delas. Isso facilita a manutenção do código, pois alterações em outras camadas não terão impacto nos sesus modelos.
+
+Outro benefício é uma maior reusabilidade de código. Como uma camada de modelo bem definida, por exemplo, nós poderiamos criar uma versão CLI da nossa aplicação somente utilizando a API que ela define, sem nenhuma duplicação de código.
+
