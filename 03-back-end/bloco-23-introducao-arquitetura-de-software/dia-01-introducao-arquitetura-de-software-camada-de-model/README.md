@@ -22,3 +22,9 @@ Três camadas:
 - Camada de Controladores(C): Interface próxima da pessoa usuário ou de uma requisição, irá processar e chamar as devidas funções da camada de serviço.
 
 Algumas vezes a camada de controladores pode se comunicar direto com a camada de modelo, dispensando o uso da camada de serviço, principalmente em situações em que não temos uma regra de negócio tão complexa. Isso deve ser usado apenas em casos específicos, e uma vez que um endpoint exija o uso de uma camada de serviço, o ideal é que todos os outros também utilizem essa camada, para que a arquitetura seja respeitada e a aplicação não se torne "bagunçada".
+
+# Recursos adicionais
+
+- [Software Architecture Guide - Martin Fowler](https://martinfowler.com/architecture/)
+- [O que são regras de negócio e quais as vantagens de aplicá-las em uma empresa](https://www.heflo.com/pt-br/automacao-processos/o-que-sao-regras-de-negocio/)
+- [Entenda o que são e confira 10 exemplos de regras de negócio](https://www.heflo.com/pt-br/definicoes/regra-de-negocio/)
