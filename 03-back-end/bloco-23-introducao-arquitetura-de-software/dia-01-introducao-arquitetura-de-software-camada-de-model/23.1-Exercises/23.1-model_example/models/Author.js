@@ -37,4 +37,19 @@ const findById = async (id) => {
   return getNewAuthor({ id, firstName, middleName, lastName });
 }
 
-module.exports = { getAll, findById };
+const isValid = (firstName, middleName, lastName) => {
+  const nameUndefined = [firstName, lastName].some((name) => !name || typeof name !== 'string');
+//
+  const middleNameString = typeof middleName !== 'string';
+
+  if (nameUndefined || middleNameString) return false
+
+  return true;
+}
+
+const create = async (firstName, middleName, lastName) => {
+  const query = 'INSERT INTO model_example.authors (first_name, middle_name, last_name) VALUES (?,?,?)';
+  await connection.execute(query, [firstName, middleName, lastName]);
+}
+
+module.exports = { getAll, findById, isValid, create };
