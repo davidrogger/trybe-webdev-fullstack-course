@@ -13,3 +13,5 @@ const passwordValidation = (req, res, next) => {
   }
   next();
 }
+
+module.exports = passwordValidation;
