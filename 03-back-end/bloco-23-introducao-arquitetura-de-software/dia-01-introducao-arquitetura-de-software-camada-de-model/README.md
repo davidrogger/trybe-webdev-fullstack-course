@@ -71,3 +71,106 @@ O método createPool cria uma pool de conexões com o banco de dados. Fazendo co
 O método createPool retorna um objeto Pool representando uma sessão com o banco.
 Para não ser necessário criar uma sessão e selecionar o schema sempre que precisarmos acessar o banco, armazenamos nossa pool na variável connection.
 
+# Criando o Model
+
+A camada de model pode ser implementada de várias formas.
+
+Será usada a seguinte abordagem;
+
+- Haverá uma entidade chamada Author na aplicação;
+- A entidade vai conter os campos firstName, middleName e lastName. Os nomes estão em camelCase, enquanto as colunas do banco estão em snake_case;
+- No código, um objeto contendo os campos mencionados acima será utilizado para representar uma pessoa autora.
+- Existirão funções para ler e criar pessoas escritoras do o banco de dados;
+- A rota só irá interagir com os dados através da interface do model Author.
+```
+// models/Author.js
+
+const connection = require('./connection');
+
+// Busca todas as pessoas autoras do banco.
+
+const getAll = async () => {
+	const [authors] = await connection.execute(
+		'SELECT id, first_name, middle_name, last_name FROM model_example.authors;',
+	);
+	return authors;
+};
+
+module.exports = {
+	getAll,
+};
+```
+
+O model AUthoer exporta uma função getAll. Essa função retornará todas as pessoas autoras cadastradas no banco de dados.
+Utilizamos o método execute para fazer um query mysql. Esse método retorna uma promise que, quando resolvida, nos fornece um array com 2 campos: [rows, fields]. O primeiro index é onde está a resposta que desejamos (no caso o Authors) e no segundo vêm algumas informações extras sobre a query que não iremos utilizar.
+
+O retorno da consulta do banco não está no formato que desejamos. Logo criaremos uma função para realizar essa conversão e faremos a modificação.
+```
+// models/Author.js
+
+//  const connection = require('./connection');
+
+// Converte o nome dos campos de snake_case para camelCase
+const serialize = (authorData) => ({
+	id: authorData.id,
+	firstName: authorData.first_name,
+	middleName: authorData.middle_name,
+	lastName: authorData.last_name});
+
+// Busca todos os autores do banco.
+// const getAll = async () => {
+// 	const [authors] = await connection.execute(
+// 		'SELECT id, first_name, middle_name, last_name FROM model_example.authors;',
+// 	);
+		return authors.map(serialize);
+// };
+
+// module.exports = {
+// 	getAll,
+// };
+```
+
+Adicionando uma chave com o nome completo:
+```
+// models/Author.js
+
+//  const connection = require('./connection');
+
+// Cria uma string com o nome completo do autor
+const getNewAuthor = ({id, firstName, middleName, lastName}) => {
+
+// Note que `Boolean` é uma função que recebe um parâmetro e retorna true ou false
+// nesse caso, se middle_name for `undefined` ou uma string vazia o retorno será `false`
+	const fullName = [firstName, middleName, lastName]
+		.filter(Boolean)
+		.join(' ');
+
+	return {
+	id,
+	firstName,
+	middleName,
+	lastName,
+	fullName,
+	};
+};
+
+// Converte o nome dos campos de snake_case para camelCase
+const serialize = (authorData) => ({
+	id: authorData.id,
+	firstName: authorData.first_name,
+	middleName: authorData.middle_name,
+	lastName: authorData.last_name});
+
+//  // Busca todos os autores do banco.
+//  const getAll = async () => {
+//  	const [authors] = await connection.execute(
+//  		'SELECT id, first_name, middle_name, last_name FROM model_example.authors;',
+//  	);
+			return authors.map(serialize).map(getNewAuthor);
+//  };
+
+//  module.exports = {
+//  	getAll,
+//  };
+```
+
