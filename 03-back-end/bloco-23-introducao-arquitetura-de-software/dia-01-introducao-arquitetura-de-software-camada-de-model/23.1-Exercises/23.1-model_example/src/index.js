@@ -50,6 +50,16 @@ app.get('/books', async (_req, res) => {
   res.status(200).json(booksTitle);
 });
 
+app.post('/books', async (req, res) => {
+  const { title, authorId } = req.body;
+
+  const invalidInput = await Book.isValid(title, authorId)
+  if (invalidInput) return res.status(400).json({ message: 'Invalid data' });
+
+  await Book.create(title, authorId);
+  res.status(201).json({ message: 'Book Created with success!' });
+});
+
 
 app.listen(PORT, () => {
   console.log(`Listening at PORT ${PORT}`);

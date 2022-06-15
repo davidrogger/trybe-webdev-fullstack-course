@@ -16,4 +16,29 @@ const findById = async (id) => {
   return bookData[0];
 }
 
-module.exports = { getAll, findById };
+const allAuthorIds = async () => {
+  const query = 'SELECT id FROM model_example.authors';
+  const [allIds] = await connection.execute(query);
+  return allIds;
+}
+
+const isValid = async (title, author_id) => {
+  const dataUndefined = [title, author_id].some((data) => !data);
+  const minLength = 3;
+  const titleLenghtInvalid = title ? title.length < minLength : true;
+
+  const allIds = await allAuthorIds();
+
+  const invalidId = !allIds.some(( author ) => author.id === Number(author_id));
+
+  if (dataUndefined || titleLenghtInvalid || invalidId) return true;
+
+  return false;
+}
+
+const create = async (title, author_id) => {
+  const query = 'INSERT INTO model_example.books(title, author_id) VALUES (?,?)';
+  await connection.execute(query, [title, author_id]);
+}
+
+module.exports = { getAll, findById, isValid, create };
