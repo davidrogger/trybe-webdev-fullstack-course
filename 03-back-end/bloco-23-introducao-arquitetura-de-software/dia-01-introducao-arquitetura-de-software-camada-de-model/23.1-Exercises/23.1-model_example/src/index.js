@@ -22,12 +22,14 @@ app.get('/authors/:id', async (req, res) => {
 });
 
 app.get('/books/:id', async (req, res) => {
-  const id = Number(req.params.id);
-  const books = await Book.getAll();
-  const booksById = books
-  .filter((book) => book.author_id === id)
-  .map((book) => ({ title: book.title }));
-    res.status(200).json(booksById);
+  const { id } = req.params;
+
+  const book = await Book.findById(id);
+
+  if (!book) return res.status(404).json({ message: 'Not Found' });
+
+  res.status(200).json(book);
+
 });
 
 app.get('/books', async (_req, res) => {
