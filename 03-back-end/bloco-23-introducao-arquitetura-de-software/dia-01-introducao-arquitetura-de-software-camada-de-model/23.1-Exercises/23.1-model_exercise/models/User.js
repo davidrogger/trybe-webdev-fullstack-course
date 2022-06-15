@@ -27,4 +27,9 @@ const create = async (firstName, lastName, email, password) => {
   await connection.execute(query,[firstName, lastName, email, password]);
 };
 
-module.exports = { getAll, create, lastId, findById };
+const update = async ({ id, firstName, lastName, email, password }) => {
+  const query = 'UPDATE model_exercise.user SET first_name = ?, last_name = ?, email = ?, password = ? WHERE id = ?'
+  await connection.execute(query, [firstName, lastName, email, password, id]);
+}
+
+module.exports = { getAll, create, lastId, findById, update };
