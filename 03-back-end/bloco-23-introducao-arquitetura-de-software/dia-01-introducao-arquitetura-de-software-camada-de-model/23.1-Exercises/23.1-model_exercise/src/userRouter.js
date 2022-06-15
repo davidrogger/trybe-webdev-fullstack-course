@@ -5,6 +5,7 @@ const valueValidation = require('../middlewares/valueValidation');
 const passwordValidation = require('../middlewares/passwordValidation');
 
 const User = require('../models/User');
+const idValidation = require('../middlewares/idValidation');
 
 router.get('/', async (req, res) => {
   const users = await User.getAll();
@@ -26,13 +27,24 @@ router.post('/', [
   
 }]);
 
-router.get('/:id', async (req, res) => {
-  const { id } = req.params;
-  const user = await User.findById(id);
-
-  if (!user) return res.status(404).json({ error: true, message: 'User not found' });
+router.get('/:id',[
+  idValidation,
+  async (req, res) => {
+  const user = req.user;
 
   res.status(200).json(user);
-});
+}]);
+
+router.put('/:id', [
+  idValidation,
+  valueValidation,
+  async (req, res) => {
+    const { id } = req.params;
+    const { firstName, lastName, email, password } = req.body;
+
+    const user = { id, firstName, lastName, email, password };
+    await User.update(user);
+    res.status(200).json(user);
+}]);
 
 module.exports = router;
