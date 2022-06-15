@@ -26,4 +26,4 @@ const getAll = async () => {
   return authors.map(serialize).map(getNewAuthor);
 };
 
-module.exports = getAll;
+module.exports = { getAll };
