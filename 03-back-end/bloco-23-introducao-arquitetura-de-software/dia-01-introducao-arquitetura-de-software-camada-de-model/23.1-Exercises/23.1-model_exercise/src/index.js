@@ -1,10 +1,9 @@
 const express = require('express');
-const { use } = require('./userRouter');
-const userRouter = require('./userRouter');
 const app = express();
+const userRouter = require('./userRouter');
 
-use(express.json());
-use('/user', userRouter);
+app.use(express.json());
+app.use('/user', userRouter);
 
 app.listen(3000, () => {
   console.log('Listening at PORT 3000');
