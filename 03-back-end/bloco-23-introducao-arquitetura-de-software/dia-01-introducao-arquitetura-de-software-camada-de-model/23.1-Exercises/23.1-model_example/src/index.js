@@ -7,6 +7,8 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
+app.use(express.json());
+
 app.get('/authors', async (_req, res) => {
   const authors = await Author.getAll();
   res.status(200).json(authors);
@@ -19,6 +21,16 @@ app.get('/authors/:id', async (req, res) => {
   if (!author) return res.status(404).json({ message: 'Not Found' });
 
   res.status(200).json(author);
+});
+
+app.post('/authors', async (req, res) => {
+  const { firstName, middleName, lastName } = req.body;
+
+  if (!Author.isValid(firstName, middleName, lastName)) return res.status(400).json({ message: 'Invalid data' });
+
+  await Author.create(firstName, middleName, lastName);
+  res.status(201).json({ message: 'Created with success!' });
+
 });
 
 app.get('/books/:id', async (req, res) => {
