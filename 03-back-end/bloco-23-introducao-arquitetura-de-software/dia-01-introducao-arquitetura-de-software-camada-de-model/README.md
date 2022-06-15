@@ -37,3 +37,37 @@ O modelo deve ser completamente desacoplado das demais camadas, ele não pode te
 
 Outro benefício é uma maior reusabilidade de código. Como uma camada de modelo bem definida, por exemplo, nós poderiamos criar uma versão CLI da nossa aplicação somente utilizando a API que ela define, sem nenhuma duplicação de código.
 
+# Model com MySQL
+
+Para que possamos nos comunicar com o MySQL precisamos de um driver. O driver é um software que permite que você se comunique com o banco de dados a partir de uma aplicação. A escolha de driver utilizar depende tanto da linguagem quanto do banco de ados que é utilizado.
+
+Usando o driver mysql2:
+```
+npm i mysql2
+```
+
+Crie uma pasta models dentro da pasta do projeto com arquivo connection:
+```
+// models/connection.js
+
+const mysql = require('mysql2/promise');
+
+const connection = mysql.createPool({
+	host: 'localhost',
+	user: 'root',
+	password: 'senha123',
+	database: 'model_example' });
+
+module.exports = connection;
+```
+
+O método createPool cria uma pool de conexões com o banco de dados. Fazendo com que a própria biblioteca gerenci as múltiplas conexões que forem feitas com o banco. O createPool recebe um objeto com as credenciais necessárias para estabelecer a conexão:
+
+- host: local onde o servidor do MySQL está armazenado. localhost pelo db estar localmente.
+- user: usuário que vai acessar o banco.
+- password: senha do usuário. caso não tenha senha defina '' vazia, para o acesso.
+- database: nome do banco que será conectado.
+
+O método createPool retorna um objeto Pool representando uma sessão com o banco.
+Para não ser necessário criar uma sessão e selecionar o schema sempre que precisarmos acessar o banco, armazenamos nossa pool na variável connection.
+
