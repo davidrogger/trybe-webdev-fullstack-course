@@ -22,3 +22,15 @@ O que ela não deve fazer:
 - Não receber nada relacionado ao HTTP, seja o request ou o response.
 - O controller deve mandar apenas o necessário para o service.
 
+# Mais sobre regra de negocio.
+
+É a regra que diz respeito ao como o programa deve realizar sua função principal.
+Essas verificações podem ser dividas em dois tipos:
+
+- Simples: Não é possível cadastrar um produto que o nome tenha menos de 5 letras. Não é possível cadastrar um produto que já exista ou só é permitido listar todos os usuários sendo administrador.
+- Complexa: Só é possível vender produtos que tenham estoque ou não é permitido parcelar compras em mais de 5x para valores abaixo de #$100,00.
+
+São definições feitas pelo cliente.
+
+São todas as validações e regras que um negócio impõe em sua operação.
+[Mais sobre regra de negocio](http://www.linhadecodigo.com.br/artigo/3205/regras-de-negocio-por-que-voce-deveria-se-importar-com-isso.aspx);
