@@ -34,3 +34,13 @@ São definições feitas pelo cliente.
 
 São todas as validações e regras que um negócio impõe em sua operação.
 [Mais sobre regra de negocio](http://www.linhadecodigo.com.br/artigo/3205/regras-de-negocio-por-que-voce-deveria-se-importar-com-isso.aspx);
+
+# Boas práticas
+
+## Componentes
+
+A intenção é que nossas aplicações sejam construídas com pequenos pedacinhos de código sem dependências entre si, ou seja, o que já era feito no React deve ser aplicado com API.
+
+Dentro das suas camadas, mantenha cada controller, model e service pequeno e o mais desacoplado possível das outras partes.
+Eles devem se comunicar somente atráves de inferfaces muito bem definidas, não autorizando que um componente acesse diretamente oq ue está dentro de outro.
+
