@@ -2,7 +2,7 @@ const connection = require('./connection');
 
 const findByName = async (firstName, middleName, lastName) => {
   let query = `
-    SELECT id, first_anem, middle_name, last_name
+    SELECT id, first_name, middle_name, last_name
     FROM model_example.authors
   `;
 
@@ -16,7 +16,7 @@ const findByName = async (firstName, middleName, lastName) => {
 
   const [authorData] = await connection.execute(query, params);
 
-  if ( authorData.lenght === 0) return null;
+  if ( authorData.length === 0) return null;
 
   return serialize(authorData);
 };

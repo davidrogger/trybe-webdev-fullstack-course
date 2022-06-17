@@ -20,7 +20,7 @@ const findById = async (id) => {
 }
 
 const create = async (firstName, middleName, lastName) => {
-  const existingAuthor = await Author.create(firstName, middleName, lastName);
+  const existingAuthor = await Author.findByName(firstName, middleName, lastName);
 
   if (existingAuthor) {
     return {

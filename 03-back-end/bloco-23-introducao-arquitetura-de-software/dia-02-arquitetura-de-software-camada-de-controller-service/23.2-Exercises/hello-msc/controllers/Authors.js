@@ -17,7 +17,7 @@ const findById = async (req, res, next) => {
   return res.status(200).json(author);
 };
 
-const createAuthor = async (req, res) => {
+const createAuthor = async (req, res, next) => {
   const { firstName, middleName, lastName } = req.body;
 
   const { error } = Joi.object({
