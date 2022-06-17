@@ -44,3 +44,34 @@ A intenção é que nossas aplicações sejam construídas com pequenos pedacinh
 Dentro das suas camadas, mantenha cada controller, model e service pequeno e o mais desacoplado possível das outras partes.
 Eles devem se comunicar somente atráves de inferfaces muito bem definidas, não autorizando que um componente acesse diretamente oq ue está dentro de outro.
 
+# Mantenha suas pastas organizadas
+
+Por domínio/carrelação, mantendo todos os arquivos que têm relação:
+
+exemplo:
+```
+└── author
+│   ├── authorController.js
+│   ├── authorService.js
+│   └── authorModel.js
+└── book
+│   └── bookController.js
+│   └── bookService.js
+│   └── bookModel.js
+```
+
+Por papel técnico: Todos os controllers em uma pasta, todos os services em outra:
+
+Exemplo:
+```
+└── controllers
+│   ├── authorController.js
+│   └── bookController.js
+└── services
+│   ├── authorService.js
+│   └── bookService.js
+└── models
+│   ├── authorModel.js
+│   └── bookModel.js
+```
+
