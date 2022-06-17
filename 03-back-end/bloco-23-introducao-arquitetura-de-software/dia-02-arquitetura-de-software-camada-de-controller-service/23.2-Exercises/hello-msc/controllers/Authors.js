@@ -1,3 +1,4 @@
+const Joi = require('joi');
 const Author = require('../services/Authors');
 
 const getAll = async (_req, res) => {
@@ -19,14 +20,20 @@ const findById = async (req, res, next) => {
 const createAuthor = async (req, res) => {
   const { firstName, middleName, lastName } = req.body;
 
+  const { error } = Joi.object({
+    firstName: Joi.string().not().empty().required(),
+    lastName: Joi.string().not().empty().required(),
+  }).validate({ firstName, lastName });
+
+  if (error) {
+    return next(error);
+  }
+
   const author = await Author.create(firstName, middleName, lastName);
 
-  if (!author) {
-    res.status(400).json({ message: 'invalid data' });
-    return;
-  };
+  if (author.error) return next(author.error);
 
-  res.status(201).json(author)
+return res.status(201).json(author)
 };
 
 module.exports = { getAll, findById, createAuthor };
