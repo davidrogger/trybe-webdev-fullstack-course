@@ -75,3 +75,10 @@ Exemplo:
 │   └── bookModel.js
 ```
 
+# Manter o Express o mais longe possível
+
+Devemos criar fronteiras bem definidas entre o Express e o "resto da aplicação". Manter os objetos req e res dentro do escopo do controller e nunca passá-los inteiros para as partes do app que cuidam da lógica de negócio.
+Tomando essa simples precaução, você evita a criação de mocks para esses objetos quando escrever testes unitários.
+
+Usando essas fronteiras como exemplo, nada além do controller deveria saber que o  Express existe.
+
