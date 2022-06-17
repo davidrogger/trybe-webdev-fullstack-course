@@ -1,43 +1,11 @@
 
 const Author = require('../models/Author');
 
-const isValid = (firstName, middleName, lastName) => {
-  const requiredNameUndefined = [firstName, lastName].some((name) => !name || typeof name !== 'string');
-  const existsUndefined = typeof middleName !== 'string';
+const getAll = async () => Author.getAll();
 
-  if (requiredNameUndefined || existsUndefined) return false;
+const findById = async (id) => Author.findById(id);
 
-  return true;
-};
+const create = async (firstName, middleName, lastName) =>
+  Author.create(firstName, middleName, lastName);
 
-const getAll = async () => {
-  const author = await Author.getAll();
-
-  return author.map(Author.getNewAuthor);
-}
-
-const findById = async (id) => {
-  const author = await Author.findById(id);
-
-  if (!author) return null;
-
-  return Author.getNewAuthor(author);
-};
-
-const create = async (firstName, middleName, lastName) => {
-  const validAuthor = isValid(firstName, middleName, lastName);
-
-  if (!validAuthor) return false;
-
-  const [author] = await Author.create(firstName, middleName, lastName);
-
-  return Author.getNewAuthor({
-    id: author.id,
-    firstName,
-    middleName,
-    lastName,
-  });
-
-}
-
-module.exports = { isValid, create, findById, getAll };
+module.exports = { create, findById, getAll };
