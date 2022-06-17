@@ -1,5 +1,35 @@
 const connection = require('./connection');
 
+const findByName = async (firstName, middleName, lastName) => {
+  let query = `
+    SELECT id, first_anem, middle_name, last_name
+    FROM model_example.authors
+  `;
+
+  if (middleName) {
+    query += 'WHERE first_name = ? AND middle_name = ? AND last_name = ?';
+  } else {
+    query += 'WHERE first_name = ? AND last_name = ?';
+  }
+
+  const params = middleName ? [firstName, middleName, lastName] : [firstName, lastName];
+
+  const [authorData] = await connection.execute(query, params);
+
+  if ( authorData.lenght === 0) return null;
+
+  return serialize(authorData);
+};
+
+const isValid = (firstName, middleName, lastName) => {
+  const requiredNameUndefined = [firstName, lastName].some((name) => !name || typeof name !== 'string');
+  const existsUndefined = typeof middleName !== 'string';
+
+  if (requiredNameUndefined || existsUndefined) return false;
+
+  return true;
+};
+
 const getNewAuthor = (authorData) => {
   const { id, firstName, middleName, lastName } = authorData;
   
@@ -54,4 +84,11 @@ const create = async (firstName, middleName, lastName) => {
   return [getNewAuthor({ id: author.insertId, firstName, middleName, lastName })];
 };
 
-module.exports = { getAll, findById, create, getNewAuthor };
+module.exports = {
+  getAll,
+  findById,
+  isValid,
+  create,
+  getNewAuthor,
+  findByName,
+};
