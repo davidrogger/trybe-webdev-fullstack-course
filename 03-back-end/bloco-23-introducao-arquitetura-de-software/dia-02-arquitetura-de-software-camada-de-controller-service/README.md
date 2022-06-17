@@ -82,3 +82,61 @@ Tomando essa simples precaução, você evita a criação de mocks para esses ob
 
 Usando essas fronteiras como exemplo, nada além do controller deveria saber que o  Express existe.
 
+# Mantendo a configuração separada (e segura)
+
+Nos exemplos as informações sensíveis tais como as credenciais de acesso ao banco de dados, estavam todas expostas no nosso código.
+
+Uma ótima prática para evitar que isso aconteça no nosso dia a dia de pessoas programadoras, é usar variáveis de ambiente para controlar coisas relacionadas à configuração geral da sua aplicação ( em qual banco se conectar, para qual URL apontar etc).
+Variáveis de ambiente são aquelas que podem ser definidas no sistema operacional e, portanto, podem ser diferentes para cada ambiente.
+
+Exemplo, no computador local, a URL do banco é uma, mas no servidor da aplicação a URL do banco é outra. Para que possamos fazermos isso funcionar, podemos aplicar uma variável de ambiente chamada DB_URL e utilizar valores diferentes para ela no servidor e na sua máquina local.
+
+Para acessar a variavel de ambiente no node ele possui a variável global que se chama process, dentro dela temos um objeto env, que armazena os valores de todas as variáveis de ambiente definidas no sistema operacional.
+
+Podemos setar variáveis de ambiente pelo terminal:
+```
+MYSQL_HOST=localhost node index.js
+```
+```
+// index.js
+
+console.log(process.env.MYSQL_HOST) // localhost
+```
+
+No entanto, uma forma mais eficiente quando temos muitas variáveis, é criarmos um arquivo .env na raiz do projeto e usar a biblioteca dotenv, que basicamente pega o conteúdo desse arquivo e o deixa acessível via process.env.
+```
+npm install dotenv
+```
+```
+# .env
+PORT=3000
+MYSQL_HOST=localhost
+MYSQL_DB_NAME=model_example
+```
+```
+// index.js
+
+require('dotenv').config();
+// ...
+
+const PORT = process.env.PORT;
+app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
+// Server listening on port 3000
+```
+```
+// models/connection.js
+const mysql = require('mysql2/promise');
+
+const connection = mysql.createPool({
+    host: process.env.MYSQL_HOST,
+    user: 'root',
+    password: 'sua_senha',
+    database: process.env.MYSQL_DB_NAME });
+
+module.exports = connection;
+```
+
+É importante adicionar o .env no gitignore, para não versionar o arquivo.
+Dessa forma, as configurações da aplicação podem mudar de acordo com o ambiente.
+Evitando adicionar dados sensíveis ao seu repositório, visto que o arquiv env. contém esses valores e não será versionado.
+
