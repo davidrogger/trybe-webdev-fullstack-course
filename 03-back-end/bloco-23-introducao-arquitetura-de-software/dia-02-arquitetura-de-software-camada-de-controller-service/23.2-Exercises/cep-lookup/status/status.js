@@ -1,5 +1,7 @@
 const HTTP_OK_RESPONSE = 200;
+const HTTP_BAD_REQUEST = 400;
 
 module.exports = {
   HTTP_OK_RESPONSE,
+  HTTP_BAD_REQUEST,
 };
