@@ -9,6 +9,22 @@ const find = async (cep) => {
   return cepData[0];
 };
 
+const create = async (newData) => {
+  const alreadyExists = await find(newData.cep);
+
+  if (alreadyExists) {
+    return {
+      error: {
+        code: 'alreadyExists',
+        message: 'CEP já existente',
+      },
+    };
+  }
+
+  return Cep.create(newData);
+};
+
 module.exports = {
   find,
+  create,
 };
