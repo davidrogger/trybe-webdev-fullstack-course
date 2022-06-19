@@ -1,7 +1,9 @@
+const { cleanCep } = require('../helpers/cleanCep');
 const Cep = require('../models/Cep');
 
 const find = async (cep) => {
-  const cepData = await Cep.find(cep);
+  const cepStandardizad = cleanCep(cep);
+  const cepData = await Cep.find(cepStandardizad);
   const notFound = 0;
 
   if (cepData.length === notFound) return null;
