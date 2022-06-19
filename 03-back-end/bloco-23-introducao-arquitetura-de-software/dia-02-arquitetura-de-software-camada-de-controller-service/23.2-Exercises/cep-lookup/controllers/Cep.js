@@ -1,6 +1,7 @@
 const express = require('express');
 
 const Joi = require('joi');
+const { cleanCep } = require('../helpers/cleanCep');
 
 const cepValidation = require('../middleware/cepValidation');
 
@@ -9,22 +10,25 @@ const router = express.Router();
 const CepService = require('../services/Cep');
 const { HTTP_OK_RESPONSE, HTTP_NOT_FOUND, HTTP_CREATED } = require('../status/status');
 
+const validCep = /^\d{5}-\d{3}$/;
+const cepBodyValidation = Joi.object({
+  cep: Joi.string().pattern(new RegExp(validCep)).required(),
+  logradouro: Joi.string().not().empty().required(),
+  bairro: Joi.string().not().empty().required(),
+  localidade: Joi.string().not().empty().required(),
+  uf: Joi.string().not().empty().required(),
+});
+
 router.post('/', async (req, res, next) => {
   const { cep, logradouro, bairro, localidade, uf } = req.body;
 
-  const { error } = Joi.object({
-    cep: Joi.string().pattern(new RegExp('d{5}-d{3}')).not().empty(),
-    logradouro: Joi.string().not().empty().required(),
-    bairro: Joi.string().not().empty().required(),
-    localidade: Joi.string().not().empty().required(),
-    uf: Joi.string().not().empty().required(),
-  }).validate({ cep, logradouro, bairro, localidade, uf });
+  const { error } = cepBodyValidation
+  .validate({ cep, logradouro, bairro, localidade, uf });
 
   if (error) {
     return next(error);
   }
-
-  const newData = { cep, logradouro, bairro, localidade, uf };
+  const newData = { cep: cleanCep(cep), logradouro, bairro, localidade, uf };
 
   const savedCep = await CepService.create(newData);
 
