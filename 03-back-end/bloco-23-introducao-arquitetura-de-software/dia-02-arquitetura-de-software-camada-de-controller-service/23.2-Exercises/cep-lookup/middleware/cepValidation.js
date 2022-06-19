@@ -6,7 +6,8 @@ const cepValidation = (req, res, next) => {
   const regex = /\d{5}-?\d{3}/;
   const cepFormatTest = regex.test(cep);
   const length = 8;
-  const lengthTest = cep.length === length;
+  const cepClean = cep.replace('-', '');
+  const lengthTest = cepClean.length === length;
 
   if (cepFormatTest || lengthTest) {
     return res
