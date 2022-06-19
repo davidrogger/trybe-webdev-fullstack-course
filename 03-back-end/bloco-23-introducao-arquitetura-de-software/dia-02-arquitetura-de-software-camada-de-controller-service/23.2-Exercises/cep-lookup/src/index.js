@@ -3,6 +3,10 @@ const app = express();
 
 const PORT = process.env.port || 3000;
 
+const routers = require('../routers/index');
+
+app.use(routers);
+
 app.listen(PORT, () => {
   console.log(`Listening at PORT ${PORT}`);
 });
