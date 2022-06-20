@@ -16,6 +16,17 @@ const add = async (name, brand) => {
   }
 };
 
+const getAll = async () => {
+  try {
+    const [rows] = await connection.query('SELECT * FROM products');
+    return rows;
+  } catch (error) {
+    console.error(error);
+    return process.exit(1);
+  }
+};
+
 module.exports = {
   add,
+  getAll,
 };
