@@ -1,0 +1,11 @@
+const HTTP_OK_RESPONSE = 200;
+const HTTP_CREATED = 201;
+const HTTP_BAD_REQUEST = 400;
+const HTTP_NOT_FOUND = 404;
+
+module.exports = {
+  HTTP_OK_RESPONSE,
+  HTTP_BAD_REQUEST,
+  HTTP_NOT_FOUND,
+  HTTP_CREATED,
+};
