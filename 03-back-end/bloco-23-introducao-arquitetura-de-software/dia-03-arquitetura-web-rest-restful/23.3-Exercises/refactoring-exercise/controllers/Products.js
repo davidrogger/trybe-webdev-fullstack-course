@@ -25,4 +25,10 @@ router.post('/delete-product/:id', async (req, res) => {
   res.send(products);
 });
 
+router.post('/update-product/:id', async (req, res) => {
+  const { name, brand } = req.body;
+  const products = await ProductModel.update(req.params.id, name, brand);
+  res.send(products);
+});
+
 module.exports = router;
