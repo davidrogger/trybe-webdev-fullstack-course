@@ -1,8 +1,16 @@
 const fetch = require('node-fetch');
+// Armazenamos o token numa variável.
+// Num ambiente real, esse valor viria do Local Storage, ou de uma variável de ambiente
+const API_TOKEN = '2d635ea9b637ea0f27d58985cc161d64';
+
+// Objeto de headers
+const headers = new fetch.Headers({
+  Authorization: API_TOKEN,
+});
 
 const URL = 'https://postman-echo.com/get?param1=teste';
 
-fetch(URL)
+fetch(URL, { headers })
   .then((response) => {
     if (!response.ok) {
       return Promise.reject(response);
