@@ -29,3 +29,21 @@ O recurso a ser acessado/alterado deve ser identificado pelo endpoint da requisi
 Exemplo: `https://swapi.dev/api/planets/:id`
 
 Nessa URl o recuso que queremos acessar (planet) é facilmente identificado. Não importa se for plural ou singular a forma que é representada o importante é manter o padrão da restrição.
+
+## Tipo de retorno
+
+No header há o Content-type para dizer qual o tipo de conteudo estamos retornando.
+Exemplo:
+- Se estamos retornando um JSON, enviamos o header como Content-type: application/json.
+- Se nosso retorno fosse HTML, seria Content-type text-html.
+
+Formatos comuns de Content-type são: JSON, XML e JavaScript.
+Em síntese, devemos manter nosso retornos consistentes.
+
+- Se o cliente pede ou envia informações no formato JSON, devemos processar e retornar o mesmo formato JSON.
+- Se um erro em um endpoint retorn os campos code, error e message, todos erros devem retornar, pelo menos, esses mesmos campos.
+- Se, por exemplo, quando realizamos uma requisição GET /products, recebemos um array de produtos, ao realizar a requisição GET /sales, não devemos receber um JSON no formato { sales: [{...}] }, já que esse comportamento é inconsistente com o do endpoint GET /products.
+
+Dessa forma, ao consumir um endpoint da sua API, é possível deduzir o comportamento dos demais endpoints, dispensando a ação de "tentativa e erro".
+
+
