@@ -16,3 +16,16 @@ Consumindo a API [SWAPI](https://swapi.dev/), podemos chamar um endpoint para li
 # Restrições para ser RESTful
 
 A arquitetura REST define SEIS restrições, chamadas constraints, que devem ser respeitadas para que sua API seja RESTful. Vamos entender detalhamente cada uma delas a seguir:
+
+# 1 - Interface uniforme (Uniform Interface)
+
+A interface de comunicação entre seu servidor e seu cliente deve ser definida e seguida à risca por meio de um padrão, para que assim ela se mantenha consistente. Quando respeitando essa constraint, ela simplifica ae desacopla a nossa arquitetura.
+Essa interface inclui: endpoint, tipo de retorno e o uso dos verbos HTTP.
+
+## Recursos e coleções
+
+O recurso a ser acessado/alterado deve ser identificado pelo endpoint da requisição.
+
+Exemplo: `https://swapi.dev/api/planets/:id`
+
+Nessa URl o recuso que queremos acessar (planet) é facilmente identificado. Não importa se for plural ou singular a forma que é representada o importante é manter o padrão da restrição.
