@@ -64,3 +64,11 @@ Existem boas práticas em relação aos status code que nosso servidor envia com
 [Lista completa e detalhada sobre os códigos de status HTTP](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status)
 
 
+# 2 - Arquitetura cliente-servidor
+
+Não importa quem é nosso cliente: app mobile, web, tv, arduino, entre outros. Nossa API deve conseguir retornar dados para ele, isso é o que chamamos de arquitetura cliente-servidor.
+
+Há uma separação de responsabilidades entre o cliente e o servidor. O cliente se preocupa com a exibição dos dados, experiências da pessoa usuária, etc. O servidor  se preocupa com o armazenamento e acesso dos dados, cache, log e etc.
+
+Essa separação permite que as duas partes se desenvolvam de forma independente, ou seja, você pode trocar o cliente ou adicionar um novo sem mudar nada no servidor. Também pode mover o servidor para outra plataforma, escalá-lo ou até mesmo mudar completamente sua arqutetura interna, desde que a API que você fornece para seus clientes não mude(endpoint, resposta etc.).
+
