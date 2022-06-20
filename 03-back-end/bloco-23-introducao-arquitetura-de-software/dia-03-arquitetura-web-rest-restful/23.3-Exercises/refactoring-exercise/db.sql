@@ -9,7 +9,8 @@ CREATE TABLE IF NOT EXISTS products (
 );
 
 INSERT INTO products (name, brand)
-VALUES ('Cerveja Skol', 'Ambev'),
-       ('Monitor AGON', 'AOC'),
-       ('MacBook Air', 'Apple');
+VALUES
+  ('Cerveja Skol', 'Ambev'),
+  ('Monitor AGON', 'AOC'),
+  ('MacBook Air', 'Apple');
 SELECT * FROM products;
