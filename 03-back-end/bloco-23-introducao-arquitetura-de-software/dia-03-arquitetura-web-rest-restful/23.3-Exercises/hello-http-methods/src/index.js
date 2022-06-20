@@ -8,9 +8,12 @@ const headers = new fetch.Headers({
   Authorization: API_TOKEN,
 });
 
-const URL = 'https://postman-echo.com/get?param1=teste';
+const URL = 'https://postman-echo.com/post?param1=teste';
 
-fetch(URL, { headers })
+fetch(URL, {
+  headers,
+  method: 'POST',
+ })
   .then((response) => {
     if (!response.ok) {
       return Promise.reject(response);
