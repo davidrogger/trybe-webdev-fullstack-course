@@ -1,4 +1,4 @@
-const { HTTP_NOT_FOUND } = require('../status/status');
+const { HTTP_NOT_FOUND, HTTP_BAD_REQUEST } = require('../status/status');
 
 module.exports = (err, _req, res, _next) => {
   if (err.isJoi) {
@@ -8,6 +8,7 @@ module.exports = (err, _req, res, _next) => {
   }
 
   const statusByErrorCode = {
+    BadRequest: HTTP_BAD_REQUEST,
     notFound: HTTP_NOT_FOUND,
     alreadyExists: 409,
   };
@@ -16,5 +17,5 @@ module.exports = (err, _req, res, _next) => {
 
   res
     .status(status)
-    .json({ error: { message: err.message } });
+    .json({ error: { message: err } });
 };
