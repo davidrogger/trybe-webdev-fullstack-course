@@ -72,3 +72,15 @@ Há uma separação de responsabilidades entre o cliente e o servidor. O cliente
 
 Essa separação permite que as duas partes se desenvolvam de forma independente, ou seja, você pode trocar o cliente ou adicionar um novo sem mudar nada no servidor. Também pode mover o servidor para outra plataforma, escalá-lo ou até mesmo mudar completamente sua arqutetura interna, desde que a API que você fornece para seus clientes não mude(endpoint, resposta etc.).
 
+# 3 - Sem estado (Stateless)
+
+Esse é um dos conceitos mais importantes do REST, pois é ele que vai tonar possível nossa API responder a múltiplos clientes. Sem estado significa que toda requisição deve conter todas as informações necessárias (ser autossuficiente) para nossa API realizar uma ação. Dessa forma, não podemos reutilizar nenhum contexto que está armazenado no servidor (uma variável, por exemplo).
+
+- Em um app no qual você faz uma requisição para se logar, o servidor inicia sua sessão e te retornar um token.
+Na próxima requisição, você precisa enviar o token, novamente, pois o servidor "não se lembra" de você.
+
+Ao criarmos componentes que não tenham estado, temos os seguintes beneficíos.
+
+- Transparência: facilita o trabalho do servidor, pois todas as informações necessárias já estão na requisição;
+- Escalabilidade: sem precisar manter estado, nosso servidor pode desalocar recursos que foram alocados para realizar uma ação específica e só voltar a útilizá-los quando necessário.
+
