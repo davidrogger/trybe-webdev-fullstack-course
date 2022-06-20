@@ -9,9 +9,15 @@ router.get('/list-products', async (req, res) => {
   res.send(products);
 });
 
-router.get('/get-by-id/:id', (req, res) => {
+router.get('/get-by-id/:id', async (req, res) => {
   const product = await ProductModel.getById(req.params.id);
   res.send(product);
+});
+
+router.post('/add-product', async (req, res) => {
+  const { name, brand } = req.body;
+  const newProduct = await ProductModel.add(name, brand);
+  res.send(newProduct);
 });
 
 module.exports = router;
