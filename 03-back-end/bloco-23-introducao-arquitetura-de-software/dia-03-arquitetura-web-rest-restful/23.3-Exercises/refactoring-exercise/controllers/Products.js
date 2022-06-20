@@ -9,4 +9,9 @@ router.get('/list-products', async (req, res) => {
   res.send(products);
 });
 
+router.get('/get-by-id/:id', (req, res) => {
+  const product = await ProductModel.getById(req.params.id);
+  res.send(product);
+});
+
 module.exports = router;
