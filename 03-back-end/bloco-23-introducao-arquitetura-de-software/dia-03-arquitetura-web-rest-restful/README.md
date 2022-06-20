@@ -106,3 +106,11 @@ Exemplo:
 - Enviar um "widget" para colocar na página um chat no qual o cliente possa conversar com alguém.
 
 Não é necessário implementar código sob demanda para ser RESTful, logo esse item é considerado opcional.
+
+# REST no Express
+
+De modo geral, os princípios devem ser seguidos independente da tecnologia que utilizamos na implmentação da nossa API. Ela pode ser escrita em Node.js, Python, Perl, entre outros.
+
+Entretanto, uma das vantagens de se usar o Express para construção de APIs é a organização das rotas. Podemos definir N controllers (funções callback que lidam com as requisições) para a mesma rota, separando-as paneas pelo verbo HTTP da requisição.
+
+Além disso, torna-se mais simples retornar um formato específico solicitado pelo cliente e retornar um status HTTP.
