@@ -20,7 +20,7 @@ router.post('/add-product', async (req, res) => {
   res.send(newProduct);
 });
 
-router.post('/update-product/:id', async (req, res) => {
+router.post('/delete-product/:id', async (req, res) => {
   const products = await ProductModel.exclude(req.params.id);
   res.send(products);
 });
