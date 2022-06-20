@@ -39,7 +39,7 @@ router.post('/', async (req, res, next) => {
 
 router.get('/:cep', [
   cepValidation,
-  async (req, res) => {
+  async (req, res, next) => {
     const data = await CepService.find(req.cep);
     
     if (!data) {
@@ -47,6 +47,7 @@ router.get('/:cep', [
     .status(HTTP_NOT_FOUND)
     .json({ error: { code: 'notFound', message: 'CEP não encontrado' } }); 
 }
+  if (data.error) return next(data.error);
     
     res.status(HTTP_OK_RESPONSE).json(data);
 }]);
