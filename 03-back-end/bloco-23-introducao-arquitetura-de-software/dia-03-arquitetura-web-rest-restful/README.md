@@ -13,3 +13,6 @@ Consumindo a API [SWAPI](https://swapi.dev/), podemos chamar um endpoint para li
 
 É um serviço web que segue as regras definidas pelo REST.
 
+# Restrições para ser RESTful
+
+A arquitetura REST define SEIS restrições, chamadas constraints, que devem ser respeitadas para que sua API seja RESTful. Vamos entender detalhamente cada uma delas a seguir:
