@@ -6,6 +6,13 @@ const API_TOKEN = '2d635ea9b637ea0f27d58985cc161d64';
 // Objeto de headers
 const headers = new fetch.Headers({
   Authorization: API_TOKEN,
+  'Content-Type': 'application/json',
+});
+
+const body = JSON.stringify({
+  name: 'Tryber',
+  email: 'tryber@betrybe.com',
+  password: 'tr1b3r',
 });
 
 const URL = 'https://postman-echo.com/post?param1=teste';
@@ -13,6 +20,7 @@ const URL = 'https://postman-echo.com/post?param1=teste';
 fetch(URL, {
   headers,
   method: 'POST',
+  body,
  })
   .then((response) => {
     if (!response.ok) {
