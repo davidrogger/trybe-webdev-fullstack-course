@@ -35,7 +35,20 @@ const getById = async (id) => {
     console.error(error);
     return process.exit(1);
   }
-}
+};
+
+const update = async (id, name, brand) => {
+  try {
+    const [result] = await connection.query(
+      'UPDATE products SET name = ?, brand = ? WHERE id = ?',
+      [name, brand, id],
+    );
+    return result;
+  } catch (error) {
+    console.error(error);
+    return process.exit(1);
+  }
+};
 
 module.exports = {
   add,
