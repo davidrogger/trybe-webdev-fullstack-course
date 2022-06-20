@@ -93,4 +93,10 @@ Uma camada de cache bem gerenciada pode reduzir ou elimitar iterações do lado 
 
 No HTTP, o cache é definido pelo header cache-control: max-age=120. O cliente "cacheia" a resposta da requisição por 120 segundos. Durante esse tempo, o cliente fornecerá a resposta cacheada, sem precisar consultar o servidor.
 
+# - 5 Sistema em camadas (layered system)
+
+No caso do REST, essa divisão em camadas é sobre: abstrair do cliente as camadas necessárias para responder a uma requisição.
+Para o cliente não importa se você tem uma "API A" que se comunica com a "API B" que se comunica com uma fila ou um arquivo em um "local C", ou até mesmo se sua API consulta um banco de dados local ou se está armazenado em outro lugar.
+Em síntese, quem consome a API só precisa receber a resposta esperada e não de qual lugar ela vem.
+
 
