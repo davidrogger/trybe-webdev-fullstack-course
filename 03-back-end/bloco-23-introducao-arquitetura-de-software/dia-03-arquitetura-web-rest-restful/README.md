@@ -99,4 +99,10 @@ No caso do REST, essa divisão em camadas é sobre: abstrair do cliente as camad
 Para o cliente não importa se você tem uma "API A" que se comunica com a "API B" que se comunica com uma fila ou um arquivo em um "local C", ou até mesmo se sua API consulta um banco de dados local ou se está armazenado em outro lugar.
 Em síntese, quem consome a API só precisa receber a resposta esperada e não de qual lugar ela vem.
 
+# - 6 Código sob demanda (Code on demand)
 
+Esse princípio consiste em dar a possibilidade ao nosso servidor de enviar código (JavaScript) ao nosso cliente, onde será executado. Assim, conseguimos customizar o comportamento do cliente.
+Exemplo:
+- Enviar um "widget" para colocar na página um chat no qual o cliente possa conversar com alguém.
+
+Não é necessário implementar código sob demanda para ser RESTful, logo esse item é considerado opcional.
