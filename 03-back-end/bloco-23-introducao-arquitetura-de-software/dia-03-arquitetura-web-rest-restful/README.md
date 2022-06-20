@@ -84,3 +84,13 @@ Ao criarmos componentes que não tenham estado, temos os seguintes beneficíos.
 - Transparência: facilita o trabalho do servidor, pois todas as informações necessárias já estão na requisição;
 - Escalabilidade: sem precisar manter estado, nosso servidor pode desalocar recursos que foram alocados para realizar uma ação específica e só voltar a útilizá-los quando necessário.
 
+# - 4 Cacheable
+
+Cache é definido como um "depósito de informações". Quando seu navegador armazena imagens e arquivos para não precisar pedi-los para o servidor toda vez que você revisitar uma página.
+Esse cache é feito no lado do cliente, no browser. O princípio aqui é que as respostas dadas pela nossa API devem dizer, explicitamente, se podem ou não ser cacheadas e por quanto tempo. Evita-se que clientes forneçam respostas "velhas ou inapropriadas.
+O cache deve ser usado equilibradamente, se usá-lo demais faz sua API perder a confiabilidade; mas, se usá-lo de menos pode sobrecarregar seu servidor desnecessariamente.
+Uma camada de cache bem gerenciada pode reduzir ou elimitar iterações do lado do cliente, aumentando a escalabilidade e a performance da API.
+
+No HTTP, o cache é definido pelo header cache-control: max-age=120. O cliente "cacheia" a resposta da requisição por 120 segundos. Durante esse tempo, o cliente fornecerá a resposta cacheada, sem precisar consultar o servidor.
+
+
