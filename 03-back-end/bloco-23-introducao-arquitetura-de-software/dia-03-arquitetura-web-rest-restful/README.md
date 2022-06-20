@@ -46,4 +46,21 @@ Em síntese, devemos manter nosso retornos consistentes.
 
 Dessa forma, ao consumir um endpoint da sua API, é possível deduzir o comportamento dos demais endpoints, dispensando a ação de "tentativa e erro".
 
+## Ações/Verbos
+
+A ação que vamos realizar no recurso deve ser identificada pelo verbo HTTP da requisição. Para o REST, os principais verbos HTTP são: POST, GET, PUT e DELETE. Cada um realiza um ação específica, que depende do lugar que será enviado, neste caso ou para um endpoint de um recurso ou para um endpoint de uma coleção.
+
+# Respostas
+
+Nunca deixe seu cliente sem resposta. Elas são sempre obrigatórias, mesmo que não tenham uma estrutura satisfátoria.
+Existem boas práticas em relação aos status code que nosso servidor envia como resposta. TEmos uma variedade de códigos que devem ser utilizados em situações específicas:
+
+- 1xx: Informação;
+- 2xx: Sucesso;
+- 3xx: Redirecionamento;
+- 4xx: Erro do cliente;
+- 5xx: Erro no servidor;
+
+[Lista completa e detalhada sobre os códigos de status HTTP](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status)
+
 
