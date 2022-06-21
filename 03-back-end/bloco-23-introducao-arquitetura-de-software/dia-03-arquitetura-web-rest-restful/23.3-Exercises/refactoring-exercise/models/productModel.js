@@ -21,19 +21,16 @@ const getAll = async () => {
     const [rows] = await connection.query('SELECT * FROM products');
     return rows;
   } catch (error) {
-    console.error(error);
-    return process.exit(1);
+    return { error };
   }
 };
 
 const getById = async (id) => {
   try {
-    const [result] = await connection.query('SELECT * FROM products WHERE id = ?;', [id]);
-    if (!result.length) return null;
-    return result[0];
+    const product = await connection.query('SELECT * FROM products WHERE id = ?;', [id]);
+    return product;
   } catch (error) {
-    console.error(error);
-    return process.exit(1);
+    return { error };
   }
 };
 
