@@ -33,7 +33,7 @@ const exclude = async (id) => {
     const response = await getById(id);  
     if (response.error) return response;  
     productModel.exclude(id);
-    return response;
+    return { status: 204, product: "" };
     
   } catch (error) {
     return { error };
