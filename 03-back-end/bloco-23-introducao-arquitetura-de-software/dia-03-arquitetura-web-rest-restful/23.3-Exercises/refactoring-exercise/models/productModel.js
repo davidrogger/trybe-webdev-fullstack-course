@@ -41,8 +41,7 @@ const update = async (id, name, brand) => {
     );
     return result;
   } catch (error) {
-    console.error(error);
-    return process.exit(1);
+    return { error };
   }
 };
 

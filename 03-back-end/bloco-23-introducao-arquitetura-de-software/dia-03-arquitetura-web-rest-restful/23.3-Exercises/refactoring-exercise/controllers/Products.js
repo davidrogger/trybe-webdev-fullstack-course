@@ -49,11 +49,14 @@ router.delete('/:id', async (req, res, next) => {
   res.status(response.status).json(response.product);
 });
 
-router.post('/update-product/:id', async (req, res) => {
+router.put('/:id', [
+  fieldsValidation,
+  async (req, res, next) => {
   const { name, brand } = req.body;
-  const products = await ProductServices.update(req.params.id, name, brand);
-  res.send(products);
-});
+  const response = await ProductServices.update(req.params.id, name, brand);
+  if (response.error) return next(response.error);
+  res.status(200).json(response);
+}]);
 
 router.use(errorMiddleware);
 
