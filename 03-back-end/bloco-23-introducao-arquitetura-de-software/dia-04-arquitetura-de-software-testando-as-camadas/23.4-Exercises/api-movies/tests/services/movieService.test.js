@@ -1,10 +1,9 @@
 const { expect } = require('chai');
-
-const MovieService = {
-  create: () => {}
-};
+const sinon = require('sinon');
+const MovieService = require('../../services/moviesService');
 
 describe('Insere um novo filme no BD', () => {
+  
   describe('quando o payload informado não é válido', () => {
     const payloadMovie = {};
 
