@@ -8,6 +8,6 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/products', productsController);
 
-app.listen(300, () => {
+app.listen(3000, () => {
   console.log('Listening at port 3000');
 });
