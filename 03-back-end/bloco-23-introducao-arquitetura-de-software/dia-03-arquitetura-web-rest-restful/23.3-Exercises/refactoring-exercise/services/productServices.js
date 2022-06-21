@@ -29,22 +29,28 @@ const add = async (name, brand) => {
 }
 
 const exclude = async (id) => {
-  const response = await getById(id);
-
-  if (response.error) return response;
-
-  productModel.exclude(id);
-  return response;
+  try {
+    const response = await getById(id);  
+    if (response.error) return response;  
+    productModel.exclude(id);
+    return response;
+    
+  } catch (error) {
+    return { error };
+  }
 
 }
 
 const update = async (id, name, brand) => {
-  const response = await getById(id);
-
-  if (response.error) return response;
-
-  productModel.update(id, name, brand);
-  return { id, name, brand };
+  try {
+    const response = await getById(id);  
+    if (response.error) return response;  
+    productModel.update(id, name, brand);
+    return { id, name, brand };
+    
+  } catch (error) {
+    return { error };
+  }
 }
 
 module.exports = {
