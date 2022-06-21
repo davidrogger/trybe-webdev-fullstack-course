@@ -9,7 +9,9 @@ const ProductServices = require('../services/productServices');
 // já indica o retorno de uma coleção de recursos.
 router.get('/', async (_req, res) => {
   const products = await ProductServices.getAll();
-  res.send(products);
+  // Utilizamos o status code 200 para indicar que a requisição foi concluída
+  // com sucesso e padronizamos o retorno para json.
+  res.status(200).json(products);
 });
 
 // Removido 'get-by-id' do endpoint pois uma requisição do tipo GET,
