@@ -12,7 +12,10 @@ router.get('/', async (_req, res) => {
   res.send(products);
 });
 
-router.get('/get-by-id/:id', async (req, res) => {
+// Removido 'get-by-id' do endpoint pois uma requisição do tipo GET,
+// com parâmetros que especifiquem um recurso (ex: id de um produto),
+// já indica o retorno de um recurso.
+router.get('/:id', async (req, res) => {
   const product = await ProductModel.getById(req.params.id);
   res.send(product);
 });
