@@ -4,7 +4,10 @@ const router = Router();
 
 const ProductModel = require('../models/productModel');
 
-router.get('/list-products', async (req, res) => {
+// Removido 'list-products' do endpoint pois uma requisição do tipo GET,
+// sem parâmetros que especifiquem um recurso (ex: id de um produto),
+// já indica o retorno de uma coleção de recursos.
+router.get('/', async (_req, res) => {
   const products = await ProductModel.getAll();
   res.send(products);
 });
