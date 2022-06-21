@@ -4,6 +4,9 @@ const getAll = () => productModel.getAll();
 
 const getById = async (id) => {
   try {
+    if (isNaN(id)) {
+      return { status: 400, product: { message: `Product ID "${id}" have to be a number` }};
+    };
     const response = await productModel.getById(id);
     if (response.error) return response;
     const [product] = response;
