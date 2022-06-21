@@ -30,11 +30,17 @@ const add = async (name, brand) => {
 
 const exclude = async (id) => {
   const response = await getById(id);
-  
+
+  if (response.error) return response;
+
+  productModel.exclude(id);
+  return response;
+
 }
 
 module.exports = {
   getAll,
   getById,
   add,
+  exclude,
 };

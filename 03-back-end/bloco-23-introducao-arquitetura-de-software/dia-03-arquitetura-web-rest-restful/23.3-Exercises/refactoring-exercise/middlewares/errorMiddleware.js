@@ -4,6 +4,9 @@ module.exports = (err, _req, res, _next) => {
       .status(404)
       .json({ error:{ code: 'invalidDate', message: err.details[0].message } });
   }
-  res.status(500).json({ Error: { code: err.code, message: err.message } });
+
+  const status = err.status || 500;
+
+  res.status(status).json({ Error: { code: err.code, message: err.message } });
   return;
 }

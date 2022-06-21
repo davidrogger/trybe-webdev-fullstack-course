@@ -48,12 +48,9 @@ const update = async (id, name, brand) => {
 
 const exclude = async (id) => {
   try {
-    const product = await getById(id);
-    if (!product) return {};
     await connection.query('DELETE FROM products WHERE id = ?;', [id]);
   } catch (error) {
-    console.error(error);
-    return process.exit(1);
+    return { error };
   }
 }
 

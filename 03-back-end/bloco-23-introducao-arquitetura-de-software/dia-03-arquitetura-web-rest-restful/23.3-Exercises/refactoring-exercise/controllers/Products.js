@@ -41,9 +41,12 @@ router.post('/', [
 // Altere o verbo HTTP para DELETE e remova 'delete-product' do endpoint,
 // uma vez que uma requisição do tipo DELETE já indica que o endpoint será
 // usado para deletar um recurso
-router.delete('/:id', async (req, res) => {
-  const products = await ProductServices.exclude(req.params.id);
-  res.send(products);
+router.delete('/:id', async (req, res, next) => {
+  const response = await ProductServices.exclude(req.params.id);
+
+  if (response.error) return next(response.error);
+
+  res.status(response.status).json(response.product);
 });
 
 router.post('/update-product/:id', async (req, res) => {
