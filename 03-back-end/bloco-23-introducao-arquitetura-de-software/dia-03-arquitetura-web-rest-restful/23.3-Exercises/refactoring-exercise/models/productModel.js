@@ -11,8 +11,7 @@ const add = async (name, brand) => {
 
     return { id: result.insertId, name, brand };
   } catch (error) {
-    console.error(error);
-    return process.exit(1);
+    return { error };
   }
 };
 

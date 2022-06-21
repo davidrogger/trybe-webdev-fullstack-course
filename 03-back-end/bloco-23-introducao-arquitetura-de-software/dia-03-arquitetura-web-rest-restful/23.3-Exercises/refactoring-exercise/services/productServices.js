@@ -19,7 +19,17 @@ const getById = async (id) => {
   }
 };
 
+const add = async (name, brand) => {
+  try {
+    const response = await productModel.add(name, brand);
+    return response;    
+  } catch (error) {
+    return { error };
+  }
+}
+
 module.exports = {
   getAll,
   getById,
+  add,
 };
