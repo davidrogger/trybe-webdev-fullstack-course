@@ -2,7 +2,7 @@ const { Router } = require('express');
 
 const router = Router();
 
-const ProductModel = require('../models/productModel');
+const ProductModel = require('../services/productServices');
 
 // Removido 'list-products' do endpoint pois uma requisição do tipo GET,
 // sem parâmetros que especifiquem um recurso (ex: id de um produto),
