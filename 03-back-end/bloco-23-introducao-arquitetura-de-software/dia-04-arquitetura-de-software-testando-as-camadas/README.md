@@ -1,2 +1,3 @@
 anotações do dia...
 
+Dia focado no "api-movies" para criar uma aplicação com TDD, criando uma aplicação orientada apartir de testes, usando mocha, chai e sinon.
