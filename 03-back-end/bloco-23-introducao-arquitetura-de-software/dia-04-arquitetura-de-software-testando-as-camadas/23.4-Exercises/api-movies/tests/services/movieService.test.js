@@ -1,5 +1,6 @@
 const { expect } = require('chai');
 const sinon = require('sinon');
+const MovieModel = require('../../models/movieModel');
 const MovieService = require('../../services/moviesService');
 
 describe('Insere um novo filme no BD', () => {
@@ -12,7 +13,7 @@ describe('Insere um novo filme no BD', () => {
       expect(response).to.be.a('boolean');
     });
 
-    if('o boolean contém "false"', async () => {
+    it('o boolean contém "false"', async () => {
       const response = await MovieService.create(payloadMovie);
       expect(response).to.be.equal(false);
     });
@@ -25,6 +26,16 @@ describe('Insere um novo filme no BD', () => {
       directedBy: 'Jane Bow',
       releaseYear: 1999,
     };
+
+    before(async () => {
+      const ID_EXAMPLE = 1;
+
+      sinon.stub(MovieModel, 'create').resolves({ id: ID_EXAMPLE });
+    });
+
+    after(() => {
+      MovieModel.create.restore();
+    })
 
     it('retornar um objeto', async () => {
       const response = await MovieService.create(payloadMovie);
