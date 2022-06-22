@@ -2,9 +2,9 @@
   "name": "exercise-restful",
   "version": "1.0.0",
   "description": "",
-  "main": "./src/index.js",
+  "main": "index.js",
   "scripts": {
-    "test": "mocha ./tests/**/*${NAME}*.test.js --exit"
+    "test": "mocha ./src/tests/**/*${NAME}*.test.js --exit"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +14,9 @@
     "mysql2": "^2.3.3"
   },
   "devDependencies": {
+    "@types/chai": "^4.3.1",
+    "@types/mocha": "^9.1.1",
+    "@types/sinon": "^10.0.11",
     "chai": "^4.3.6",
     "mocha": "^10.0.0",
     "nodemon": "^2.0.16",
