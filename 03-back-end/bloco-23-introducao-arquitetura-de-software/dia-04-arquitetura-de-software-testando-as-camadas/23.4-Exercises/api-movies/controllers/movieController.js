@@ -6,10 +6,10 @@ const create = async (req, res) => {
   const movie = await MoviesService.create({ title, directedBy, releaseYear });
 
   if (!movie) {
-    return res.status(400).send('Dados invalidos');
+    return res.status(400).send('Dados inválidos');
   };
 
-  res.status(201).send('Filme crado com sucesso!');
+  res.status(201).send('Filme criado com sucesso!');
 };
 
 module.exports = {
