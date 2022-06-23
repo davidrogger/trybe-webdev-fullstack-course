@@ -175,3 +175,11 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] 23-3: _Arquitetura Web - Rest e Restful_
 - [x] 23-4: _Arquitetura de Software - Testando as Camadas_
 - [ ] 23-5: _[Projeto - Store Manager]()_
+
+##### Bloco 24: Nodejs: ORM e Autenticação
+
+- [x] 24-1: _Introdução - ORM e Autenticação ORM - Interface da Aplicação com o banco de dados_
+- [ ] 24-2: _ORM  Associations_
+- [ ] 24-3: _JWT - (JSON Web Token)_
+- [ ] 24-4: _Testando APIs com Testes de Integração_
+- [ ] 24-5: _[Projeto - API de Blogs]()_
