@@ -75,3 +75,25 @@ config.json
 
 criar o banco de dados orm_example pelo comando `npx sequelize db:create`
 
+# Para criar um model:
+
+`npx sequelize model:generate --name NomeDoModel --attributes nameDoAtributo:string`;
+
+Exemplo: `npx sequelize model:generate --name User --attributes fullName:string`
+
+Depois de rodar esse comando, foi criado um arquivo user.js na pasta model, e na pasta migration foi criado o arquivo com a data yyy-mm-dd-hh:mm:ss-create-user.js
+
+Dentro do arquivo user, temos um código padrão do sequelize, vamos trocar para o define, pois ainda não iremos usar orientação ao objeto:
+```
+const User = (sequelize, DataTypes) => {
+  const User = sequelize.define("User", {
+    fullName: DataTypes.STRING,
+    email: DataTypes.STRING,
+  });
+
+  return User;
+};
+
+module.exports = User;
+```
+
