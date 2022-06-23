@@ -37,3 +37,41 @@ Esses são alguns problemas que o Sequelize ajuda a resolver! Com ele, você pod
 
 Por meio do mapeamento de objetos relacionais (Active Record), é possível criar as relações e associações entre as tabelas com javascript. E ainda, é possível migrar o banco de dados para outro banco sem precisar reescrever todo o código (por exemplo mudar de MYSQL para SQL server);
 
+# Configurando Sequelize
+
+instalando:
+```
+npm init -y
+npm i sequelize
+npm i sequelize-cli
+npm i mysql2
+```
+
+Depois de instalado o CLI, é necessário iniciar um projeto com o comando `npx sequelize-cli init`
+
+Ele irá criar as pastas:
+
+- configs: contém um arquivo de configuração, com orientaçoes para o CLI se conectar com o nosso banco de dados;
+- models: contém todos os modelos da nossa aplicação;
+- migrations: contém todos os arquivos de migração da nossa aplicação;
+- seeders: contém todos os arquivos de "seeds" (sementes que são usadas para poupar o banco).
+
+## Conexão com o banco de dados
+
+config.json
+{
+  "development": {
+    "username": "root",
+    "password": "",
+    "database": "orm_example",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+  }
+
+  // No resto do arquivo você vai encontrar as convenções para conectar o Sequelize em outros ambientes
+}
+
+# Criação do banco de dados usando o CLI do Sequelize
+
+criar o banco de dados orm_example pelo comando `npx sequelize db:create`
+
