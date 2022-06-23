@@ -97,3 +97,93 @@ const User = (sequelize, DataTypes) => {
 module.exports = User;
 ```
 
+# Migrations
+
+É uma forma de versionar o schema do banco de dados. Ou seja, cada migration conterá um pedaço de código que representa o histórico de alterações feitas no nosso banco de dados.
+
+Ao escrever um código definindo como um banco de dados deve ser criado esse código fica salvo num arquivo na psta migrations. Após um tempo, uma atualização é feita e uma coluna é acrescentada em uma tabela, será escrito o código em outro arquivo para acrescentar essa coluna, cada arquivo será mercado com uma estampa de datetime, então ao longo do tempo esse código vai empilhar dezenas, às vezes centanas de arquivos. Cada um desses arquivos merca uma versão do banco de dados e o seu histórico de mudanças e evoluções.
+Quem clona umprojeto pela primeira vez roda suas migrations para configurar o banco de dados no formato mais recente enviado para master, sem ter que fazer mais nada. Aí sim, é possível trabalhar localmente no banco de dados da aplicação sem medo de ele ser diferente da versão mais nova que encontramos na master.
+
+Usando migrations, o mapeador objeto-relacional sabe exatamente quais alterações executar no banco de dados, tanto para criar algo novo quanto para restaurar o banco para um versão mais antiga. Além disso, uma migration tem dois códigos conhecidos como Up e Down. Ou seja: toda migration, além de saber o que fazer para executar as mudanças no banco de dados(Up), também deve saber como reverter essas mudanças(Down). Isso significa que as migrations têm o poder de avançar ou reverter o seu banco de dados para qualquer um dos estados que ele já teve.
+
+Configurando a migration:
+
+no arquivo na psta migration após criar o user, deve ser algo similar ao item abaixo:
+```
+'use strict';
+module.exports = {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.createTable('Users', {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
+      },
+      fullName: {
+        type: Sequelize.STRING
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      }
+    });
+  },
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.dropTable('Users');
+  }
+};
+```
+
+# Funções UP e DOWN
+
+Ambos recebem dois parâmetros, queryinterface eo Sequelize, eles são objetos que armazenam dados e operações.
+- queryInterface: é usado pela biblioteca para modificar o banco de dados, seguindo o "dialeto" do banco que estamos utilizando. 
+- sequelize: armazena os tipos de dados disponíveis no contexto do banco, por exemplo varchar, string, integer, date e etc.
+
+Na criação automática do o model foi criado com os campos id, fullName, createdAt e updatedAt o que facilita bastante o trabalho.
+
+Com a migration criada, é necessario adicionar o que ela vai fazer, tanto na execução (up), quando na reversão (down).
+
+Adicionando uma coluna de email na migration da tabela Users;
+```
+'use strict';
+module.exports = {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.createTable('Users', {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
+      },
+      fullName: {
+        type: Sequelize.STRING
+      },
+      // adicionamos um novo campo 'email' como foi feito no model !
+      email: {
+        type: Sequelize.STRING
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      }
+    });
+  },
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.dropTable('Users');
+  }
+};
+```
+
+Com o dado adicionado, basta executar o seguinte comando pelo CLI: `npx sequelize db:migrate`
+
+Caso seja necessario reverter a migration: `npx sequelize db:migrate:undo`
