@@ -1,11 +1,11 @@
 const { expect } = require('chai');
+const sinon = require('sinon');
 
-// empty dummy
-const MoviesService = {
-  getById: () => {}
-};
+const MoviesService = require('../../services/moviesServices');
+const MoviesModel = require('../../models/moviesModel');
 
-const TEST_ID = 1;
+const FOUND_ID = 1;
+const NOT_FOUND_ID = 999;
 
 const standardPayloadMovie = {
   title: 'Test Title',
@@ -14,21 +14,36 @@ const standardPayloadMovie = {
 };
 
 describe('Testing Service get treatment', () => {
-  describe('When id is invalid', () => {
-    it('Should return an object with an error when the id is "undefined" with a message "id is required"', async () => {
-      const response = await MoviesService.getById()
-      expect(response).to.be.equals({ error: { message: 'id is required' } });
+  
+  describe('When id is not found', () => {
+    before( async () => {
+      const response = {};
+      sinon.stub(MoviesModel, 'getById').resolves(response);
     });
-    it('Should return an object with an error when the id is invalid with a message "id should be a number"', async () => {
-      const response = await MoviesService.getById('oi')
-      expect(response).to.be.equals({ error: { message: "id should be a number"} });
-    });
-    describe('When the id is valid', () => {
-      it('Should return an object with film informations', async () => {
-        const response = await MoviesService.getById(TEST_ID);
-        expect(response).to.be.a('object');
-        expect(response).to.deep.equals(standardPayloadMovie);
-      });
+  
+    after(() => {
+      MoviesModel.getById.restore();
     })
+    it('Should return an object with an error 404, with the message "id x not found"', async () => {
+      const response = await MoviesService.getById(NOT_FOUND_ID)
+      expect(MoviesModel.getById).to.be.call();
+      expect(response).to.deep.equals({ error: { code: 404, message: `ID ${NOT_FOUND_ID} not found` } });
+      expect(response).not.to.deep.equals({ error: undefined });
+    });
+  });
+  describe('When the id is found', () => {
+    before(async () => {
+      const response = standardPayloadMovie;
+
+      sinon.stub(MoviesModel, 'getById').resolves(response);
+    });
+    after(() => {
+      MoviesModel.getById.restore();
+    });
+    it('Should return an object with film informations', async () => {
+      const response = await MoviesService.getById(FOUND_ID);
+      expect(MoviesModel.getById).to.be.call();
+      expect(response).to.deep.equals(standardPayloadMovie);
+    });
   })
 });
