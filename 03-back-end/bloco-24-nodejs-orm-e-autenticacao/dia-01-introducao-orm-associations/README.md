@@ -187,3 +187,73 @@ module.exports = {
 Com o dado adicionado, basta executar o seguinte comando pelo CLI: `npx sequelize db:migrate`
 
 Caso seja necessario reverter a migration: `npx sequelize db:migrate:undo`
+
+## Criando uma nova migration para alterar uma tabela já existente
+
+para criar uma nova migration que permite alterar a tabela existe o objeto queryInterface que possui funções específicas, que permitem criar uma nova coluna, remover uma coluna ou mudar o tipo de uma coluna já existente. O queryInterface abstrai o que a função ALTER TABLE faz no SQL.
+
+Para criar uma outra migration para adicionar a coluna phone_num na tabela Users, é usado o seguinte comando: `npx sequelize migration:generate --name add-column-phone-table-users`
+
+Com isso um novo arquivo é criado yyyymmddhhmmss-add-column-phone-table-users.js
+
+Que irá possuir o seguitne conteúdo:
+
+```
+'use strict';
+
+module.exports = {
+  async up (queryInterface, Sequelize) {
+    /**
+     * Add altering commands here.
+     *
+     * Example:
+     * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
+     */
+  },
+
+  async down (queryInterface, Sequelize) {
+    /**
+     * Add reverting commands here.
+     *
+     * Example:
+     * await queryInterface.dropTable('users');
+     */
+  }
+};
+
+```
+
+Esse código representa o esqueleto da migration criada. Assim, podemos inserir a função queryInterface.addColum() no escopo Up para adicionar uma nova coluna à nossa tabela Users, e adicionar a função queryInterface.removeColumn() no escopo Down para remover a nova coluna da tabela.
+```
+'use strict';
+
+module.exports = {
+  up: async (queryInterface, Sequelize) => {
+   await queryInterface.addColumn('Users', 'phone_num', {
+     type: Sequelize.STRING,
+   });
+  },
+
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.removeColumn('Users', 'phone_num');
+  }
+};
+```
+
+após definir qual será a atualização realizada quando ativa e quando desfeita, é usado o seguinte comando: `npx sequelize db:migrate`
+
+Também é necessário alterar o mode user.js incluindo a nova coluna:
+
+const User = (sequelize, DataTypes) => {
+  const User = sequelize.define("User", {
+  fullName: DataTypes.STRING,
+  email: DataTypes.STRING,
+  // aqui inserimos o datatype da coluna criada
+  phone_num: DataTypes.STRING,
+  });
+
+  return User;
+}
+
+Além de adicionar, remover, o objeto queryInterface também permite alteração da estrutura de uma coluna, como seu tipo, valor, entre outros detalhes, assim como o ALTER TABLE, [segue mais detalhes](https://sequelize.org/docs/v6/other-topics/query-interface/)
+
