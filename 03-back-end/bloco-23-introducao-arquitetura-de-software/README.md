@@ -20,3 +20,8 @@ anotações pessoais do bloco...
 - [Arquitetura Multicamadas](https://pt.wikipedia.org/wiki/Arquitetura_multicamada)
 - [Lista de MIME Types no MDN](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Basics_of_HTTP/MIME_types)
 - [Documentação do Content-Type no MDN](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Headers/Content-Type)
+
+# 23.4
+
+- [Artigo Trybe: Teste unitário: o que são, por que usar e por onde começar?](https://blog.betrybe.com/tecnologia/testes-unitarios/)
+- [Artigo (em inglês): Martin Fowler - UnitTest](https://martinfowler.com/bliki/UnitTest.html)
