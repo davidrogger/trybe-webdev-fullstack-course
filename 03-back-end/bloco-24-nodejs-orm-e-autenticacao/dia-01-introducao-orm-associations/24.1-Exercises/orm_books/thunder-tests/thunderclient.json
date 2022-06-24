@@ -1,0 +1,16 @@
+[
+  {
+    "_id": "7875363d-6b9a-4c35-91e2-ac5c1428e7cd",
+    "colId": "751ba93b-f2e5-4381-92d6-77e6dfec0aea",
+    "containerId": "",
+    "name": "getBooks",
+    "url": "localhost:4000/books",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2022-06-24T22:46:54.792Z",
+    "modified": "2022-06-24T22:55:29.004Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  }
+]
