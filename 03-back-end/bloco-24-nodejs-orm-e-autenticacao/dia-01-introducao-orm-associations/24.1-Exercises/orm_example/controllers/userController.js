@@ -2,6 +2,7 @@ const { User } = require("../models");
 
 const messageGlossary = {
   notFound: { status: 'NOT_FOUND', message: 'Usuário não encontrado'},
+  updateSucess: { message: 'Usuário atualizado com sucesso!' },
 }
 
 const status = {
@@ -42,6 +43,23 @@ const userController = {
       const newUser = await User.create({ fullName, email })
       res.status(status.HTTP_CREATED).json(newUser);
 
+    } catch (error) {
+      next({ status: 'BAD_REQUEST', message: error.message  });
+    }
+  },
+  async update (req, res, next) {
+    try {
+      const { fullName, email } = req.body;
+      const { id } = req.params;
+
+      const [updateUser] = await User.update(
+        { fullName, email },
+        { where: { id } },
+      );
+
+      if (!updateUser) return next(messageGlossary.notFound);
+
+      return res.status(status.HTTP_OK).json(messageGlossary.updateSucess);
     } catch (error) {
       next({ status: 'BAD_REQUEST', message: error.message  });
     }
