@@ -1,6 +1,6 @@
 const { User } = require("../models");
 
-const messageGlossary = {
+const message = {
   notFound: { status: 'NOT_FOUND', message: 'Usuário não encontrado'},
   updateSucess: { message: 'Usuário atualizado com sucesso!' },
   removeSucess: { message: 'Usuário excluído com sucesso!' },
@@ -18,7 +18,7 @@ const userController = {
       const { id } = req.params;
       const user = await User.findByPk(id);
 
-      if (!user) return next(messageGlossary.notFound);
+      if (!user) return next(message.notFound);
 
       return res.status(status.HTTP_OK).json(user);
     } catch (error) {
@@ -31,7 +31,7 @@ const userController = {
       const { email } = req.query;
       const user = await User.findONe( { where: { id, email } } );
 
-      if (!user) return next(messageGlossary.notFound);
+      if (!user) return next(message.notFound);
 
       return res.status(status.HTTP_OK).json(user);
     } catch (error) {
@@ -58,9 +58,9 @@ const userController = {
         { where: { id } },
       );
 
-      if (!updateUser) return next(messageGlossary.notFound);
+      if (!updateUser) return next(message.notFound);
 
-      return res.status(status.HTTP_OK).json(messageGlossary.updateSucess);
+      return res.status(status.HTTP_OK).json(message.updateSucess);
     } catch (error) {
       next({ status: 'BAD_REQUEST', message: error.message  });
     }
@@ -70,7 +70,7 @@ const userController = {
       const { id } = req.params;
       const userRemove = await User.destroy({ where: { id } });
 
-      return res.status(status.HTTP_OK).json(messageGlossary.removeSucess);
+      return res.status(status.HTTP_OK).json(message.removeSucess);
 
     } catch (error) {
       next({ status: 'BAD_REQUEST', message: error.message  });
