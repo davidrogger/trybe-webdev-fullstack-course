@@ -4,7 +4,7 @@ const app = express();
 const PORT = Number(process.env.PORT || 3000);
 
 const userRouter = require('../routers/userRouters');
-const errorMiddleware = require('../middleware/errorMiddleware');
+const errorMiddleware = require('../middlewares/errorMiddleware');
 
 app.use(express.json());
 
