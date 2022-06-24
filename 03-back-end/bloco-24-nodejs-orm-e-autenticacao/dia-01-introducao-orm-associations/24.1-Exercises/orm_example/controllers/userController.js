@@ -3,6 +3,7 @@ const { User } = require("../models");
 const messageGlossary = {
   notFound: { status: 'NOT_FOUND', message: 'Usuário não encontrado'},
   updateSucess: { message: 'Usuário atualizado com sucesso!' },
+  removeSucess: { message: 'Usuário excluído com sucesso!' },
 }
 
 const status = {
@@ -60,6 +61,17 @@ const userController = {
       if (!updateUser) return next(messageGlossary.notFound);
 
       return res.status(status.HTTP_OK).json(messageGlossary.updateSucess);
+    } catch (error) {
+      next({ status: 'BAD_REQUEST', message: error.message  });
+    }
+  },
+  async remove (req, res, next) {
+    try {
+      const { id } = req.params;
+      const userRemove = await User.destroy({ where: { id } });
+
+      return res.status(status.HTTP_OK).json(messageGlossary.removeSucess);
+
     } catch (error) {
       next({ status: 'BAD_REQUEST', message: error.message  });
     }
