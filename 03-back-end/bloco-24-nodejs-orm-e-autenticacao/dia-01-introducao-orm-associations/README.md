@@ -257,3 +257,48 @@ const User = (sequelize, DataTypes) => {
 
 Além de adicionar, remover, o objeto queryInterface também permite alteração da estrutura de uma coluna, como seu tipo, valor, entre outros detalhes, assim como o ALTER TABLE, [segue mais detalhes](https://sequelize.org/docs/v6/other-topics/query-interface/)
 
+
+# Seeders
+
+Existem para resolver o problema de população do nosso banco. As bibliotecas de mapeamento objeto-relacional permitem que controlemos informações que devem ser criadas assim que nosso banco de dados/tabelas, forem criados. Ou seja, podemos configurar nosso banco para ser automaticamente criado e povoado.
+
+Os seeds são responsáveis por gerar informações como produtos, mercas, categorias no banco, toda vez que ele for criado. Com isso, sempre que criássemos o banco do zero, e executássemos o projeto, teríamos as informações básicas para que fosse possível navegar. Isso é esecialmente útil quando, num contexto de testes automatizados, precisamos criar um banco e povoar com dados para testá-los.
+
+Um seeder é usado paara alimentar o banco de dados com informações necessárias para o funcionamento mínimo da aplicação.
+
+Para criar os seeds é usado o seguinte comando: `npx sequelize seed:generate --name users`
+
+Após usar esse comando é criado dentro da pasta seeders arquivo com a data e o nome, e seu conteúdo é a função para adicionar os usuários, para adicionar dois usuários devemos deixa-lo da seguinte maneira:
+```
+'use strict';
+
+module.exports = {
+  up: async (queryInterface, Sequelize) => queryInterface.bulkInsert('Users',
+    [
+      {
+        fullName: 'Leonardo',
+        email: 'leo@test.com',
+        // usamos a função CURRENT_TIMESTAMP do SQL para salvar a data e hora atual nos campos `createdAt` e `updatedAt`
+        createdAt: Sequelize.literal('CURRENT_TIMESTAMP'),
+        updatedAt: Sequelize.literal('CURRENT_TIMESTAMP'),
+      },
+      {
+        fullName: 'JEduardo',
+        email: 'edu@test.com',
+        createdAt: Sequelize.literal('CURRENT_TIMESTAMP'),
+        updatedAt: Sequelize.literal('CURRENT_TIMESTAMP'),
+      },
+    ], {}),
+
+  down: async (queryInterface) => queryInterface.bulkDelete('Users', null, {}),
+};
+```
+
+Estamos usando o queryInterface para conversar com o banco de dados. Dessa forma, conseguimos inserir os dados que queremos. Os dados são inseridos por meio de um array de objetos, na tabela Users. O queryInterface tem a função bulkInsert, a qual estamos utilizando , o que insere múltiplos dados na tabela.
+
+O seed segue o mesmo princípio de up e down, ou seja, devemos colocar também o que o seed deve fazer caso precise reverter a operação. Aqui, um código ruim pode quebrar o fluxo de uso/reversão dos seeds, então escreva com atenção.
+
+Para executar basta usar o seguinte comando: `npx sequelize db:seed:all`
+
+E para reverter o comando `npx sequelize db:seed:undo:all`
+
