@@ -36,4 +36,14 @@ const userController = {
       next({ status: 'BAD_REQUEST', message: error.message  });
     }
   },
+  async create (req, res, next) {
+    try {
+      const { fullName, email } = req.body;
+      const newUser = await User.create({ fullName, email })
+      res.status(status.HTTP_CREATED).json(newUser);
+
+    } catch (error) {
+      next({ status: 'BAD_REQUEST', message: error.message  });
+    }
+  },
 };
