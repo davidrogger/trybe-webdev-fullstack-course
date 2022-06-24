@@ -13,6 +13,15 @@ const status = {
 }
 
 const userController = {
+  async getAll (_req, res, next) {
+    try {
+      const users = await User.findAll();
+      return res.status(status.HTTP_OK).json(users);
+
+    } catch (error) {
+      next({ status: 'BAD_REQUEST', message: error.message  });
+    }
+  },
   async findById (req, res, next) {
     try {
       const { id } = req.params;

@@ -8,10 +8,12 @@ userRouter.get('/:id', userController.findById);
 
 userRouter.get('/search/:id', userController.findByIdAndEmail);
 
-userRouter.post('/', userController.create);
-
 userRouter.put('/:id', userController.update);
 
 userRouter.delete('/:id', userController.remove);
+
+userRouter.post('/', userController.create);
+
+userRouter.get('/', userController.getAll);
 
 module.exports = userRouter;
