@@ -13,6 +13,11 @@ const bookController = {
 
     return res.status(status.HTTP_OK).json(book);
   },
+  async create (req, res) {
+    const newBook = await bookService.validateBodyCreate(req.body);
+    const savedBook = await bookService.create(newBook);
+    res.status(status.HTTP_CREATED).json(savedBook);
+  },
 };
 
 module.exports = bookController;
