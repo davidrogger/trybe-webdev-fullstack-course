@@ -7,6 +7,11 @@ const bookController = {
 
     return res.status(status.HTTP_OK).json(books);
   },
+  async getById (id) {
+    const book = await bookService.getById(id);
+
+    return res.status(status.HTTP_OK).json(book);
+  },
 };
 
 module.exports = bookController;
