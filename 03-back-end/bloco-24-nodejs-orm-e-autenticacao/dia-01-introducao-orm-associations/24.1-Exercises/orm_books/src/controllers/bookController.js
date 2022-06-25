@@ -7,7 +7,8 @@ const bookController = {
 
     return res.status(status.HTTP_OK).json(books);
   },
-  async getById (id) {
+  async getById (req, res) {
+    const { id } = await bookService.validateId(req.params);
     const book = await bookService.getById(id);
 
     return res.status(status.HTTP_OK).json(book);
