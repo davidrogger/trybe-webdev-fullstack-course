@@ -12,5 +12,19 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "0cc3d55a-37dc-45b1-94ab-2ce4e5c9c867",
+    "colId": "751ba93b-f2e5-4381-92d6-77e6dfec0aea",
+    "containerId": "",
+    "name": "getBookById",
+    "url": "localhost:4000/books/a",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2022-06-25T13:04:24.126Z",
+    "modified": "2022-06-25T13:20:45.466Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]
