@@ -1,5 +1,5 @@
 const bookService = require('../services/bookService');
-const { status } = require('../helpers/');
+const { status, message } = require('../helpers/');
 
 const bookController = {
   async getAll (_req, res) {
@@ -14,9 +14,22 @@ const bookController = {
     return res.status(status.HTTP_OK).json(book);
   },
   async create (req, res) {
-    const newBook = await bookService.validateBodyCreate(req.body);
+    const newBook = await bookService.validateBody(req.body);
     const savedBook = await bookService.create(newBook);
     res.status(status.HTTP_CREATED).json(savedBook);
+  },
+  async update (req, res) {
+    
+    const [ { id }, updates ] = await Promise.all([
+      bookService.validateId(req.params),
+      bookService.validateBody(req.body),
+    ]);
+
+    await bookService.getById(id);
+
+    const savedBook = await bookService.update({ id, ...updates });
+    
+    res.status(status.HTTP_OK).json({ message: message.updatedSucess });
   },
 };
 
