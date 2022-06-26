@@ -8,6 +8,7 @@ const status = {
 
 const message = {
   updatedSucess: 'sucessfully updated',
+  removedSucess: 'sucessfully removed',
 }
 
 module.exports = {
