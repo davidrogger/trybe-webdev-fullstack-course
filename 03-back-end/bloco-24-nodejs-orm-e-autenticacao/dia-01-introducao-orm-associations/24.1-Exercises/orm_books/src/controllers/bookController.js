@@ -27,7 +27,7 @@ const bookController = {
 
     await bookService.getById(id);
 
-    const savedBook = await bookService.update({ id, ...updates });
+    await bookService.update({ id, ...updates });
     
     res.status(status.HTTP_OK).json({ message: message.updatedSucess });
   },
