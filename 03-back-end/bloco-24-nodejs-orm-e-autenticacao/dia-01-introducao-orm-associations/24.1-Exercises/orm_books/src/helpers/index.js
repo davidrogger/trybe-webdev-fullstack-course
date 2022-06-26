@@ -6,6 +6,11 @@ const status = {
   INTERNAL_ERROR: 500,
 };
 
+const message = {
+  updatedSucess: 'sucessfully updated',
+}
+
 module.exports = {
   status,
+  message,
 }
