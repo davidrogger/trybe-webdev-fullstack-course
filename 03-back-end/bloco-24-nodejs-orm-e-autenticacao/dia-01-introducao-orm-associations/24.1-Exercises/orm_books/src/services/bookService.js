@@ -39,6 +39,12 @@ const bookService = {
 
     if (!updateBook) throw new Error('something went wrong');
   },
+  async remove (id) {
+    const bookRemove = await Book.destroy({ where: { id } });
+
+    if (!bookRemove) throw new Error('Something went wrong');
+  
+  },
 };
 
 module.exports = bookService;

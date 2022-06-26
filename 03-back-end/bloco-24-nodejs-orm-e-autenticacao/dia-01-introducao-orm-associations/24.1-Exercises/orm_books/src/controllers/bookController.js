@@ -31,6 +31,12 @@ const bookController = {
     
     res.status(status.HTTP_OK).json({ message: message.updatedSucess });
   },
+  async remove (req, res) {
+    const { id } = await bookService.validateId(req.params);
+    await bookService.getById(id);
+    const bookRemove = await bookService.remove(id);
+    res.status(status.HTTP_OK).json({ message: message.removedSucess });
+  },
 };
 
 module.exports = bookController;
