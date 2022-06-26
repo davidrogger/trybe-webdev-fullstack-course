@@ -36,12 +36,12 @@
     "method": "POST",
     "sortNum": 30000,
     "created": "2022-06-25T13:40:00.398Z",
-    "modified": "2022-06-25T13:43:23.246Z",
+    "modified": "2022-06-26T13:30:27.396Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"title\": \"Obra de aprender\",\n    \"author\": \"vida\",\n    \"pageQuantity\": \"999\"\n}",
+      "raw": "{\n    \"title\": \"Beatrice the true shadown in the dark\",\n    \"author\": \"Ninaveih\",\n    \"pageQuantity\": 1\n}",
       "form": []
     },
     "tests": []
@@ -63,6 +63,20 @@
       "raw": "{\n    \"title\": \"Without honing today\",\n    \"author\": \"fedelho\",\n    \"pageQuantity\": 20\n}",
       "form": []
     },
+    "tests": []
+  },
+  {
+    "_id": "f5e1cf63-42e3-4bc8-ac8c-75d389a13ce7",
+    "colId": "751ba93b-f2e5-4381-92d6-77e6dfec0aea",
+    "containerId": "",
+    "name": "removeBook",
+    "url": "localhost:4000/books/1",
+    "method": "DELETE",
+    "sortNum": 60000,
+    "created": "2022-06-26T13:27:07.977Z",
+    "modified": "2022-06-26T13:28:52.405Z",
+    "headers": [],
+    "params": [],
     "tests": []
   }
 ]
