@@ -9,7 +9,7 @@ const bookService = {
   validateId: runSchema(Joi.object({
     id: Joi.number().required().positive().integer(),
   })),
-  validateBodyCreate: runSchema(Joi.object({
+  validateBody: runSchema(Joi.object({
     title: Joi.string().required(),
     author: Joi.string().required(),
     pageQuantity: Joi.number().integer().positive().required(),
@@ -30,6 +30,14 @@ const bookService = {
   async create ({ title, author, pageQuantity }) {
     const newBook = await Book.create({ title, author, pageQuantity });
     return newBook;
+  },
+  async update({ id, title, author, pageQuantity }) {
+    const [updateBook] = await Book.update(
+      { title, author, pageQuantity },
+      { where: { id } },
+    );
+
+    if (!updateBook) throw new Error('something went wrong');
   },
 };
 
