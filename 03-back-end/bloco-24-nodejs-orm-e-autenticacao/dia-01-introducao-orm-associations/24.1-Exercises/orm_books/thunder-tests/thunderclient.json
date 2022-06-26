@@ -45,5 +45,24 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "52f92ad7-f98a-4c74-913c-983b3fb63561",
+    "colId": "751ba93b-f2e5-4381-92d6-77e6dfec0aea",
+    "containerId": "",
+    "name": "updateBook",
+    "url": "localhost:4000/books/1",
+    "method": "PUT",
+    "sortNum": 50000,
+    "created": "2022-06-26T12:53:38.069Z",
+    "modified": "2022-06-26T13:05:01.610Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"title\": \"Without honing today\",\n    \"author\": \"fedelho\",\n    \"pageQuantity\": 20\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]
