@@ -1,0 +1,102 @@
+[
+  {
+    "_id": "7875363d-6b9a-4c35-91e2-ac5c1428e7cd",
+    "colId": "751ba93b-f2e5-4381-92d6-77e6dfec0aea",
+    "containerId": "",
+    "name": "getBooks",
+    "url": "localhost:4000/books",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2022-06-24T22:46:54.792Z",
+    "modified": "2022-06-24T22:55:29.004Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "0cc3d55a-37dc-45b1-94ab-2ce4e5c9c867",
+    "colId": "751ba93b-f2e5-4381-92d6-77e6dfec0aea",
+    "containerId": "",
+    "name": "getBookById",
+    "url": "localhost:4000/books/a",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2022-06-25T13:04:24.126Z",
+    "modified": "2022-06-25T13:20:45.466Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "8b2dda57-407f-4c58-b337-6f08886a0970",
+    "colId": "751ba93b-f2e5-4381-92d6-77e6dfec0aea",
+    "containerId": "",
+    "name": "createBook",
+    "url": "localhost:4000/books",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2022-06-25T13:40:00.398Z",
+    "modified": "2022-06-27T10:48:01.797Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"title\": \"Beatrice the true shadown in the dark\",\n    \"author\": \"Ego\",\n    \"pageQuantity\": 15\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "52f92ad7-f98a-4c74-913c-983b3fb63561",
+    "colId": "751ba93b-f2e5-4381-92d6-77e6dfec0aea",
+    "containerId": "",
+    "name": "updateBook",
+    "url": "localhost:4000/books/2",
+    "method": "PUT",
+    "sortNum": 50000,
+    "created": "2022-06-26T12:53:38.069Z",
+    "modified": "2022-06-27T11:40:04.653Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"title\": \"Without honing today\",\n    \"author\": \"fedelho\",\n    \"pageQuantity\": 20,\n    \"publisher\": \"Lost Ark\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "f5e1cf63-42e3-4bc8-ac8c-75d389a13ce7",
+    "colId": "751ba93b-f2e5-4381-92d6-77e6dfec0aea",
+    "containerId": "",
+    "name": "removeBook",
+    "url": "localhost:4000/books/1",
+    "method": "DELETE",
+    "sortNum": 60000,
+    "created": "2022-06-26T13:27:07.977Z",
+    "modified": "2022-06-27T10:17:18.728Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "7d595549-615c-44a7-95e4-e0e4f1249ce8",
+    "colId": "751ba93b-f2e5-4381-92d6-77e6dfec0aea",
+    "containerId": "",
+    "name": "getByAuthor",
+    "url": "localhost:4000/books/search?author",
+    "method": "GET",
+    "sortNum": 70000,
+    "created": "2022-06-27T10:37:04.653Z",
+    "modified": "2022-06-27T11:23:33.150Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "author",
+        "value": "",
+        "isPath": false
+      }
+    ],
+    "tests": []
+  }
+]
