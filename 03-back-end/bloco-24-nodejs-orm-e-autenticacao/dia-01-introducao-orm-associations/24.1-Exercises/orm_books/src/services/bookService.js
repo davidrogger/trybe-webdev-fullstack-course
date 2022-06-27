@@ -13,6 +13,7 @@ const bookService = {
     title: Joi.string().required(),
     author: Joi.string().required(),
     pageQuantity: Joi.number().integer().positive().required(),
+    publisher: Joi.string().required(),
   })),
   validateAuthor: runSchema(Joi.object({
     author: Joi.string().required(),
@@ -41,13 +42,13 @@ const bookService = {
 
     return authors;
   },
-  async create ({ title, author, pageQuantity }) {
-    const newBook = await Book.create({ title, author, pageQuantity });
+  async create ({ title, author, pageQuantity, publisher }) {
+    const newBook = await Book.create({ title, author, pageQuantity, publisher });
     return newBook;
   },
-  async update({ id, title, author, pageQuantity }) {
+  async update({ id, title, author, pageQuantity, publisher }) {
     const [updateBook] = await Book.update(
-      { title, author, pageQuantity },
+      { title, author, pageQuantity, publisher },
       { where: { id } },
     );
 
