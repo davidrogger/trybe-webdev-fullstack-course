@@ -84,11 +84,11 @@
     "colId": "751ba93b-f2e5-4381-92d6-77e6dfec0aea",
     "containerId": "",
     "name": "getByAuthor",
-    "url": "localhost:4000/books/search?author=",
+    "url": "localhost:4000/books/search?author",
     "method": "GET",
     "sortNum": 70000,
     "created": "2022-06-27T10:37:04.653Z",
-    "modified": "2022-06-27T11:06:26.442Z",
+    "modified": "2022-06-27T11:23:33.150Z",
     "headers": [],
     "params": [
       {

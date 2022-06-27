@@ -31,9 +31,9 @@ const bookService = {
     return book;
   },
   async getByAuthor (author) {
-
-    const getAllBooks = undefined;
-    const bookToFind = author ? { where: { author } } : getAllBooks ;
+    // https://www.codegrepper.com/code-examples/javascript/sequelize+order+by
+    const order = [['title', 'ASC']];
+    const bookToFind = author ? { where: { author }, order } : { order } ;
 
     const authors = await Book.findAll(bookToFind);
 
