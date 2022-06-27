@@ -14,6 +14,9 @@ const bookService = {
     author: Joi.string().required(),
     pageQuantity: Joi.number().integer().positive().required(),
   })),
+  validateAuthor: runSchema(Joi.object({
+    author: Joi.string().required(),
+  })),
   async getAll () {
     const books = await Book.findAll();
     return books;
@@ -26,6 +29,13 @@ const bookService = {
     }
 
     return book;
+  },
+  async getByAuthor (author) {
+    const authors = await Book.findAll({ where: { author } });
+
+    if (authors.length === 0) throw new NotFoundError('none "author" was found');
+
+    return authors;
   },
   async create ({ title, author, pageQuantity }) {
     const newBook = await Book.create({ title, author, pageQuantity });
