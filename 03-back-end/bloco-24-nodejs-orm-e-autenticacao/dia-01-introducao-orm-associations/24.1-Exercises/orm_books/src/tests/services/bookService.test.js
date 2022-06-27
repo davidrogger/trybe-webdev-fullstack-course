@@ -85,6 +85,7 @@ describe('Services Book funcionalities', () => {
           await BookService.getById(1000);
         } catch (error) {
           const { name, message } = error;
+          expect(Book.findByPk.calledOnce).to.be.equals(true);
           expect(name).to.be.equal('NotFoundError');
           expect(name).not.to.equal('BadRequest');
           expect(message).to.be.equal('"book" not found');
