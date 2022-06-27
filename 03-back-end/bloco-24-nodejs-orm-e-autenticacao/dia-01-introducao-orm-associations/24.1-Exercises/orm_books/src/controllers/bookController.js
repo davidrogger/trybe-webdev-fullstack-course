@@ -14,7 +14,7 @@ const bookController = {
     return res.status(status.HTTP_OK).json(book);
   },
   async getByAurthor (req, res) {
-    const { author } = await bookService.validateAuthor(req.query);
+    const { author } = req.query;
     const authors = await bookService.getByAuthor(author);
     res.status(status.HTTP_OK).json(authors);
   },

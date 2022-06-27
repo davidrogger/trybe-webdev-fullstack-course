@@ -31,7 +31,11 @@ const bookService = {
     return book;
   },
   async getByAuthor (author) {
-    const authors = await Book.findAll({ where: { author } });
+
+    const getAllBooks = undefined;
+    const bookToFind = author ? { where: { author } } : getAllBooks ;
+
+    const authors = await Book.findAll(bookToFind);
 
     if (authors.length === 0) throw new NotFoundError('none "author" was found');
 
