@@ -4,6 +4,8 @@ module.exports = (err, req, res, next) => {
     case 'ValidationError':
       res.status(400).json({ message });
       break;
+    case 'NotFoundError':
+      res.status(404).json({ message });
     default:
       res.status(500).json({ message });
   }
