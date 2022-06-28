@@ -7,6 +7,8 @@ const employeeController = {
   },
   async getById (req, res) {
     const { id } = await Employee.validateId(req.params);
+    const employee = await Employee.getById(id);
+    res.status(200).json(employee);
   },
 };
 
