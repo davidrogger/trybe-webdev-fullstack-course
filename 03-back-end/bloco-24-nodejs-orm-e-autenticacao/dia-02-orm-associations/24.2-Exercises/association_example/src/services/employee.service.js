@@ -18,10 +18,10 @@ const employeeService = {
   async getById (id) {
     const employee = await Employee.findOne({
       where: { id },
-      include: [{
-        model: Address, as: 'addresses',
-        attributes: { exclude: ['number'] },
-      }],
+      // include: [{ // Eager Loading
+      //   model: Address, as: 'addresses',
+      //   attributes: { exclude: ['number'] },
+      // }],
     });
 
     if (!employee) throw new NotFoundError('"id" not found');
