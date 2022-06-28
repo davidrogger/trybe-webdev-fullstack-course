@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
     underscored: true,
   });
 
-  Employee.associete = (models) => {
-    Employee.hasOne(models.Address, // hasOne como é 1 empregado para 1 endereço
+  Employee.associate = (models) => {
+    Employee.hasMany(models.Address, // hasOne como é 1 empregado para 1 endereço
       { foreignKey: 'employeeId', as: 'addresses' },
     );
   };
