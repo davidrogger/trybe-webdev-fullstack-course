@@ -13,3 +13,5 @@ app.use(errorHandler);
 const PORT = Number(process.env.PORT || 4000);
 
 app.listen(PORT, () => console.log(`Listening at port ${PORT}`));
+
+module.exports = app;
