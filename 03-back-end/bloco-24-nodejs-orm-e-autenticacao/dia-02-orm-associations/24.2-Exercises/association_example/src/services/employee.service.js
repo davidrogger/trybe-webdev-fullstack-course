@@ -28,6 +28,14 @@ const employeeService = {
 
     return employee;
   },
+  async create ({ firstName, lastName, age, transaction }) {
+    const employee = await Employee.create(
+      { firstName, lastName, age },
+      { transaction },
+    );
+
+    return employee;
+  },
 }
 
 module.exports = employeeService;

@@ -8,4 +8,11 @@ module.exports = {
 
     return addresses;
   },
+  async create ({ city, street, number, employeeId, transaction }) {
+    const address = await Address.create(
+      { city, street, number, employeeId },
+      { transaction },
+    );
+    return address;
+  },
 };
