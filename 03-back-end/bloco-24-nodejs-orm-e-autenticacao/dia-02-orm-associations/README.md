@@ -23,3 +23,60 @@ Uma transação de banco de dados relacional, por definição, deve ser atômica
 
 O uso de transações, irá fornecer dados mais confiáveis, diminuindo as chances de erro. O sequelize não usa, por padrão transações, é necessário configurá-lo para utilizar as transações.
 
+Existem dois tipos de transação dentro do sequelize: Unmanaged transactions e Managed transactions.
+
+# Unmanaged transactions
+
+Para esse tipo de transaction é preciso indicar manualmente a circunstância em que uma transação deve ser finalizada ou revertida.
+
+Exemplo de código:
+Nota para funcionar a configuração do sequelize deve estar com extensão JS "config.js", para que tenha acesso as informações contidas dentro do arquivo.
+```
+// const express = require('express');
+// const bodyParser = require('body-parser');
+const Sequelize = require('sequelize');
+
+// const { Addresses, Employees } = require('./models');
+const config = require('./config/config');
+
+// const app = express();
+// app.use(bodyParser.json());
+
+const sequelize = new Sequelize(config.development);
+
+// ...
+
+app.post('/employees', async (req, res) => {
+  // Primeiro iniciamos a transação
+  const t = await sequelize.transaction();
+
+  try {
+    const { firstName, lastName, age, city, street, number } = req.body;
+
+    // Depois executamos as operações
+    const employee = await Employee.create(
+      { firstName, lastName, age },
+      { transaction: t },
+    );
+
+    await Address.create(
+      { city, street, number, employeeId: employee.id },
+      { transaction: t },
+    );
+
+    // Se chegou até essa linha, quer dizer que nenhum erro ocorreu.
+    // Com isso, podemos finalizar a transação usando a função `commit`.
+    await t.commit();
+
+    return res.status(201).json({ message: 'Cadastrado com sucesso' });
+  } catch (e) {
+    // Se entrou nesse bloco é porque alguma operação falhou.
+    // Nesse caso, o sequelize irá reverter as operações anteriores com a função rollback, não sendo necessário fazer manualmente
+    await t.rollback();
+    console.log(e.message);
+    res.status(500).json({ message: 'Algo deu errado' });
+  }
+});
+// ...
+```
+
