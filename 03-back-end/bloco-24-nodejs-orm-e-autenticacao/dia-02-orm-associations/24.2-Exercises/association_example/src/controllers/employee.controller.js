@@ -40,7 +40,7 @@ const employeeController = {
       
     } catch (error) {
       await transaction.rollback();
-      return res.status(500).json({ message: 'something went wrong' });
+      return res.status(500).json({ message: 'Something went wrong' });
     }
     
   },
