@@ -12,3 +12,9 @@ anotações do bloco...
 - [Introdução ao Mongoose](https://developer.mozilla.org/pt-BR/docs/Learn/Server-side/Express_Nodejs/mongoose)
 - [Unit testing Express API](https://medium.com/craft-academy/unit-testing-express-api-c55cb709b3ac)
 - [Sequelize test Helpers](https://github.com/davesag/sequelize-test-helpers)
+
+# 24.2
+
+- [Manual de Associations](https://sequelize.org/docs/v6/core-concepts/assocs/)
+- [Sequelize relationships — Ultimate guide](https://medium.com/@eth3rnit3/sequelize-relationships-ultimate-guide-f26801a75554)
+- [Relacionamento Many to Many usando Sequelize + ExpressJS | Higo Ribeiro](https://www.youtube.com/watch?v=p83qrlaCRw4)
