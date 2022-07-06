@@ -80,3 +80,6 @@ const assinatura = hmac(`${base64(header)}.${base64(payload)}`, secret);
 
 const token = `${base64(header)}.${base64(payload)}.${base64(assinatura)}`;
 ```
+
+[Praticando JWT](https://github.com/davidrogger/nodejs-jwt-base-project)
+
