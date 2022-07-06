@@ -28,3 +28,55 @@ HMAC(K, m) = hash(K1 + hash(K2 + m))
 - K1 e K2 são chaves secretas derivadas da chave original K;
 - + é a operação de concatenação de strings.
 
+# Entendendo o JWT
+
+O resultado final do JWT é dado através da assinatura criptográfica de dois blocos de JSON codificados em [base64](https://pt.wikipedia.org/wiki/Base64) 
+
+Eles são o header e payload. A signature é a junção dos hashes gerados a partir do header e do payload.
+
+# Header
+
+Contém duas propriedades: o tipo do token, que é o JWT e o tipo do algoritmo de shas, como HMAC-SHA256 ou RSA:
+```
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
+```
+
+# Payload
+
+Contém os dados. Esses dados são declarações sobre uma entidade (geralmente, o usuário):
+```
+{
+  "sub": "1234567890",
+  "name": "John Doe",
+  "admin": true
+}
+```
+
+# Signature
+
+Para gerar a assinatura, é usado o header e o payload codificados em base64, usando o algoritmo definido no header:
+```
+import { hmac } from 'bibliotecaDeHmac';
+
+function base64 (string) {
+  return Buffer.from(string).toString('base64');
+}
+
+const header = JSON.stringify({
+  alg: 'HS256',
+  type: 'JWT'});
+
+const payload = JSON.stringify({
+  sub: '1234567890',
+  name: 'John Doe',
+  admin: true});
+
+const secret = 'MinhaSenhaMuitoComplexa123';
+
+const assinatura = hmac(`${base64(header)}.${base64(payload)}`, secret);
+
+const token = `${base64(header)}.${base64(payload)}.${base64(assinatura)}`;
+```
