@@ -114,4 +114,4 @@ app.post('/employees', async (req, res) => {
 ```
 
 
-[Exercicio do dia 24.2](https://github.com/tryber/exercise-sequelize-associations);
+[Exercicio do dia 24.2](https://github.com/davidrogger/exercise-sequelize-associations);
