@@ -5,6 +5,14 @@ class ErrorNotFound extends Error {
   }
 };
 
+class ErrorUnauthorizedAcess extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'ErrorUnauthorizedAcess';
+  }
+}
+
 module.exports = {
   ErrorNotFound,
+  ErrorUnauthorizedAcess,
 };

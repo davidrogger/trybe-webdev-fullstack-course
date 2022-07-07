@@ -7,6 +7,9 @@ module.exports = (err, _req, res, _next) => {
     case 'ErrorNotFound':
       res.status(404).json({ message });
       break;
+    case 'ErrorUnauthorizedAcess':
+      res.status(401).json({ message });
+      break;
     default:
     res.status(500).json({ message });
   }
