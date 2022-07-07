@@ -13,6 +13,8 @@ module.exports = {
     const user = await validate.userData(req.body);
     const userLogin = await userService.login(user);
     const token = userService.tokenGeneretor(userLogin);
+
     res.status(200).json({ token });
+
   },
 };
