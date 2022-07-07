@@ -18,3 +18,10 @@ anotações do bloco...
 - [Manual de Associations](https://sequelize.org/docs/v6/core-concepts/assocs/)
 - [Sequelize relationships — Ultimate guide](https://medium.com/@eth3rnit3/sequelize-relationships-ultimate-guide-f26801a75554)
 - [Relacionamento Many to Many usando Sequelize + ExpressJS | Higo Ribeiro](https://www.youtube.com/watch?v=p83qrlaCRw4)
+
+# 24.3
+
+- [HMAC](https://tools.ietf.org/html/rfc2104)
+- [JWT](https://jwt.io/)
+- [Documentação do pacote jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
+- [Entendendo JWT](https://medium.com/tableless/entendendo-tokens-jwt-json-web-token-413c6d1397f6)
