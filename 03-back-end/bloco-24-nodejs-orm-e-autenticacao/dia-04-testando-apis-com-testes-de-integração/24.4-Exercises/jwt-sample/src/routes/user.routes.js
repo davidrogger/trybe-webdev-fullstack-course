@@ -1,5 +1,9 @@
 const { Router } = require('express');
+require('express-async-errors');
+const userController = require('../controllers/user.controller');
 
-const userRoutes = Router();
+const userRoute = Router();
 
-module.exports = userRoutes;
+userRoute.post('/login', userController.login);
+
+module.exports = userRoute;
