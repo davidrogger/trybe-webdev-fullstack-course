@@ -1,6 +1,6 @@
 const { stub } = require('sinon');
 
-const User = { findOne: () => {} };
+const { User } = require('../src/database/models');
 const { User: userMock } = require('./mock/models');
 
 const server = require('../src/api/app');
