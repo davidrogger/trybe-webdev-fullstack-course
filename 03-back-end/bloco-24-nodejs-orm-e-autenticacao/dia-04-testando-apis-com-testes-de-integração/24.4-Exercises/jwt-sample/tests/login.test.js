@@ -24,19 +24,20 @@ describe('Route /user/login', () => {
     let userLogin;
 
     before(async () => {
-      userLogin = { name: 'invalid', password: 'invalid' };
+      userLogin = { username: 'invalid', password: 'invalid' };
       login = await chai.request(server).post('/user/login').send(userLogin);
     });
 
     it('Should response 404 user not found', () => {
       expect(login).to.have.status(404);
-      expect(login.body.message).to.contain('User not found');
+      expect(login).not.to.have.status(500);
+      expect(login.body.message).to.be.equal('User not found or incorrect password');
     });
   });
 
   describe('When the user is valid', () => {
     before(async () => {
-      userLogin = { name: 'mysuk', password: 'yareyare' };
+      userLogin = { username: 'mysuk', password: 'yareyare' };
       login = await chai.request(server).post('/user/login').send(userLogin);
     });
     
