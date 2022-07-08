@@ -1,10 +1,10 @@
 require('dotenv').config();
 
 const dbConfig = {
-  "username": MYSQL_USER,
-  "password": MYSQL_PASSWORD,
-  "host": MYSQL_HOST,
-  "dialect": DBLANGUAGE
+  "username": process.env.MYSQL_USER,
+  "password": process.env.MYSQL_PASSWORD,
+  "host": process.env.MYSQL_HOST,
+  "dialect": process.env.DBLANGUAGE
 };
 
 module.exports = {
