@@ -7,6 +7,7 @@ const server = require('../src/api/app');
 
 const chai = require('chai');
 const chaiHttp = require('chai-http');
+const { tokenVerify } = require('../src/helpers/tokenJWT');
 const { expect } = chai;
 
 chai.use(chaiHttp);
@@ -42,8 +43,13 @@ describe('Route /user/login', () => {
     });
     
     it('Should response 200, with an authorization token', () => {
+      const { token } = login.body;
+      const payload = tokenVerify(token);
+
       expect(login).to.have.status(200);
       expect(login.body).to.have.property('token');
+      expect(userLogin.username).to.be.equal(payload.data.name);
+      
     })
   })
 });
