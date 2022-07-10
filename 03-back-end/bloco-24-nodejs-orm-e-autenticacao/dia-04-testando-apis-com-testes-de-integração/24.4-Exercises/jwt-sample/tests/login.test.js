@@ -42,9 +42,9 @@ describe('Route /user/login', () => {
       login = await chai.request(server).post('/user/login').send(userLogin);
     });
     
-    it('Should response 200, with an authorization token', () => {
+    it('Should response 200, with an authorization token', async () => {
       const { token } = login.body;
-      const payload = tokenVerify(token);
+      const payload = await tokenVerify(token);
 
       expect(login).to.have.status(200);
       expect(login.body).to.have.property('token');
