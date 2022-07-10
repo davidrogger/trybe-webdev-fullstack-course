@@ -11,8 +11,9 @@ const tokenGenerate = (userData) => {
   return jwt.sign({ data: userData }, SECRET, config);
 }
 
-const tokenVerify =(token) => {
-  return jwt.verify(token, SECRET, config)
+const tokenVerify = async (token) => {
+  const user = jwt.verify(token, SECRET, config)
+  return user;
 }
 
 module.exports = {

@@ -1,7 +1,5 @@
-const { User } = require('../database/models');
-const { ErrorNotFound } = require('../helpers/errorsLibrary');
-const jwt = require('jsonwebtoken');
-const jwtConfig = require('../helpers/tokenJWT');
+const { User } = require('../../database/models');
+const { ErrorNotFound } = require('../../helpers/errorsLibrary');
 
 module.exports = {
   async findUser({ username, password }) {
