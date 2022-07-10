@@ -4,7 +4,8 @@ const dbConfig = {
   "username": process.env.MYSQL_USER,
   "password": process.env.MYSQL_PASSWORD,
   "host": process.env.MYSQL_HOST,
-  "dialect": process.env.DBLANGUAGE
+  "dialect": process.env.DBLANGUAGE,
+  "logging": false
 };
 
 module.exports = {
