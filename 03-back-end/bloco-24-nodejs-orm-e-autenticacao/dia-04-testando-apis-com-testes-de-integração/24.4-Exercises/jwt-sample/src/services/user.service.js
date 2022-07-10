@@ -1,7 +1,7 @@
 const { User } = require('../database/models');
 const { ErrorNotFound } = require('../helpers/errorsLibrary');
 const jwt = require('jsonwebtoken');
-const jwtConfig = require('../helpers/jwtConfig');
+const jwtConfig = require('../helpers/tokenJWT');
 
 module.exports = {
   async findUser({ username, password }) {
@@ -13,8 +13,10 @@ module.exports = {
 
     throw new ErrorNotFound('User not found or incorrect password');
   },
-  tokenGenerate(userData) {
-    const secret = process.env.SECRET;
-    return jwt.sign({ data: userData }, secret, jwtConfig);
-  }
+  async findUserByName(name){
+    return User.findOne({where: { name }});
+  },
+  async getAll() {
+    return User.findAll();
+  },
 }
