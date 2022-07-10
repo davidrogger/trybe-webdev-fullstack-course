@@ -28,7 +28,7 @@ describe('Autentication token need to access /posts', () => {
       login = await chai.request(server).post('/user/login').send({ username: 'mysuk', password: 'yareyare' });
     });
 
-    it('Should response 401 when the token is invalid to that access', () => {
+    it('Should response 401 when the token is invalid to that access', async () => {
       response = await chai.request(server).get('/post/1').set('authorization', login.body.token );
       expect(response).to.have.status(401);
       expect(response.body.message).to.be.equal('Access denied');
