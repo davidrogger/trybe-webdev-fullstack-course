@@ -119,3 +119,9 @@ git push heroku(nome do remote) branch(nome da branch):main
 git push heroku test-branch:main
 ```
 
+# Lidando com vários deploys
+
+É possível iniciar um novo deploy mesmo que um outro, do mesmo app, já esteja executando e ainda não tenha finalizado. Por exemplo, duas pessoas estão contribuindo para o mesmo projeto e executam push de commits diferentes quase ao mesmo tempo. Se isso ocorrer, ambos os processos serão iniciados paralelamente e conforme os processos forem finalizados, as versãoes serão publicadas.
+
+As versões serão publicadas na ormde em que os processos forem concluídos, e não na ormde em que os comandos push forem realizados.
+
