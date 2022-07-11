@@ -38,3 +38,20 @@ Os containers normalmente rodam em ambientes compartilhados, porém isolados um 
 
 No Heroku é possiǘel escalar a aplicação, verticalmente alterando o tipo do dyno para um que possua mais recursos, para fazer um escaling horizontal, pode-se aumentar o número de dynos.
 
+# Instalando heroku
+```
+curl https://cli-assets.heroku.com/install.sh | sh
+```
+verificando a versão `heroku -v`
+
+Caso não veja a versão do heroku ou prefira instalar via snap faça o seguinte: sudo `snap install hello-world`
+
+Caso o comando retorne sucesso, siga para o próximo passo. Caso retorne que o comando snap não é conhecido, instale-o utilizando o apt: `apt-get update && apt-get install snapd`
+
+## Instalando o CLI via Snapd
+```
+sudo snap install heroku --classic
+```
+
+Para que os comandos funcionem é necessário estar logado em sua conta heroku use o comando `heroku login` para logar.
+
