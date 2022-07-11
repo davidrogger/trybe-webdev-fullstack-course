@@ -28,3 +28,13 @@ Usado para adaptar de forma dinâmica algumas configurações e informações pa
 É uma variavel cujo valor é definido fora do programa, normalmente por meio de funcionalidades incorporadas ao sistema operacional ou microserviço.
 Elas são definidas em um arquivo .env, que fica na raiz da aplicação de pode ser lido pela biblioteca dotenv.
 
+# Dynos
+
+O heroku utiliza o conceito de container, em que as responsabilidades de gerenciar máquinas virtuais ou físicas são abstraídas. Isso significa que em vez de se preocupar com máquina onde você irá rodar seu código, você pode focar em desenvolver aplicações mais poderosas.
+
+Ao fazer o deploy no Heroku, voocê estará colocando sua aplicação dentro de um container. O Container é um ambiente isolado e leve que provê os recursos necessários de CPU, memória RAM, um sistema operacional e um sistema temporário de arquivos para rodar seu código. No heroku, os containers são chamados de dynos.
+
+Os containers normalmente rodam em ambientes compartilhados, porém isolados um dos outros.
+
+No Heroku é possiǘel escalar a aplicação, verticalmente alterando o tipo do dyno para um que possua mais recursos, para fazer um escaling horizontal, pode-se aumentar o número de dynos.
+
