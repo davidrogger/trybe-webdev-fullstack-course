@@ -125,3 +125,41 @@ git push heroku test-branch:main
 
 As versões serão publicadas na ormde em que os processos forem concluídos, e não na ormde em que os comandos push forem realizados.
 
+# Acompanhando sua aplicação
+
+Após o deploy, seu serviço fica disponível em uma URL do heroku, e o app pode ser gerenciado pelo CLI. Para listar os serviços que você tem em execução:
+```
+heroku apps
+```
+
+Para ver detalhes de um app específico:
+```
+heroku apps:info nome-do-seu-app
+```
+
+# Variáveis de ambiente
+
+Caso o projeto possua variáveis de ambiente, é possivel configura-las pelo config:set;
+
+heroku config:set TESTE="texto qualquer" -- app nome-do-seu-app
+
+Para listar as variáveis de ambiente, basta utilizar o comando config. O comando config mostra as variáveis de ambiente criadas por o usuário mas não as variáveis padrão do Heroku (como por exemplo a variável PORT).
+
+heroku config -a nome-do-seu-app
+
+# Logs
+
+Para monitorar os logs dos apps;
+```
+heroku logs -a nome-do-seu-app
+```
+Por padrão, o comando retorna as últimas 100 linhas de logs. Caso você queria mudar isso, utilize o parâmetro --num our -n:
+```
+heroku logs -n 200 -a nome-do-seu app
+```
+
+O parâmetro --tail ou -t abre uma seção para mostrar em tempo real os últimos logs. Para retornar ao prompt, basta executar ctrl+c
+```
+heroku logs -t -a nome-do-seu-app
+```
+
