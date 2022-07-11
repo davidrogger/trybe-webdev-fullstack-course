@@ -93,3 +93,11 @@ exemplo:
 
 [Link para ver mais comandos do Heroku Cli](https://devcenter.heroku.com/articles/heroku-cli-commands)
 
+## Buildpack
+
+Em alguns casos, precisamos rodar algum script ou realizar alguma configuração para publicar nosso app. Por exemplo, para publicar uma aplicação React precisamos "servi-la" com um server-side app (back-end), como um server com express.
+
+Porém, para facilitar, existem os buidpacks, que automatizam esses e outros processos. Existem buidpacks oficiais do heroku, mas também existem aqueles criados e publicados pela comunidade. Seja como for, eles podem agregar muito em nosso processo de deploy.
+Com um buildpack, conseguimos fazer facilmente o deploy da nossa aplicação criada em react.
+
+[Heroku buildpacks](https://elements.heroku.com/buildpacks)
