@@ -163,3 +163,6 @@ O parâmetro --tail ou -t abre uma seção para mostrar em tempo real os último
 heroku logs -t -a nome-do-seu-app
 ```
 
+# Removendo um app do Heroku
+
+Usando o comando heroku destroy -a nome-do-app -c nome-do-app
