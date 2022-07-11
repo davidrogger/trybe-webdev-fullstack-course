@@ -101,3 +101,21 @@ Porém, para facilitar, existem os buidpacks, que automatizam esses e outros pro
 Com um buildpack, conseguimos fazer facilmente o deploy da nossa aplicação criada em react.
 
 [Heroku buildpacks](https://elements.heroku.com/buildpacks)
+
+# Fazendo deploy
+
+Para fazer o deploy basta utilizar o comando git push do seu repositório local para a branch master do remote do heroku;
+
+`git push heroku-origin master`
+
+Heroku sempre publicará seu ultimo commit feito para master/main, demais branches são ignoradas por ele.
+
+Para publicar uma branch que não está na branch master/main local. É necessário criar uma branch a partir da master/main.
+
+Realizar o commit como é realizado normalmente e para publicar será usado o seguinte comando;
+```
+git push heroku(nome do remote) branch(nome da branch):main
+
+git push heroku test-branch:main
+```
+
