@@ -70,3 +70,26 @@ git remote rm -heroku (remove o heroku feito anteriormente)
 heroku create my-first-deploy-2930 (cria novamente, mas definindo o nome, como o nome deve ser único, é utilizado um númoro aletadorio no final)
 ```
 
+## Nomeação do remote
+
+Por padrão, o CLI vai nomear todos os remotes criados como heroku. Porém podemos criar o nosso remote passando um nome diferente. Isso pode ser feito utilizando a flag --remote;
+```
+heroku create my-first-deploy-29302 --remote heroku-homolog
+```
+
+Também podemos renomeá-los utilizando o comando git remote rename. Vale lembrar que o comando abaixo não vai manter o remote heroku, ele vai renomear o remote heroku para heroku-origin.
+```
+git remote rename heroku heroku-origin
+```
+
+## Vincular um app existente a um novo remote
+
+heroku git: remote -a nome-do-app --remote nome-do-remote
+
+O atributo -a é um alias para --app que é usado para indicar qual app será vinculado em casos de haver mais de uma aplicação no repositório.
+
+exemplo:
+`heroku git:remote -a meu-deploy-de-testes-29302 --remote heroku-test`
+
+[Link para ver mais comandos do Heroku Cli](https://devcenter.heroku.com/articles/heroku-cli-commands)
+
