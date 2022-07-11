@@ -55,3 +55,18 @@ sudo snap install heroku --classic
 
 Para que os comandos funcionem é necessário estar logado em sua conta heroku use o comando `heroku login` para logar.
 
+Aprendemos no módulo sobre git: ao versionar os projetos, nós os associamos a repositórios remotos. Por padrão o nome deste repositório remoto do git é origin. Para visualizá-los, basta executar o comando git remote -v.
+
+Para realizar o deploy pelo heroku, precisamos adicionar mais um remote, dessa vez apontadno para o servidor Heroku.
+
+Primeiramente criando uma aplicação react, depois vinculando ela há um repositório git;
+```
+npx create-react-app my-first-deploy-heroku
+git remote -v
+git add remote "ssh ou https"
+heroku create
+git remote -v (vericando o vinculo remoto, a aplicação terá um nome aleatório criado pelo heroku)
+git remote rm -heroku (remove o heroku feito anteriormente)
+heroku create my-first-deploy-2930 (cria novamente, mas definindo o nome, como o nome deve ser único, é utilizado um númoro aletadorio no final)
+```
+
