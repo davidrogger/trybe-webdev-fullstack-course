@@ -22,3 +22,9 @@ Para facilitar o processo de publicação, existem diversos serviçoes em nuvem 
 Ele gerencia aplicações escritas em Node.js, Ruby, Java, Python, clojure, Scala, Go e PHP.
 Para ele é importante saber qual linguagem está sendo utilizada na aplicação e framework. A partir dessas informações ele saberá, como executar o projeto.
 
+# Variáveis de ambiente
+
+Usado para adaptar de forma dinâmica algumas configurações e informações para o funcionamento.
+É uma variavel cujo valor é definido fora do programa, normalmente por meio de funcionalidades incorporadas ao sistema operacional ou microserviço.
+Elas são definidas em um arquivo .env, que fica na raiz da aplicação de pode ser lido pela biblioteca dotenv.
+
