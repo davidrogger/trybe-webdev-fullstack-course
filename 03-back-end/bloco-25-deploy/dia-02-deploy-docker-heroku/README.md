@@ -23,3 +23,5 @@ Está relacionado com a entrega contínua ou implantação contínua. No geral, 
 
 CI/CD geram monitoramentos e automações contínuas em todo o ciclo de vida da aplicação, incluindo também as etapas de testes, integraçaão, entrega e implantação. Essas práticas muitas vezes são chamadas de "Pipeline de CI/CD" e são utilizadas juntamente às metologias àgeis.
 
+[exercicio](https://github.com/davidrogger/herocker-exercise-frontend)
+[exercicio](https://github.com/davidrogger/herocker-exercise-backend)
