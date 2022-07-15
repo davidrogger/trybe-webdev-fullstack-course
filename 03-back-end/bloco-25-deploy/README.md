@@ -17,3 +17,13 @@ anotações do bloco...
 - [Documentação oficial Heroku - Scaling](https://devcenter.heroku.com/articles/scaling)
 - [Documentação oficial Heroku - Tipos de Dyno](https://devcenter.heroku.com/articles/dyno-types)
 - [Documentação oficial Heroku - Buildpacks](https://devcenter.heroku.com/articles/buildpacks)
+
+## 25.2
+
+- [Integração e entrega contínuas: CI/CD](https://www.redhat.com/pt-br/topics/devops/what-is-ci-cd)
+- [Deploy ágil com Docker](https://imasters.com.br/desenvolvimento/deploy-agil-com-docker)
+- [Multi-Cloud](https://www.redhat.com/pt-br/topics/cloud-computing/what-is-multicloud)
+- [Action Deploy to Heroku para Github (em inglês)](https://github.com/marketplace/actions/deploy-to-heroku)
+- [CI/CD pela Atlassian (em inglês)](https://www.atlassian.com/continuous-delivery)
+- [Ferramentas de CI (em inglês)](https://www.atlassian.com/continuous-delivery/continuous-integration/tools)
+- [Por que usar Docker (pesquise por deploy)(em inglês)](https://www.infoworld.com/article/3310941/why-you-should-use-docker-and-containers.html)
