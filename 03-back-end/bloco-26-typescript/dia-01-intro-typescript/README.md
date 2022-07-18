@@ -44,3 +44,13 @@ Algumas linguagens com tipagem estática podem fazer a inferência de tipo na de
 O TypeScript é uma dessas linageuns. Podemos usar a infêrencia de tipo, mas o compilador apresenta um error quando tentamos atribuir um valor de tipo diferente à variável. Isso porque ela penas realiza a inferência do tipo inicial da variável. Depois disso, como a linguagem possui tipagem estática, não é possível alterar o tipo.
 TypeScript é uma linguagem fortemente tipada e estaticamente tipada que possui inferência de tipo.
 
+# Diferenteça entre Compilador e Transpilador
+
+Um Compilador é uma programa que traduz o código desenvolvido usando uma linguagem de mais alto nível (mais próxima dos seres humanos) em um código de um programa equivalente de uma linguagem de mais baixo nível (mais próxima do processdor).
+
+Transpilador é um programa de sistema que traduz o código desenvolvido utilizando uma linguagem de mais alto nível em um código de um programa equivalente de uma outra linaguem de alto nível ou em uma versão diferente da mesma linguagem. Temos o J2CL que transpila código na linguagem Java para a linguagem JavaScript ou o Babel que transpila código ECMAScript 6 para ECMAScript 5.
+
+Um transpilador também é considerado por algumas pessoas como um tipo de compilador que atua em um nível mais alto de abstração. Por isso, muitas vezes você verá pessoas dizendo que o TypeScript é uma linguagem transpilada por traduzir código TypeScript em código JavaScript, ambas linguagens de mais alto nível.
+
+No entanto, o TypeScript possui um Compilador denimando TSC (TypeScript Compiler), que é responsável por fazer essa tradução. Além disso, a própria documentação da linguagem trata esse processo de tradução do código feito pelo TSC como compilação.
+
