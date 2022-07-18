@@ -205,3 +205,104 @@ const numberPI = 3.1416; // o compilador irá inferir o tipo number
 let message = "Hello World!"; // o compilador irá inferir o tipo string
 ```
 
+# Enum ou enumeração
+
+É o primeiro tipo de dado que não existe no JS.
+Uma enum é um nome simbólico para um conjunto de valores relacionados, o que significa que você pode utilizá-la para criar um conjunto de constantes para uso com variáveis e propriedades.
+Elas são muito úteis quando temos um conjunto de valores que determinado tipo de variável pode assumir.
+
+Exemplos:
+```
+enum StudentStatus {
+     Active,
+     Inactive,
+     Paused
+}
+
+let newStudentStatus: StudentStatus = StudentStatus.Inactive; // referenciamos um enum usando EnumName.Value
+console.log(newStudentStatus); //saída: 1
+```
+Por padrão iniciam pelo zero assim como arrays, podemos definir o valor inicial da seguinte forma:
+```
+enum StudentStatus {
+     Active = 1,
+     Inactive,
+     Paused
+}
+
+let newStudentStatus: StudentStatus = StudentStatus.Inactive;
+console.log(newStudentStatus); //saída: 2
+```
+
+Eles também aceitam acesso ao dado em ambas as direções: da chave ao valor e do valor à chave:
+```
+enum StatusCodes {
+  OK = 200,
+  BadRequest = 400,
+  Unauthorized,
+  PaymentRequired,
+  Forbidden,
+  NotFound,
+}
+
+const ok = StatusCodes.OK;
+const indiceOk = StatusCodes["OK"];
+const stringBadRequest = StatusCodes[400];
+
+console.log(ok); //saída: 200
+console.log(indiceOk); //saída: 200
+console.log(stringBadRequest); //saída: BadRequest
+```
+
+Ele pode também ser de strings: 
+```
+enum directionsGamePad {
+    UP = "UP",
+    DOWN = "DOWN",
+    LEFT = "LEFT",
+    RIGHT = "RIGHT"
+};
+```
+
+Practices:
+
+Crie uma Enum que represente os dias da semana. Seu valor deve ser o número do dia.
+```
+enum weeksDays {
+    moonday = 18,
+    tuesday,
+    wednesday,
+    tuersday,
+    friday
+};
+```
+Crie uma Enum que represente as cores do arco-íris. Seu valor deve ser o nome das cores em <del>português.
+```
+enum rainbowColors {
+    red = "red",
+    orange = "orange",
+    yellow = "yellow",
+    green = "green",
+    blue = "blue",
+    indigo = "indigo",
+    violet = "violet"
+};
+```
+Crie uma Enum que represente as ações: salvar, imprimir, abrir, visualizar e fechar. Seu valor deve ser do tipo inteiro.
+```
+enum files {
+  save,
+  print,
+  open,
+  view,
+  close
+};
+```
+Crie uma Enum que represente os pontos cardeais: Norte, Leste, Sul e Oeste. Seu valor deve ser a primeira letra do nome do ponto cardial.
+
+enum cardealPoints {
+  North = "N",
+  East = "E",
+  South = "S",
+  West = "W"
+};
