@@ -54,3 +54,20 @@ Um transpilador também é considerado por algumas pessoas como um tipo de compi
 
 No entanto, o TypeScript possui um Compilador denimando TSC (TypeScript Compiler), que é responsável por fazer essa tradução. Além disso, a própria documentação da linguagem trata esse processo de tradução do código feito pelo TSC como compilação.
 
+# TSC - TypeScript Compiler
+
+É responsável por realizar a traduação do nosso código TypeScript para código JavaScript, responsável por realizar a verificação de tipo no código TypeScript.
+
+Para isso precisamos instalar o TSC e o suporte do TypeScript em nossa máquina via npm, e utilizarmos o comando tsc seguido do arquivo que desejamos compilar e realizar a análise de tipo. Caso não deseje instalá-lo, você pode utilizar o comando tsc como um executável npx.
+
+Para instalar globalmente: `npm i -g typescript`
+
+Para executa-lo: `tsc nomeDoArquivo.js`
+
+OU
+
+`npx tsc nomeDoArquivo.ts`
+
+A extensão ts é a extensão padoa para os arquivos TypeScript
+
+Ao rodarmos esse comando, será verificado o conteúdo do arquivo nomeDoArquivo.ts e, caso nenhum problema seja encontrado, um novo arquivo será criado com o nome nomeDoArquivo.js e contendo o código compilado para JavaScript.
