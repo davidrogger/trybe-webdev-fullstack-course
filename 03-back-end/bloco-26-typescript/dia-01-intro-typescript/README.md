@@ -150,3 +150,7 @@ Será gerado um arquivo tsconfig.json:
 }
 ```
 
+# [TypeScript Playground](https://www.typescriptlang.org/pt/play)
+
+Ambiente seguro para aprender e compartilhar TypeScript
+
