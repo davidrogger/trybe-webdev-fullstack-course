@@ -71,3 +71,82 @@ OU
 A extensão ts é a extensão padoa para os arquivos TypeScript
 
 Ao rodarmos esse comando, será verificado o conteúdo do arquivo nomeDoArquivo.ts e, caso nenhum problema seja encontrado, um novo arquivo será criado com o nome nomeDoArquivo.js e contendo o código compilado para JavaScript.
+
+# Introdução ao TSConfig
+
+O que define que um projeto é TypeScript é a presença de um arquivo de configuração TSConfig. O arquivo tsconfig.json possui as variáveis de configuração que definirão como o nosso código será compilado.
+
+A melhor prática para a utilização do TypeScript em um projeto é instalá-lo como um devDependecy por meio do comando npm i -D typescript e utilizá-lo por meio do npx. Isso garante que todas as pessoas que forem compilar o projeto o façam utilizando a mesma versão do TypScript, e não a versão instalada em suas respectivas máquinas.
+
+É possível criar manualmente o arquivo tsconfig.json ou, como boas pessoas desenvolvedoras que somo, podemos utilizar as ferramentas que a linguagem nos fornece para gerá-la automaticamente, já com as principais configurações.
+
+Para gerar o tsconfig.json vamos utilizar o tsc.
+
+Dentro do diretório desejado digite o comando:
+```
+tsc --init || npx tsc --init
+```
+
+Será gerado um arquivo tsconfig.json:
+```
+{
+  "compilerOptions": {
+    /* Visit https://aka.ms/tsconfig.json to read more about this file */
+
+    /* Projects */
+    [...]
+    /* Language and Environment */
+    "target": "es2016",                                  /* Set the JavaScript language version for emitted JavaScript and include 
+    [...]
+
+    /* Modules */
+    "module": "commonjs",                                /* Specify what module code is generated. */
+    "rootDir": "./",                                     /* Specify the root folder within your source files. */
+    [...]
+
+    /* JavaScript Support */
+    [...]
+
+    /* Emit */
+    "outDir": "./",                                      /* Specify an output folder for all emitted files. */
+    [...]
+
+    /* Interop Constraints */
+    "esModuleInterop": true,                             /* Emit additional JavaScript to ease support for importing CommonJS modules.
+    [...]
+
+    /* Type Checking */
+    "strict": true,                                      /* Enable all strict type-checking options. */
+    [...]
+  }
+}
+```
+
+- module: especifica o sistema de módulo a ser utilizado no código JS que será gerado pelo compilador como sendo CommonJS;
+- target: define a versão do JS do código compilado como ES6;
+- rootDir: define a localização raiz dos arquivos do projeto;
+- outDir: define a pasta onde ficará nosso código compilado;
+- esModuleInterop: habilitamos essa opção para ser possível compilar módulos ES6 para módulos CommonJS;
+- strict: habilitamos essa opção para ativar a verificação estrita de tipo;
+- include: essa chave vai depois do objeto CompilerOptions e com ela conseguimos incluir na compilação os arquivos ou diretórios mencionados;
+- exclude: essa chave também vai depois do objeto CompilerOptions e com ela conseguimos excluir da complicação os arquivos mencionados.
+
+```
+{
+  "extends": "@tsconfig/node16/tsconfig.json",
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "commonjs",
+    "rootDir": "./",
+    "outDir": "./dist",
+    "preserveConstEnums": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "include":["src/**/*"], /* aqui estamos incluindo todos os arquivos dentro da pasta src */
+  "exclude": ["node_modules", "**/*.spec.ts"] /* aqui estamos excluindo a pasta node_modules e os arquivos de teste */
+}
+```
+
