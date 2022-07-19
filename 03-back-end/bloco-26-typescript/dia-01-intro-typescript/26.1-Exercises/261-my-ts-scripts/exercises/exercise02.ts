@@ -1,14 +1,16 @@
 enum months {
   january = 1,
-  February,
-  March,
-  April,
-  May,
-  Juny,
-  July,
-  August,
-  September,
-  October,
-  November,
-  December
+  february,
+  march,
+  april,
+  may,
+  juny,
+  july,
+  august,
+  september,
+  october,
+  november,
+  december
 }
+
+module.exports = months;
