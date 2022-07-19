@@ -1,9 +1,9 @@
-const { question } = require('readline-sync');
+const read = require('readline-sync');
 
 const monthss = require('./exercise02');
 
-const month: string = question('Choice a month of the year: Ex: january ');
-const hemisphere: string = question('Type the hemisphere that you want to know the season as N or S ')
+const month: string = read.question('Choice a month of the year: Ex: january ');
+const hemisphere: string = read.question('Type the hemisphere that you want to know the season as N or S ')
 
 function hemisphereNorth(month: number): string {
   let season = '';

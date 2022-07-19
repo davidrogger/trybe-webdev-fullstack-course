@@ -1,8 +1,8 @@
 "use strict";
-const { question } = require('readline-sync');
+const read = require('readline-sync');
 const monthss = require('./exercise02');
-const month = question('Choice a month of the year: Ex: january ');
-const hemisphere = question('Type the hemisphere that you want to know the season as N or S ');
+const month = read.question('Choice a month of the year: Ex: january ');
+const hemisphere = read.question('Type the hemisphere that you want to know the season as N or S ');
 function hemisphereNorth(month) {
     let season = '';
     if (month >= 9)
