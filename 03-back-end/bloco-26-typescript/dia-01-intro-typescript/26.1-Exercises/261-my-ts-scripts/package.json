@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "season": "node dist/exercises/exercise04.js"
+    "prestart": "npx tsc",
+    "start": "node dist/exercises/exec.js"
   },
   "keywords": [],
   "author": "",
