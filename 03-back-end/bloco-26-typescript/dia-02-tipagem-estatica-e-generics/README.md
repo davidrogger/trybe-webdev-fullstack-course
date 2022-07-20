@@ -68,3 +68,14 @@ type address {
 }
 ```
 
+# Type Unions
+
+É uma forma de declarar que um objeto é um tipo formado a partir de dois ou mais outros tipos, representando valores que podem ser qualquer um desses tipos. Para isso, é preciso declarar os tipos esperados separados por barras.
+```
+// A função abaixo pode receber tanto um número
+// quanto uma string.
+function retornarCPF(cpf: number | string){
+  console.log("Seu CPF é: " + cpf);
+}
+```
+
