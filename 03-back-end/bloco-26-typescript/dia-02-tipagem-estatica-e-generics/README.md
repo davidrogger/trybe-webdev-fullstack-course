@@ -344,3 +344,45 @@ const flyToValhala = new Fly('midgard', 'valhala', new Date('December 20, 2022 1
 
 console.log(flyToValhala.log());
 ```
+
+# Interfaces
+
+É mais uam estrutura que não existe no JavaScript. A Interface é utilizada para declarar a forma de um objeto, nomear e parametrizar os tipos do objeto e comport tipos de objetos nomeados existentes em novos. São uma forma eficiente de definir um "contrato de código" sendo definido o que você espera que seja implementado dentro do seu código.
+
+Exemplo, criando uma interface que define as propriedades e métodos de uma pessoa funcionária;
+```
+interface Employee {
+    firstName: string;
+    lastName: string;
+    fullName(): string;
+}
+```
+
+O único trabalho de uma interface é descrever o objeto. Ela define o que o contrato de código exige, enquanto quem implementa a interface deve atender ao contrato fornecendo os detalhes de implementação necessários.
+
+# Exercícios
+
+1. Crie uma interface cujo objeto represente um Automóvel.
+```
+interface Car {
+    model: string;
+    year: Date;
+    color: string
+}
+```
+2. Crie uma interface cujo objeto represente um Felino.
+```
+interface Feline {
+    name: string;
+    age: Date;
+}
+```
+3. Crie uma interface cujo objeto represente uma Aeronave.
+```
+interface Aircraft {
+    model: string;
+    year: Date;
+    color: string;
+}
+```
+
