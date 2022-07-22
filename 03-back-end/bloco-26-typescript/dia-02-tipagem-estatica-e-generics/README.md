@@ -472,3 +472,33 @@ class ProcessIdentity<T, U> {
 let processor = new processIdentity<number, string>(100, 'Olá');
 processor.getIdentity(); // imprime Olá e retorna 100
 ```
+
+# Model com Sequelize
+
+A implementação do Sequelize em uma aplicação com TypeScript difere um pouco do método que utiliza o sequelize-cli para criação de modelos pois o sequelize-cli não dá suporte nativo na interpretação/criação de migrations, seeders e models em TS.
+
+Quando utilizamos o CLI do Sequelize para gerar esses componentes, ele gera arquivos *.js que não vão ser interpretados pelo TS.
+
+O sequelize possui suas prórprias definições de tipos, mas isso significa que para utilizarmos ele na APi precisamos fazer algumas coisas "na mão".
+
+# Configuração inicial
+```
+npm i dotenv sequelize @types/sequelize
+npm i -D mysql2 sequelize-cli
+```
+
+arquivo .sequelizerc
+```
+const path = require('path');
+
+module.exports = {
+  'config': path.resolve(__dirname,'build','database','config', 'database.js'),
+  'models-path': path.resolve(__dirname,'build','database','models'),
+  'seeders-path': path.resolve(__dirname,'src','database', 'seeders'),
+  'migrations-path': path.resolve(__dirname,'src','database', 'migrations'),
+};
+```
+```
+npx sequelize-cli init
+```
+
