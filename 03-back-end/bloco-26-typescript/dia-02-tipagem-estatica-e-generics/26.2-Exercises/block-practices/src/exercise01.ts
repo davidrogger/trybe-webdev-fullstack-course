@@ -30,12 +30,12 @@ export class Car {
     console.log('biiiiiiiiiiiiibiiiiiiiiiiiii!!');
   }
 
-  openTheDoor(action: door) {
-    console.log(`Doors ${action}`);
+  openTheDoor() {
+    console.log(`Doors ${door.open}`);
   }
 
-  closeTheDoor(action: door) {
-    console.log(`Doors ${action}`);
+  closeTheDoor() {
+    console.log(`Doors ${door.close}`);
   }
 
   turnOn() {
