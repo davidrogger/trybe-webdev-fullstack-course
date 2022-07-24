@@ -1,0 +1,23 @@
+{
+  "name": "practice-sequelize-type",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "db:reset": "npx -y tsc && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/sequelize": "^4.28.14",
+    "dotenv": "^16.0.1",
+    "sequelize": "^6.21.3"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.6",
+    "mysql2": "^2.3.3",
+    "sequelize-cli": "^6.4.1",
+    "typescript": "^4.7.4"
+  }
+}
