@@ -5,6 +5,16 @@ export enum colors {
   silver = 'silver'
 }
 
+export enum door {
+  open = 'open',
+  close = 'close',
+}
+
+export enum direction {
+  right = 'right',
+  left = 'left',
+}
+
 export class Car {
   brand: string;
   color: colors;
@@ -20,12 +30,12 @@ export class Car {
     console.log('biiiiiiiiiiiiibiiiiiiiiiiiii!!');
   }
 
-  openTheDoor() {
-
+  openTheDoor(action: door) {
+    console.log(`Doors ${action}`);
   }
 
-  closeTheDoor() {
-
+  closeTheDoor(action: door) {
+    console.log(`Doors ${action}`);
   }
 
   turnOn() {
@@ -37,18 +47,18 @@ export class Car {
   }
 
   speedUp() {
-
+    console.log('accelerate the car');
   }
 
   speedDown() {
-
+    console.log('decelerate the car');
   }
 
   stop() {
-
+    console.log('stoped the car');
   }
 
-  turn() {
-
+  turn(direction: direction) {
+    console.log(`Turn ${direction}`);
   }
 }
