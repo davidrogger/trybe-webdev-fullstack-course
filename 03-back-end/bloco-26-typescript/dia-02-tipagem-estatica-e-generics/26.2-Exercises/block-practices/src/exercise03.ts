@@ -1,21 +1,21 @@
-type slicesQt = 4 | 6 | 8;
+export type slicesQt = 4 | 6 | 8;
 
-interface Pizza {
+export interface Pizza {
   flavor: string;
   slices: slicesQt;  
 };
 
-const pizza1: Pizza = {
+const calabrase: Pizza = {
   flavor: 'Calabresa',
   slices: 8
 }
 
-const pizza2: Pizza = {
+const marguerita: Pizza = {
   flavor: 'Marguerita',
   slices: 6
 }
 
-const pizz3: Pizza = {
+const nutela: Pizza = {
   flavor: 'Nutela',
   slices: 4
 }
