@@ -32,4 +32,17 @@ export default class BookModel {
     const [book] = rows as Book[];
     return book;
   }
+
+  public async update(id: number, book: Book): Promise<void> {
+    const { title, author, price, isbn } = book;
+    await this.connection.execute(
+      `
+      UPDATE books
+      SET title=?, author=?, price=?, isbn=?
+      WHERE id=?;
+      `,
+      [title, author, price, isbn, id],
+      );
+  }
+
 }
