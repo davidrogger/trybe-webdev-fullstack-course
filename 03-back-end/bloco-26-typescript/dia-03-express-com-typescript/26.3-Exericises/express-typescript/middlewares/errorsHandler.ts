@@ -17,7 +17,7 @@ export default (err: Error, req: Request, res: Response, next: NextFunction) => 
       break;
     default:
       console.error(err);
-      res.sendStatus(StatusCodes.INTERNAL_SERVER_ERROR)
+      res.sendStatus(StatusCodes.INTERNAL_SERVER_ERROR);
   }
 
   next();
