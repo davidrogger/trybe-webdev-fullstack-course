@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
-import { json } from 'stream/consumers';
 import BookService from '../services/books.service';
 
 export default class BookController {
@@ -20,5 +19,14 @@ export default class BookController {
     }
 
     res.status(StatusCodes.OK).json(book);
+  }
+
+  public create = async (req: Request, res: Response) => {
+    const book = req.body;
+
+    const bookCreated = this.bookService.create(book);
+
+    res.status(StatusCodes.CREATED).json(bookCreated);
+
   }
 }
