@@ -1,6 +1,6 @@
 import connection from "../models/connection";
 import BookModel from "../models/book.model";
-import Book from "../interfaces/book.interface";
+import Book, { pathBook } from "../interfaces/book.interface";
 import { NotFoundError } from "restify-errors";
 
 export default class BookService {
@@ -30,6 +30,15 @@ export default class BookService {
     if (!bookFound) throw new NotFoundError('NotFoundError');
 
     return this.model.update(id, book);
+  }
+
+  public async patchUpdate(id: number, book: pathBook): Promise<void> {
+    const bookFound = await this.model.getById(id);
+    
+    if (!bookFound) throw new NotFoundError('NotFoundError');
+    
+    return this.model.update(id, { ...bookFound, ...book });
+    
   }
 
   public async remove(id: number): Promise<void> {

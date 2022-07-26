@@ -5,3 +5,10 @@ export default interface Book {
   author: string;
   isbn: string;
 }
+
+export interface pathBook {
+  title?: string;
+  price?: number;
+  author?: string;
+  isbn?: string;
+}

@@ -10,5 +10,8 @@ const route = (0, express_1.Router)();
 const booksController = new books_controller_1.default();
 route.get('/books', booksController.getAll);
 route.get('/book/:id', booksController.getById);
+route.put('/book/:id', [books_middleware_1.default, booksController.update]);
+route.patch('/book/:id', booksController.patchUpdate);
+route.delete('/book/:id', booksController.remove);
 route.post('/book', [books_middleware_1.default, booksController.create]);
 exports.default = route;

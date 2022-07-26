@@ -9,6 +9,7 @@ const booksController = new BookController();
 route.get('/books', booksController.getAll);
 route.get('/book/:id', booksController.getById);
 route.put('/book/:id', [validationBook, booksController.update]);
+route.patch('/book/:id', booksController.patchUpdate);
 route.delete('/book/:id', booksController.remove);
 route.post('/book', [validationBook, booksController.create]);
 

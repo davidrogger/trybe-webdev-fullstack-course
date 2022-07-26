@@ -39,6 +39,13 @@ export default class BookController {
 
   }
 
+  public patchUpdate = async (req: Request, res: Response) => {
+    const id = Number(req.params.id);
+    const book = req.body;
+    await this.bookService.patchUpdate(id, book);
+    res.status(StatusCodes.NO_CONTENT).end();
+  }
+
   public remove = async (req: Request, res: Response) => {
     const id = Number(req.params.id);
     await this.bookService.remove(id);
