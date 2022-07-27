@@ -21,3 +21,41 @@ Possui quatro pilares fundamentais
 
 4. polimorfismo permite que coisas diferentes aconteçam ao chamarmos objetos de classes filhas distintas de uma mesma super classe. Por exemplo, pense que existe a classe Pessoa, que possui um método dormir, só que esse méotodo não é implementado (não possui nenhum código). Então são criadas duas outras classes: PessoaQueDormeDeBrucos e PessoaQueDormeDelado, e ambas implementam o método dormir conforme seus nomes. Se em algum lugar do código eu esperao um objeto da classe Pessoa, eu posso perfeitamente passar um objeto de uma classe filha (já que ele herda tudo que tem na classe Pessoa), ou seja, eu posso passar tanto um objeto da classe PessoaQUeDormeDeBrucos quando da classe PessoaQueDormeDelado. Como o código esperava um objeto da classe Pessoa, qualquer um dos dois servem, mas se o método dormir for chamado, ele irá se comportar de forma diferente.
 
+# Sintaxe Geral
+
+```
+class Person {
+  name: string;
+  height: number;
+  weight: number;
+
+  constructor(n: string, h: number, w: number) {
+    console.log(`Creating person ${n}`);
+    this.name = n;
+    this.height = h;
+    this.weight = w;
+  }
+
+  sleep() {
+    console.log(`${this.name}: zzzzzzz`);
+  }
+}
+
+const p1 = new Person('Maria', 171, 58);
+const p2 = new Person('João', 175, 66);
+console.log(p1.name, p1.height, p1.weight);
+console.log(p2.name, p2.height, p2.weight);
+p1.sleep();
+p2.sleep();
+
+/*
+Saída:
+Creating person Maria
+Creating person João
+Maria 171 58
+João 175 66
+Maria: zzzzzzz
+João: zzzzzzz
+*/
+```
+
