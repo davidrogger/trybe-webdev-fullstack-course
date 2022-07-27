@@ -59,3 +59,13 @@ João: zzzzzzz
 */
 ```
 
+# Abstração
+
+Quando criamos códigos Orientados a Objetos, deve ser intencional o uso de abstração, ou seja de esconder detalhes da implementação da pessoa que vai usar a classe ou os objetos.
+
+Exemplo: log é um método do objeto console. Com isso para gerar um texto usando o console.log no terminal, o texto tem que ser carregado em buffers especiais, ser enviado para decodificadores, passar por um grande passo a passo, culminando em um sinal elétrico sendo enviado ao seu monitor, por fim, resultando no acendimento dos pixels correspondentes às letras que formam a frase.
+
+Entre a chamada do console.log e a visualização do resultado na tela, existem várias camadas de abstração, as quais por um lado, não te dão nitidez do que acontece no processo, mas por outro resolvem seu problema sem que você tenha que se preocupar.
+
+A mentalidade ao desenvolver código Orientado a Objetos deve ser essa: a pessoa que vai usá-lo não deve ter que se preocupar em como determinado méotod funciona. Ela só precisa saber que, ao receber certa entrada, esse método irá retornar ou exebir um certo resultado.
+
