@@ -16,3 +16,10 @@ anotações pessoais do bloco...
 - [Willian Justen - Generics](https://www.youtube.com/watch?v=Zjs7IJuhdaM&list=PLlAbYrWSYTiPanrzauGa7vMuve7_vnXG_&index=12)
 - [Documentação do TypeScript - Generics (Em inglês)](https://www.typescriptlang.org/docs/handbook/2/generics.html)
 - [TypeScript - Documentação do Sequelize (Em inglês)](https://sequelize.org/docs/v6/other-topics/typescript/)
+
+# 26.3
+
+- [Node.js and TypeScript Tutorial: Build a CRUD API | auth0](https://auth0.com/blog/node-js-and-typescript-tutorial-build-a-crud-api/)
+- [Documentação Express](https://expressjs.com/pt-br/4x/api.html)
+- [Documentação TypeScript](https://www.typescriptlang.org/docs/)
+
