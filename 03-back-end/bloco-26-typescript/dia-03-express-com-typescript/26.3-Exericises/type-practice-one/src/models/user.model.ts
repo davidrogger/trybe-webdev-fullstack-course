@@ -1,8 +1,8 @@
 import { Pool, ResultSetHeader } from "mysql2/promise";
-import IUser from "../interface/user.interface";
+import IUser, { InewUser } from "../interface/user.interface";
 
 interface emailFound {
-  emailFound: string;
+  id: number;
 }
 
 export default class UserModel {
@@ -26,10 +26,10 @@ export default class UserModel {
   }
 
   public async emailExists(email: string): Promise<number> {
-    const query = 'SELECT COUNT(*) AS emailFound FROM Users WHERE email=?;';
+    const query = 'SELECT id FROM Users WHERE email=?;';
     const [result] = await this.connection.query(query, [email]);
-    const [{ emailFound }] = result as emailFound[];
-    return Number(emailFound);
+    const [{ id }] = result as emailFound[];
+    return id;
   }
 
   public async create(user: IUser): Promise<IUser> {
@@ -38,5 +38,12 @@ export default class UserModel {
     const [{ insertId: id }] = await this.connection.query<ResultSetHeader>(query, [name, email, password]);
     delete user.password;
     return { id, ...user };
+  }
+
+  public async update(id: number, user: InewUser): Promise<IUser> {
+    const { name, email, password } = user;
+    const query = 'UPDATE Users SET name=?, email=?, password=? WHERE id=?';
+    await this.connection.query(query, [name, email, password, id]);
+    return { name, email };
   }
 }

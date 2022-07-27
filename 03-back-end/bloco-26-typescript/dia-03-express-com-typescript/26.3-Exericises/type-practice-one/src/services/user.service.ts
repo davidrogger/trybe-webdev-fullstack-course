@@ -22,10 +22,10 @@ export default class userService {
     return user;
   }
 
-  public async emailExists(email: string): Promise<boolean> {
+  public async emailExists(email: string, id?: number): Promise<boolean> {
     const result = await this.model.emailExists(email);
     
-    if (result !== 0) throw new ErrorCustom(StatusCodes.CONFLICT, 'Email already in use');
+    if (result !== id) throw new ErrorCustom(StatusCodes.CONFLICT, 'Email already in use');
 
     return false;
   }
@@ -40,5 +40,9 @@ export default class userService {
 
   public async create(user: InewUser): Promise<IUser> {
     return this.model.create(user);
+  }
+
+  public async update(id: number, user: InewUser): Promise<IUser> {
+    return this.model.update(id, user);
   }
 };

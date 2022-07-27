@@ -13,7 +13,7 @@ export default class userController {
 
   public getById = async (req: Request, res: Response): Promise<void> => {
     const id = Number(req.params.id);
-    await validate.idFormat(id);
+    validate.idFormat(id);
     const user = await this.userService.getById(id);
     res.status(StatusCodes.OK).json(user);
   }
@@ -26,5 +26,20 @@ export default class userController {
     const payload = { email: newUser.email };
     const token = jwtGenerator(payload);
     res.status(StatusCodes.CREATED).json({...userData, token});
+  }
+
+  public update = async (req: Request, res: Response): Promise<void> => {
+    const id = Number(req.params.id);
+    validate.idFormat(id);
+    const oldData = await this.userService.getById(id);
+    
+    const user = validate.userFormat(req.body);
+
+    await this.userService.emailExists(user.email, id);
+
+    const userUpdated = await this.userService.update(id, user);
+
+    res.status(StatusCodes.OK).json({ updated: userUpdated, from: oldData });
+
   }
 }
