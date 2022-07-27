@@ -1,4 +1,4 @@
-import { OkPacket, Pool, ResultSetHeader, RowDataPacket } from "mysql2/promise";
+import { Pool, ResultSetHeader } from "mysql2/promise";
 import IUser from "../interface/user.interface";
 
 interface emailFound {

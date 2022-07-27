@@ -1,6 +1,6 @@
 import { StatusCodes } from "http-status-codes";
 import Joi from "joi";
-import IUser from "../interface/user.interface";
+import IUser, { InewUser } from "../interface/user.interface";
 import ErrorCustom from "../utils/error";
 
 const validate = {
@@ -11,7 +11,7 @@ const validate = {
       throw new ErrorCustom(StatusCodes.BAD_REQUEST, error.message);
     }
   },
-  userFormat(user: IUser): IUser {
+  userFormat(user: InewUser): InewUser {
     const { error, value } = Joi.object({
       name: Joi.string().min(3).required(),
       email: Joi.string().email().required(),

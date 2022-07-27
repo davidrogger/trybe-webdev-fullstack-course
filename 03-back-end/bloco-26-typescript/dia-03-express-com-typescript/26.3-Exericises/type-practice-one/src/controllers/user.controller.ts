@@ -21,7 +21,8 @@ export default class userController {
   public create = async (req: Request, res: Response): Promise<void> => {
     const newUser = validate.userFormat(req.body);
     await this.userService.emailExists(newUser.email);
-    const userData = await this.userService.create(newUser);
+    const passwordHash = this.userService.passwordHash(newUser.password);
+    const userData = await this.userService.create({ ...newUser, password: passwordHash });
     const payload = { email: newUser.email };
     const token = jwtGenerator(payload);
     res.status(StatusCodes.CREATED).json({...userData, token});

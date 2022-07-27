@@ -1,8 +1,9 @@
 import { StatusCodes } from "http-status-codes";
-import IUser from "../interface/user.interface";
+import IUser, { InewUser } from "../interface/user.interface";
 import connection from "../models/connection";
 import UserModel from "../models/user.model";
 import ErrorCustom from "../utils/error";
+import bcrypt from 'bcryptjs';
 
 export default class userService {
   public model: UserModel;
@@ -29,7 +30,15 @@ export default class userService {
     return false;
   }
 
-  public async create(user: IUser): Promise<IUser> {
+  public passwordHash(password: string): string {
+    return bcrypt.hashSync(password)
+  };
+
+  public passwordVerify(password: string, passwordHash: string): boolean {
+    return bcrypt.compareSync(password, passwordHash);
+  }
+
+  public async create(user: InewUser): Promise<IUser> {
     return this.model.create(user);
   }
 };
