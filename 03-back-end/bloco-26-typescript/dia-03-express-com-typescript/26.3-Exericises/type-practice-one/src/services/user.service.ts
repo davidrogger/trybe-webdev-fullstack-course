@@ -21,6 +21,14 @@ export default class userService {
     return user;
   }
 
+  public async emailExists(email: string): Promise<boolean> {
+    const result = await this.model.emailExists(email);
+    
+    if (result !== 0) throw new ErrorCustom(StatusCodes.CONFLICT, 'Email already in use');
+
+    return false;
+  }
+
   public async create(user: IUser): Promise<IUser> {
     return this.model.create(user);
   }

@@ -11,8 +11,8 @@ const validate = {
       throw new ErrorCustom(StatusCodes.BAD_REQUEST, error.message);
     }
   },
-  userFormat(user: IUser): void {
-    const { error } = Joi.object({
+  userFormat(user: IUser): IUser {
+    const { error, value } = Joi.object({
       name: Joi.string().min(3).required(),
       email: Joi.string().email().required(),
       password: Joi.string().min(6).max(12).required(),
@@ -20,6 +20,8 @@ const validate = {
     if (error) {
       throw new ErrorCustom(StatusCodes.BAD_REQUEST, error.message);
     }
+
+    return value;
   },
 }
 

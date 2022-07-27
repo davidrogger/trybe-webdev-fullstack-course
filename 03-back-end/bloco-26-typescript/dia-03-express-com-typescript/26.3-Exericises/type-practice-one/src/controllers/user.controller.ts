@@ -18,6 +18,9 @@ export default class userController {
   }
 
   public create = async (req: Request, res: Response): Promise<void> => {
-    
+    const newUser = validate.userFormat(req.body);
+    await this.userService.emailExists(newUser.email);
+    const userData = await this.userService.create(newUser);
+    res.status(StatusCodes.CREATED).json(userData);
   }
 }
