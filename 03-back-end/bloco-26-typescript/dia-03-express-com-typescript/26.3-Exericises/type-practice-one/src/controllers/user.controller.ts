@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
+import { jwtGenerator } from "../services/jwt.service";
 import UserService from "../services/user.service";
 import validate from "../services/validation.service";
 export default class userController {
@@ -21,6 +22,8 @@ export default class userController {
     const newUser = validate.userFormat(req.body);
     await this.userService.emailExists(newUser.email);
     const userData = await this.userService.create(newUser);
-    res.status(StatusCodes.CREATED).json(userData);
+    const payload = { email: newUser.email };
+    const token = jwtGenerator(payload);
+    res.status(StatusCodes.CREATED).json({...userData, token});
   }
 }
