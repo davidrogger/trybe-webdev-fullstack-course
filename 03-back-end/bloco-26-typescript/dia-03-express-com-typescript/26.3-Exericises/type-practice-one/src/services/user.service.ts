@@ -45,4 +45,8 @@ export default class userService {
   public async update(id: number, user: InewUser): Promise<IUser> {
     return this.model.update(id, user);
   }
+
+  public async remove(id: number): Promise<void> {
+    return this.model.remove(id);
+  }
 };

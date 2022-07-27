@@ -42,4 +42,14 @@ export default class userController {
     res.status(StatusCodes.OK).json({ updated: userUpdated, from: oldData });
 
   }
+
+  public remove = async (req: Request, res: Response): Promise<void> => {
+    const id = Number(req.params.id);
+    validate.idFormat(id);
+
+    await this.userService.getById(id);
+    await this.userService.remove(id);
+
+    res.status(StatusCodes.OK).json({ message: 'User removed with success!' });
+  }
 }

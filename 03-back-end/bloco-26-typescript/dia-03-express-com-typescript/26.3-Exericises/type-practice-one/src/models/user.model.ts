@@ -46,4 +46,9 @@ export default class UserModel {
     await this.connection.query(query, [name, email, password, id]);
     return { name, email };
   }
+
+  public async remove(id: number): Promise<void> {
+    const query = 'DELETE FROM Users WHERE id=?;';
+    await this.connection.query(query, [id]);
+  }
 }
