@@ -1,4 +1,4 @@
-import { Pool } from "mysql2/promise";
+import { Pool, ResultSetHeader } from "mysql2/promise";
 import { IPost } from "../interface/post.interface";
 
 class PostModel {
@@ -20,6 +20,15 @@ class PostModel {
     const [post] = result as IPost[];
     return post;
   };
+
+  async create(post: IPost): Promise<IPost> {
+    const { title, author, category, publicationDate } = post;
+    const query = `
+    INSERT INTO Posts (title, author, category, publicationDate)
+    VALUES (?, ?, ?, ?);`;
+    const [{ insertId }] = await this.connection.query<ResultSetHeader>(query, [title, author, category, publicationDate]);
+    return { id: insertId, ...post };
+  }
 };
 
 export default PostModel;

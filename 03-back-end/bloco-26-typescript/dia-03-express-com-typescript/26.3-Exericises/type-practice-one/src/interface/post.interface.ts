@@ -3,5 +3,5 @@ export interface IPost {
   title: string;
   author: string;
   category: string;
-  publicationData: Date;
+  publicationDate?: string;
 }

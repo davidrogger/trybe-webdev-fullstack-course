@@ -21,5 +21,10 @@ export default class PostService {
     if (!post) throw new ErrorCustom(StatusCodes.NOT_FOUND, 'Post not found');
 
     return post;
+  };
+
+  async create(post: IPost): Promise<IPost> {
+    const publicationDate = new Date().toISOString().slice(0, 10);
+    return this.model.create({...post, publicationDate})
   }
 }

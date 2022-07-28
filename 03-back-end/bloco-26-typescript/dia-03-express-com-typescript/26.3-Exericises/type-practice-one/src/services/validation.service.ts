@@ -19,6 +19,11 @@ const validate = {
     email: Joi.string().email().required(),
     password: Joi.string().min(6).max(12).required(),
   })),
+  postFormat: runSchema(Joi.object({
+    title: Joi.string().required(),
+    author: Joi.string().min(3).required(),
+    category: Joi.string().min(3).required(),
+  })),
 }
 
 export default validate;
