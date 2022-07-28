@@ -14,6 +14,12 @@ class PostModel {
     return posts as IPost[];
   };
 
+  async getById(id: number): Promise<IPost> {
+    const query = 'SELECT * FROM Posts WHERE id=?;';
+    const [result] = await this.connection.query(query, [id]);
+    const [post] = result as IPost[];
+    return post;
+  };
 };
 
 export default PostModel;
