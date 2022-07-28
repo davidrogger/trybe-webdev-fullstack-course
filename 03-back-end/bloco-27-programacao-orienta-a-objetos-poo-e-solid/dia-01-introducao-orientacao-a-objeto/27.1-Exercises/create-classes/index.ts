@@ -23,7 +23,7 @@ class Tv {
   }
 
   setter(connected: string): void {
-    if (this.connections.some((connection: string) => connection === connected)) {
+    if (this.connections.includes(connected)) {
       this._connectedTo = connected
       console.log(`Connected to ${this._connectedTo}`);
     } else {
