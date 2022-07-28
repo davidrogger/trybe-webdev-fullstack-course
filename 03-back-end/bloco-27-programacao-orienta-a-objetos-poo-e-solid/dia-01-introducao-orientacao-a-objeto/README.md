@@ -82,3 +82,72 @@ Já os atributos criados com o modificador **private** só podem ser lidos e mod
 
 Para alterar atributos privados fora de uma classe, utilizamos os métodos. Eles validam as leituras e alterações, de forma a não comprometer o funcionamento da classe. Por exemplo, você pode ter uma classe Pessoa com o atributo dataDeNascimento privado, e possuir um método para mudar essa data de nascimento de forma a validar se é digitada uma data válida. Para ler os valores dos atributos, podemos criar os métodos getters, e para modificar, os métodos setters. É importante salientar que atributos privados não são obrigados a ter getters e setters. Eles só precisam destes métodos caso seja necessário alterá-los diretamente, podendo garantir uma validação do dado que foi passado.
 A depender da filosofia da linguagem que se utiliza, uma boa prática é deixar todos os atributos como privados e criar os getters e setters de acordo com a necessidade de cada atributo. Uma outra prática comum é o uso de um **underline antes do nome de atributos privados**.
+
+# Sintaxe de encapsulamento
+
+```
+class Person {
+  name: string;
+  private _weight: number;
+  private _age: number;
+  readonly height: number;
+
+  constructor(name: string, height: number, weight: number, age: number) {
+    this.name = name;
+    this._weight = weight;
+    this._age = age;
+    this.height = height;
+  }
+
+  getWeight() {
+    return this._weight;
+  }
+
+// esta sintaxe permite acessar o valor retornado via person.age (como se fosse um atributo normal)
+  get age() {
+    return this._age;
+  }
+
+// do mesmo modo, esta sintaxe permite modificar o valor com uma simples atribuição: person.age = 42
+  set age(newValue: number) {
+    if (newValue >= 0 && newValue < 200) {
+      this._age = newValue;
+    }
+  }
+
+  birthday() {
+    this._age += 1;
+  }
+
+}
+
+const p1 = new Person('Maria', 171, 58, 19);
+const p2 = new Person('João', 175, 66, 18);
+
+// Alteração direta de variável pública
+p1.name = 'Mariah';
+// Acesso direto a variável pública
+console.log(p1.name);
+// Acesso a método público que manipula atributo privado
+console.log(p1.getWeight());
+// Acesso a método com getter para manipular atributo privado como se fosse público
+console.log(p2.age);
+// Acesso a método público que manipula atributo privado
+p2.birthday();
+console.log(p2.age);
+// Acesso a método com setter para manipular atributo privado como se fosse público
+p2.age = 17;
+console.log(p2.age);
+// Leitura de atributo readonly
+console.log(p1.height);
+
+/*
+Saída:
+Mariah
+
+
+
+
+
+*/
+```
