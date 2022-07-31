@@ -7,15 +7,17 @@ class Superclass {
 }
 
 class Subclass extends Superclass{
-
+  public sayHello2() {
+    this.sayHello();
+  }
 }
 
-function myFunc(param: Superclass) {
-  param.sayHello();
+function myFunc(param: Subclass) {
+  param.sayHello2()
 }
 
-const suupa = new Superclass();
+// const suupa = new Superclass();
 const sub = new Subclass();
 
-myFunc(suupa);
+// myFunc(suupa);
 myFunc(sub);
