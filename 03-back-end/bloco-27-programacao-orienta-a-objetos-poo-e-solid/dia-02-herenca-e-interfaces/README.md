@@ -135,3 +135,53 @@ O super é basicamente uma referência à superclasse. Ao ser invocado como uma 
 
 O super também é útil quando fazemos sobrescrita de métodos.
 
+# Implementando interfaces
+
+Herança é utilizada quando queremos codificar um comportamento padrão na superclasse, a fim de que as subclasses sigam esses comportamento, e também quando queremos mais reutilização de código.
+Quando falamos de orientação a objetos, também falamos de Orientação a Interfaces. Na herança, temos a ideia de que subclasses vão herdar métodos e atributos das superclasses. Quando estamos usando Interfaces, porém temos uma class que vai implementar métodos definidos em uma interface. O objetivo é desacoplar a implementação do contrato.
+Na interface, nós determinamos quais as assinaturas dos métodos e quais atributos o contrato deve respeitar. A interface por si só não pode ser instanciada, não podemos usar ela junto com o new para criar um objeto novo. Ela é apenas o contrato que será implementado por uma classe.
+
+Na interface não implementamos nenhum código, apenas definimos o contrato (atributos e assinaturas dos méotodos). A classe que implementar essa interface, deve obrigatoriamente, implementar todos os méotodos e ter todos os atributos que a interface declara.
+```
+interface Animal {
+  name: string;
+  age: number;
+
+  getBirthDate(): Date;
+}
+
+class Bird implements Animal {
+  constructor(
+    public name: string,
+    private birthDate: Date) {}
+
+  get age() {
+    var timeDiff = Math.abs(Date.now() - new Date(this.birthDate).getTime());
+    return Math.floor(timeDiff / (1000 * 3600 * 24) / 365.25);
+  }
+
+  getBirthDate() { return this.birthDate; }
+
+  fly() { console.log(`${this.name} está voando!`); }
+}
+
+const parrot = new Bird(
+  'Papagaio',
+  new Date(Date.parse('Aug 16, 2015')),
+);
+
+console.log(parrot.age);
+parrot.fly();
+
+/*
+Saída (código executado em Mar/2022):
+
+Papagaio está voando!
+*/
+```
+
+A interface é implementada por uma classe por meio da sintaxe class Classe implements Interface.
+
+Importante salientar que a interface é um contrato de tudo que a classe deve possuir de forma pública.Atributos privados precisam ter seu correspondente público, e você pode usar getters e setters como uma forma pública de acessar atributos privados.
+Observe também que a classe Bird possui o método fly, não definido pela interface. A classe deve possuir todos atributos e méotodos definidos na interface, mas não necessariamente se limitar a eles.
+
