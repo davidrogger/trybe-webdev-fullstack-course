@@ -12,8 +12,8 @@ export default class userController {
   }
 
   public getById = async (req: Request, res: Response): Promise<void> => {
-    const id = Number(req.params.id);
-    validate.idFormat(id);
+    const { id } = validate.idFormat(req.params);
+
     const user = await this.userService.getById(id);
     res.status(StatusCodes.OK).json(user);
   }
