@@ -185,3 +185,13 @@ A interface é implementada por uma classe por meio da sintaxe class Classe impl
 Importante salientar que a interface é um contrato de tudo que a classe deve possuir de forma pública.Atributos privados precisam ter seu correspondente público, e você pode usar getters e setters como uma forma pública de acessar atributos privados.
 Observe também que a classe Bird possui o método fly, não definido pela interface. A classe deve possuir todos atributos e méotodos definidos na interface, mas não necessariamente se limitar a eles.
 
+# Interfaces vs Classes
+
+Interfaces e super classes podem servir para especificar o comportamento de classes, mas de formas e em níveis distintos.
+Quando utilizamos interfaces, queremos gaarntir que alguns atributos e métodos existam, sem se importar com o que fazem.
+Já quando utilizamos a herança, disponibilizamos não só um contrato, mas uma base já implementada de código que funciona, de forma que apenas vamos especializar esta base de código adicionando novas funcionalidades.
+
+Existe uma forma de criar classes que precisam obrigatoriamente implementar alguns métodos em específico, as chamadas classes abstratas.
+
+Quando a classe A implementa a interface 1, ela deve implementar todos os métodos declarados em 1 e possuir todos os atributos de 1. Quando a classe B herda da classe A, ela já herda todos os métodos e atributos públicos ou protegidos implementados na classe A.
+
