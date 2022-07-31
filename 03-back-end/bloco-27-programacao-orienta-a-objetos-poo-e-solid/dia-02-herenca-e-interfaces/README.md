@@ -81,3 +81,31 @@ const main = (animal: Animal) => {
 main(tiger);
 ```
 
+# Atributos protegidos
+
+Não se pode acessar um atributo privado mesmo entre herança, mas as vezes precisamos manter atributos e metodos privados do mundo externo, mas possíveis de serem modificados dentro de subclasses, então usamos o protected;
+Exemplos:
+Privado:
+```
+class Animal {
+  constructor(private birthDate: Date) { } // Repare no private
+
+}
+class Bird extends Animal {
+  showBirthDate() {
+    console.log(this.birthDate); // ERRO! birthDate é privado e não é visível pra subclasse Bird.
+  }
+}
+```
+Protegido:
+```
+class Animal {
+  constructor(protected birthDate: Date) { } // Protected: classe filha pode ler e escrever, mas acessos externos não
+}
+class Bird extends Animal {
+  showBirthDate() {
+    console.log(this.birthDate); // Okay!
+  }
+}
+```
+
