@@ -109,3 +109,29 @@ class Bird extends Animal {
 }
 ```
 
+# Super
+```
+class Animal {
+  constructor(protected birthDate: Date) { }
+}
+class Bird extends Animal {
+  constructor(public name: string) { } // ERRO: constructor deve respeitar o contrato da superclasse
+}
+```
+
+Em typescript, o método construtor de uma subclasse deve ser o mesmo da superclasse ou deve chamar a superclasse.
+```
+class Animal {
+  constructor(protected birthDate: Date) { }
+}
+class Bird extends Animal {
+  constructor(public name: string) {
+    super(new Date());
+  }
+}
+```
+
+O super é basicamente uma referência à superclasse. Ao ser invocado como uma função, está invocando o construtor da superclasse.
+
+O super também é útil quando fazemos sobrescrita de métodos.
+
