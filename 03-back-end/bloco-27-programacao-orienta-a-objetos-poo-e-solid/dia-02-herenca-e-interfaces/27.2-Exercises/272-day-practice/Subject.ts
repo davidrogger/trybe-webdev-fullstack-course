@@ -8,7 +8,11 @@ export default class Subject {
   }
 
   set name(value: string) {
-    if (value.length < 3) throw new Error('Name should have at least 3 caracteres');
+    this.validateName(value);
     this._name = value;
+  }
+
+  private validateName(value: string): void {
+    if (value.length < 3) throw new Error('Name should have at least 3 caracteres');
   }
 }
