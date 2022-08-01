@@ -80,3 +80,4 @@ class Student extends Person {
       return this.sumGrades() / gradesQuantity;
     }
 }
+
