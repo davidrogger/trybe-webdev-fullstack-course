@@ -1,63 +1,63 @@
-interface BaseCharacter {
-  name: string;
-  talk(): void;
-  specialMove(): void;
-}
+// interface BaseCharacter {
+//   name: string;
+//   talk(): void;
+//   specialMove(): void;
+// }
 
-class Character implements BaseCharacter {
-  constructor(private n: string) {
-    this.name = n;
-  }
+// class Character implements BaseCharacter {
+//   constructor(private n: string) {
+//     this.name = n;
+//   }
 
-  get name(): string {
-    return this.n;
-  }
+//   get name(): string {
+//     return this.n;
+//   }
 
-  set name(value: string) {
-    this.n = value;
-  }
+//   set name(value: string) {
+//     this.n = value;
+//   }
 
-  talk(): void { }
+//   talk(): void { }
 
-  specialMove(): void { }
-}
+//   specialMove(): void { }
+// }
 
 
-class MeleeCharacter extends Character {
-  constructor(name: string) {
-    super(name);
-  }
+// class MeleeCharacter extends Character {
+//   constructor(name: string) {
+//     super(name);
+//   }
 
-  talk(): void {
-    console.log('I gonna punch your face mahuahuahuauh!')
-  }
+//   talk(): void {
+//     console.log('I gonna punch your face mahuahuahuauh!')
+//   }
 
-  specialMove(): void {
-    console.log('suppppppaaaaaa kickkkk! ups it was supose to be a punch :D')
-  }
-}
+//   specialMove(): void {
+//     console.log('suppppppaaaaaa kickkkk! ups it was supose to be a punch :D')
+//   }
+// }
 
-class LongRangeCharacter extends Character {
-  constructor(name: string) {
-    super(name);
-  }
-  talk(): void {
-    console.log(`${this.name}: Distance is secure!`);
-  }
-  specialMove(): void {
-    console.log(`${this.name}: grabe this bullet!`);
-  }
-}
+// class LongRangeCharacter extends Character {
+//   constructor(name: string) {
+//     super(name);
+//   }
+//   talk(): void {
+//     console.log(`${this.name}: Distance is secure!`);
+//   }
+//   specialMove(): void {
+//     console.log(`${this.name}: grabe this bullet!`);
+//   }
+// }
 
-function myFunc(character: Character) {
-  character.talk();
-  character.specialMove()
-}
+// function myFunc(character: Character) {
+//   character.talk();
+//   character.specialMove()
+// }
 
-const ranger = new LongRangeCharacter('Ranger');
-const melee = new MeleeCharacter('PunchKicker');
+// const ranger = new LongRangeCharacter('Ranger');
+// const melee = new MeleeCharacter('PunchKicker');
 
-// myFunc(ranger)
-// myFunc(melee)
+// // myFunc(ranger)
+// // myFunc(melee)
 
-console.log(ranger);
+// console.log(ranger);
