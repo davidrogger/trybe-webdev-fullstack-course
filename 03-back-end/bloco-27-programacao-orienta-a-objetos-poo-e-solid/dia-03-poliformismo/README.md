@@ -132,3 +132,49 @@ Papagaio está voando.
 Tatu está andando.
 */
 ```
+
+# Métodos (e atributos) estáticos
+
+Um método estático é uma função que não precisa acessar nenhum atributo do objeto.
+
+A diferença semântica de um método estático para uma função é que o método estático tem a ver com a classe. Isso significa que fica meio "sem sentido" você disponibilizar o dito método sozinho, pois mais que ele não precise manipular uma instância, ele está muito ligado à classe.
+Além de métodos, podemos ter atributos estáticos, que são acessados manipulando a classe, não a instância.
+
+Exemplo: 
+
+```
+/*
+Dicionário en-pt:
+- employee: pessoa empregada/funcionária
+- static: estático
+*/
+
+class Employee {
+  private static employeeCount = 0
+
+  constructor(public name: string) {
+    Employee.addEmployee();
+  }
+
+  private static addEmployee() {
+    this.employeeCount += 1;
+  }
+
+  static get employees() {
+    return this.employeeCount;
+  }
+}
+
+console.log(Employee.employees);
+const e1 = new Employee('Ronald');
+console.log(Employee.employees);
+const e2 = new Employee('Cíntia');
+console.log(Employee.employees);
+
+/*
+Saída:
+
+
+
+*/
+```
