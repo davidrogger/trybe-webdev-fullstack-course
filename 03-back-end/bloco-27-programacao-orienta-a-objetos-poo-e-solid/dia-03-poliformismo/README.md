@@ -290,3 +290,146 @@ Saída:
 */
 ```
 
+# Jogo de xadrez
+
+Considerando apenas a movimentação das peças e não das peças "inimigas"
+
+Primeiramente é definido alguns tipos e uma função auxiliar que checa se determinada lista contém outra lista:
+
+```
+type BoardColumn = 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H';
+type BoardRow = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8';
+type BoardHouse = [BoardColumn, BoardRow];
+
+const boardColumns: BoardColumn[] = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+const boardRows: BoardRow[] = ['1', '2', '3', '4', '5', '6', '7', '8'];
+
+const isInList = (element: any, list: any[]) => {
+    for (let e of list)
+        if (element[0] == e[0] && element[1] == e[1]) return true;
+    return false;
+};
+```
+
+Os tipos relacionados ao taubuleiro, BoardColumn e BoardRow e BoardHouse são para auxiliar na representação das casas do tabuleiro de xadrez.
+
+Agora, vamos definir a estrutura de uma peça de xadrez genérica:
+
+```
+abstract class Piece {
+    protected _position: BoardHouse;
+    abstract type: string;
+
+    constructor(position: BoardHouse, protected board: Board) {
+        this._position = position;
+    };
+
+    get position() { return this._position; }
+    abstract get availableMoves(): BoardHouse[];
+
+    move(newPosition: BoardHouse) {
+        console.log(
+            `MOVENDO ${this.type} DA CASA ${this._position} PARA A CASA ${newPosition}`
+        );
+        if (!isInList(newPosition, this.availableMoves)) return false;
+        this._position = newPosition;
+        return true;
+    }
+}
+```
+
+A Classe piece é uma classe abstrata e o método availableMoves é abstrato, pois cada tupo de peça se movimenta de uma forma diferente. OBS: availableMoves é um getter, mas a sintaxe de método abstrato pode ser utilizado como métodos normais também.
+
+Implementando o Pawn:
+
+```
+class Pawn extends Piece {
+    type = 'Pawn';
+    get availableMoves() {
+        const column = this.position[0];
+        const row = this.position[1];
+        const rowIndex = boardRows.indexOf(row);
+        if (rowIndex === 7)
+            return [];
+
+        const nextHouse: BoardHouse = [column, boardRows[rowIndex + 1]];
+        if (isInList(nextHouse, this.board.occupiedHouses))
+            return [];
+
+        return [nextHouse];
+    }
+}
+```
+
+A class Pawn implementa o método que é abstrato na classe Piece, availableMoves. É uma implementação bem simples, apenas checando se o peão já está na linha 8 ou se existe alguma outra peça em sua frente.
+
+```
+class Rook extends Piece {
+    type = "Rook";
+    get availableMoves() {
+        const column = this.position[0];
+        const columnIndex = boardColumns.indexOf(column);
+
+        const row = this.position[1];
+        const rowIndex = boardRows.indexOf(row);
+
+        let availableHouses: BoardHouse[] = [];
+
+        // Adiciona todas as casas abaixo
+        for (let i = rowIndex - 1; i >= 0; i--) {
+            const house: BoardHouse = [boardColumns[columnIndex], boardRows[i]];
+            if (isInList(house, this.board.occupiedHouses)) break;
+            availableHouses.push(house);
+        }
+
+        // Adiciona todas as casas acima
+        for (let i = rowIndex + 1; i < 8; i++) {
+            const house: BoardHouse = [boardColumns[columnIndex], boardRows[i]];
+            if (isInList(house, this.board.occupiedHouses)) break;
+            if (isInList(house, availableHouses)) continue;
+            availableHouses.push(house);
+        }
+
+        // Adiciona todas as casas na direita
+        for (let i = columnIndex + 1; i < 8; i++) {
+            const house: BoardHouse = [boardColumns[i], boardRows[rowIndex]];
+            if (isInList(house, this.board.occupiedHouses)) break;
+            if (isInList(house, availableHouses)) continue;
+            availableHouses.push(house);
+        }
+
+        // Adiciona todas as casas na esquerda
+        for (let i = columnIndex - 1; i >= 0; i--) {
+            const house: BoardHouse = [boardColumns[i], boardRows[rowIndex]];
+            if (isInList(house, this.board.occupiedHouses)) break;
+            if (isInList(house, availableHouses)) continue;
+            availableHouses.push(house);
+        }
+
+        return availableHouses;
+    }
+}
+```
+
+Por último, temos o tabuleiro já com duas peças:
+
+```
+class Board {
+    pieces: Piece[] = [];
+
+    constructor() {
+        this.addPiece(new Pawn(['C', '2'], this));
+        this.addPiece(new Root(['F', '1'], this));
+    }
+
+    private addPiece(piece: Piece) {
+        if (isInList(piece.position, this.occupiedHouses))
+            return;
+        this.pieces.push(piece);
+    }
+    get occupiedHouses() {
+        return this.pieces.map((piece) => piece.position);
+    }
+
+}
+```
