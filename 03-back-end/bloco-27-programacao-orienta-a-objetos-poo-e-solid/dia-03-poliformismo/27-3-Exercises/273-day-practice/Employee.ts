@@ -1,7 +1,8 @@
+import Enrollable from './Enrollable.interface';
 import Person from './Person';
 
-export default class Employee extends Person {
-  private _registration: string;
+export default class Employee extends Person implements Enrollable {
+  private _enrollment = String();
   private _salary: number = 0;
 
   constructor(
@@ -11,13 +12,17 @@ export default class Employee extends Person {
     private _admissionDate = new Date()
     ) {
     super(name, birthDate);
-    this._registration = this.generateRegistration();
+    this.enrollment = this.generateEnrollment();
     this.salary = salary;
     this.admissionDate = _admissionDate;
   }
 
-  get registration() {
-    return this._registration;
+  get enrollment() {
+    return this._enrollment;
+  }
+
+  set enrollment(value: string) {
+    this._enrollment = value;
   }
 
   get admissionDate(): Date {
@@ -46,7 +51,7 @@ export default class Employee extends Person {
     if (value < 0) throw new Error('Salary should be positive');
   }
 
-  generateRegistration(): string {
+  generateEnrollment(): string {
     const randomStr = String(Date.now() * (Math.random() + 1)).replace(/\W/g, '');
 
     return `PRF${randomStr}`;

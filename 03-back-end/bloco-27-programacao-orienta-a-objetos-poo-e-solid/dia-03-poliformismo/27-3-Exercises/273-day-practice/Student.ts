@@ -1,10 +1,10 @@
 import Person from './Person';
 import Enrollable from './Enrollable.interface';
+import EvaluationResult from './EvaluationResult';
 
 export default class Student extends Person implements Enrollable {
   private _enrollment: string = String();
-  private _examsGrades: number[] = [];
-  private _worksGrades: number[] = [];
+  private _evaluationsResults: EvaluationResult[];
 
   constructor(
     name: string,
@@ -12,24 +12,11 @@ export default class Student extends Person implements Enrollable {
     ){
     super(name, birthDate);
     this._enrollment = this.generateEnrollment();
+    this._evaluationsResults = [];
   }
 
-  get examsGrades(): number[] {
-    return this._examsGrades;
-  }
-
-  set examsGrades(value: number[]) {
-    if (value.length < 4) throw new Error('Student need to have at least 4 exames grades');
-    this._examsGrades = value;
-  }
-
-  get worksGrades(): number[] {
-    return this._worksGrades;
-  }
-
-  set worksGrades(value: number[]) {
-    if (value.length < 2) throw new Error('Studant need to have at least 2 works grades');
-    this._worksGrades = value;
+  get evaluationsResults() {
+    return this._evaluationsResults;
   }
 
   get enrollment() {
@@ -37,13 +24,17 @@ export default class Student extends Person implements Enrollable {
   }
 
   sumGrades(): number {
-    return [...this._examsGrades, ...this._worksGrades]
-      .reduce((acc, grade) => acc + grade , 0);
+    return this._evaluationsResults
+      .reduce((acc, grade) => acc + grade.score , 0);
   }
 
   sumAverageGrades(): number {
-    const totalGradesQt = [...this._examsGrades, ...this._worksGrades].length
+    const totalGradesQt = this._evaluationsResults.length
     return this.sumGrades() / totalGradesQt;
+  }
+
+  addEvaluationResult(value: EvaluationResult): void {
+    this._evaluationsResults.push(value);
   }
 
   generateEnrollment():string {
