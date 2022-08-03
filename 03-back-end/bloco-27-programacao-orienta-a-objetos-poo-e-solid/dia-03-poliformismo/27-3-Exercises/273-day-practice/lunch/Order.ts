@@ -2,6 +2,10 @@ import Person from '../Person';
 import OrderItem from './OrderItem';
 
 export default class Order {
+  private _id: string;
+  
+  private _createdAt: Date;
+
   constructor(
     private _client: Person,
     private _items: OrderItem[],
@@ -12,6 +16,24 @@ export default class Order {
       this.items = _items;
       this.paymentMethod = _paymentMethod;
       this.discount = _discount;
+      this._id = this.idGenerator();
+      this._createdAt = new Date();
+    }
+
+    public get id(): string {
+      return this._id;
+    }
+    public set id(value: string) {
+      this._id = value;
+    }
+
+    public get createdAt(): Date {
+      return this._createdAt;
+    }
+
+    public set createdAt(value: Date) {
+      if (value.getTime() > new Date().getTime()) throw new Error('The Order creating shouldn\'t be in future');
+      this._createdAt = value;
     }
 
     get client(): Person {
@@ -55,5 +77,9 @@ export default class Order {
 
     calculateTotalWithDiscount(): number {
       return this.calculateTotal() - ( this.calculateTotal() * this._discount );
+    }
+
+    idGenerator(): string {
+      return new Date().getTime().toString();
     }
 }
