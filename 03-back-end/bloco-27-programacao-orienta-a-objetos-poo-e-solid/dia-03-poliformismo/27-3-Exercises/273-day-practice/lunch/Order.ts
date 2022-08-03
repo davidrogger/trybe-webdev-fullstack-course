@@ -27,7 +27,7 @@ export default class Order {
     }
 
     set items(value: OrderItem[]) {
-      if (value.length < 0) throw new Error('You need at least an item');
+      if (value.length === 0) throw new Error('You need at least an item');
       this._items = value;
     }
 

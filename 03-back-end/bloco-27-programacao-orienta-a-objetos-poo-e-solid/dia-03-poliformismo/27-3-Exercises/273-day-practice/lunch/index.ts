@@ -7,6 +7,6 @@ const xburger = new OrderItem('XBurger', 35);
 
 const nyzuk = new Student('nyzk', new Date('2005'));
 
-const pedido = new Order(nyzuk, [batata, xburger], 'card');
+const pedido = new Order(nyzuk, [xburger, batata], 'card');
 
 console.log(pedido);
