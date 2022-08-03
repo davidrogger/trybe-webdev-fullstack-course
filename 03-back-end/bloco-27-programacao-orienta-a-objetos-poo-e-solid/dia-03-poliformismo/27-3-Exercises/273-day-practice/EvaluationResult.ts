@@ -4,7 +4,7 @@ export default class EnvaluationResult {
   private _evaluation: Evaluation;
 
   constructor(evaluation: Evaluation, private _score: number) {
-    this.evaluation = evaluation;
+    this._evaluation = evaluation;
     this.score = _score;
   };
 
