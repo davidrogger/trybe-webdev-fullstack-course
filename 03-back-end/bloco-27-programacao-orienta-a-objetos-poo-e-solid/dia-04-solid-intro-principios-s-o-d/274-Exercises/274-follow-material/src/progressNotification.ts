@@ -5,7 +5,8 @@ const typeLibrary: Record<string, string> = {
 };
 
 export default function progressNotification(
-  message: string, notificationType:string,
+  message: string,
+  notificationType:string,
   ): void {
     const type = typeLibrary[notificationType.toLocaleLowerCase()] || '';
     console.log(type + message);
