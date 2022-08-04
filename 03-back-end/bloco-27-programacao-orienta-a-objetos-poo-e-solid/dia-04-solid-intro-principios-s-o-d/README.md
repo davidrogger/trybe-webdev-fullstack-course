@@ -26,3 +26,7 @@ Ter em mente que ao escrever um código, o objetivo é torná-lo fácil de ser e
 
 Cada função ou classe deve ter uma responsabilidade única, deve-se analisar os verbos aplicados em cada um, seja, criar, atualizar, escrever, etc e quebra-los de forma separada e organizada.
 
+# Open/Closed Principle (OCP)
+
+No momento em que se escreve uma função para resolver um problema, é importante se perguntar se é possível que, futuramente, essa função seja usada para resolver outros problemas similares ao atual. Tente sempre deixá aberta a extensões e fechada para modificações.
+
