@@ -22,3 +22,7 @@ Nada que está aqui é obrigatório ou proibido, mas sim como recomendado ou nã
 Existem situações em que pode fazer sentido ignorar um desses princípios.
 Ter em mente que ao escrever um código, o objetivo é torná-lo fácil de ser entidodo e fácil de ser mentido.
 
+# Single Responsability Principle
+
+Cada função ou classe deve ter uma responsabilidade única, deve-se analisar os verbos aplicados em cada um, seja, criar, atualizar, escrever, etc e quebra-los de forma separada e organizada.
+
