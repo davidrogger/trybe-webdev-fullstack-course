@@ -6,7 +6,13 @@ const disciplinesDict = {
   history: 'história',
 };
 
+const schools = {
+  standard: { name: 'Standard', approvalGrade: 0.7 },
+  hogwarts: { name: 'Hogwarts', approvalGrade: 0.8 },
+}
+
 describe('Testando a função "approvedStudents"', function () {
+
   describe('quando todas as notas são maiores que 0.7', function () {
     it('retorna "true"', function () {
       const disciplines = [
@@ -16,6 +22,7 @@ describe('Testando a função "approvedStudents"', function () {
 
       const student = {
         name: "test",
+        school: schools.standard,
         disciplines: disciplines
       };
 
@@ -34,6 +41,7 @@ describe('Testando a função "approvedStudents"', function () {
 
       const student = {
         name: "test",
+        school: schools.standard,
         disciplines: disciplines
       };
 
@@ -51,6 +59,7 @@ describe('Testando a função "approvedStudents"', function () {
       ];
       const student = {
         name: "test",
+        school: schools.standard,
         disciplines: disciplines
       };
       const result = approvedStudents(student);
