@@ -1,5 +1,5 @@
 // ./src/index.ts
-import Connector from './Connector';
+import Connector from './Connectors/mysql/MySQLConnector';
 
 const token = 'ce42033d-9133-457a-a1a1-41ac0b63a333';
 const conn = new Connector({
