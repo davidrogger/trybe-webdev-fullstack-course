@@ -1,9 +1,8 @@
 // ./src/Connector.ts
 import mysql, { Connection } from 'mysql';
-import { ConnectorConstructor } from '../Connector';
+import Connector, { ConnectorConstructor } from '../Connector';
 
-
-export default class MySQLConnector {
+export default class MySQLConnector implements Connector {
   private connection: Connection;
 
   constructor(config: ConnectorConstructor) {
