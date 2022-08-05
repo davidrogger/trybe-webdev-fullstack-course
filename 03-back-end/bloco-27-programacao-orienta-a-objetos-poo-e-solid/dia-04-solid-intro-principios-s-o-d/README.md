@@ -33,3 +33,4 @@ No momento em que se escreve uma função para resolver um problema, é importan
 # Dependency Inversion Principle (DIP)
 
 Por mais que a ideia seja ter funções autocontidas, dependências sempre existirão. A inversão de dependência faz com que o acoplamento entre as entidades seja o menor possível.
+Entidades de alto nível não devem depender de entidades de baixo nível.
