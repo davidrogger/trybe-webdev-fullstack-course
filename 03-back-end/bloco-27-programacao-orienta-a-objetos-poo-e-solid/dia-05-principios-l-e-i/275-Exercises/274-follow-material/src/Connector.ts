@@ -1,3 +1,4 @@
+// ./src/Connector.ts
 import mysql, { Connection } from 'mysql';
 
 interface ConnectorConstructor {
@@ -16,14 +17,15 @@ export default class MySQLConnector {
     this.connection.connect();
     const queries = [
       `CREATE DATABASE IF NOT EXISTS ${config.database};`,
-      `USER ${config.database};`,
-      `CREATE TABLE IF NOT EXISTS counter (token CHAR(36) UNIQUE, count INT);`
+      `USE ${config.database};`,
+      'CREATE TABLE IF NOT EXISTS counter (token CHAR(36) UNIQUE, count INT);',
     ];
     queries.forEach((query) => this.connection.query(query));
-  };
+  }
 
   public async getCount(token: string): Promise<number> {
-    const query = `SELECT count FROM counter WHERE token='${token};`;
+    const query = `SELECT count FROM counter WHERE token='${token}';`;
+
     return new Promise((resolve, reject) => {
       this.connection.query(query, (error, results) => {
         if (error) return reject(error);
@@ -48,7 +50,7 @@ export default class MySQLConnector {
   }
 
   public firstCount(token: string): void {
-    this.connection.query(`INSERT IGNORE INTO COUNTER VALUES('${token}', 0);`);
+    this.connection.query(`INSERT IGNORE INTO counter VALUES('${token}', 0);`);
   }
 
   public closeConnection(): void {
