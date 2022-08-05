@@ -1,10 +1,9 @@
-// ./src/Connectors/redis/RedisConnector.ts
+// ./src/Connectors/redis/ReadOnlyRedisConnector.ts
 
 import redis, { RedisClient } from 'redis';
-import Connector, { ConnectorConstructor } from '../Connector';
+import { ReadOnlyConnector, ConnectorConstructor } from '../Connector';
 
-export default class RedisConnector implements Connector {
-
+export default class ReadOnlyRedisConnector implements ReadOnlyConnector {
   protected client: RedisClient;
 
   constructor(config: ConnectorConstructor) {
@@ -24,14 +23,4 @@ export default class RedisConnector implements Connector {
   public closeConnection(): void {
     this.client.quit();
   }
-
-  public incrementCount(token: string): void {
-    this.client.incr(token);
-  }
-
-  public clearCount(token: string): void {
-    this.client.set(token, '0');
-  }
-
-  public firstCount = this.clearCount;
 }

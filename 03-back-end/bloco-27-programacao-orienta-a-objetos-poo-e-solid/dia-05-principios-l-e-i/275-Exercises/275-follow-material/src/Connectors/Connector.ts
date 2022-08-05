@@ -1,11 +1,11 @@
-import { ConnectionTimeoutError } from "redis";
-
-export default interface Connector {
-  getCount(token: string): number | Promise<number>;
-
-  incrementCount(token: string): void;
+export interface ReadOnlyConnector {
+  getCount(token: string): number | Promise <number>;
 
   closeConnection(): void;
+}
+
+export default interface Connector {
+  incrementCount(token: string): void;
 
   clearCount(token: string): void;
 
