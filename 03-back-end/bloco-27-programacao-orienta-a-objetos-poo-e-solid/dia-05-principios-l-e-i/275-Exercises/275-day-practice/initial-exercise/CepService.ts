@@ -1,4 +1,4 @@
-import FooCepAPI from "./FooCepAPI";
+import CepAPI from './CepAPI';
 
 export default class CepService {
   constructor(private readonly _cepApi: CepAPI) {
