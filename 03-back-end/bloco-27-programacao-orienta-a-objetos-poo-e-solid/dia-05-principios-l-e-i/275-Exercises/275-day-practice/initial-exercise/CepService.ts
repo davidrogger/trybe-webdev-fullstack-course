@@ -1,16 +1,15 @@
 import FooCepAPI from "./FooCepAPI";
 
 export default class CepService {
-  private readonly cepApi: FooCepAPI;
-  constructor() {
-    this.cepApi = new FooCepAPI();
-  }
+  constructor(private readonly _cepApi: CepAPI) {
+    this._cepApi = _cepApi;
+  };
 
   addressByCep(cep: string, num: number) {
-    return this.cepApi.getAddressByCEP(cep, num);
+    return this._cepApi.getAddressByCEP(cep, num);
   }
 
   cepByAddress(address: string, num: number) {
-    return this.cepApi.getCepByAddress(address, num);
+    return this._cepApi.getCepByAddress(address, num);
   }
 }
