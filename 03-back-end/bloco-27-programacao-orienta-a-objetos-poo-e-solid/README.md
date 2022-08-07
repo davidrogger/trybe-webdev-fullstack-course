@@ -30,3 +30,19 @@
 - [Angelo Luz - Polimorfismo e as classes abstratas](https://www.youtube.com/watch?v=eEYA89VI_R0)
 - [Curso em vídeo - Conceito Polimorfismo](https://www.youtube.com/watch?v=9-3-RMEMcq4&t=149s)
 - [Univesp - Programação Orientada a Objetos - Herança e Polimorfismo](https://www.youtube.com/watch?v=5WYOR9WlU38)
+
+
+# 27.4
+
+- []()
+- []()
+- []()
+- []()
+
+# 27.5
+
+- [Princípios SOLID com Typescript](https://medium.com/@matheusbessa_44838/princ%C3%ADpios-solid-com-typescript-4f8a9d5d1ef8)
+- [SOLID fica FÁCIL com Essas Ilustrações - Filipe Deschamps](https://www.youtube.com/watch?v=6SfrO3D4dHM)
+- [The S.O.L.I.D Principles in Pictures](https://medium.com/backticks-tildes/the-s-o-l-i-d-principles-in-pictures-b34ce2f1e898)
+- [Liskov: The Liskov Substitution Principle - Turing Awardee Clips](https://www.youtube.com/watch?v=-Z-17h3jG0A)
+- [Os Princípios do SOLID — ISP Princípio de segregação da interface](https://medium.com/xp-inc/os-princ%C3%ADpios-do-solid-isp-princ%C3%ADpio-de-segrega%C3%A7%C3%A3o-da-interface-1822ebc802fd)
