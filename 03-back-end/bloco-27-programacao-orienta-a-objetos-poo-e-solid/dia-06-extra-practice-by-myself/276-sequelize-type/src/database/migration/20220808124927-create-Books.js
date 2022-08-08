@@ -1,6 +1,11 @@
 'use strict';
 
 module.exports = {
+  /**
+   * 
+   * @param {import('sequelize')} queryInterface 
+   * @param {import('sequelize')} Sequelize 
+   */
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Books', {
       id: {
@@ -14,12 +19,12 @@ module.exports = {
         allowNull: false,
       },
       releaseYear: {
-        type: Sequelize.DECIMAL(10, 2),
+        type: Sequelize.STRING(4),
         allowNull: false,
         field: 'release_year'
       },
       numberPages: {
-        type: Sequelize.STRING(100),
+        type: Sequelize.INTEGER,
         allowNull: false,
         field: 'release_pages'
       },
