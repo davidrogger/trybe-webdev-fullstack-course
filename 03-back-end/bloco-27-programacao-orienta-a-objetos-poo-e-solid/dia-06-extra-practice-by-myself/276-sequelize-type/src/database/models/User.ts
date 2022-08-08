@@ -17,10 +17,12 @@ User.init(
       type: INTEGER
     },
     firstName: {
-      type: STRING
+      type: STRING,
+      field: 'first_name'
     },
     lastName: {
-      type: STRING
+      type: STRING,
+      field: 'last_name'
     },
     age: {
       type: INTEGER
