@@ -25,14 +25,6 @@ User.init(
     age: {
       type: INTEGER
     },
-    createdAt: {
-      allowNull: false,
-      type: DATE
-    },
-    updatedAt: {
-      allowNull: false,
-      type: DATE
-    }
   },
   {
     sequelize: db,
