@@ -1,6 +1,5 @@
-import { Model } from 'sequelize';
+import { INTEGER, STRING, DECIMAL, Model } from 'sequelize';
 import db from '.'
-import attributes from '../attributes/Book.attributes';
 
 class Books extends Model {
   id!: number;
@@ -11,7 +10,28 @@ class Books extends Model {
 };
 
 Books.init(
-  attributes,
+  {
+    id: {
+      type: INTEGER,
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true
+    },
+    title: {
+      type: STRING(30),
+      allowNull: false,
+    },
+    releaseYear: {
+      type: DECIMAL(10, 2),
+      allowNull: false,
+      field: 'release_year'
+    },
+    numberPages: {
+      type: STRING(100),
+      allowNull: false,
+      field: 'number_pages'
+    },
+  },
   {
     sequelize: db,
     modelName: 'Books',
