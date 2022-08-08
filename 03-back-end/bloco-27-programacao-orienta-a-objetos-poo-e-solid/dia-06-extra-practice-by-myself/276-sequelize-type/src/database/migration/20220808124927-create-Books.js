@@ -26,7 +26,7 @@ module.exports = {
       numberPages: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        field: 'release_pages'
+        field: 'number_pages'
       },
     });
   },
