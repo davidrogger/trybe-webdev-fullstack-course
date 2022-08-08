@@ -1,7 +1,7 @@
 import { INTEGER, STRING, DECIMAL, Model } from 'sequelize';
 import db from '.'
 
-class Books extends Model {
+class Book extends Model {
   id!: number;
   title!:string;
   price!: number;
@@ -9,7 +9,7 @@ class Books extends Model {
   isbn!: string;
 };
 
-Books.init(
+Book.init(
   {
     id: {
       type: INTEGER,
@@ -39,4 +39,4 @@ Books.init(
   },
   );
 
-  export default Books;
+  export default Book;
