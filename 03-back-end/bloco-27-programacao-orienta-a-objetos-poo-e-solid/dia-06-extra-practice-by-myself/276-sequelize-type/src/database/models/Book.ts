@@ -22,7 +22,7 @@ Books.init(
       allowNull: false,
     },
     releaseYear: {
-      type: DECIMAL(10, 2),
+      type: STRING(4),
       allowNull: false,
       field: 'release_year'
     },
