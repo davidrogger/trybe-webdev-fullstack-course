@@ -1,3 +1,5 @@
+require('dotenv/config');
+
 const {
   DB_USER,
   DB_PASS,
@@ -8,31 +10,23 @@ const {
 const config = {
   "username": DB_USER,
   "password": DB_PASS,
-  "database": "database_development",
   "host": DB_HOST,
-  "dialect": DB_DIAL
+  "dialect": DB_DIAL || 'mysql'
 }
 
 module.exports = {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "database_development",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    ...config,
+    "database": "book_api_development",
+
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    ...config,
+    "database": "book_api_test",
+
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    ...config,
+    "database": "book_api_production",
   }
 }
