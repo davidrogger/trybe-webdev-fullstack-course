@@ -1,14 +1,12 @@
 import { INTEGER, Model } from 'sequelize';
 import db from '.';
-import User from './User';
-import Book from './Book';
 
-class UserBooks extends Model {
+class UserBooksModel extends Model {
   userId!: number;
   bookId!: number;
 };
 
-UserBooks.init(
+UserBooksModel.init(
   {
     userId: {
       primaryKey: true,
@@ -40,18 +38,4 @@ UserBooks.init(
   },
 );
 
-User.belongsToMany(Book, {
-  as: 'books',
-  through: UserBooks,
-  foreignKey: 'user_id',
-  otherKey: 'book_id',
-});
-
-Book.belongsToMany(User, {
-  as: 'users',
-  through: UserBooks,
-  foreignKey: 'book_id',
-  otherKey: 'user_id'
-});
-
-export default UserBooks;
+export default UserBooksModel;

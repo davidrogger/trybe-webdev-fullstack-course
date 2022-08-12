@@ -1,14 +1,16 @@
-import { DATE, INTEGER, Model, STRING } from 'sequelize';
+import { INTEGER, Model, STRING } from 'sequelize';
 import db from '.';
+import BookModel from './Book';
+import UserBooksModel from './UserBooks';
 
-class User extends Model {
+class UserModel extends Model {
   id!: number;
   firstName!: string;
   lastName!: string;
   age!: number;
 };
 
-User.init(
+UserModel.init(
   {
     id: {
       allowNull: false,
@@ -35,4 +37,19 @@ User.init(
   },
   );
 
-  export default User;
+
+UserModel.belongsToMany(BookModel, {
+  as: 'books',
+  through: UserBooksModel,
+  foreignKey: 'user_id',
+  otherKey: 'book_id',
+});
+
+BookModel.belongsToMany(UserModel, {
+  as: 'users',
+  through: UserBooksModel,
+  foreignKey: 'book_id',
+  otherKey: 'user_id'
+});
+
+  export default UserModel;
