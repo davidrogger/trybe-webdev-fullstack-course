@@ -22,3 +22,19 @@ O clsuster tem duas vantagens principais, especialmente em ambientes de banco de
 
 - Balanceamento de cagar (Load Balancing): o cluster geralmente é configurado para permitir que os usuários sejam automaticamente alocados ao servidor com o mínimo de uso para aquele, assim se otimize o uso da estrutura disponível para o banco.
 
+# Conceito BASE
+
+- Base Availability - BA
+- - O banco de dados aparenta funcionar o tempo todo. Como existe o cluster, se um servidor falhar, o banco continuará funcionando por conta de outro servidor que suprirá essa falha;
+
+- Soft State - S
+- - Não precisa estar consistente o tempo todo. Ou seja, com um banco distribuído em várias máquinas e todas sendo usadas com igual frequẽncia para escrita e consulta, é possível que, em dado momento, uma máquina receba uma escrita e não tenha tido tempo de "repassar" essa escrita para as demais máquinas do banco. Assim, se um usuário consultar a máquina que já foi atualizada e outro o fizer numa máquina menos atualizada, os resultados, que deveriam ser iguais, serão diferentes. Imagine a sua timeline do Facebook: nela são exibidos os posts de seus amigos, porém nem todos os posts são exibidos exatamente ao mesmo tempo. Nesse caso, o que acontece é que a informação foi enviada ao banco de dados, mas nem todos os servidores do cluster têm essa mesma informação ao mesmo tempo.
+Isso permite que o banco de dados possa gerenciar mais informações de escrita sem ter que se preocupar em replicá-las em uma mesma operação.
+
+- Eventuallty Consistent - E
+- - O sistema se tornar consistente em algum momento. Como não temos a informação replicada "instantaneamente", esse ponto se encarrega de deixar o banco consistente "ao seu tempo". Isso porque, dependendo das configurações do cluster, essa replicação pode acontecer mais rapidamente ou não. Mas em algum momento as informações estarão consistentes e presentes em todos os servidores do cluster.
+
+Schema flexível, não há necessidade de definição prévia do schema dos dados. Se por um lado isso tornar muito mais dinâmico o processo de inclusão de novos atributos, por outro pode impactar a integridade desses dados.
+
+
+
