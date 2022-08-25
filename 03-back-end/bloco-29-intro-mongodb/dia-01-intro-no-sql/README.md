@@ -413,3 +413,171 @@ db.cars.insertMany(
 ```
 Dessa maneira todos itens seriam inseridos no banco, nota que a inserção é realizada de forma ordenada, de cima para baixo, por padrão se algum id for duplicado, o banco retornará um erro, parando a inserção dos demais itens, para o mongo ignorar o erro e inserir os demais itens que não estão com error, devemos adicionar um segundo parametro ao insertMany, `{ ordered: false }`, fazendo com que mesmo que ocorra um erro ele seguida para os demais itens.
 
+# Find
+
+- find(), usado para selecionar os documentos de uma coleção e retornar um cursor com esses documentos.
+Esse método pode receber dois parâmetros:
+```
+db.collection.find(query, projection)
+```
+- query (opcional)
+  - Tipo: document;
+  - Descrição: especifica os filtros da seleção usando os query operators. Para retornar todos os documentos da coleção, é só omitir esse parâmetro ou passar um documento vazio ({}).
+
+- projection (opcional)
+  - Tipo: documento;
+  - Descrição: especifica quais atributos serão retornados nos documentos selcionados pelo parâmetro query. Para retornar todos os atributos desses documentos, é só omitir esse parâmetro.
+
+Esse método retorna um cursor para os documentos que correspondem aos critérios de consulta.
+
+# Projeção (projection)
+
+Determina quais atributos serão retornados dos documentos que atendam aos critérios de filtro.
+O formato recebido por ele é algo como:
+```
+{ "atributo1": <valor>, "atributo": <valor> ... }
+```
+
+O <valor> pode ser uma das seguintes opções:
+
+- 1 ou true, para incluir um campo nos documentos retornados;
+- 0 ou false para excluir um campo;
+- Uma expressão usando [Projection Operators.](https://docs.mongodb.com/manual/reference/operator/projection/)
+
+Exemplo: 
+
+```
+db.movies.insertOne(
+    {
+        "title" : "Forrest Gump",
+        "category" : [ "drama", "romance" ],
+        "imdb_rating" : 8.8,
+        "filming_locations" : [
+            { "city" : "Savannah", "state" : "GA", "country" : "USA" },
+            { "city" : "Monument Valley", "state" : "UT", "country" : "USA" },
+            { "city" : "Los Anegeles", "state" : "CA", "country" : "USA" }
+        ],
+        "box_office" : {
+            "gross" : 557, "opening_weekend" : 24, "budget" : 55
+        }
+    }
+)
+```
+
+```
+db.movies.findOne(
+    { "title" : "Forrest Gump" },
+    { "title" : 1, "imdb_rating" : 1 }
+)
+```
+
+retorno:
+```
+{
+    "_id" : ObjectId("5515942d31117f52a5122353"),
+    "title" : "Forrest Gump",
+    "imdb_rating" : 8.8
+}
+```
+
+Por padrão o id sempre será retornado, para suprimi-lo basta adicionar na projeção como false ou 0
+
+Exemplo:
+```
+db.movies.findOne(
+    { "title" : "Forrest Gump" },
+    { "title" : 1, "imdb_rating" : 1, "_id": 0 }
+)
+```
+
+# Gerenciamento de cursor
+
+Ao executar o método find(), o MongoDB Shell itera automaticamente o cursor para exibir os 20 primeiros documentos. Digite it para continuar a iteração. Assim, mais 20 documentos serão exibidos até o final do cursor.
+
+Um método bastante interessante que é utilizado num cursor é o countDocuments(). Que retorna o número de documentos de uma coleção, e também pode receber um critério de seleção para retornar apenas o número de documentos que atendam a esse critério.
+Nota: na documentação do mongo você poderá encontrar o método count() que tem uso similar ao countDocuments(), porém foi depreciado a partir da versão 4.0, [mais detalhes](https://docs.mongodb.com/manual/reference/method/db.collection.count/)
+Você pode retornar o número de documentos de uma coleção com o seguinte operação:
+```
+db.movies.countDocuments({});
+```
+
+# Tipos e comparações
+
+O MongoDB trata alguns tipos de dados como equivalentes para fins de comparação. Por Exemplo, tipos númericos sofrem conversão antes da comparação. No entanto, para a maioria dos tipos de dados, os [operadores de comparação](https://docs.mongodb.com/manual/reference/operator/query-comparison/) realizam comparações apenas em documentos em que o tipo BSON do atributo destino do documento corresponde ao tipo do operando da query.
+Para compreender melhor esse conceito, veja o exemplo abaixo, considerando a seguinte coleção;
+```
+{ "_id": "apples", "qty": 5 }
+{ "_id": "bananas", "qty": 7 }
+{ "_id": "oranges", "qty": { "in stock": 8, "ordered": 12 } }
+{ "_id": "avocados", "qty": "fourteen" }
+```
+
+A operação abaixo usa o operrador de comparação $gt(greater than) para retornar os documentos em que o valor do atributo *qty* seja maior do que 4;
+```
+db.collection.find({ qty: { $gt: 4 } })
+```
+O documento com o _id igual a "avocados" não foi retornado porque o valor do campo *qty* é do tipo string, enquanto o operador *$gt* é do tipo integer.
+O documento com o _id igual "oranges" também não foi retornado porque *qty* é do tipo object.
+Nesses casos, vemos o schemaless funcionando na prática.
+
+
+# Practice find()
+
+Crie uma coleção chamada [bios](https://docs.mongodb.com/manual/reference/bios-example-collection/)
+
+Para encontrar coleção com id 5
+```
+db.bios.find({ _id: 5 })
+```
+
+Para encontrar o last name Hopper
+Podemos usar dot notation
+```
+db.bios.find({ "name.last": "Hopper" });
+```
+
+Para coletar todos elementos da coleção somente de um campo especifico como o nome:
+```
+db.bios.find({}, {name: 1, _id: 0})
+```
+
+# Limitando o número de documentos retornados
+
+- limit()
+
+Você pode limitar o número de documentos retornados por uma consulta utilizando o método limit(). Esse método é semelhante à declaração LIMIT em um banco de dados que utiliza SQL.
+
+Uma utilização comum do limit() é para maximizar a performance e evitar que o MongoDB retorne mais resultados do que o necessário para o processamento.
+O método limit() é utilizado da seguinte forma:
+```
+db.collection.find(<query>).limite(<numer>)
+```
+
+Deve-se especificar um valor numérico no limit().
+
+Um exemplo utilizando a coleção bios:
+```
+db.bios.find().limit(5)
+```
+
+Será retornado os 5 primeiros documentos da coleção
+
+- pretty()
+
+Com o método pretty() você pode deixar os resultados exibidos no MongoDB Shell um pouco mais legíveis. Esse método aplica uma indentação na exibição dos resultados no console.
+
+- skip()
+
+Acione o método skip() para controlar a partir de que ponto o MongoDB começará a retornar os resultados. Essa abordagem pode ser bastante útil para realizar páginação dos resultados.
+
+O método skip() precisa de um parâmetro númerico que determinará quantos documentos serão "pulados" antes de começar a retornar.
+
+Exemplo pulará os dois primeiros documentos da coleção
+```
+db.bios.find().skip(2);
+```
+
+Pode-se combinar os meodos limite e skil, criando assim uma páginação;
+```
+db.bios.find().limite(5).skip(5)
+```
