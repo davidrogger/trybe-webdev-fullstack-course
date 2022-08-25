@@ -216,4 +216,23 @@ para desativar:
 
 Por padrão, o MongoDB só permite conexões locais. Ou seja, apenas de clients que estejam rodando na mesma máquina onde a instância estiver sendo executada. Para alterar essa configuração e permite conexões remotas, veja sobre [IP Binding](https://docs.mongodb.com/manual/core/security-mongodb-configuration/) na documentação.
 
+Para iniciar o CLI do mongo basta digitar `mongo` no terminal.
+Por padrão a porta usada para o mongo é a 27017.
+Para acessar a instância em outra porta, basta passar o parâmetro --port: `mongo --port 19000`, o retorno deve ser algo parecido com isso;
+```
+MongoDB shell version v4.4.3
+connecting to: mongodb://127.0.0.1:19000/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("f0c79e43-ead0-42d9-bd7d-c8d6857e7221") }
+MongoDB server version: 4.4.3
+>
+```
+
+[Comandos para o mongo cli](https://www.mongodb.com/docs/manual/reference/mongo-shell/)
+
+Existem outras interfaces visuais para o MongoDB que podem facilitar muito sua vida na hora de manipular seus bancos de dados.
+
+- [MongoDB Compass](https://www.mongodb.com/try/download/compass)
+- [MongoDB for VS Code](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode)
+- [NoSQLBooster for MongoDB](https://nosqlbooster.com/downloads)
+
 
