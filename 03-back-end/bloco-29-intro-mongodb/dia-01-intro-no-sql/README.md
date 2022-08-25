@@ -204,3 +204,16 @@ para desativar:
 
 `sudo systemctl disable mongod.service`
 
+# Desinstalando o MongoDB
+
+1. parando serviços: `sudo service mongod stop`
+2. removando pacotes: `sudo apt-get purge mongodb-org`
+3. removendo dependências desnecessárias: `sudo apt-get autoremove` and `sudo apt-get autoclean`
+4. removendo arquivos do mongodb: `sudo rm -rf /var/log/mongodb` and `sudo rm -rf /var/lib/mongodb`
+5. Para verificar se o mongodb foi removido com sucesso use o comando `mongod --version` ele não deve retornar uma versão pois ela não existe.
+
+# Informação importa
+
+Por padrão, o MongoDB só permite conexões locais. Ou seja, apenas de clients que estejam rodando na mesma máquina onde a instância estiver sendo executada. Para alterar essa configuração e permite conexões remotas, veja sobre [IP Binding](https://docs.mongodb.com/manual/core/security-mongodb-configuration/) na documentação.
+
+
