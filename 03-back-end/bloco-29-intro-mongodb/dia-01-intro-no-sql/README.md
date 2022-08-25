@@ -265,3 +265,97 @@ docker cp <nome do arquivo.json> <nome do container ou id>:/tmp/<nome do arquivo
 docker exec <nome do container ou id> mongoimport -d <nome do banco> -c <nome da coleção> --file /tmp/<nome do arquivo.json>
 ```
 
+# Bancos de dados, Coleções e Documentos
+
+A estrutura de armazenamento do MongoDB consiste em:
+
+- ter diversos bancos de dados;
+- dentro destes bancos temos as coleções (que seriam equivalentes às tabelas dos bancos de dados relacionais);
+- dentro destas coleções temos os documentos (que seriam equivalentes aos registros dos bancos de dados relacionais).
+
+O MongoDB armazena os documentos no formato BSON [(Binary JSON)](https://www.mongodb.com/docs/manual/core/document/#bson-document-format).
+
+# Bancos de dados
+
+Assim como os bancos relacionais, dentro de uma mesma instância do MongoDB você pode ter um ou vários bancos de dados. Uma grande diferença é que não temos a formalidade de criar um banco de dados antes de fazer um operação nele.
+Quando realizando um insert, o MongoDB cuida de criar o banco e a coleção(caso não exista) junto com os documentos inseridos. Tudo isso em uma mesma operação.
+
+Uma vez conectado a uma instância do MongoDB através do MongoDB Shell, você só precisa especificar o contexto em que essa escrita acontecerá. Nesse caso, o contexto é o nome do banco de dados que você quer criar:
+```
+use nomeDobanco
+db.nomeDaColecao.insertOne({ x: 1 })
+```
+
+A função insertOne() cria tanto o banco de dados nomeDoBanco, como a coleção nomeDaColecao caso eles não existam. Se existirem, apenas mapeia o documento a ser inserido dentro deles e, por fim, executa a operação.
+
+Uma dica para nomear bancos e coleções seguindo esse [guia](https://www.mongodb.com/docs/manual/reference/limits/#restrictions-on-db-names)
+
+# Coleções
+
+Os documentos no MongoDB são armazenados dentro das coleções. Lembrando que uma coleção é equivalente a uma tabela dos bancos de dados relacionais.
+
+## Criando uma coleção
+
+Se uma coleção não existe, o MongoDB cria essa coleção no momento do primeiro insert.
+```
+db.nomeDaColecao1.insertOne({ x: 1 })
+```
+
+Veja que a operação insertOne() cria uma nova coleção (caso ela não exista).
+
+## Criação explícita
+
+Você também pode utilizar o método `db.createColletion()` e especificar uma serie de parâmetros, como o tamanho máximo do documento ou as regras de validação para os documentos.
+Se não for necessário especificar algum parâmetros o uso do método para criação não é necessário.
+Criando uma coleção especificando sua [collation](https://www.mongodb.com/docs/manual/reference/collation/#collation-document-fields).
+
+```
+db.createCollection( "nomeDaColecao", { collation: { locale: "pt" } } );
+```
+
+Pode-se realizar modificações nos parêmtros de uma coleção através do [collMod](https://docs.mongodb.com/manual/reference/command/collMod/#dbcmd.collMod).
+Mais métodos de criação na [documentação](https://docs.mongodb.com/manual/reference/method/db.createCollection/#db.createCollection).
+
+# Documentos
+
+Documentos são equivalentes aos registros ou linhas de uma tabela nos bancos de dados relacionais. Além disso, cada atributo(campo) é equivalente a uma coluna de uma linha da tabela. Sua diferença é que documentos podem conter estruturas mais ricas, diferentes entre documentos e armazenar muito mais informações do que você consegue em uma "linha simples" de uma tabela relacional.
+
+Abaixo exemplo do mesmo dado em uma tabela relacional e uma não relacional.
+
+| _id | nome | endereco | cidade | uf |
+| -- | -- | -- | -- | -- |
+| 1 | Jose | rua 1 | São Paulo | SP |
+| 2 | Maria | rua 2 | Belo Horizont | MG |
+
+```
+{
+    "_id": 1,
+    "nome": "Jose",
+    "endereco": {
+        "logradouro": "Rua 1",
+        "regiao": "Zona Norte",
+        "cidade": "São Paulo",
+        "uf": "SP"
+    }
+},
+{
+    "_id": 2,
+    "nome": "Maria",
+    "endereco": {
+        "logradouro": "Rua 2",
+        "cidade": "Belo Horizonte",
+        "uf": "MG"
+    }
+}
+```
+
+Um insert recebe como parêmetro um JSON. Esse parâmetro define os dados e a estrutura do documento. É importante ressaltar que, por ser schemaless, a estrutura não faz parte da coleção e sim do documento. Com isso, vpode ter várias "estruturas" por coleção. No exemplo acima podemos observar essa diferença entre os documentos: no primeiro, temos o atributo região, que não existe no segundo documento.
+Quando realizando uma alteração, faça-a em nível de documento. Pois caso for realizado em nível de coleção, muitos documentos com estruturas diferentes poderão ser impactados com a criação, alteração ou remoção deu m atributo que não faz parte daquela estrutura de todos.
+
+# Validação de documentos
+
+Você pode aplicar uma validação para que cada operação de escrita em sua coleção respeite uma estrutura. Utilize o [Schema Validation](https://docs.mongodb.com/manual/core/schema-validation/) para isso.
+
+# BSON Types
+
+Por mais que o insert ocorra recebendo um documento JSON, internamente, o MongoDB armazena os dados em formato de BSON (Binary JSON). Esse formato é uma extensão do JSON e permite que você tenha mais tipos de dados armazenados no MongoDB, não somente os tipos permitidos pelo JSON.
