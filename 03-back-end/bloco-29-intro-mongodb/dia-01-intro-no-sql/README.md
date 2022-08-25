@@ -86,3 +86,70 @@ Um exemplo de banco de dados da classe Grafos é o Neo4j.
 - [Site DB Engine com os bancos de dados mais usados](https://db-engines.com/en/ranking/)
 
 
+# MongoDB
+
+## Instalação
+
+Existem três tipos de instalação:
+
+1. Standalone
+- Apenas indicado para ambientes de desenvolvimento;
+- Não exige nenhum tipo de configuração relativa à segurança
+
+2. Replica Set
+- É o mínimo indicado para ambientes de produção;
+- Neste tipo, os dados são replicados em cada um dos servidores do cluester e temos apenas um ponto de escrita;
+- Em alguns casos, podemos utilizar os demais servidores para escalar a leitura.
+
+3. Shard
+- Esse é um tipo de instalação no qual podemos escalar a escrita de informações no banco;
+- Os dados são dividos no cluster através de chaves de partição que chamamos de shard keys;
+- A shard key pode ser composta por um ou mais atributos do documento, e sua escolha pode aftar a performance, eficiência e escalabilidade do banco;
+- Escalar a escrita significa dar mais capacidade para que o banco de dados processe mais operações, aumentando a performance.
+
+## Instalando MongoDB Communit Edition
+
+Instalando no Ubuntu, utilizando apt package manager.
+
+1. Importando a chave pública utilizada pelo genrenciador de pacoste
+
+```
+wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
+```
+
+Caso apareça uma menssagem de erro sobre o gnupg não estar instalado deve-se instala-lo.
+
+```
+sudo apt-get install gnupg
+```
+
+Após a instalação rode novamente a chave publica.
+
+2. Crie o arquivo de lista para o MongoDB
+
+Crie o arquivo /etc/apt/sources.list.d/mongodb-org-4.4.list para o Ubuntu 20.04 (Focal):
+```
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+```
+
+3. Atualize o banco de dados local de pacotes
+```
+sudo apt-get update
+```
+
+4. Instale os pacotes do MongoDB
+```
+sudo apt-get install -y mongodb-org
+```
+
+# Pacotes instalados
+
+1. mongodb-org-server: pacote contém o que podemos chamar de "servidor" do MongoDB. Contém todos os recursos necessários para que uma instância do banco seja executada;
+2. mongodb-org-shell: o hsell é onde você se conecta com o MongoDB através do terminal. É uma interface que suporta JavaScript e é super completa para administração de instâncias e clusters;
+3. mongodb-org-mongos: pronuncia-se "Mongo S" e só faz necessário em ambientes Shard.
+4. mongodb-org-tools: esse pacote contém algumas ferramentas nativas do mongoDB. Como por exemplo:
+  - mongodump: ferramenta para extrair dados no formato BSON. Em alguns ambientes, pode fazer parte da estratégia de backup;
+  - mongorestore: ferramenta para restaurar backups gerados pelo mongodump;
+  - mongoimport: ferramenta para importar arquivos JSON, CSV ou TSV para uma instância do MongoDB;
+  - mongoexport: exporta dados de uma instância do MongoDB para arquivos JSON ou CSV.
+
