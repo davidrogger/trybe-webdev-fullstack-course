@@ -359,3 +359,57 @@ Você pode aplicar uma validação para que cada operação de escrita em sua co
 # BSON Types
 
 Por mais que o insert ocorra recebendo um documento JSON, internamente, o MongoDB armazena os dados em formato de BSON (Binary JSON). Esse formato é uma extensão do JSON e permite que você tenha mais tipos de dados armazenados no MongoDB, não somente os tipos permitidos pelo JSON.
+
+# Insert
+
+- insertOne(), usado para inserir um dado em uma coleção esteja ela criada ou não.
+
+Exemplo:
+```
+use vehicles
+db.cars.insertOne({ name: "Fusca", price 3000 });
+```
+
+Por padrão ele ja gera uma chave únicade id e é a melhor opção, porém é possivel inserir manualmente um id à coleção criada.
+```
+db.cars.insertOne({ _id: 1, name: "Gol", price: 50000 })
+```
+
+Porém não é recomendado o uso manual, só em casos muito especificos.
+
+- insertMany(), usado para inserir vários documentos à coleção;
+
+Exemplo
+```
+use vehicles
+db.cars.insertMany(
+  [
+    {
+      _id: 1,
+      "name": "Fusca",
+      "price": 3000
+    },
+    {
+      _id: 2,
+      "name": "Gol",
+      "price": 50000
+    },
+    {
+      _id: 3,
+      "name": "Uno",
+      "price": 35000
+    },
+    {
+      _id: 4,
+      "name": "Celta",
+      "price": 50000
+    },
+    {
+      _id: 5,
+      "name": "Corsa",
+      "price": 45000
+    },
+  ]);
+```
+Dessa maneira todos itens seriam inseridos no banco, nota que a inserção é realizada de forma ordenada, de cima para baixo, por padrão se algum id for duplicado, o banco retornará um erro, parando a inserção dos demais itens, para o mongo ignorar o erro e inserir os demais itens que não estão com error, devemos adicionar um segundo parametro ao insertMany, `{ ordered: false }`, fazendo com que mesmo que ocorra um erro ele seguida para os demais itens.
+
