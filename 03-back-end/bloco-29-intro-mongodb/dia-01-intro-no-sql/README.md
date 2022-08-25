@@ -235,4 +235,33 @@ Existem outras interfaces visuais para o MongoDB que podem facilitar muito sua v
 - [MongoDB for VS Code](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode)
 - [NoSQLBooster for MongoDB](https://nosqlbooster.com/downloads)
 
+# Utilizando MongoDB com Docker
+
+```
+docker run --name <nome do container> -d mongo:tag
+```
+
+Usando somente mongo será baixada a versão estável mais atual, caso seja necessário especifique a tag com a versão desejada.
+
+# Executando o shell do Mongo no Docker
+
+```
+docker exec -it <nome do container ou id> mongo
+```
+
+Lembrando que a ultima palavra é o que será executado no exemplo acima é executado o mongo em modo interativo, podendo ser usado o mongosh com alguns novos recursos visuais.
+
+# Importando arquivos locais para dentro do contêiner utilizando mongoimport
+
+Esta ferramenta importa conteúdo de um arquivo JSON,CSV ou TSV criada por mongoexport ou, potencialmente, outra ferramenta de exportação de terceiros. Utilizamos esse recurso num contêiner da seguinte forma:
+
+1. Copiamos o arquivo que será importado para dentro do contêiner.
+```
+docker cp <nome do arquivo.json> <nome do container ou id>:/tmp/<nome do arquivo.json>
+```
+
+2. Realizamos a importação do arquivo para o MongoDB
+```
+docker exec <nome do container ou id> mongoimport -d <nome do banco> -c <nome da coleção> --file /tmp/<nome do arquivo.json>
+```
 
