@@ -369,3 +369,34 @@ db.restaurants.find().sort({ rating: 1 });
 
 db.restaurants.find({ rating: { $exists: true } }).sort({ rating: -1 }); // somente quem tem rating
 ```
+
+# Removendo documentos
+
+Temos dois métodos que são utilizados para níves de remoção diferentes, deleteOne() e deleteMany(). Os dois métodos aceitam um documento com parâmetro, que pode conter um filtro simples ou até mesmo um conjunto de expressões para atender aos critérios de seleção.
+
+- deleteOne()
+
+Remove apenas um documento, que deve satisfazer o critério de seleção, mesmo que muitos outros documentos também se enquadrem no critério de seleção. Se nenhum valor for passado como parâmetro, a operação removerá o primeiro documento da coleção.
+```
+db.inventory.DeleteOne({status: "D"});
+```
+
+- deleteMany()
+
+Esse método remove todos os documentos que satisfaçam o critério de seleção.
+```
+db.inventory.deleteMany({ status: "A" });
+```
+Documentos da coleção inventory em que o atributo status é igual A serão removidos.
+
+Para remover todos os documentos da coleção, basta não passar nenhum parâmetro para o método, `db.inventory.deleteMany()` .
+
+# Practice
+
+1. Remova o primeiro restaurante que possua culinária do tipo Ice Cream, Gelato, Yogurt, Ices.
+```
+db.restaurants.deleteOne({ cuisine: "Ice Cream, Gelato, Yogurt, Ices" } });
+```
+2. Remova todos os restaurantes que possuem culinária do tipo American.
+
+db.restaurants.deleteMany({cuisine: "American"});
