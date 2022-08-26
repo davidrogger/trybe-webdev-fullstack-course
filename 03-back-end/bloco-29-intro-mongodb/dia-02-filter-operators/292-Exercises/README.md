@@ -144,3 +144,95 @@ db.inventory.find({ qty: { exists: true, $nin: [5, 15] } });
 ```
 Documentos da coleração inventory em que o atributo qty existe **E** seu valor é diferente de 5 e 15.
 
+# Operadores Lógicos
+
+Podem ser usados nos mesmos métodos para leitura e atualização de documentos do MongoDB. Eles ajudam a elaborar consultas mais complexas, contendo cláusulas para retornar documentos que satisfaçam os filtros.
+
+# Operador $not
+
+Sintaxe:
+```
+{ campo: { $not: { <operador ou expressão> } } }
+```
+
+Executa operação lógica de negação no <operador ou expressão> especificado e seleciona os documentos que não te correspondam ao operador/expressão. Isso também inclui os documentos que não contêm o atributo.
+
+Exemplo:
+```
+db.inventory.find({ price: { $not: { $gt: 1.99 } } })
+```
+
+Documentos na coleção inventory em que o valor do atributo price é menor ou igual a 1.99. (não é maior que 1.99 ou em que o **price não existe**).
+A expressão { $not: { $gt: 1.99 } } retorna um resultado diferente do operador $lte. Ao utilizar { $lte: 1.99 }, os documentos retornados serão somente aqueles em que o campo **price existe** e cujo valor é menor ou igual a 1.99.
+
+# Operador $or
+
+Operação lógica **OU** em um array de uma ou mais expressões e seleciona os documentos que satisfaçam ao menos uma das expressões.
+
+Sintaxe:
+```
+{ $or: [{ <expression1> }, { <expression2> }, ..., { <expressionN> }] }
+```
+
+Exemplo:
+```
+db.inventory.find({ $or: [ { qty: { $lt: 20 } }, { price: 10 } ] })
+```
+
+Documentos da coleção inventory em que o valor do atributo qty é menor que 20 ou o price é igual a 10.
+
+# Operador $nor
+
+Executa uma operação lógica de NEGAÇÃO, porém, em um array de uma ou mais epxressões, e seleciona os documentos em que todas essas expressões falhem, ou seja, seleciona os documentos em que todas as expressões desse array sejam falsas.
+
+Sintaxe:
+```
+{ $nor: [ { <expressao1>, <expressao2>, ..., <expressaoN> } ] }
+```
+
+Exemplo:
+```
+db.inventory.find({ $nor: [{ price: 1.99 }, { sale: true }] })
+```
+Documentos da coleção inventory que;
+- Contêm o atributo price com o valor diferente de 1.99 e o atributo sale, com o valor diferente de true;
+- ou  contêm o atributo price com o valor diferente de 1.99 e não contêm o atributo sale;
+- ou não contêm o atributo price e contoêm o atributo sale com o valor diferente de true;
+- ou não contem o atributo price e nem o atributo sale.
+
+# Operador $and
+
+Executa a operação lógica **E** num array de uma ou mais expressões e seleciona os documentos que satisfazem todas as expressões no array. O Operador $and usa o que chamamos de avaliação em curto-circuito(short-circuit evaluation). Se alguma expressão for avaliada como false, o MongoDB não avaliará as expressões restantes, pois o resultado final sempre será falso independentemente do resultado delas.
+
+Sintaxe:
+```
+{ $and: [ {<expressao1>}, {<expressao2>}, ..., {<expressaon>} ] }
+```
+
+## Multiplas expressões epecificando o mesmo atributo
+```
+db.inventory.find({
+  $and: [
+    { price: { $ne: 1.99 } },
+    { price: { $exists: true } }
+  ]
+});
+```
+
+Documentos da coleção inventory em que o valor do atributo price é diferente de 1.99 e o atributo price existe.
+
+## Multiplas expressões epecificando o mesmo operador
+```
+db.inventory.find({
+  $and: [
+    { price: { $gt: 0.99, $lt: 1.99 } },
+    {
+      $or: [
+        { sale: true },
+        { qty: { $lt: 20 } }
+      ]
+    }
+  ]
+});
+```
+Documentos da coleração inventory em que o valor do campo price é maior que 0.99, e mnor que 1.99, E o valor do atributo sale é igual a true, ou o valor do atributo qty é menor que 20. (o **E** está implícito na vírgula do price E (sale = true OU qty < 20>));
