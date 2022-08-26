@@ -20,7 +20,7 @@ db.inventory.find({ qty: { $lt: 20 } });
 
 Selecionará todos os documentos na coleção inventory com o valor do atributo qty menor que 20.
 
-# $lte
+# Operador $lte
 
 Atributo filtrado menor ou igual.
 
@@ -31,7 +31,7 @@ db.inventory.find({ qty: { $lte: 20 } });
 
 Documentos na coleção inventory com valor igual ou menor que 20.
 
-# $gt
+# Operador $gt
 
 Atributo filtrado maior.
 
@@ -42,7 +42,7 @@ db.inventory.find({ qty: { $gt: 20 } });
 
 Documentos na coleção inventory com valor maior que 20.
 
-# $gte
+# Operador $gte
 
 Atributo filtrador maior ou igual.
 
@@ -52,7 +52,7 @@ db.inventory.find({ qty: { $gte: 20 } });
 ```
 Documentos na coleção inventory com valor maior ou igual a 20.
 
-# $eq
+# Operador $eq
 
 Atributo filtrado igual.
 
@@ -66,7 +66,7 @@ Ele é equivalente ao filtro { <campo>: <valor> } e não tem nenhuma diferença 
 db.inventory.find({ qty: 20 })
 ```
 
-# $ne
+# Operador $ne
 
 Atributo filtrado não é igual.
 
@@ -76,7 +76,7 @@ db.inventory.find({ qty: { $ne: 20 } });
 ```
 Documentos na coleção inventory diferentes de 20.
 
-# $in
+# Operador $in
 
 Seleciona os documentos em que o valor do atributo é igual a um dos valores do array. Para executar comparações de igualidade com mais de um valor no mesmo atributo.
 
@@ -86,7 +86,7 @@ db.inventory.find({ qty: { $in: [5, 15] } });
 ```
 Todos Documentos na coleção inventory com os valores qty 5 e 15.
 
-# $nin
+# Operador $nin
 
 Seleciona os documentos em que o valor do atributo não é igual a um dos valores do array.
 
@@ -123,4 +123,24 @@ db.restaurants.countDocuments({ rating: { $lt: 4 } });
 db.restaurants.countDocuments({ rating: { $nin: [5, 6, 7] } });
 ```
 
+# Operador $exists
+
+Sintaxe:
+```
+{ campo: { $exists: <boolean> } }
+```
+
+Quando o boolean é verdadeiro, o operador exists encontra os documentos que  contêm o atributo, incluindo os documentos em que o valor do atributi é igual a null. Se o boolean é false, a consulta retornar somente os documentos que não contêm o atributo.
+
+Exemplo:
+```
+db.inventory.find({ qty: { exists: true } });
+```
+Essa consulta retorna todos os documentos da coleração inventory em que o atributo qty existe.
+
+Também pode-se combinar operadores, como no exemplo:
+```
+db.inventory.find({ qty: { exists: true, $nin: [5, 15] } });
+```
+Documentos da coleração inventory em que o atributo qty existe **E** seu valor é diferente de 5 e 15.
 
