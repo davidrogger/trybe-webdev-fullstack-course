@@ -284,3 +284,88 @@ db.restaurants.countDocuments({
   ]
 });
 ```
+
+# Método sort()
+
+Sintaxe:
+```
+db.colecao.find().fort({ "campo": "1 ou -1" });
+```
+
+Metodo para ordenar o resultado das consultas, usando o valor positivo são ordenados de forma crescente ou alfabética, negativo, descrescente ou contra alfabética.
+
+Esse método pode ser combinado com o método find():
+```
+db.example.find({}, { value, name }).sort({ value: -1 }, {name: 1});
+```
+
+O sort() só pode ser usado se tiver algum resultado de busca antes:
+```
+db.colecao.find().sort({ nomeDoAtributo: 1 }) // ok
+db.colecao.sort({ nomeDoAtributo: 1 }) // dont work
+```
+
+Exemplo:
+```
+db.example.insertMany([
+  { "name": "Mandioquinha Frita", "price": 14 },
+  { "name": "Litrão", "price": 8 },
+  { "name": "Torresmo", "price": 16 }
+]);
+```
+```
+db.example.find().sort({ price: 1 }).pretty();
+```
+
+```
+// Resultado esperado:
+{
+        "_id" : ObjectId("5f7dd0582e2738debae74d6c"),
+        "name" : "Litrão",
+        "price" : 8
+}
+{
+        "_id" : ObjectId("5f7dd0582e2738debae74d6b"),
+        "name" : "Mandioquinha Frita",
+        "price" : 14
+}
+{
+        "_id" : ObjectId("5f7dd0582e2738debae74d6d"),
+        "name" : "Torresmo",
+        "price" : 16
+}
+```
+```
+db.example.find().sort({ price: -1 }, { name: 1 }).pretty();
+```
+```
+// Resultado esperado:
+{
+        "_id" : ObjectId("5f7dd0582e2738debae74d6d"),
+        "name" : "Torresmo",
+        "price" : 16
+}
+{
+        "_id" : ObjectId("5f7dd0582e2738debae74d6b"),
+        "name" : "Mandioquinha Frita",
+        "price" : 14
+}
+{
+        "_id" : ObjectId("5f7dd0582e2738debae74d6c"),
+        "name" : "Litrão",
+        "price" : 8
+}
+```
+
+# Practice
+
+1. Ordene alfabeticamente os restaurantes pelo nome (atributo name).
+
+db.restaurants.find().sort({ name: 1 });
+
+2. Ordene os restaurantes de forma decrescente baseado nas avaliações.
+```
+db.restaurants.find().sort({ rating: 1 });
+
+db.restaurants.find({ rating: { $exists: true } }).sort({ rating: -1 }); // somente quem tem rating
+```
