@@ -7,3 +7,8 @@
 - [Operadores de comparação](https://docs.mongodb.com/manual/reference/operator/query-comparison/)
 - [BSON Types](https://docs.mongodb.com/manual/reference/bson-type-comparison-order/#bson-types-comparison-order)
 - [mongoimport](https://docs.mongodb.com/database-tools/mongoimport/#examples)
+
+## 29.2
+
+- [Query and Projection Operators](https://www.mongodb.com/docs/manual/reference/operator/query/)
+- [Collection Methods](https://docs.mongodb.com/manual/reference/method/js-collection/)
