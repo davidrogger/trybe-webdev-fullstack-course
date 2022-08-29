@@ -92,3 +92,23 @@ db.survey.find({
 ```
 
 Será retornado apenas o documento com id 3.
+
+# Operador $size
+
+Seleciona documentos em que um array contenha um número de elementos especificado.
+
+Considere a coleção products a seguir, contendo documentos em que o campo tags pode ser um array:
+```
+{ _id: 1, tags: ["red", "green"] },
+{ _id: 2, tags: ["apple", "lime"] },
+{ _id: 3, tags: "fruit" },
+{ _id: 4, tags: ["orange", "lemon", "grapefruit"] }
+```
+
+Ao executar a query abaixo, apenas os documentos com id igual 1 e 2 serão retornados, pois sesus campos tags, são arrays e contêm exatamente 2 elementos.
+
+db.products.find({
+  { tags: { $size: 2 } }
+});
+
+O operador $size aceita apenas valores númericos, ou seja ele verifica se um array possui exatamente um certo número de elementos. Por isso, n]ao é possível utilizá-lo, por exemplo, para trazer um array com comprimento maior que 2 ($gt: 2). Se for necessário selecionar documentos com base me valores diferentes, a solução é criar um campo que se incremente quando elementos forem adicionados ao array.
