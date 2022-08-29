@@ -112,3 +112,27 @@ db.products.find({
 });
 
 O operador $size aceita apenas valores númericos, ou seja ele verifica se um array possui exatamente um certo número de elementos. Por isso, n]ao é possível utilizá-lo, por exemplo, para trazer um array com comprimento maior que 2 ($gt: 2). Se for necessário selecionar documentos com base me valores diferentes, a solução é criar um campo que se incremente quando elementos forem adicionados ao array.
+
+# Operador $expr
+
+Permite que você utilize expressões de agregação e construa queries que comparem campos no mesmo documento.
+
+```
+// db - monthlyBudget
+{ _id: 1, category: "food", budget: 400, spent: 450 },
+{ _id: 2, category: "drinks", budget: 100, spent: 150 },
+{ _id: 3, category: "clothes", budget: 100, spent: 50 },
+{ _id: 4, category: "misc", budget: 500, spent: 300 },
+{ _id: 5, category: "travel", budget: 200, spent: 650 }
+```
+
+Para buscar os documentos em que o valor de spent exceda o valor de budget:
+```
+db.monthlyBudge.find({
+  $expr: { $gt: [ "$spent", "$budget" ] }
+});
+```
+Apenas os id 1, 2 e 5, retornarão.
+
+Nenhum valor foi especificado explicaitamente. O que acontece é que o operador $expr entende que deve comparar os valores dos dois campos. Por isso o $ é utilizado, indicando que a estring entre aspas referencia um campo.
+
