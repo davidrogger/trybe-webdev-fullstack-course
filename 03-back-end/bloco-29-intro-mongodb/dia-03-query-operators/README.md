@@ -136,3 +136,32 @@ Apenas os id 1, 2 e 5, retornarão.
 
 Nenhum valor foi especificado explicaitamente. O que acontece é que o operador $expr entende que deve comparar os valores dos dois campos. Por isso o $ é utilizado, indicando que a estring entre aspas referencia um campo.
 
+# Operador regex
+
+Fornece os "poderes" das expressões regulares, para seleção de strings. MongoDB utiliza expressões regulares compatíveis com [Perl](https://www.perl.org/).
+Um uso muito comum para o operador $regex é fazer consultas como o LIKE do SQL. Considere os seguitnes documentos na coleção products:
+```
+{ _id: 100, sku: "abc123", description: "Single line description." },
+{ _id: 101, sku: "abc789", description: "First line\nSecond line" },
+{ _id: 102, sku: "xyz456", description: "Many spaces before     line" },
+{ _id: 103, sku: "xyz789", description: "Multiple\nline description" }
+```
+
+```
+// Seleciona todos os documentos em que o campo sku "termine com 789":
+db.products.find({ sku: { $regex: /789$/ } })
+```
+```
+// Especifica a opção case-insensitive com o "i"
+db.products.find({ sku: { $regex: /^ABC/i } })
+```
+
+Apenas os documentos que contenham ABC no campo sku serão retornados, sem se importar se está em maiúsculo ou minúsculo:
+```
+{ "_id" : 100, "sku" : "abc123", "description" : "Single line description." }
+{ "_id" : 101, "sku" : "abc789", "description" : "First line\nSecond line" }
+```
+
+Tudo pode ser construidor com expressões regulares em outras linguagens de programação funcionará também em suas queries no MongoDB. mais [sobre $regex](https://docs.mongodb.com/manual/reference/operator/query/regex/index.html)
+
+
