@@ -136,7 +136,7 @@ Apenas os id 1, 2 e 5, retornarão.
 
 Nenhum valor foi especificado explicaitamente. O que acontece é que o operador $expr entende que deve comparar os valores dos dois campos. Por isso o $ é utilizado, indicando que a estring entre aspas referencia um campo.
 
-# Operador regex
+# Operador $regex
 
 Fornece os "poderes" das expressões regulares, para seleção de strings. MongoDB utiliza expressões regulares compatíveis com [Perl](https://www.perl.org/).
 Um uso muito comum para o operador $regex é fazer consultas como o LIKE do SQL. Considere os seguitnes documentos na coleção products:
