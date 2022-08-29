@@ -36,3 +36,59 @@ db.inventory.find(
   }
 );
 ```
+
+# Operador $elemMatch
+
+Seleciona somente os documentos em que o array contém ao menos um elemento.
+
+Exemplo:
+```
+// db - collection scores
+{ _id: 1, results: [82, 85, 88] },
+{ _id: 2, results: [75, 88, 89] }
+```
+
+CLI
+```
+db.scores.find({
+  results: { $elemMatch: { $gte: 80, $lt: 85 } }
+});
+```
+
+Trará somente o _id 1, já que o 82 satisfaz as duas verificações.
+
+Pode-se utilizar o operador em arrays que contenham subdocumentos e especificar vários campos desses subdocumentos como filtro. Veja os seguintes documentos na coleção survey:
+
+```
+// db - collections survey
+{
+  _id: 1,
+  results: [
+    { product: "abc", score: 10 },
+    { product: "xyz", score: 5 }
+  ]
+},
+{
+  _id: 2,
+  results: [
+    { product: "abc", score: 8 },
+    { product: "xyz", score: 7 }
+  ]
+},
+{
+  _id: 3,
+  results: [
+    { product: "abc", score: 7 },
+    { product: "xyz", score: 8 }
+  ]
+}
+```
+
+CLI:
+```
+db.survey.find({
+  results: { $elemMatch: { product: "xyz", score: { $gte: 8 } } }
+});
+```
+
+Será retornado apenas o documento com id 3.
