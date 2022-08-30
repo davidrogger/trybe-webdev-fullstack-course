@@ -18,3 +18,8 @@
 - [Queries em Arrays](https://docs.mongodb.com/manual/tutorial/query-arrays/)
 - [Query em Arrays de Documentos Embedados](https://docs.mongodb.com/manual/tutorial/query-array-of-documents/)
 - [Busca Textual](https://docs.mongodb.com/manual/reference/operator/query/text/index.html#match-operation-stemmed-words)
+
+## 29.4
+
+- [Update Methods](https://docs.mongodb.com/manual/reference/update-methods/)
+- [Field Update Operators](https://docs.mongodb.com/manual/reference/operator/update-field/)
