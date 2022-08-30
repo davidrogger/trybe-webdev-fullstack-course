@@ -127,3 +127,166 @@ db.supplies.updateOne({ _id: 1 }, { $pop: { items: -1 } });
 db.supplies.updateOne({ _id: 1 }, { $pop: { items: 1 } });
 ```
 
+# Operador $pull
+
+Remove de um array existente todos os elementos com um ou mais valores que atendam à condições especificadas.
+
+# Removendo todos os itens iguais a um valor;
+
+```
+{
+  _id: 1,
+  items: [
+    {
+      "name" : "notepad",
+      "price" : 35.29,
+      "quantity" : 2,
+    },
+    {
+      "name": "envelopes",
+      "price": 19.95,
+      "quantity": 8,
+    },
+    {
+      "name": "pens",
+      "price": 56.12,
+      "quantity": 5,
+    },
+  ],
+},
+{
+  _id: 2,
+  items: [
+    {
+      "name" : "pencil",
+      "price" : 5.29,
+      "quantity" : 2,
+    },
+    {
+      "name": "envelopes",
+      "price": 19.95,
+      "quantity": 8,
+    },
+    {
+      "name": "backpack",
+      "price": 80.12,
+      "quantity": 1,
+    },
+    {
+      "name": "pens",
+      "price": 56.12,
+      "quantity": 5,
+    },
+  ],
+}
+```
+
+Removendo do array os itens pens e envolopes:
+```
+db.supplies.updateMany(
+  {},
+  {
+    $pull: {
+      items: {
+        name: { $in: ["pens", "envelopes"] },
+      }
+    }
+  }
+)
+
+//resultados
+{
+  _id : 1,
+  items : [
+    {
+      "name" : "notepad",
+      "price" : 35.29,
+      "quantity" : 2,
+    },
+  ],
+},
+{
+  _id : 2,
+  items : [
+    {
+      "name" : "pencil",
+      "price" : 5.29,
+      "quantity" : 2,
+    },
+    {
+      "name" : "backpack",
+      "price" : 80.12,
+      "quantity" : 1,
+    },
+  ],
+}
+```
+
+# Removendo todos os itens que atendem a uma condição diretamente no $pull
+
+```
+//profiles
+{ _id: 1, votes: [3, 5, 6, 7, 7, 8] }
+```
+
+Removendo todos os elementos do array votes que sejam maiores ou iguais a 6 (operador gte);
+```
+db.profiles.updateOne(
+  { _id: 1 },
+  {
+    $pull: {
+      votes: { $gte: 6 },
+    }
+  }
+);
+
+//resultados
+{ _id: 1, votes: [3,  5] }
+```
+
+# Removendo itens em um array de Documentos
+```
+//survey
+{
+  _id: 1,
+  results: [
+    { item: "A", score: 5 },
+    { item: "B", score: 8, comment: "Strongly agree" },
+  ],
+},
+{
+  _id: 2,
+  results: [
+    { item: "C", score: 8, comment: "Strongly agree" },
+    { item: "B", score: 4 },
+  ],
+}
+```
+
+Removendo do array results todos os elementos que contenham o campo score igual a 8 e o campo item igual a "B".
+```
+db.survey.updateMany(
+  {},
+  {
+    $pull: {
+      results: {
+        score: 8,
+        item: "B"
+      }
+    }
+  }
+);
+
+// resultado
+{
+  _id: 1,
+  results: [ { "item": "A", "score": 5 } ],
+},
+{
+  _id: 2,
+  results: [
+    { "item": "C", "score": 8, "comment": "Strongly agree" },
+    { "item": "B", "score": 4 },
+  ],
+}
+```
