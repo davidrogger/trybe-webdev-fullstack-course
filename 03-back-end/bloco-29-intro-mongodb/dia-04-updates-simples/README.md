@@ -93,5 +93,67 @@ db.products.update(
 ```
 Alterando o documento com ID 100, o segundo elemento indicado como 1, do array tags e o campo rating no primeiro elemento índice 0 do array ratings.
 
+# Operador $mul
 
+Multiplica o valor de um campo por um número espeicificado, persistindo o resultado dessa operação sem a necessidade do operador $set.
+
+Exemplo:
+```
+db.products.insertOne(
+  { "_id": 1, "item": "ABC", "price": NumberDecimal("10.99"), "qty": 25 }
+);
+```
+
+Alterando os valores do documento, utilizando o operador $mul para multiplicar os valores dos campos price e qty:
+```
+db.products.update(
+  { _id: 1 },
+  { $mul: { price: NumberDecimal("1.25"), qty: 2 } }
+);
+```
+O resultado dessa operação o novo valor do campo price é o valor original 10.99 multiplicado por 1.25 e o valor de qty, originalmente era 25, é multiplicado por 2.
+
+Pode-se utilizar o $mul em um campo que não exista no documento. Nesse caso, o operador criará o campo e será atribuído a ele o valor zero do mesmo tipo numérico do multiplicador.
+
+Considerando um outro documento na coleção products:
+```
+db.products.insertOne(
+  { _id: 2, item: "Unknown" }
+);
+```
+
+Um update no documento, aplicando o operador $mul no campo price, que não existe neste documento:
+```
+db.products.update(
+  { _id: 2 },
+  { $mul: { price: NumberLong("100") } }
+);
+```
+
+Como resultado, temos o campo price criado no documento com o valor zero, do mesmo tipo número do multiplicador. Nesse caso, o tipo é NUmberLong.
+```
+{ "_id": 2, "item": "Unknown", "price": NumberLong(0) }
+```
+#
+Pode-se multiplicar valores com tipos diferentes.
+```
+db.products.insertOne(
+  { _id: 3,  item: "XYZ", price: NumberLong("10") }
+);
+```
+
+Multiplicando o valor do campo price que é do tipo NumberLong("10"), por NumberInt(5):
+```
+db.products.update(
+  { _id: 3 },
+  { $mul: { price: NumberInt(5) } }
+);
+```
+
+Resultado:
+```
+{ "_id": 3, "item": "XYZ", "price": NumberLong(50) }
+```
+
+[Regras de multiplicação](https://www.mongodb.com/docs/manual/reference/operator/update/mul/#multiplication-type-conversion)
 
