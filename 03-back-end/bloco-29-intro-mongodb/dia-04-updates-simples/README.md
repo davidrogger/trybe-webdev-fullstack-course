@@ -384,3 +384,29 @@ db.fruits.updateOne(
 { _id: 100, quantity: 100, inStock: true, productName: 'Banana' }
 ```
 
+# Operador $unset
+
+Para remover um ou mais campos de um documento.
+```
+{
+  _id: 100,
+  productName: "Banana",
+  quantity: 100,
+  inStock: true
+}
+```
+
+Remove o campo quantity do documento em que o valor do campo productName seja igual a Banana:
+```
+db.fruits.updateMany(
+  { productName: "Banana" },
+  { $unset: { quantity: "" } }
+);
+
+//resultado
+{
+  _id: 100,
+  productName: "Banana",
+  inStock: true
+}
+```
