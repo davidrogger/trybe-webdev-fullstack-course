@@ -318,3 +318,47 @@ db.tags.update(
   }
 );
 ```
+
+# Operador $currentDate
+
+Atribui ao valor de um campo a data corrente, utilizando um tipo de Date ou timestamp. Se você não especificar o tipo, por padrão. o MongoDB atribui o valor do tipo Date. O operador $currentDate tem o seguinte forma:
+```
+{ $currentDate: { <campo>: <typeSpecification>, ... } }
+```
+
+typeSpecification pode ser:
+- Um valor booleano true, para atribuir o valor da data corrente ao campo utilizando o tipo Date;
+- Um documento que espeicfica o tipo do campo. Esse documento pode ser { $type: "timestamp" } ou { $type: "date" }.
+```
+use conteudo_trybe;
+db.customers.insertOne(
+  { _id: 1, status: "a", lastModified: ISODate("2013-10-02T01:11:18.965Z") }
+);
+```
+
+É possivel alterar o valor do campo lastModified para a data corrente e criar o campo cancellation.date com o timestamp corrente, utilizando o operador $currentDate, e ainda alterar o campo status para D e criar o campo cancellation.reason com o valor "user request", utilizando o operador $set:
+```
+db.customers.updateOne(
+  { _id: 1 },
+  { $currentDate: {
+    lastModified: true,
+    "cancellation.date": { $type: "timestamp" }
+  }, $set: {
+      "cancellation.reason": "user request",
+      status: "D"
+    }
+  }
+);
+
+//resultado
+{
+  "_id": 1,
+  "status": "D",
+  "lastModified": ISODate("2020-01-22T21:21:41.052Z"),
+  "cancellation": {
+    "date": Timestamp(1579728101, 1),
+    "reason": "user request"
+  }
+}
+```
+
