@@ -373,3 +373,40 @@ db.inventory.updateOne(
 }
 ```
 
+# Array filters
+```
+db.recipes.insertMany([
+  {
+    title: "Panqueca Simples",
+    ingredients: [
+      { name: "Farinha", quantity: 2},
+      { name: "Oleo", quantity: 4 },
+      { name: "Leite", quantity: 1 },
+    ],
+  },
+  {
+    title: "Bolo de Cenoura",
+    ingredients: [
+      { name: "Farinha", quantity: 2},
+      { name: "Oleo", quantity: 1, unit: "xícara" },
+      { name: "Ovo", quantity: 3},
+      { name: "Cenoura", quantity: 3},
+      { name: "Fermento", quantity: 1},
+    ],
+  },
+]);
+```
+
+Quando não há o conhecimento da posição de um elemento que precisa ser atualizado dentro de um array é usado o arrayFilters, para melhor dinâmismo.
+```
+db.recipes.updateOne(
+  { title: "Panqueca Simples" },
+  {
+    $set: {
+      "ingredients.${elemento}.unit": "xícara",
+    },
+  },
+  { arrayFilters: [ { "elemento.name": "Farinha Integral } ] },
+);
+```
+

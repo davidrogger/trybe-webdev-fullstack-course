@@ -102,3 +102,54 @@ db.supplies.updateOne(
   {_id: 1},
   { $pop: { items: -1 } }
 );
+
+use('recipes');
+db.recipes.insertMany([
+  {
+    title: "Panqueca Simples",
+    ingredients: [
+      { name: "Farinha", quantity: 2},
+      { name: "Oleo", quantity: 4 },
+      { name: "Leite", quantity: 1 },
+    ],
+  },
+  {
+    title: "Bolo de Cenoura",
+    ingredients: [
+      { name: "Farinha", quantity: 2},
+      { name: "Oleo", quantity: 1, unit: "xícara" },
+      { name: "Ovo", quantity: 3},
+      { name: "Cenoura", quantity: 3},
+      { name: "Fermento", quantity: 1},
+    ],
+  },
+]);
+
+use('recipes');
+db.recipes.find();
+db.recipes.updateMany(
+  {},
+  { $set: {
+      "ingredients.$[elemento].unit": "xícara",
+      "ingredients.$[elemento].name": "Farinha Integral",
+    }
+  },
+  { arrayFilters: [ { "elemento.name": "Farinha" }] }
+);
+
+use('recipes');
+db.recipes.updateMany(
+  { title: "Bolo de Cenoura" },
+  {
+    $set: {
+      "ingredients.$[element].name": "Oil Soya",
+      "ingredients.$[element2].name": "Farinha de Arroz"
+    },
+  },
+  {
+    arrayFilters: [
+      { "element.name": "Oleo" },
+      { "element2.name": "Farinha" }
+    ]
+  }
+);
