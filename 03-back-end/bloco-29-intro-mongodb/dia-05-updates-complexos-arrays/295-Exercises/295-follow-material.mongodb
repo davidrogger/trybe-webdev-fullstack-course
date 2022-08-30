@@ -73,3 +73,32 @@ db.supplies.updateOne(
   },
   { upsert: true },
 );
+
+use('sales');
+db.supplies.find();
+db.supplies.insertOne({
+  _id: 1,
+  items: [
+    {
+      "name" : "notepad",
+      "price" : 35.29,
+      "quantity" : 2,
+    },
+    {
+      "name": "envelopes",
+      "price": 19.95,
+      "quantity": 8,
+    },
+    {
+      "name": "pens",
+      "price": 56.12,
+      "quantity": 5,
+    },
+  ],
+})
+
+use('sales');
+db.supplies.updateOne(
+  {_id: 1},
+  { $pop: { items: -1 } }
+);

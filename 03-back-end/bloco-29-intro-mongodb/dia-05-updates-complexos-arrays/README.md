@@ -113,3 +113,17 @@ Essa operação utiliza os seguintes modificadores;
 - $sort para ordenar todos os elementos alterados no array items pelo campo quantity em ordem decrescente;
 - $slice para manter apenas os dois primeiros elementos ordenados no array items.
 
+# Operador $pop
+
+Usado para remover o primeiro ou o último elemento de um array. Passando o valor -1 para remover o primeiro elemento e o valor 1 para remover o último elemento do array.
+
+## Removendo o primeiro item de um array
+```
+db.supplies.updateOne({ _id: 1 }, { $pop: { items: -1 } });
+```
+
+## Removendo o ultimo item de um array
+```
+db.supplies.updateOne({ _id: 1 }, { $pop: { items: 1 } });
+```
+
