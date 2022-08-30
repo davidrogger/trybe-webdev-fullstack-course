@@ -198,3 +198,123 @@ Resultado:
 }
 ```
 
+# Operadores $min e $max
+
+Ambos fazem o mesmo tipo de comparação antes de executar a operação, porém em sentidos opostos:
+
+- $min Altera o valor do campo atual para o valor passado pelo método se o valor for menor do que o valor do campo atual.
+- $min Altera o campo do campo atual para o valor passado pelo método se o valor for maior que o valor do campo atual.
+
+Ambos podem comparar valores de diferentes tipos, utilizando sempre a [ordem de comparação BSON](https://www.mongodb.com/docs/manual/reference/bson-type-comparison-order/#faq-dev-compare-order-for-bson-types).
+
+Considere um cenário em que temos uma collection com três documentos, cada documento possui um atributo id e um atributo campo que é um número inteiro:
+```
+db.collection.find();
+
+//resultado
+
+[
+  { _id: 1, campo: 25 },
+  { _id: 2, campo: 50 },
+  { _id: 3, campo: 100 }
+]
+
+```
+
+Vamos aplicar um update utilizando o operador $max. Nosso intuito é atingir todos os documentos com atributo campo que possuem um valor de no máximo 75. Nesse caso, o operador não só define o escopo máximo, mas também o contéudo que o campo deve passar a ter:
+```
+db.collection.updateMany({}, { $max: { campo: 75 } });
+// Atualizando todos os valores do atributo "campo"
+// para 75 caso sejam menores
+
+db.collection.find();
+
+//resultado
+[
+  { _id: 1, campo: 75 }, // valor anterior: 25
+  { _id: 2, campo: 75 }, // valor anterior: 50
+  { _id: 3, campo: 100 }, // não encontrou no escopo
+]
+```
+
+Com o operador $min é praticamente a mesma coisa, porém na direção inversa:
+```
+db.collection.updateMany({}, { $min: { campo: 42 } });
+// Atualizando todos os valores do atributo "campo"
+// para 42 caso sejam maiores
+
+db.collection.find();
+
+//resultado
+[
+  { _id: 1, campo: 42 }, // valor anterior: 75
+  { _id: 2, campo: 42 }, // valor anterior: 75
+  { _id: 3, campo: 42 }, // valor anterior: 100
+]
+```
+
+Aqui atingimos todas as ids, justamente pelo fato de termos definido um escopo que é de no mínimo, 42. Dessa forma, todos os documentos com atributos campo que tivessem um valor superior, foram redefinidos.
+
+Poderíamos resumir ${max}, "arrasta" os valores para cima e o ${min}, "arras" os valores para baixo.
+
+Mais exemplos:
+```
+use conteudo_trybe;
+db.scores.insertOne(
+  { _id: 1, highScore: 800, lowScore: 200 }
+);
+```
+
+# Comparando números
+
+No documento de exemplo, o valor atual do campo lowscore é 200. A operação abaixo utiliza o $min para comparar 200 com o valor especificado 150 e alterar o valor do campo lowscore para 150 porquê 150 é menor do que 200:
+```
+db.scores.update({ _id: 1 }, { $min: { lowScore: 150 } });
+
+//resultado
+{ _id: 1, highScore: 800, lowScore: 150 }
+```
+
+Se executar a operação abaixo, ela não terá efeito no documento porque o valor do campo lowscore é mnor do que 250, e o documento não será alterado:
+```
+db.scores.update({ _id: 1 }, { $min: { lowScore: 250 } })
+```
+
+O campo highscore tem o valor 800. A operação abaixo usa o $max para comparar 800 e o valor especificado 950, e então altera o valor do campo highscore para 950 é maior que 800:
+```
+db.scores.update({ _id: 1 }, { $max: { highScore: 950 } });
+
+//resultado
+{ _id: 1, highScore: 950, lowScore: 150 }
+```
+
+Assim como no exemplo utilizando o operador $min, a operação abaixo também não afetará em nada o documento porque o valor de highscore é maior do que 870.
+```
+db.scores.update({ _id: 1 }, { $max: { highScore: 870 } });
+```
+
+# Comparando datas
+
+Os operadores são usados para comparar valores do tipo Date.
+```
+use conteudo_trybe;
+db.tags.insertOne(
+  {
+    _id: 1,
+    desc: "crafts",
+    dateEntered: ISODate("2019-10-01T05:00:00Z"),
+    dateExpired: ISODate("2019-10-01T16:38:16Z")
+  }
+);
+```
+
+Utilizando o operador $min para comparar o valor do campo dateENtered e altera seu valor, porque 25/09/2019 é uma data menor do que o valor atual. Ao mesmo tempo, o operador $max também é usado para comparar o valor do campo dateExpired e altera esse valor, porque 02/10/2019 é uma data maior do que o valor atual:
+```
+db.tags.update(
+  { _id: 1 },
+  {
+    $min: { dateEntered: new Date("2019-09-25") },
+    $max: { dateExpired: new Date("2019-10-02") }
+  }
+);
+```
