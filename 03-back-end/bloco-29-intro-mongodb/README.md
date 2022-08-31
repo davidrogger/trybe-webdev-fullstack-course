@@ -23,3 +23,10 @@
 
 - [Update Methods](https://docs.mongodb.com/manual/reference/update-methods/)
 - [Field Update Operators](https://docs.mongodb.com/manual/reference/operator/update-field/)
+
+## 29.5
+
+- [Array Update Operators and Modifiers](https://docs.mongodb.com/manual/reference/operator/update-array/)
+- [Alterar o primeiro elemento com uma condição específica](https://docs.mongodb.com/manual/reference/operator/update/positional/#up._S_)
+- [Alterar todos os elementos com uma condição específica](https://docs.mongodb.com/manual/reference/operator/update/positional-all/#up._S_[])
+- [Utilizando Array Filters](https://docs.mongodb.com/manual/reference/operator/update/positional-filtered/#up._S_[%3Cidentifier%3E])
