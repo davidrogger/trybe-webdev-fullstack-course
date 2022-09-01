@@ -344,7 +344,7 @@ Para realizar os testes é necessário a instalação das dependências de teste
 - sinon
 - @types/sinon
 - nyc
-- @istanbuljs/nycconfig-typescript
+- [@istanbuljs/nycconfig-typescript](https://istanbul.js.org/)
 
 Na raiz do projeto foi criado um arquivo chamado nyc.config.json e em nosso package.json adicionamos dois scripts:
 ```
