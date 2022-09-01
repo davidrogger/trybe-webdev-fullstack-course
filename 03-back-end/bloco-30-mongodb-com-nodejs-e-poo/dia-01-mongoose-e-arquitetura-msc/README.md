@@ -332,3 +332,24 @@ export default Frame;
 ```
 
 Podemos criar diversas classes para diversos models, apenas criando o esquema exigido pelo Mongoose e herdando de MongoModel. Além disso, se for necessário, os métodos do CRUD podem ser sobrescritos na subclasse, de forma a implementar regras específicas para um model específico.
+
+# Realizando testes na classe em Frame
+
+Para realizar os testes é necessário a instalação das dependências de teste:
+
+- mocha
+- @types/mocha
+- chai
+- @types/chai
+- sinon
+- @types/sinon
+- nyc
+- @istanbuljs/nycconfig-typescript
+
+Na raiz do projeto foi criado um arquivo chamado nyc.config.json e em nosso package.json adicionamos dois scripts:
+```
+"test:dev": "mocha -r ts-node/register src/tests/unit/**/*.test.ts --exit -t 60000",
+"test:coverage": "nyc npm run test:dev"
+```
+
+
