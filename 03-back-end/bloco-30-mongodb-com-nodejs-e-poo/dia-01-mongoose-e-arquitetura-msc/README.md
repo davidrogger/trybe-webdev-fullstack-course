@@ -279,3 +279,56 @@ export default MongoModel;
 
 Aqui começamos importando nossa interface IModel e implementamos ela em nossa MongoModel. MongoModel continua recebendo um genérico, pois essa classe poderá ser utilizada com diversos objetos diferentes. Dito isso, precisamos implmentar os métodos que a interface nos pede.
 
+# Classes Lens e Frame
+
+Criando os arquivos Lens com base na classe MongoModel:
+```
+// ./src/models/Lens.ts
+
+import { model as mongooseCreateModel, Schema } from 'mongoose';
+import ILens from '../interfaces/Lens';
+import MongoModel from './MongoModel';
+
+const lensMongooseSchema = new Schema<ILens>({
+  degree: Number,
+  antiGlare: Boolean,
+  blueLightFilter: Boolean});
+
+class Lens extends MongoModel<ILens> {
+  constructor(model = mongooseCreateModel('Lens', lensMongooseSchema)) {
+    super(model);
+  }
+}
+
+export default Lens;
+```
+O Mongoose solicita, ao criarmos um model com a função model(que renomeamos para mongooseCreateModel) passamos a ela um esquema (Schema) que deverá ser respeitado. Esse esquema deve ter o tipo do model a ser criado, no caso do exemplo o tipo é ILens. Isso é necessário para que quando o nosso objeto for instanciado, podermos ter acesso ao todos os métodos e atributos disponíveis para usarmos.
+
+Ao criarmos nosso Schema, chamado de lensMongoSchema, passamos como genérico o ILens. E em seguida, dentro do construtor da classe, criamos um model com a função mongooseCreateModel, passando 2 parâmetros:
+
+- O 1º parâmetro é uma string com o nome da nossa classe para o Mongoose saber;
+- O 2º parâmetro é o Schema que criamos para o Mongoose saber a estrutura que deve ser respeitada;
+
+Observe que interessante, bastou criarmos o schema, sobrescrever o construtor com o valor padrão do model e extends nossa classe abstrata MongoModel. Assim conseguimos uma classe  que funciona como model para nosso Lens, como todos os métodos (create, read e etc..) agindo em cima do banco MongoDB.
+O último ponto aqui é que ao estendermos a classe abstrata MongoModel, bastou apenas invocar seu construtor com a palapavra reservada super que os métodos escritos na super classe já podem ser utilizados sem nenhuma modificação! Se caso precisássemos mudar alguma coisa mais específica para Frame ou Lens, bastava fazer a sobescrita de algum método (antes comentamos sobre o Princípio de Substituição de Liskov, aqui veremos ele na prática).
+```
+// ./src/models/Frame.ts
+
+import { model as mongooseCreateModel, Schema } from 'mongoose';
+import IFrame from '../interfaces/Frame';
+import MongoModel from './MongoModel';
+
+const frameMongooseSchema = new Schema<IFrame>({
+  material: String,
+  color: String});
+
+class Frame extends MongoModel<IFrame> {
+  constructor(model = mongooseCreateModel('Frame', frameMongooseSchema)) {
+    super(model);
+  }
+}
+
+export default Frame;
+```
+
+Podemos criar diversas classes para diversos models, apenas criando o esquema exigido pelo Mongoose e herdando de MongoModel. Além disso, se for necessário, os métodos do CRUD podem ser sobrescritos na subclasse, de forma a implementar regras específicas para um model específico.
