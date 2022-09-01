@@ -121,3 +121,43 @@ const bookSchema = new Schema<IBook>({
 
 Isso ocorre pois, mesmo que você não deixe explícito ao construir o seu schema, o Mongoose possui inúmeras ferramentas que adicionam campos no schema. Para aprofundar e entender mais sobre acesse [aqui](https://app.betrybe.com/course/back-end/mongodb-com-nodejs-e-poo/mongodb-e-arquitetura-msc/937f00cb-42ae-42f4-9705-b46b1214cdc4/recursos-adicionais-opcional/2c51579c-9054-48c8-906b-ffbeec380bec?use_case=side_bar).
 
+# Aprofundando mais em schemas e models
+
+Ao criar o nosso bookSchema, estamos dizendo ao Mongoose que possuímos uma coleção de livros na sua base de dados, que segue a estrutura passada. Caso algum campo definido no Schema<Interface> seja opcional, ou não exista em alguns dos documentos da sua base de dados, basta definir o seu tipo e omitir a chave required. Assim o Mongoose interpretará o campo required como false.
+Criar schemas não é o suficiente para termos acesso completo e começar a manipular os dados do nosso banco utilizando TypeScript, precisamos criar um Model baseado no schema que foi criado.
+
+```
+// Repare que aqui importamos a função 'model' do Mongoose:
+import { Schema, model } from 'mongoose';
+
+// interface IBook {
+//   title: string,
+//   author: string,
+// }
+
+// const bookSchema = new Schema<IBook>({
+//   title: {
+//     type: String,
+//     required: true,
+//   },
+//   author: {
+//     type: String,
+//     required: true,
+//   },
+// });
+
+// Para acessarmos os métodos disponibilizados pelo Mongoose(create, find, update...) e
+// implementarmos nossa API, criamos um model
+
+const bookModel = model<IBook>('Book', bookSchema);
+```
+
+A função model recebe dois parâmetros:
+
+- 1º parâmetro: Uma string que representa o nome da coleção no nosso banco de dados;
+- 2º parâmetro: A variável que armazena nosso schema e que fazemos referência no Model;
+- E para a função também podemos passar um generic;
+- - No Exemplo representado por nosso interface <IBoook>
+
+Com isso temos acesso a todos os métodos find, create, e etc... apartir do bookModel.
+
