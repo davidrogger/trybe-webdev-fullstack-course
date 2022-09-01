@@ -245,4 +245,37 @@ export { FrameZodSchema };
 
 A título de exemplo do uso do Zod, nosso atributo color também possui erros personalizados, por exemplo, se não for passado o atributo (required_error) ou se o tipo estiver incorreto (invalid_type_error), bem como uma validação de que deve possuir pelo menos 3 caracteres (no método min). [Mais possibilidades com o Zod](https://github.com/colinhacks/zod#defining-schemas).
 
+# Interfaces Genéricas e Classes Abstratas
+
+Padronizando através de uma interface, nós temos apenas 2 entidades(lens e frame), mas poderíamos ter várias e eu gostaria que todas tivessem os mesmo meodos e comportamentos. Dentro do diretório interfaces vamos criar o arquivo IModel.ts com o seguinte código:
+```
+// ./src/interfaces/IModel.ts
+
+interface IModel<T> {
+  create(obj:T):Promise<T>,
+  readOne(_id:string):Promise<T | null>,
+}
+
+export default IModel;
+```
+
+IModel recebe um genérico. Isso é necessário pois cada model irá receber um objeto diferente e seus retornos vão ser tipos diferentes também. Por exemplo, podemos ter um model de frame e outro de Lens, o método read no model de framee vai retornar um Frame (ou null), enquanto que o mesmo método no model de Lens vai retornar uma Lens (ou null).
+
+Como todas as models que forem criadas tem que ter obrigatóriamente os métodos create e readOne, podemos criar um unico mode que pode ser usado em todos.
+
+Dentro do diretório de models, vamos criar um arquivo chamado MongoModel.ts e começar a escrever nossa classe abstrata, vamos usar esse nome, pois se um dia por algum motivo precisarmos mudar o banco de dados da aplicação, poderíamos ter um outrobancoModel assim diminuindo o desacoplamento em nossa aplicação.
+```
+// ./src/models/MongoModel.ts
+
+import IModel from '../interfaces/IModel';
+
+abstract class MongoModel<T> implements IModel<T> {
+  // atributos...
+  // métodos...
+}
+
+export default MongoModel;
+```
+
+Aqui começamos importando nossa interface IModel e implementamos ela em nossa MongoModel. MongoModel continua recebendo um genérico, pois essa classe poderá ser utilizada com diversos objetos diferentes. Dito isso, precisamos implmentar os métodos que a interface nos pede.
 
