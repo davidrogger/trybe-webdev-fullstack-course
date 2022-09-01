@@ -161,3 +161,10 @@ A função model recebe dois parâmetros:
 
 Com isso temos acesso a todos os métodos find, create, e etc... apartir do bookModel.
 
+# Como pensar orientado a objetos
+
+Uma das maiores vantagens da arquitetura MSC é que, ao dividir as funções e responsabilidades da aplicação em camadas, podemos fazer alterações em uma das partes sem que as outras sejam afetadas.
+É na camada model, que são definidas as estruturas de dados utilizadas em uma aplicação e é responsabilidade desta camada abstrair todos os detalhes de acesso, é lá que precisaremos fazer as adequações necessárias.
+Ja sabemos que a camada model é a camada responsável pela interação com nosso banco de dados, mas qual banco de dados? Qualquer um ! A camada model não precisa saber qual banco estamos trabalhando, ela sabe apenas que devemos criar, alterar, pesquisar e deletar coisas, independente da coisa ou banco de dados, sendo ele relacional ou não.
+A camada é apenas uma abstração e sua implementação real é parecida em qualquer cenário.
+
