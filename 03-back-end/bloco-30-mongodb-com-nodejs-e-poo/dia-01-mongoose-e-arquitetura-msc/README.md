@@ -57,4 +57,67 @@ connect('mongodb://localhost:27017/', options);
 
 Se for dedinido autoIndex como false, o mongoose não criará índices automaticamente para nenhum modelo associado a essa conexão.
 
+# Interface, Schemas e Models
+
+Na prática para acessar uma consulta simples, db.books.find(); Essa consulta retorna todos os documentos de coleção chamada books, como abaixo:
+```
+[
+  { title: 'Design Patterns com Java', author: 'Eduardo Guerra' },
+  { title: 'Arquitetura limpa', author: 'Robert C. Martin' },
+  { title: 'Refatoração', author: 'Martin Fowler' }
+]
+```
+Acima temos uma estrutura básica dos documentos da coleção books, cada documento possui sua, chave title e author.
+
+No mongoose, essa estrutura básica é chamada de schema. Para acessarmos os dados utilizando o Mongoose, precisamos primeiro escrever um schema para a coleção que gostariámos de acessar. Para representar um schema em TypeScript usamos as interfaces:
+
+```
+import { Schema } from 'mongoose';
+
+interface IBook {
+  title: string,
+  author: string,
+}
+
+const bookSchema = new Schema<IBook>({
+  title: {
+    type: String,
+    required: true,
+  },
+  author: {
+    type: String,
+    required: true,
+  }});
+```
+O método schema(ex: new Schema<Book>) pode receber até 3 parâmetros genéricos dentro dos <> em sua instanciação, estes parâmetros são:
+- DocType: A interface que descreve os dados do nosso schema, que por sua vez também representa a coleção no MongoDB e no nosso caso acima, usamos a interface IBook;
+- Model: A tipagem do Model. Geralmente é omitida se o próximo parâmetro não for passada (como padrão ela recebe a tipagem do próprio DocType);
+- TInstanceMethods: Uma interface que contém os métodos deste schema;
+
+[Mais informações sobre os parâmetros](https://mongoosejs.com/docs/typescript/schemas.html)
+
+Dentro da interface definimos cada campo presente no schema. Caso algum campo do schema, esteja diferente a interface(nome diferente), ele emitira um erro na hora de transpilar, porém se o schema retornar algum campo faltando, não teremos nenhum erro.
+
+Exemplo:
+```
+import { Schema } from 'mongoose';
+
+interface IBook {
+  title: string,
+  author: string,
+  coAuthor: string,
+}
+
+const bookSchema = new Schema<IBook>({
+  title: {
+    type: String,
+    required: true,
+  },
+  author: {
+    type: String,
+    required: true,
+  }});
+```
+
+Isso ocorre pois, mesmo que você não deixe explícito ao construir o seu schema, o Mongoose possui inúmeras ferramentas que adicionam campos no schema. Para aprofundar e entender mais sobre acesse [aqui](https://app.betrybe.com/course/back-end/mongodb-com-nodejs-e-poo/mongodb-e-arquitetura-msc/937f00cb-42ae-42f4-9705-b46b1214cdc4/recursos-adicionais-opcional/2c51579c-9054-48c8-906b-ffbeec380bec?use_case=side_bar).
 
