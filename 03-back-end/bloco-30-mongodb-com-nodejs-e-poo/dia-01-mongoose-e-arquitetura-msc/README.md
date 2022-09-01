@@ -2,8 +2,8 @@
 
 No mundo dos bancos de dados e APIs, existem dezenas de ferramentas que são criadas para facilitar a interação e a manipulação desses dados, assim fornencendo rubestez à sua aplicação.
 
-- ORM's (Object Relational Mapping), que lidam com dados estruturados em bancos de dados relacionais (MySQL, PostgreSQL e etc...).
-- ODM's (Object Document Mapping), que lidam com dados estruturados em bancos de dados não relacionais (como o MongoDB).
+- **ORM's:** (Object Relational Mapping), que lidam com dados estruturados em bancos de dados relacionais (MySQL, PostgreSQL e etc...).
+- **ODM's:** (Object Document Mapping), que lidam com dados estruturados em bancos de dados não relacionais (como o MongoDB).
 
 O mongoose é um desses ODMs, trabalhando como se fosse um tradutor.
 
@@ -167,4 +167,82 @@ Uma das maiores vantagens da arquitetura MSC é que, ao dividir as funções e r
 É na camada model, que são definidas as estruturas de dados utilizadas em uma aplicação e é responsabilidade desta camada abstrair todos os detalhes de acesso, é lá que precisaremos fazer as adequações necessárias.
 Ja sabemos que a camada model é a camada responsável pela interação com nosso banco de dados, mas qual banco de dados? Qualquer um ! A camada model não precisa saber qual banco estamos trabalhando, ela sabe apenas que devemos criar, alterar, pesquisar e deletar coisas, independente da coisa ou banco de dados, sendo ele relacional ou não.
 A camada é apenas uma abstração e sua implementação real é parecida em qualquer cenário.
+
+# Camada Model com Mongoose
+
+[Boileplate](https://github.com/davidrogger/guia-mongodb-com-nodejs-e-poo) para praticar.
+
+Dependencias instaladas nesse repositório:
+
+- mongoose
+- express
+- express-async-erros
+- zod
+
+Dependencias de desenvolvimento:
+
+- dotenv
+- typescript
+- @types/express
+- @types/node
+- @ts-node-dev
+
+Boilerplate ou código boilerplate, no contexto de programação se refere a seções de código que podem ser incluídas em muitos lugares com pouca ou nenhuma alteração.
+
+# Interfaces e como aumentar a produtividade com Zod
+
+Para criar um model de algo, por exemplo lens, é necessário de um schema que por sua vez possa receber um generic para que nossos objetos tenham os atributos que definimos lá! Porém um ponto importante a se observar é que por mais que o TypeScript garanta os tipos dos dados que utilizamos durante o desenvolvimento, ele não garante estes tipos durante a execução.
+No caso de uma API como a nossa, se dissermos que vamos receber no corpo da requisição um conteúdo do tipo lens, o TypeScript deixará você acessar os atributos de acordo no seu código. Mas se por algum motivo uma requisição inválida for enviada, seu código quebrará durante a execução pois você pode tentar acessar um valor inexistente ou com um tipo inválido.
+Para que isto não aconteça, é necessário que façamos validações dos tipos e valores ao recebermos as requisições. Entretanto, conforme a aplicação cresce, é inviável fazer cada validação de forma manual. Por isso, utilizaremos a biblioteca Zod para definir nossas tipagens e se responsabilizar pela validação dos dados na camada de service.
+
+```
+// ./src/interfaces/Lens.ts
+
+import { z } from 'zod';
+
+const lensZodSchema = z.object({
+  degree: z.number(),
+  antiGlare: z.boolean(),
+  blueLightFilter: z.boolean()});
+
+type ILens = z.infer<typeof lensZodSchema>;
+
+export default ILens;
+export { lensZodSchema };
+```
+
+Se não estivessemos usando o zod, seria o mesmo que:
+```
+interface ILens {
+  degree: number,
+  antiGlare: boolean,
+  blueLightFilter: boolean,
+}
+
+export default ILens;
+```
+
+Como o schema que o Zod cria para validação não é um tipo do TypeScript, foi criado esse tipo explicitamente utilizando type MeuTipo = z.infer<typeof MeuSchema>. Mesmo sendo um type (não uma interface), se comporta da mesma forma que nossa interface. Já que o MeuSchema é o lensZodSchema.
+
+Schema Frame:
+```
+// ./src/interfaces/Frame.ts
+
+import { z } from 'zod';
+
+const FrameZodSchema = z.object({
+  material: z.string(),
+  color: z.string({
+    required_error: 'Color is required',
+    invalid_type_error: 'Color must be a string',
+  }).min(3, { message: 'Color must be 3 or more characters long' })});
+
+type IFrame = z.infer<typeof FrameZodSchema>;
+
+export default IFrame;
+export { FrameZodSchema };
+```
+
+A título de exemplo do uso do Zod, nosso atributo color também possui erros personalizados, por exemplo, se não for passado o atributo (required_error) ou se o tipo estiver incorreto (invalid_type_error), bem como uma validação de que deve possuir pelo menos 3 caracteres (no método min). [Mais possibilidades com o Zod](https://github.com/colinhacks/zod#defining-schemas).
+
 
