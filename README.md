@@ -218,3 +218,9 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] 29-4: _Updates Simples_
 - [x] 29-5: _Updates Complexos - Arrays_
 - [ ] 29-6: _[Projeto - Commerce]()_
+
+##### Bloco 30: MongoDB com Node.js e POO
+
+- [x] 30-1: _Mongoose e Arquitetura MSC(camada Model)_
+- [ ] 30-2: _Mongoose e Arquitetura MSC(camada Service e Controller)_
+- [ ] 30-3: _[Projeto - Car Shop]()_
