@@ -15,7 +15,7 @@ Independente dos nomes, o que é importante nessas estruturas são principalment
 - A camada só deve implementar o que é responsabilidade dela.
   - A model não deve responder a requisição, nem a controller acessar o banco diretamente.
 
-# Testando a camada controller
+# Testando a camada controllers
 
 Aqui os métodos são testados de forma colateral e não pelo retorno da função. Esse método normalmente recebe dois parâmetros:
 
