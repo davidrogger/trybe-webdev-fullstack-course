@@ -15,3 +15,14 @@ Independente dos nomes, o que é importante nessas estruturas são principalment
 - A camada só deve implementar o que é responsabilidade dela.
   - A model não deve responsar a requisição, nem a controller acessar o banco direitamente.
 
+# Testando a camada controller
+
+Aqui os métodos são testados de forma colateral e não pelo retorno da função. Esse método normalmente recebe dois parâmetros:
+
+- A Request, um objeto podem conter as chaves body, params, query e assim por diante;
+  - Quando testamos a Controller, devemos observar a implementação do método e nos perguntar: "O que este método utiliza do objeto request"?
+  - Assim conseguimos passar para esse método um Request que ao menos permita que o código chegue onde você quer testar
+  - Por exemplo, se usarmos o req.params.id no método, devemos passar um objeto Request assim `{ params: { id: '1' } }`.Se passarmos um objeto vazio como Request, vai gerar aquele clássico Unchaught TypeError: Cannot read properties of undefined (reading 'id').
+- A response, por onde faremos nossa asserções, iremos testar se os métodos json e status foram chamados com os valores esperados.
+ - Por isso construímos um objeto com esses métodos e por termos escrito em nossa implementação a instrução `res.status(200).json('text')` é necessário que res.status() returne o próprio res que tem método json.
+
