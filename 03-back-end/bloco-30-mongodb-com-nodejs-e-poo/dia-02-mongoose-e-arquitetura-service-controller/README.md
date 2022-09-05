@@ -13,7 +13,7 @@ Independente dos nomes, o que é importante nessas estruturas são principalment
 - A camada num nível acima sempre chama outroa num nível abaixo, nunca acim,a nem na mesma camada.
   - A Service só chama uma ou mais models;
 - A camada só deve implementar o que é responsabilidade dela.
-  - A model não deve responsar a requisição, nem a controller acessar o banco direitamente.
+  - A model não deve responder a requisição, nem a controller acessar o banco diretamente.
 
 # Testando a camada controller
 
