@@ -1,0 +1,1 @@
+Bloco Dedicado para desenolvimento em grupo do App Delivery
