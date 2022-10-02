@@ -27,3 +27,9 @@ PaaS, plataforma como serviço, exemplo Heroku. Um PaaS fornece à pessoa desenv
 
 Se por um lado é uma desvantagem ter que administrar todo o sistema, por outro é uma vantagem poder configurá-lo para melhor se adequar a aplicação. Em alguns casos onde a aplicação utiliza tecnologias específicas, possui necessidades específicas de ambiente de execução ou similares, utilizar VPS  (ou outros sistemas que permitam administrar o sistema operacional) é estritamente necessário. Além de tudo isso, após configurá-la, a VPS tende a ficar estável e custar menos no longo prazo, principalmente para projetos que não dão retorno financeiro (como por exemplo para experimentações, portfolio e etc), ou para projetos internos de emrpesas.
 
+# VPS vs Hospedagem
+
+Existem diversos provedores de serviços que oferecem hospedagem de sistes, inclusive muitos dos provedores também fornecem VPSs. A diferença principal entre estes serviços de hospedagem de sistes e as VPSs é que hospedagem de sistes costuma ser em um servidor compartilhado com outras pessoas/outros projetos, bem como possuem limitações de linguagens e tecnologias. Hospedagem compartilhada é muito boa quando se quer colocar um site simples no ar, quando a quantidade de acessos for baixa e as tecnologias utilizadas forem mais comuns (por exemplo um siste estático como somente HTML, CSS e JavaScript), mas não são muito boas para hospedar, por exemplo, um sistema web com um back-end completo.
+
+Vantagem da hospedagem é que ela é mais simples de configurar e costuma ser um pouco mais barata. Já como desvagagens, principalmente para web developers experientes, é a falta de flexibilidade para rodar aplicações mais complexas e específicas, a impossibilidade de escalar o desempenho conforme a quantidade de acessos cresce e a lista limitada de tecnologias que podem ser utilizadas.
+
