@@ -37,3 +37,11 @@ Vantagem da hospedagem é que ela é mais simples de configurar e costuma ser um
 
 Um servidor dedicado é como uma VPS, só que o servidor inteiro fica disponível para você utilizar. Geralmetne é o mesmo que uma VPS mais cara, visto que você tem uma máquina específica onde ele é só seu. Os servidores dedicados costumam ser bem mais caros que VPS de entrada (chegando a alguns milhares de reais por mês). mas o modo de uso é quase o mesmo. Um bom uso de servidores dedicados pode ser quando alguma regulamentação exija que os dados não fiquem em discos compartilhados, ou quando toda a performance do servidor é necessária para uma aplicação exclusiva que não responde bem a escalonamento horizontal, somente vertical.
 
+# Por que usar uma VPS
+
+Ela é uma ótima escolha nos seguintes cenários:
+
+- Máquina barata.
+- Precisa de configuração no sistema.
+- Disponibilidade para mais de uma aplicação em um único sistema.
+
