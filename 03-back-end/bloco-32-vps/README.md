@@ -33,3 +33,7 @@ Existem diversos provedores de serviços que oferecem hospedagem de sistes, incl
 
 Vantagem da hospedagem é que ela é mais simples de configurar e costuma ser um pouco mais barata. Já como desvagagens, principalmente para web developers experientes, é a falta de flexibilidade para rodar aplicações mais complexas e específicas, a impossibilidade de escalar o desempenho conforme a quantidade de acessos cresce e a lista limitada de tecnologias que podem ser utilizadas.
 
+# VPS vs Servidor dedicado
+
+Um servidor dedicado é como uma VPS, só que o servidor inteiro fica disponível para você utilizar. Geralmetne é o mesmo que uma VPS mais cara, visto que você tem uma máquina específica onde ele é só seu. Os servidores dedicados costumam ser bem mais caros que VPS de entrada (chegando a alguns milhares de reais por mês). mas o modo de uso é quase o mesmo. Um bom uso de servidores dedicados pode ser quando alguma regulamentação exija que os dados não fiquem em discos compartilhados, ou quando toda a performance do servidor é necessária para uma aplicação exclusiva que não responde bem a escalonamento horizontal, somente vertical.
+
