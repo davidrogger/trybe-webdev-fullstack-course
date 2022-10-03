@@ -232,4 +232,4 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 ##### Bloco 32: MasterClass - VPS, CI/CD
 
 - [x] 32-1: _VPS_
-- [x] 32-2: _VPS_
+- [ ] 32-2: _VPS_
