@@ -224,3 +224,12 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] 30-1: _Mongoose e Arquitetura MSC(camada Model)_
 - [x] 30-2: _Mongoose e Arquitetura MSC(camada Service e Controller)_
 - [ ] 30-3: _[Projeto - Car Shop]()_
+
+##### Bloco 31: Project App Delivery
+
+- [ ] 31-1: _[Projeto - App Delivery]()_
+
+##### Bloco 32: MasterClass - VPS, CI/CD
+
+- [x] 32-1: _VPS_
+- [x] 32-2: _VPS_
