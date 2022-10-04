@@ -85,3 +85,56 @@ Quando queremos fazer operações lógicas, como verificar se uma temperatura es
 
 Da mesma forma, podemos validar intervalos utilizando o operador `or`.
 Se em um parque pessoas com idade menor ou igual a 5 e maiores de 65 anos não pagam, poderíamos escrever uma validação da seguinte maneira `idade <= 5 or idade >= 65`.
+
+# Dados embutidos
+
+## Booleanos
+
+Os valores booleanos True e False pertencem ao tipo embutido bool.
+Deve-se ter uma atenção ao início maiúsculo dessas palavras reservadas.
+
+## Números inteiros (int)
+
+O primeiro dos tipos numéricos é o int, ele representa um número inteiro, ou seja, é escrito sem parte fracionária.
+
+## Números fracionários (float)
+
+O segundo tipo numérico é o float, também conhecido por ponto flutuante, ele representa um número decimal ou fracionário.
+
+## Strings (str)
+
+Representa uma cadeia de caracteres ou, como popularmente conhecida, uma string. As strings são definidas envolvendo um valor com aspas simples ou duplas.
+
+Temos ainda estruturas do tipo:
+
+- sequência(list, tuple, range);
+- conjuntos (set, frozenset);
+- mapeamento(dict);
+- sequências binárias(bytes, bytearray, memoryview)
+
+Entre muitos outros tipos:
+- [Tipos padrões do Python](https://docs.python.org/3/library/stdtypes.html)
+- [Outros tipos de dados do Python](https://docs.python.org/3/library/datatypes.html)
+
+## Listas (list)
+
+Uma lista é uma sequência mutável e ordenada de elementos. Ela pode armazenar elementos heterogêneos, ter seu tamanho variável e crescer à medida que itens são adicionados.
+
+Sintaxe:
+```
+fruits = ["laranja", "maçã", "uva", "abacaxi"]  # elementos são definidos separados por vírgula, envolvidos por colchetes
+
+fruits[0]  # o acesso é feito por índices iniciados em 0
+
+fruits[-1]  # o acesso também pode ser negativo
+
+fruits.append("banana")  # adicionando uma nova fruta
+
+fruits.remove("abacaxi")  # removendo uma fruta
+
+fruits.extend(["pera", "melão", "kiwi"])  # acrescenta uma lista de frutas a lista original
+
+fruits.index("maçã")  # retorna o índice onde a fruta está localizada, neste caso, 1
+
+fruits.sort()  # ordena a lista de frutas
+```
