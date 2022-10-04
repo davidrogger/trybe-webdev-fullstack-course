@@ -8,4 +8,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD ["python", "./seu-arquivo.py"]
+CMD ["python", "./basic-operations.py"]
