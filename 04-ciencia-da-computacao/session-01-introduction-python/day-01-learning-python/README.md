@@ -34,3 +34,37 @@ Agora usando `import this`
 
 A fim de padrozniar códigos escritos em Python, foi lançado um guia de estilo conhecido como PEP 8 ou Python Enchancement Proposal 8. A PEP 8 é um documento desenvolvido pela comunidade pythônica que visa aprimorar a legibilidade dos códigos.
 
+# Python no Docker
+
+Criando um container temporario, que é deletado após finalizar o seu uso:
+```
+docker run -it --rm python
+```
+
+Criando um Dockerfile:
+```
+FROM python:3
+
+WORKDIR /usr/src/app
+
+COPY requirements.txt ./
+
+RUN pip install --no-chache-dir -r requirements.txt
+
+COPY . .
+
+CMD ["python", "./seu-arquivo.py"]
+```
+
+Para iniciar o Dockerfile:
+```
+docker build -t my-python-app .
+docker run -it --rm --name my-running-app my-python-app
+```
+
+Executando um script Python usando a imagem python Docker diretamente:
+```
+docker run -it --rm --name nome-do-seu-script -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:3 python seu-arquivo.py
+# -v "$PWD":/usr/src/myapp - monta o diretório atual para dentro do contêiner
+# -w /usr/src/myapp - muda o WORKDIR para executar o comando no diretório recém montado.
+```
