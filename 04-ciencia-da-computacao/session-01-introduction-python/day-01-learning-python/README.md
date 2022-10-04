@@ -68,3 +68,20 @@ docker run -it --rm --name nome-do-seu-script -v "$PWD":/usr/src/myapp -w /usr/s
 # -v "$PWD":/usr/src/myapp - monta o diretório atual para dentro do contêiner
 # -w /usr/src/myapp - muda o WORKDIR para executar o comando no diretório recém montado.
 ```
+
+# Algumas Diferenças entre o Python e o JS
+
+Operador `//` não existe no JS, ele retorna o quociente arredondado sem os valores após o ponto:
+```
+3 // 2 # saída 1
+3 / 2 # saída 1.5
+```
+
+Operação de comparação `"1" == 1` o resultado será falso, pois como são valores de tipos diferentes, nenhuma conversão é realizada.
+
+## Operadores de Comparação
+
+Quando queremos fazer operações lógicas, como verificar se uma temperatura está entre dois valores, utilizamos o operador and. Ou seja, para verificar se uma temperatura é menor que 25 graus e maior que 18 graus, podemos fazer algo como `temperatura < 25 and temperatura > 18`. Em python pode-se comparar assim `18 < temperatura < 25`
+
+Da mesma forma, podemos validar intervalos utilizando o operador `or`.
+Se em um parque pessoas com idade menor ou igual a 5 e maiores de 65 anos não pagam, poderíamos escrever uma validação da seguinte maneira `idade <= 5 or idade >= 65`.
