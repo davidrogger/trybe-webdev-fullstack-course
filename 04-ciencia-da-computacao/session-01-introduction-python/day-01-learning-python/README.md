@@ -138,3 +138,33 @@ fruits.index("maçã")  # retorna o índice onde a fruta está localizada, neste
 
 fruits.sort()  # ordena a lista de frutas
 ```
+
+## Tuplas (tuple)
+
+São similares a lista, porém não podem ser modificados durante a execução do programa.
+
+Sintaxe:
+```
+user = ("Will", "Marcondes", 42) # elementos são definidos separados por vírgula, envolvidos por parênteses
+
+user[0]  # acesso também por índices
+```
+
+# Conjuntos (set)
+
+Um conjunto é uma coleção de elementos únicos e não ordenados. Conjuntos implementam operações de união, intersecção e outras.
+
+Sintaxe:
+```
+permissions = {"member", "group"}  # elementos separados por vírgula, envolvidos por chaves
+
+permissions.add("root")  # adiciona um novo elemento ao conjunto
+
+permissions.add("member")  # como o elemento já existe, nenhum novo item é adicionado ao conjunto
+
+permissions.union({"user"})  # retorna um conjunto resultado da união
+
+permissions.intersection({"user", "member"})  # retorna um conjunto resultante da intersecção dos conjuntos
+
+permissions.difference({"user"})  # retorna a diferença entre os dois conjuntos
+```
