@@ -238,3 +238,36 @@ Se forem somente os valores seria Tupla, agora se tiverem chave e valor, dict.
 Exercício 11: Realizar a contagem de quantas vezes cada elemento aparece em uma sequência é uma técnica muito útil na solução de alguns problemas. Qual é a estrutura mais recomendada para o armazenamento desta contagem?
 
 Como seria necessário um chave que representa o item contado, e um valor onde indica quantas vezes ele aparece.
+
+# Estruturas condicionais
+
+Python, não usa de switch, por considerar if já suprir a necessidade:
+
+Sintaxe com exemplo:
+```
+position = ""
+if salary <= 2000:
+    position = "estagiário"
+elif 2000 < salary <= 5800:
+    position = "júnior"
+elif 5800 < salary <= 7500:
+    position = "pleno"
+elif 7500 < salary <= 10500:
+    position = "senior"
+else:
+    position = "líder"
+```
+Python usa um identação de 4 espaço também.
+
+Em alguns casos podemos usar uma estrutura de mapeamento para simplificar o aninhamento de condicionais.
+
+```
+key = "id"
+from_to = {
+    "id": "identifier",
+    "mail": "email",
+    "lastName": "last_name",
+}
+from_to[key]
+```
+
