@@ -168,3 +168,73 @@ permissions.intersection({"user", "member"})  # retorna um conjunto resultante d
 
 permissions.difference({"user"})  # retorna a diferença entre os dois conjuntos
 ```
+
+# Conjuntos imutáveis (frozenset)
+
+É uma variação do set, porém imutável, ou seja, seus elementos não podem ser modificados durante a execução do programa.
+
+Sintaxe:
+```
+permissions = frozenset(["member", "group"])  # assim como o set, qualquer estrutura iterável pode ser utilizada para criar um frozenset
+
+permissions.union({"user"})  # novos conjuntos imutáveis podem ser criados à partir do original, mas o mesmo não pode ser modificado
+
+permissions.intersection({"user", "member"})  # retorna um conjunto resultante da intersecção dos conjuntos
+
+permissions.difference({"user"})  # retorna a diferença entre os dois conjuntos
+```
+
+# Dicionários (dict)
+
+Estrutura que associa uma chave a um determinado valor. Assim como o objeto no JavaScript.
+
+Sintaxe:
+```
+people_by_id = {1: "Maria", 2: "Fernanda", 3: "Felipe"}  # elementos no formato "chave: valor" separados por vírgula, envolvidos por chaves
+
+people_by_name = {"Maria": 1, "Fernanda": 2, "Felipe": 3}  # outro exemplo, dessa vez usando strings como chaves. As aspas são necessárias para que o Python não ache que `Maria`, `Fernanda` e `Felipe` sejam variáveis.
+
+# elementos são acessados por suas chaves
+people_by_id[1]  # saída: Maria
+
+# elementos podem ser removidos com a palavra chave del
+del people_by_id[1]
+people_by_id.items()  # dict_items([(1, "Maria"), (2, "Fernanda"), (3, "Felipe")])
+# um conjunto é retornado com tuplas contendo chaves e valores
+```
+
+# Range (range)
+
+Estrutura capaz de gerar uma sequência numérica de um valor inicial até um valor final, modificando seu valor de acordo com o passo (step) definido. Pode ser declarado como range( [start], stop[, step] ), em que start e step podem ser omitidos, possuindo valores iniciais iguais a 0 e 1 respectivamente.
+
+O stop não é incluído na sequência, portanto, caso queira uma sequência de 1 até 10 a chamada deverá ser range(1, 11)
+
+Os valores são criados à medida que esta sequência é percorrida.
+
+Sintaxe:
+
+```
+# vamos converter o range em uma lista para ajudar na visualização
+
+# definimos somente o valor de parada
+list(range(5))  # saída: [0, 1, 2, 3, 4]
+
+# definimos o valor inicial e o de parada
+list(range(1, 6))  # saída: [1, 2, 3, 4, 5]
+
+# definimos valor inicial, de parada e modificamos o passo para 2
+list(range(1, 11, 2))  # saída: [1, 3, 5, 7, 9]
+
+# podemos utilizar valores negativos para as entradas também
+list(range(10, 0, -1))  # saída: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+```
+
+Além dos tipos básicos, existem outros como datas, tuplas, nomeadas, arrays, enumerações e outros, mas estes têm de ser importados de seus respectivos módulos.
+
+Exercício 10: Após uma consulta do banco de dados, temos linhas que contém nome, sobrenome e idade como: "Thiago", "Nobre", 29. Que estrutura vista anteriormente seria recomendada dado que após esta consulta somente exibimos estes valores?
+
+Se forem somente os valores seria Tupla, agora se tiverem chave e valor, dict.
+
+Exercício 11: Realizar a contagem de quantas vezes cada elemento aparece em uma sequência é uma técnica muito útil na solução de alguns problemas. Qual é a estrutura mais recomendada para o armazenamento desta contagem?
+
+Como seria necessário um chave que representa o item contado, e um valor onde indica quantas vezes ele aparece.
