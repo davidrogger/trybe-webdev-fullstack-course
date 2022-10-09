@@ -1,6 +1,4 @@
 # 1
-from re import X
-
 
 for index in range(5):
     print(index)
@@ -14,28 +12,21 @@ restaurants = [
 ]
 
 min_rating = 3.0
-filtered_restaurants = [restaurant
-                            for restaurant in restaurants
-                            if restaurant["nota"] > min_rating]
+filtered_restaurants = [
+    restaurant for restaurant in restaurants if restaurant["nota"] > min_rating
+]
 print(filtered_restaurants)
 
-restaurants_names = [restaurant['name']
-                        for restaurant in restaurants
-                    ]
-print (restaurants_names)
+restaurants_names = [restaurant["name"] for restaurant in restaurants]
+print(restaurants_names)
 
 # 3
 
-names_list = ['Duda', 'Rafa', 'Cris', 'Yuri']
-new_names_list = [name
-                    for name in names_list
-                    if 'a' in name
-                ]
+names_list = ["Duda", "Rafa", "Cris", "Yuri"]
+new_names_list = [name for name in names_list if "a" in name]
 print(new_names_list)
 
 # 4
 
-quadrados = [x*x
-                for x in range(11)
-                ]
+quadrados = [x * x for x in range(11)]
 print(quadrados)

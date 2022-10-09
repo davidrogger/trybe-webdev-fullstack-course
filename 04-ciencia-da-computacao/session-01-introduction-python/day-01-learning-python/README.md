@@ -287,5 +287,84 @@ A Sequência de Fibonacci, muito presente em diversas formas na naturize, é uma
 Em python, um loop for geralmente é escrito como um loop sobre um objeto iterável.
 Isso significa que você não precisa de uma variável de contagem para acessar itens no iterável.
 
+# Funções
 
+Podem ser definidas atráves de palavra reservada def, seguida por um nome e os parâmetros entre parênteses. Como todo bloco de código em Python, o caractere : define o início do bloco, e a identação define seu fim.
+
+Os parâmetros podem ser passados de forma:
+
+- posicional, defindos por meio de posição em que cada um é passado;
+- nomeada, defindos por meio de seus nomes.
+
+```
+def soma(x, y):
+    return x + y
+
+soma(2, 2) # posicional
+
+soma(x=2, y=2) # nomeando os parâmetros
+```
+
+Os parâmetros também pode ser variádicos, ou seja, variam em sua quantidade.
+Parâmetros posicionais variádicos são acessados como uma tupla no interior de uma função, e parâmetros nomeados variádicos como um dicionário.
+
+```
+def concat(*strings):
+    # Equivalente a um ", ".join(strings), que concatena os elementos de um iterável em uma string utilizando um separador
+    # Nesse caso a string resultante estaria separada por vírgula
+
+    final_string = ""
+    for string in strings:
+        final_string += string
+        if not string == strings[-1]:
+            final_string += ', '
+    return final_string
+
+# pode ser chamado com 2 parâmetros
+concat("Carlos", "Cristina")  # saída: "Carlos, Cristina"
+
+# pode ser chamado com um número n de parâmetros
+concat("Carlos", "Cristina", "Maria")  # saída: "Carlos, Cristina, Maria"
+
+# dict é uma função que já vem embutida no python
+dict(nome="Felipe", sobrenome="Silva", idade=25)  # cria um dicionário utilizando as chaves passadas
+
+dict(nome="Ana", sobrenome="Souza", idade=21, turma=1)  # o número de parâmetros passados para a função pode variar
+```
+As variáveis definidas dentro das funções tem escopo local. Porém, quando uma função não encontra um nome no escopo local, ela irá procurar no espaço de nomes global.
+
+Em alguns casos, podemos querer limitar um parâmetro em nomeado ou posicional para evitar ambiguidades e/ou aumentar legibilidade.
+
+```
+len([1, 2, 3, 4])  # função len não aceita argumentos nomeados
+
+len(obj=[1, 2, 3, 4])  # este código irá falhar
+
+print("Coin", "Rodrigo", ", ")  # imprime Coin Rodrigo ,
+
+print("Coin", "Rodrigo", sep=", ")  # nomeando o terceiro parâmetro, agora temos a saída: Coin, Rodrigo
+```
+
+# Usando python em arquivos com ajuda de extensões de melhroes práticas
+
+Primeiramente verificarmos o python instalado na máquina:
+
+- verificar instalação do python: `python3 --version`
+- instalando python no ubuntu: `sudo apt install python3`
+
+Depois o [PIP](https://pypi.python.org/pypi/pip) que é o gerenciador de pacotes do python
+
+- verificando pip: `python3 -m pip --version`
+- instalando pip no ubuntu: `sudo apt install python3-pip`
+
+Depois o [flake8](https://flake8.pycqa.org/en/latest/) é um programa de linha de comando que verificar seu código e busca por erros ou formatações que não segue o guia de estilo padrão do python, conhecido como PEP-8, Além disso verifica a [complexibilidade ciclamática](https://pt.wikipedia.org/wiki/Complexidade_ciclom%C3%A1tica) do seu código.
+
+- verificando flake8: `python3 -m flake8 --version`
+- instalando flake8 no ubuntu: `sudo python3 -m pip install flake8`
+
+Depois Black, que é o formatador de código Python intransigente. AO usá-lo, você concorda em ceder o controle sobre as minúcias de formatação manual. Em troca, o black dá a você velocidade, determinismo e liberdade do irritante pycodestyle sobre formatação. Você economizará tempo e energia mental para assuntos mais importantes.
+Ele irá modificar o seu código seguindo o guia de estilo do python.
+
+- verificando black: `python3 -m black --version`
+- instalando black no ubuntu: `sudo python3 -m pip install black`
 
