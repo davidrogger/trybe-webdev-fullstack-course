@@ -368,3 +368,22 @@ Ele irá modificar o seu código seguindo o guia de estilo do python.
 - verificando black: `python3 -m black --version`
 - instalando black no ubuntu: `sudo python3 -m pip install black`
 
+Após todas instalações adicione ao VS code:
+
+- ctrl+p: `ext install ms-python.python`
+
+Acesse com ctrl + shift + p, vá em Preferences: Open User Settings (JSON), e adicione:
+```
+// ...
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.formatting.blackArgs": [
+        "-l 79"
+    ],
+    "python.formatting.provider": "black",
+// ...
+```
+
+Para testar crie um arquivo `*.py` e digite lita = [1,2,3]
+Ele deve aparecer em vermelho `missing whitespaces after ','`
+Para alto formatação do black, pressione `ctrl + shift + i`
