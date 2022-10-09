@@ -278,5 +278,9 @@ from_to[key]
 
 Dado que a maior parte do tempo estamos percorrendo estruturas, os criadores do python decidiram que o for each seria o laço de repetição principal na linguagem.
 
+# While
+
+A Sequência de Fibonacci, muito presente em diversas formas na naturize, é uma sequência numérica começando por 0 e 1 e cada termo subsequente corresponde à soma dos dois anteriores.
+
 
 
