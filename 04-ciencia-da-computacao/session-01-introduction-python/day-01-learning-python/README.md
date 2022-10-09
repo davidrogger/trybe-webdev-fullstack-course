@@ -282,5 +282,10 @@ Dado que a maior parte do tempo estamos percorrendo estruturas, os criadores do 
 
 A Sequência de Fibonacci, muito presente em diversas formas na naturize, é uma sequência numérica começando por 0 e 1 e cada termo subsequente corresponde à soma dos dois anteriores.
 
+# enumerate
+
+Em python, um loop for geralmente é escrito como um loop sobre um objeto iterável.
+Isso significa que você não precisa de uma variável de contagem para acessar itens no iterável.
+
 
 
