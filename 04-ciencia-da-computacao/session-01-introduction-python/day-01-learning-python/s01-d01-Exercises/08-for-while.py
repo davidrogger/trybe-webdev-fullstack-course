@@ -22,5 +22,18 @@ ratings = [6, 8, 5, 9, 10]
 
 new_ratings = [rating * 10
                 for rating in ratings
-            ]
+                ]
 print(new_ratings)
+
+# Exercício 14
+# Percorra a lista do exercício 13 e imprima “Múltiplo de 3” se o elemento for divisível por 3.
+
+multipleOfThree = [rating
+                    for rating in ratings
+                    if rating % 3 == 0
+                    ]
+print(multipleOfThree)
+
+for rating in ratings:
+    if rating % 3 == 0:
+        print(f'{rating} is multiple of 3')
