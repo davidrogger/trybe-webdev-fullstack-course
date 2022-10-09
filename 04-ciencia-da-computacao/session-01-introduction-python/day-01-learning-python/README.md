@@ -271,3 +271,12 @@ from_to = {
 from_to[key]
 ```
 
+
+# Estruturas de repetição
+
+## for
+
+Dado que a maior parte do tempo estamos percorrendo estruturas, os criadores do python decidiram que o for each seria o laço de repetição principal na linguagem.
+
+
+
