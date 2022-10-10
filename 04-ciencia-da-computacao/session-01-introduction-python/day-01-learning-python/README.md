@@ -395,7 +395,7 @@ Tem como objetivo padronizar a estrutura de alto nível das docstrings: o que el
 
 ## O que é uma Docstring?
 
-No Python são os literais da string que aparecem logo após a definição de uma função, método, classe ou módulo. Para documentação do nosso código.
+No Python são os li`terais da string que aparecem logo após a definição de uma função, método, classe ou módulo. Para documentação do nosso código.
 
 Exemplo:
 ```
@@ -405,4 +405,35 @@ def quadrado(n):
 ```
 
 Dentro de uma sequencia tripla de aspas seja dupla ou simples (" ou ') está a docstring da função.
+
+# Atributo `__doc__` do Python
+
+Podemos acessar essas docstrings usando o atributo `__doc__`.
+
+Exemplo:
+```
+def quadrado(n):
+    '''Recebe um número n, retorna o quadrado de n'''
+    return n**2
+print(quadrado.__doc__)
+# Saída
+Recebe um número n, retorna o quadrado de n
+```
+
+Exemplo: Docstrings para a função print() integrada
+```
+print(print.__doc__)
+
+# Saída
+print(value, ..., sep' ', end='\n', file=sys.stdout, flush=False)
+
+Prints the values to a stream, or to sys.stdout by default.
+Optional keyword arguments:
+file: a file-like object (stream); defaults to the current sys.stdout.
+sep: string inserted between values, default a space.
+end: string appended after the last value, default a newline.
+flush: whether to forcibly flush the stream.
+```
+
+[Mais info sobre DocString conventions](https://peps.python.org/pep-0257/)
 
