@@ -2,11 +2,11 @@
 # Calcule a média aritmética dos valores contidos em uma lista.
 
 
-def arithmeticAverage(numbersList):
+def arithmetic_average(numbers_list):
     total = 0
-    for number in numbersList:
+    for number in numbers_list:
         total += number
-    return total / len(numbersList)
+    return total / len(numbers_list)
 
 
-print(arithmeticAverage([10, 5]))
+print(arithmetic_average([10, 5]))

@@ -2,8 +2,8 @@
 # Crie uma função que receba dois números e retorne o maior deles.
 
 
-def biggestNumber(number1, number2):
+def biggest_number(number1, number2):
     return max(number1, number2)
 
 
-print(biggestNumber(100, 50))
+print(biggest_number(100, 50))

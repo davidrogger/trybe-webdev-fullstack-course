@@ -3,9 +3,9 @@
 # imprima na tela um quadrado feito de asteriscos de lado de tamanho n.
 
 
-def printAsteSquare(size):
+def print_asteristic_square(size):
     for row in range(size):
         print(size * '*')
 
 
-printAsteSquare(5)
+print_asteristic_square(5)

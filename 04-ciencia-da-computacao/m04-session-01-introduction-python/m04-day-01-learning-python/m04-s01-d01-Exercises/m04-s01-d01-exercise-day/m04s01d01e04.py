@@ -4,9 +4,9 @@
 # o retorno deve ser "Fernanda".
 
 
-def biggest_name(namesList):
+def biggest_name(names_list):
     biggest_name = ""  # || namesList[0]
-    for name in namesList:
+    for name in names_list:
         if len(name) > len(biggest_name):
             biggest_name = name
     return biggest_name
