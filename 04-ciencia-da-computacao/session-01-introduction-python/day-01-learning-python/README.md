@@ -387,3 +387,22 @@ Acesse com ctrl + shift + p, vá em Preferences: Open User Settings (JSON), e ad
 Para testar crie um arquivo `*.py` e digite lita = [1,2,3]
 Ele deve aparecer em vermelho `missing whitespaces after ','`
 Para alto formatação do black, pressione `ctrl + shift + i`
+
+# PEP 257 - Convenções Docstring
+
+Documenta a semântica e as convenções associadas às docstrings do Python.
+Tem como objetivo padronizar a estrutura de alto nível das docstrings: o que elas devem conter e como dizê-lo. O PEP contém convençoes, não leis ou sintaxe.
+
+## O que é uma Docstring?
+
+No Python são os literais da string que aparecem logo após a definição de uma função, método, classe ou módulo. Para documentação do nosso código.
+
+Exemplo:
+```
+def quadrado(n):
+    '''Recebe um número n, retorna o quadrado de n''' #literal de string
+    return n**2
+```
+
+Dentro de uma sequencia tripla de aspas seja dupla ou simples (" ou ') está a docstring da função.
+
