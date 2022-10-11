@@ -19,3 +19,22 @@ from http import client  # importa o módulo client do pacote http
 from http.client import HTTP_PORT  # importa a constante HTTP_POST do módulo client do pacote http
 ```
 
+# Ambiente Virtual
+
+Para resolver os problemas de versionamento de pacotes, em datas situações em que temos projetos com versões diferentes de bibiotecas e evitar incompatibilidade de versões é usado o ambiente virtual.
+O `venv` é um módulo já embutido na linguagem, e serve para isolar ambientes de projetos. É possivel ter dois projetos rodando em dois ambientes diferentes, que podem ter versões diferentes de uma mesma biblioteca.
+
+Na prática, é instalado as bibliotecas em um diretório que está relacionado ao projeto.
+
+O comando para criação deste ambiente é `python3 -m venv .venv`, sendo que `.venv` é o nome do ambiente isolado. Este comando deve ser executado na raiz do projeto.
+
+Instalando o venv no ubuntu: `sudo apt install python3-venv`
+
+Este ambiente isolado será visto como um diretório criado na raiz do projeto. O ponto na frente do nome faz com que o diretório fique oculto.
+
+Depois de criado, é preciso ativar o ambiente para usá-lo: source `.venv/bin/activate`
+
+Para verificar se ativação ocorreu corretamente: `which python3`
+
+O resultado será o caminho para a pasta onde você criou o ambiente virtual (pwd), acresdido de `.venv/bin/python3`
+
