@@ -53,4 +53,56 @@ print(head)  # saída: 1
 print(tail)  # saída: [2, 3]
 ```
 
+# Manipulação de arquivos
+
+A função open é responsável por abrir um arquivo, tornando possível sua manipulação. Seu único parâmetro obrigatório é o nome do arquivo. Por padrão, arquivos são abertos somente para leitura, mas podemos modificar isto passando o modo (para escrita mode="w").
+
+Exemplo:
+```
+file = open("arquivo.txt", mode="w")  # ao abrir um arquivo para escrita, um novo arquivo é criado mesmo que ele já exista, sobrescrevendo o antigo.
+```
+
+Para escrever um conteúdo em um arquivo utilizamos a função write:
+
+```
+# file = open("arquivo.txt", mode="w")
+
+file.write("nome idade\n")
+file.write("Maria 45\n")
+file.write("Miguel 33\n")
+```
+
+Só é possível escrever em um arquivo após abri-lo em um modo que permita escrita.
+
+É possivel escrever arquivos usando o print.
+
+
+Exemplo:
+```
+#
+# file.write("Miguel 33\n")
+
+
+# Não precisa da quebra de linha, pois esse é um comportamento padrão do print
+print("Túlio 22", file=file)
+```
+
+Para escrever múltiplas linhas podemos utilizar a função writelines. Repare que a função espera que cada linha tenha seu próprio caractere de separação (\n):
+```
+#
+# print("Túlio 22", file=file)
+
+
+LINES = ["Alberto 35\n", "Betina 22\n", "João 42\n", "Victor 19\n"]
+file.writelines(LINES)
+```
+
+Por termos uma quantidade limite de abertura de arquivos, após finalizado é necessário fechar o arquivo que abrimos com a função close: `file.close()`
+Outro motivo importante para se fechar os arquivos é que normalmente a manipulação de arquivos é feita através de buffers. Ou seja, a escrita em disco pode não ser imediata. Quando fechamos o arquivo, garantimos que tudo aquilo que ainda não está escrito seja persistido.
+
+A leitura do conteúdo de um arquivo pode ser feita utilizando a função read.
+
+Além de arquivos textuais, também existem arquivos binários. Eles são arquivos que contêm uma série de bytes e a sua leitura pode variar de acordo com o arquivo. Nesse caso, devemos acrescentar um b ao parâmetro mode, indicando que será utilizado o modo binário.
+
+As operações são similares a de um arquivo textual. Porém tanto a escrita quanto a leitura devem ser feitas utilizando bytes.
 
