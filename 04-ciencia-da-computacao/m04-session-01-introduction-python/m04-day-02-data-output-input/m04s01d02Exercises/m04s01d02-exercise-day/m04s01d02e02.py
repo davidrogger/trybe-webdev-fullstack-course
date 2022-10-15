@@ -25,22 +25,25 @@ def guess_name():
     scrambled_word = "".join(random.sample(picked_name, len(picked_name)))
 
     print("Loading the lifes")
-    count = 3
+    tries = 3
 
     hit = False
     print(f"The word issssss: {scrambled_word}")
 
-    while (count > 0) and (not hit):
+    while (tries > 0) and (not hit):
         answer = input("Now tell me what is the correct word?: ")
         hit = answer == picked_name
         if hit:
             print("Correct answer, Nice work!")
         else:
-            count -= 1
-            if count == 0:
+            tries -= 1
+            if tries == 0:
                 print("There is not lives left, try again later!")
             else:
-                print(f"Wrong answer! you have {count} lives left!")
+                try_tries = "tries" if tries > 1 else "try"
+                print(
+                    f"Wrong answer! you have {tries} {try_tries} left!"
+                )
 
 
 guess_name()
