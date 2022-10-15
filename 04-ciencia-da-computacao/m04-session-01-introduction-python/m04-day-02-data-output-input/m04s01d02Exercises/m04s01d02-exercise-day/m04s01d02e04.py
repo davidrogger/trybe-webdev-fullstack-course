@@ -66,3 +66,6 @@ def get_books_categories_percent(books):
 books = get_books()
 books_percent = get_books_categories_percent(books)
 create_csv_books(books_percent)
+
+
+# https://stackoverflow.com/questions/21058935/python-json-loads-shows-valueerror-extra-data
