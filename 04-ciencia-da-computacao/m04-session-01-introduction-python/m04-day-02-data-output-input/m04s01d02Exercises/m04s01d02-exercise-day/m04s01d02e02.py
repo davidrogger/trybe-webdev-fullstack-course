@@ -14,12 +14,12 @@
 
 import random
 
+names = ["Python", "Typescript", "Trybe"]
 
-def guess_name():
-    names = ["Python", "Typescript", "Trybe"]
 
+def guess_name(namesList):
     print("Picking a word")
-    picked_name = random.choice(names)
+    picked_name = random.choice(namesList)
 
     print("Shuffle the letters")
     scrambled_word = "".join(random.sample(picked_name, len(picked_name)))
@@ -41,9 +41,8 @@ def guess_name():
                 print("There is not lives left, try again later!")
             else:
                 try_tries = "tries" if tries > 1 else "try"
-                print(
-                    f"Wrong answer! you have {tries} {try_tries} left!"
-                )
+                print(f"Wrong answer! you have {tries} {try_tries} left!")
 
 
-guess_name()
+if __name__ == "__main__":
+    guess_name(names)
