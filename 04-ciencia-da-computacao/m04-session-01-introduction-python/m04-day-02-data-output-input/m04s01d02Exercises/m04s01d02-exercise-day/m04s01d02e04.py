@@ -32,17 +32,22 @@ def categories_counter(books):
     return categories_counted
 
 
-def create_csv_books(books_percent):
-    with open("books_percent.csv", "w") as new_file:
+def create_csv_books(books_percent: dict):
+    with open("books_percent2.csv", "w") as new_file:
         writer = csv.writer(new_file)
 
         headers = ["categories", "percent"]
 
         writer.writerow(headers)
 
-        for category, percent in books_percent.items():
-            row = [category, percent]
-            writer.writerow(row)
+        categories = [
+            [category, percent] for category, percent in books_percent.items()
+        ]
+        writer.writerows(categories)
+
+        # for category, percent in books_percent.items():
+        #     row = [category, percent]
+        #     writer.writerow(row)
 
 
 def get_books_categories_percent(books):
