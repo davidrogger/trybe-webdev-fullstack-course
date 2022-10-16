@@ -101,3 +101,12 @@ def test_get_order_frequency_per_costumer_when_customer_is_maria_and_order_is_ha
 
 É importante ressaltar que este contexto poderia ser ra abertura de uma conexção com o banco de dados, uma referência à conexão a um cliente web, um arquivo temporário ou qualquer outro contexto. Também vale lembrar que é possível usar mais de um contexto por testes caso seja necessário, bem como um contexto dentro de outro.
 
+# Dublês de teste
+
+Na literatura encontramos as técnicas de dublê como os nomes fakes, mocks, stubs e spies. De uma forma bem resumida podemos defini-las da seguinte maneira:
+
+- Fakes: Objetos que possuem implementações funcionais, porém normalmente simplificadas;
+- Mocks: São pré programados para verificar as chamadas das funções que receberem;
+- Stubs: Fornecem respostas predefinidas;
+- Spies: São como stubs, mas também armazenam informações de como foram chamados.
+
