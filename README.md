@@ -232,7 +232,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 ##### Seção 13: MasterClass - VPS, CI/CD
 
 - [x] Dia 01: _VPS_
-- [ ] Dia 02: _VPS_
+- [x] Dia 02: _VPS_
 
 ## Módulo 04: Ciência da Computação :hourglass_flowing_sand:
 
@@ -242,3 +242,10 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] Dia 2: _Entrada e Saída de Dados_
 - [x] Dia 3: _Testes_
 - [ ] Dia 4: _Projeto - Job Insights_
+
+##### Seção 02: Padrões de Projeto
+
+- [x] Dia 1: _P.O.O em Python_
+- [ ] Dia 2: _Padrões - Iterator, Adapter, Strategy_
+- [ ] Dia 3: _Padrões - Decorator, Observer, Factory_
+- [ ] Dia 4: _Projeto - Relatórios de Estoque_
