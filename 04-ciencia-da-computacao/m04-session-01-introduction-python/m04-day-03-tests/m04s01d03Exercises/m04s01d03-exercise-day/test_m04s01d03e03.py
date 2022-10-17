@@ -4,15 +4,17 @@ from m04s01d03e03 import email_validation
 
 def test_invalid_emails():
     with pytest.raises(ValueError, match="Invalid email"):
-        email_validation("my/name@email.com")
+        email_validation("invalid#caracter@email.com")
     with pytest.raises(ValueError, match="Invalid email"):
-        email_validation("my.name@email.com")
+        email_validation("invalid.caracter@email.com")
     with pytest.raises(ValueError, match="Invalid email"):
-        email_validation("mynameemail.com")
+        email_validation("invalid$caracter@email.com")
     with pytest.raises(ValueError, match="Invalid email"):
-        email_validation("myname@email.com.br")
+        email_validation("withoutatemail.com")
     with pytest.raises(ValueError, match="Invalid email"):
-        email_validation("my$name@email.com")
+        email_validation("extraextension@email.com.br")
+    with pytest.raises(ValueError, match="Invalid email"):
+        email_validation("invalidextension@email.combr")
 
 
 def test_valid_emails():
