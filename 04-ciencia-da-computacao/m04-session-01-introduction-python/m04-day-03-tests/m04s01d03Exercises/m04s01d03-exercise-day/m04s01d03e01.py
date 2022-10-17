@@ -1,2 +1,3 @@
 def fizz_buzz_list(number):
-    return
+    numbers_filtered = []
+    return numbers_filtered
