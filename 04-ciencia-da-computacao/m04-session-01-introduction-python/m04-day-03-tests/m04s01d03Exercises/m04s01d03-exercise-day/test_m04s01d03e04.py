@@ -31,3 +31,10 @@ def test_emails_invalids():
 def test_emails_valids():
     "Should return all emails in the list"
     assert list_valid_emails(valid_emails) == valid_emails
+
+
+def test_emails_valids_and_invalids():
+    "Should return just the valids emails"
+    emails_mixed = [*valid_emails, *invalid_emails]
+    emails_list = list_valid_emails(emails_mixed)
+    assert emails_list == valid_emails
