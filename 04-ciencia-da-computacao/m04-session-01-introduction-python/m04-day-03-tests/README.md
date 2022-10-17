@@ -10,7 +10,7 @@ Framework que facilita a escrita de testes simples, mas capazes de testar facion
 
 Trabalhando em ambiente virtual:
 ```
-python3 -m vevn .venv
+python3 -m venv .venv
 source .venv/bin/activate
 ```
 
