@@ -240,5 +240,5 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 
 - [x] Dia 1: _Aprendendo Python_
 - [x] Dia 2: _Entrada e Saída de Dados_
-- [ ] Dia 3: _Testes_
+- [x] Dia 3: _Testes_
 - [ ] Dia 4: _Projeto - Job Insights_

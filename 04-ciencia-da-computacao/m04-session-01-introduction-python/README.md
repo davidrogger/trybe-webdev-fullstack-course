@@ -17,3 +17,11 @@
 - [Documentação do módulo json](https://docs.python.org/3/library/json.html)
 - [Python F-strings](https://realpython.com/python-f-strings/)
 - [Trabalhando com arquivos em python](https://realpython.com/working-with-files-in-python/)
+
+
+## dia03
+
+- [Guia do mochileiro para Python - tests](https://python-guide-pt-br.readthedocs.io/pt_BR/latest/writing/tests.html)
+- [Live de Python - Testes com Python](https://www.youtube.com/watch?v=5hL9T3jintE)
+- [Unit testing in Visual Studio](https://docs.microsoft.com/pt-br/visualstudio/python/unit-testing-python-in-visual-studio?view=vs-2019)
+- [Dublês de teste](https://cassiobotaro.dev/post/dubles-de-teste/)
