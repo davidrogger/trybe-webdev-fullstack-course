@@ -19,12 +19,23 @@ def test_fizz_buzz_list_fifteen_first_element():
 def test_fizz_buzz_list_fifteen_last_element():
     "Should elements multiple of 5 be Buzz, 3 Fizz and both FizzBuzz"
     numbers_list = fizz_buzz_list(15)
-    for index, number in numbers_list.items():
-        if number % 5 and number % 3 == 0:
-            assert number == "FizzBuzz"
-        elif number % 5 == 0:
-            assert number == "Buzz"
-        elif number % 3 == 0:
-            assert number == "Fizz"
-        else:
-            assert number == (index + 1)
+    assert numbers_list[2] == 'Fizz'
+    assert numbers_list[4] == 'Buzz'
+    assert numbers_list[14] == 'FizzBuzz'
+    assert numbers_list == [
+        1,
+        2,
+        "Fizz",
+        4,
+        "Buzz",
+        "Fizz",
+        7,
+        8,
+        "Fizz",
+        "Buzz",
+        11,
+        "Fizz",
+        13,
+        14,
+        "FizzBuzz",
+    ]
