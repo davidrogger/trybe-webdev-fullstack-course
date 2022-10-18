@@ -22,5 +22,6 @@ class Person:
     def buy_fridge(self, fridge: Fridge):
         if self.__wallet >= fridge.price:
             self.__wallet -= fridge.price
+            self.__has_fridge = True
         else:
             raise ValueError("Insuficient resources")
