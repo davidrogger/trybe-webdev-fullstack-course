@@ -6,6 +6,7 @@ class Eletrodomestic:
         self.__voltage = voltage
         self.__on = False
         self.__current_engine_amperage = 0
+        self.__max_speed = 3
 
     def setOn(self, speed):
         self.__speed = speed
