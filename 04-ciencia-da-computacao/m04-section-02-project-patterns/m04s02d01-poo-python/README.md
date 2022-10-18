@@ -176,3 +176,28 @@ Por que deixar um método privado acessível para alteração de fora?
 
 A lógica de negócio pode pedir em algum momento, Digamos que o cliente não pode alterar a cor, mas a assistência técnica autorizada pode.
 
+# Composição
+
+É atribuir o objeto de uma classe a outra, gerando assim um relacionamento de pertencimento entre eles.
+
+Exemplo:
+
+```
+class Pessoa:
+    def __init__(self, nome, saldo_na_conta):
+        self.nome = nome
+        self.saldo_na_conta = saldo_na_conta
+        self.liquidificador = None
+    
+    def comprar_liquidificador(self, liquidificador: Liquidificador):
+        if liquidificador.preco <= self.saldo_na_conta:
+            self.saldo_na_conta -= liquidificador.preco
+            self.liquidificador = liquidificador
+```
+
+A classe pessoa tem o método específico para comprar seu liquidificador:
+```
+pessoa_cozinheira = Pessoa('Jacquin', 1000)
+pessoa_cozinheira.comprar_liquidificador(liquidificador_vermelho)
+```
+
