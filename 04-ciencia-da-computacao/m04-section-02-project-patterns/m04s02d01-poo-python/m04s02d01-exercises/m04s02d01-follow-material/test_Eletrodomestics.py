@@ -19,8 +19,11 @@ def test__creating_eletrodomestics():
 
 def test_set_eletrodomestic_on_and_off():
     white_microwave = Microwave("white", 500, 227, 1000)
+    'Should be off when created'
     assert white_microwave.is_on() is False
     white_microwave.setOn(1)
+    'Should be on when setOn'
     assert white_microwave.is_on() is True
     white_microwave.setOff()
+    'Should turn off when setOff'
     assert white_microwave.is_on() is False
