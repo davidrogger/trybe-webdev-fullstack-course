@@ -25,3 +25,7 @@ class Person:
             self.__has_fridge = True
         else:
             raise ValueError("Insuficient resources")
+
+    def __str__(self):
+        fridge_status = "" if self.__has_fridge else "don't "
+        return f"{self.name} {fridge_status}have a fridge."

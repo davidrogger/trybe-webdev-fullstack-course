@@ -26,8 +26,17 @@ def test_person_buy_fridge_with_money():
     assert rich_jonas.wallet == 1500
 
 
-def test_person_show_method_str_print(capsys):
+def test_person_show_method_str_print_without_fridge(capsys):
     rich_jonas = Person("Jonas", 3000)
     print(rich_jonas)
     captured = capsys.readouterr()
-    assert captured.out == ""
+    assert captured.out == "Jonas don't have a fridge.\n"
+
+
+def test_person_show_method_str_print_with_fridge(capsys):
+    rich_jonas = Person("Jonas", 3000)
+    blue_fridge = Fridge("Blue", "220", 2000)
+    rich_jonas.buy_fridge(blue_fridge)
+    print(rich_jonas)
+    captured = capsys.readouterr()
+    assert captured.out == "Jonas have a fridge.\n"
