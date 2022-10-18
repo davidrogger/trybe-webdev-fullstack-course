@@ -31,12 +31,15 @@ class Eletrodomestic:
 
 
 class Microwave(Eletrodomestic):
-    ...
+    def __init__(self, color, potence, voltage, price):
+        super().__init__(color, potence, voltage, price)
 
 
 class Mixer(Eletrodomestic):
-    ...
+    def __init__(self, color, potence, voltage, price):
+        super().__init__(color, potence, voltage, price)
 
 
 class Stove(Eletrodomestic):
-    ...
+    def __init__(self, color, potence, voltage, price):
+        super().__init__(color, potence, voltage, price)
