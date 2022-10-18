@@ -201,3 +201,26 @@ pessoa_cozinheira = Pessoa('Jacquin', 1000)
 pessoa_cozinheira.comprar_liquidificador(liquidificador_vermelho)
 ```
 
+# Imprimindo uma instância de uma classe
+
+Ao imprimir a instância de um objeto, o Python exibe a posição de memória do objeto.
+
+Exemplo:
+```
+print(pessoa_cozinheira)
+# retorno: Pessoa object at 0x7f53bbe1b580>
+```
+
+Uma forma de melhorar esta apresentação, é implementar o método `__str__` para que a classe que deseja imprimir. Assim o Python substituirá o print padrão pelo retorno que você desejar.
+
+Exemplo:
+```
+class Pessoa:
+...
+    def __str__(self)
+        return f'{self.name} - possui {self.saldo_na_conta} reais em sua conta.'
+
+print(pessoa_cozinheira)
+# retorno: Jacquin - possui 900 reais em sua conta.
+```
+
