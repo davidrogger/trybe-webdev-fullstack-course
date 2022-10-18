@@ -24,3 +24,10 @@ def test_person_buy_fridge_with_money():
     rich_jonas.buy_fridge(red_fridge)
     assert rich_jonas.has_fridge is True
     assert rich_jonas.wallet == 1500
+
+
+def test_person_show_method_str_print(capsys):
+    rich_jonas = Person("Jonas", 3000)
+    print(rich_jonas)
+    captured = capsys.readouterr()
+    assert captured.out == ""
