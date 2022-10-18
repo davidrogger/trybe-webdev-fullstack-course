@@ -79,3 +79,56 @@ liquidificador_vermelho = Liquidificador('Vermelho', 250, 220)
 
 É possível ter atributos que não precisam ser passados por parâmetros na chamada do construtor, por exemplo: os booleanos __ligado e __velocidade, pois o construtor vai iniciá-los sempre com um valor padrão, nestes casos, False e 0, respectivamente.
 
+# Encapsulamento e Abstração
+
+O encapsulamento é um dos pilares da orientação a objetos. Por meio dele, podemos simplificar significativamente a programaçaão, bem como proteger informações sigilosas ou sensíveis.
+
+Em Python, não temos as já conhecidas palavras reservadas: public, private e protected que são utilizadas em outras linguagens para declarar um atributo. Porém existe uma convenção para indicar que a acessibilidade é privada: basta nomear um método ou atributo com o prefixo __ (dunder/double underscore), como vimos nos atributos __ligado, __cor, __peso.
+
+Podemos criar os métodos ligar e desligar e daremos poderes para que eles consigam manipular os atributos.
+
+Exemplo:
+
+```
+class Liquidificador:
+    def __init__(self, cor, potencia, voltagem, preco):
+        self.preco = preco
+        self.__cor = cor
+        self.__potencia = potencia
+        self.__voltagem = voltagem
+        self.__ligado = False
+        self.__velocidade = 0
+        self.__velocidade_maxima = 3
+       	self.__amperagem_atual_no_motor = 0
+
+    def ligar(self, velocidade):
+        self.__velocidade = velocidade
+        self.__amperagem_atual_no_motor = (
+            (self.__potencia / self.__voltagem) / self.__velocidade_maxima
+        ) * velocidade
+        self.__ligado = True
+
+    def desligar(self):
+        self.__ligado = False
+        self.__velocidade = 0
+
+    def esta_ligado(self):
+        return self.__ligado
+```
+Se agora chamarmos o método ligar, não temos a necessidade de conhecer o cálcula interno. Este conceito é chamado de Abstração, sendo positivo durante a programação pois deixa os códigos mais limpos.
+
+A abstração de dados oculta os detalhes da implementação e mostra apenas a funcionalidade para o usuário, a fim de reduzir a complexidade do código.
+
+Exemplo:
+```
+liquidificador_vermelho - Liquidificador('Vermelho', 250, 220, 100)
+liquidificador_vermelho.ligar(1)
+print('Esta ligado? ", liquidificador_vermelho.esta_ligado())
+# Está ligado? True
+
+liquidificador_vermelho.desligar()
+print('Esta ligado?', liquidificador_vermelho.estaligado())
+
+#Esta lgiado? False
+```
+
