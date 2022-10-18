@@ -40,3 +40,11 @@ def test_person_show_method_str_print_with_fridge(capsys):
     print(rich_jonas)
     captured = capsys.readouterr()
     assert captured.out == "Jonas have a fridge.\n"
+
+
+def test_person_buying_with_wrong_instance_fridge():
+    jonas = Person("Jonas", 5000)
+    fake_fridge = {"color": "gree", "price": 500}
+    with pytest.raises(AttributeError):
+        jonas.buy_fridge(fake_fridge)
+    assert jonas.wallet == 5000
