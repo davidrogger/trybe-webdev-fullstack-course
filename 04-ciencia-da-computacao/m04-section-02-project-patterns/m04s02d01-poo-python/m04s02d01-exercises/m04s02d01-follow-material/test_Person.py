@@ -15,3 +15,4 @@ def test_person_buy_fridge_without_money():
     blue_fridge = Fridge("Blue", "220", 2000)
     with pytest.raises(ValueError, match="Insuficient resources"):
         poor_jonas.buy_fridge(blue_fridge)
+    assert poor_jonas.wallet == 1000

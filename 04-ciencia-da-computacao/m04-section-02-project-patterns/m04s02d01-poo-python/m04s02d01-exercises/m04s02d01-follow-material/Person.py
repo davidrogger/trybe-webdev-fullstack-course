@@ -1,3 +1,6 @@
+from Fridge import Fridge
+
+
 class Person:
     def __init__(self, name, wallet):
         self.__name = name
@@ -15,3 +18,9 @@ class Person:
     @property
     def has_fridge(self):
         return self.__has_fridge
+
+    def buy_fridge(self, fridge: Fridge):
+        if self.__wallet >= fridge.price:
+            self.__wallet -= fridge.price
+        else:
+            raise ValueError("Insuficient resources")

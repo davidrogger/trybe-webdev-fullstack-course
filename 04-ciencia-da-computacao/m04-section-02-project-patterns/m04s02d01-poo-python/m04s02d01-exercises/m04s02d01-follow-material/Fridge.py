@@ -3,7 +3,7 @@ class Fridge:
         self.__color = color
         self.__voltage = voltage
         self.__price = price
-    
+
     @property
     def color(self):
         return self.__color
@@ -11,7 +11,7 @@ class Fridge:
     @property
     def voltage(self):
         return self.__voltage
-    
+
     @property
     def price(self):
         return self.__price
