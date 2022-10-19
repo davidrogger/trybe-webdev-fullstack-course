@@ -1,3 +1,4 @@
+import pytest
 from Tv import Tv
 
 
@@ -10,3 +11,8 @@ def test_tv_check_size_parameter():
     assert samsung_23pol.size == 23
     assert philips_42pol.size == 42
     assert samsung_54pol.size == 54
+
+
+def test_tv_instance_without_parameter():
+    with pytest.raises(TypeError):
+        Tv()
