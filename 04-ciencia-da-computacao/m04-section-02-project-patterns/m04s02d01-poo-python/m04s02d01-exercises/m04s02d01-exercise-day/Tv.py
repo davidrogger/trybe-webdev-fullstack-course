@@ -16,3 +16,7 @@ class Tv:
     def volume_up(self):
         if self.__volume < 99:
             self.__volume += 1
+
+    def volume_down(self):
+        if self.__volume > 0:
+            self.__volume -= +1
