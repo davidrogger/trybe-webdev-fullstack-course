@@ -71,4 +71,5 @@ def test_tv_method_change_channel():
     "Should throw an Exception when out of the range 0 and 99"
     with pytest.raises(ValueError, match="Out of the range"):
         samsung_23pol.change_channel(100)
+    with pytest.raises(ValueError, match="Out of the range"):
         samsung_23pol.change_channel(-1)

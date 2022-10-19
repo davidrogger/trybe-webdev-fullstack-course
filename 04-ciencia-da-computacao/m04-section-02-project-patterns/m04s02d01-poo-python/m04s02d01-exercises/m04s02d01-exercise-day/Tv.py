@@ -20,3 +20,13 @@ class Tv:
     def volume_down(self):
         if self.__volume > 0:
             self.__volume -= +1
+
+    @property
+    def channel(self):
+        return self.__channel
+
+    def change_channel(self, channel):
+        if 99 > channel > 0:
+            self.__channel = channel
+        else:
+            raise ValueError("Out of the range")
