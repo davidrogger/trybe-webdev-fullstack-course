@@ -53,3 +53,22 @@ def test_tv_method_volume_down():
         press_volume_down += 1
 
     assert samsung_23pol.volume == 0
+
+
+def test_tv_method_change_channel():
+    samsung_23pol = Tv(23)
+
+    "Should exist the method volume_down"
+    callable(getattr(samsung_23pol, "change_channel"))
+
+    "Should starts in the channel 1"
+    assert samsung_23pol.channel == 1
+
+    "Should change de channel by parameter"
+    samsung_23pol.change_channel(20)
+    assert samsung_23pol.channel == 20
+
+    "Should throw an Exception when out of the range 0 and 99"
+    with pytest.raises(ValueError, match="Out of the range"):
+        samsung_23pol.change_channel(100)
+        samsung_23pol.change_channel(-1)
