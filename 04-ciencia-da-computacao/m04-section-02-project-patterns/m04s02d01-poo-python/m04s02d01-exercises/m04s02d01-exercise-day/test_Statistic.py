@@ -43,6 +43,14 @@ def test_statistic_method_median():
     assert sleep_grades.median == 5
 
 
+def test_statistic_method_mode():
+    'Should return the mode of the list'
+    jonas_grades = Statistic([10, 10, 5, 4, 6])
+    assert jonas_grades.mode == 10
+    'Should return none when there is no mode in the list'
+    mary_grades = Statistic([1, 2, 3, 4, 5])
+    assert mary_grades.mode is None
+
 # mediana:
 # https://www.alura.com.br/artigos/media-ou-mediana-
 # entendendo-cada-uma
