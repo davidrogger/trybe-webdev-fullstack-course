@@ -38,3 +38,18 @@ def test_tv_method_volume_up():
 
     assert samsung_23pol.volume == 99
     assert samsung_23pol.volume != 152
+
+
+def test_tv_method_volume_down():
+    samsung_23pol = Tv(23)
+
+    "Should exist the method volume_down"
+    callable(getattr(samsung_23pol, "volume_down"))
+
+    "Should not be possible to set bellow 0"
+    press_volume_down = 0
+    while press_volume_down <= 100:
+        samsung_23pol.volume_down()
+        press_volume_down += 1
+
+    assert samsung_23pol.volume == 0
