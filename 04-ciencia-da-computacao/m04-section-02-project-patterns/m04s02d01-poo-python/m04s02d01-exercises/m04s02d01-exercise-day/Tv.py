@@ -8,3 +8,11 @@ class Tv:
     @property
     def size(self):
         return self.__size
+
+    @property
+    def volume(self):
+        return self.__volume
+
+    def volume_up(self):
+        if self.__volume < 99:
+            self.__volume += 1
