@@ -406,4 +406,40 @@ Nomes para más práticas:
 - `Dead Code`: se um código não está mais sendo utilizado, por que ainda está lá?
 - `Speculative Generality`: quem nunca tentou adivinhar o futuro e tornou uma implementação mais complicada do que precisava?
 
+# Data Clumps
 
+Ocorre quando um grupo de variáveis é passada junto com parâmetros em várias partes do programa. É indicativo de que esses grupos devam ser transformados em suas próprias classes.
+
+Exemplo:
+```
+class User:
+    def __init__(self, name, street, number, district):
+        '''Você nunca vai passar a rua sem passar também o númer e o bairro'''
+        self.name = name
+        self.address_street = street
+        self.address_number = number
+        self.address_district = district
+```
+
+Solução:
+```
+class Address:
+    def __init__(self, street, number, district):
+        '''As informações que nunca vem separadas são uma entidade separada agora.'''
+        self.street = street
+        self.number = number
+        self.district = district
+
+class User:
+    def __init__(self, name, address):
+        self.name = name
+        self.address = address
+```
+Se essas informações são exclusivas para leitura e nunca vão ser alterados a melhor abordagem em Python é o uso de namedtuple:
+```
+from collections import namedtuple
+
+GeoPoint = namedtuple('GeoPoint', 'lat lon')
+location = GeoPoint(-22.81711234090266, -47.069559317039655)
+print(location.lat) # muito melhor do que location[0]
+```
