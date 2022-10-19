@@ -30,3 +30,10 @@ class Tv:
             self.__channel = channel
         else:
             raise ValueError("Out of the range")
+
+    @property
+    def on(self):
+        return self.__on
+
+    def toggle_on_off(self):
+        self.__on = not self.on
