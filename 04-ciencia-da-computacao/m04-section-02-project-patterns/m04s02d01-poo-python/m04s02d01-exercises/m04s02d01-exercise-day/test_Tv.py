@@ -73,3 +73,21 @@ def test_tv_method_change_channel():
         samsung_23pol.change_channel(100)
     with pytest.raises(ValueError, match="Out of the range"):
         samsung_23pol.change_channel(-1)
+
+
+def test_tv_method_toggle_on_off():
+    samsung_23pol = Tv(23)
+
+    "Should exist the method toggle_on_off"
+    callable(getattr(samsung_23pol, "toggle_on_off"))
+
+    "Should have the initial value as False"
+    assert samsung_23pol.on is False
+
+    "Should change from False to True,and"
+    "vice versa when using the toggle method"
+
+    samsung_23pol.toggle_on_off()
+    assert samsung_23pol.on is True
+    samsung_23pol.toggle_on_off()
+    assert samsung_23pol.on is False
