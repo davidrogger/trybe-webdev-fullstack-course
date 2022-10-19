@@ -4,11 +4,18 @@ from Statistic import Statistic
 
 def test_creating_statistic():
     "Should throw an Exception when parameter is wrong"
-    with pytest.raises(TypeError):
+    with pytest.raises(
+        ValueError,
+        match="Should be given a list, instead receive a <class 'str'>",
+    ):
         Statistic("string")
-    with pytest.raises(TypeError):
-        Statistic(1, 2, 3, 5)
+
+    with pytest.raises(
+        ValueError,
+        match="Should be given a list, instead receive a <class 'int'>",
+    ):
+        Statistic(1)
 
     "Should create an new instance when the parameter is correct"
     statistic_list = Statistic([10, 5, 6, 7, 8])
-    assert statistic_list is True
+    assert isinstance(statistic_list, Statistic) is True
