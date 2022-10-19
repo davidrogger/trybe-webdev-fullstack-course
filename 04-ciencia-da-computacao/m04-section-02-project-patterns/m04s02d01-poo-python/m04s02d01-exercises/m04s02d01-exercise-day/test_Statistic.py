@@ -33,11 +33,16 @@ def test_statistic_method_median():
     "Should return the right median from an odd grades list"
     jonas_grades = Statistic([10, 5, 6, 7, 8])
     mary_grades = Statistic([10, 10, 10, 9, 9])
-    assert jonas_grades.median() == 7
-    assert mary_grades.median() == 10
+    assert jonas_grades.median == 7
+    assert mary_grades.median == 10
 
     "Should return the right median from an even grades list"
     python_grades = Statistic([10, 4, 7, 6, 3, 9])
     sleep_grades = Statistic([5, 7, 5, 3, 4, 10])
-    assert python_grades.median() == 6.5
-    assert sleep_grades.median() == 3
+    assert python_grades.median == 6.5
+    assert sleep_grades.median == 5
+
+
+# mediana:
+# https://www.alura.com.br/artigos/media-ou-mediana-
+# entendendo-cada-uma
