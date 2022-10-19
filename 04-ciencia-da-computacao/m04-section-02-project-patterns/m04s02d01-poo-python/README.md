@@ -443,3 +443,58 @@ GeoPoint = namedtuple('GeoPoint', 'lat lon')
 location = GeoPoint(-22.81711234090266, -47.069559317039655)
 print(location.lat) # muito melhor do que location[0]
 ```
+
+# Middle Man
+
+Se uma classe somente delega uma ação para outra, porque deveria existir?
+
+Para uso desse exemplo, foi utilizado a pessoa jogadora com id1 e o jogo de poker que ela comprou como id1
+
+```
+class Player:
+    # ...
+    def game(self, game_id):
+        '''Busca um jogo da pessoa atráves do seu id'''
+        return PlayerGame.queryfilter(game_id=game_id, user_id=self.id).first()
+    
+    def tournaments(self, game_id):
+        '''Aqui estamos buscando pelos jogos de uma pessoa para encontrar seus torneiros.
+        
+        Ou seja, usamos o middle man PLayerGame para encontrar o torneio.
+        O que além de adicionar complexidade de código, adiciona uma consulta extra ao banco de dados.
+        '''
+        return self.game(game_id).tournaments()
+
+class PlayerGame:
+    def tournament(self):
+        return Tournament.query.filter(game_id=self.game_id).all()
+
+class Tournament:
+    #...
+
+# Código cliente
+player = Player(id=1)
+print(player.tournaments(1))
+```
+
+Solução:
+```
+class Player:
+    # ...
+    def tournaments(self, game_id):
+        '''Aqui removemos o middle man PLayerGame da consulta,
+        fazendo-a diretamente em Tournament.
+        
+        Com isso simplifcamos o nosso código e removemos uma consulta.
+        '''
+        return Tournament.query.filter(game_id=game_id, user_od=self.id).all()
+
+class Tournament:
+    ...
+
+# Código cliente
+player = Player(id=1)
+print(player.tournaments(1))
+```
+
+Mais sobre code smells em [Rafactoring Guru](https://refactoring.guru/)
