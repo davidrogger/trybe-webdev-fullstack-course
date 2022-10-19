@@ -391,3 +391,19 @@ class GraficoPizza(Grafico):
     def desenhar(self):
         print("Lógica para gráfico de pizza")
 ```
+
+# Code Smells
+
+Existem algumas práticas que a princípio podem parecer a melhor solução para determinado problema mas causam o efeito contrário e por muitas vezes trazem eventuais novos problemas.
+
+Por ser algo frequente, receberam o apelido de `code smells`, indicando que algo está errado, embora possa não parecer de imediato.
+
+Nomes para más práticas:
+
+- `Long Method`: métodos grandes geralmetne significam mais de uma responsabilidade em um mesmo trecho de código. Por isso como regra geral, métodos não devem ser muito longos:
+- `Large Class`: classes grandes geralmente significam mais de uma responsabilidade. Por isso, como regra geral, classes não devem ser muito grandes;
+- `Duplicate Code`: código duplicados geralmente significam falta de abstração, ou seja, lógica repetida que poderia estar centralizada em uma única entidade compartilhada. Assim sendo, uma aplicação não deve ter trechos de código duplicados;
+- `Dead Code`: se um código não está mais sendo utilizado, por que ainda está lá?
+- `Speculative Generality`: quem nunca tentou adivinhar o futuro e tornou uma implementação mais complicada do que precisava?
+
+
