@@ -3,6 +3,7 @@ class Statistic:
         self.studant_grade_list = studant_grade_list
         self.__average = self.grade_average()
         self.__median = self.grades_median()
+        self.__mode = self.grades_mode()
 
     @property
     def studant_grade_list(self):
@@ -44,3 +45,15 @@ class Statistic:
             return self.median_even_calc(list_size, ordered_list)
         else:
             return self.median_odd_calc(list_size, ordered_list)
+
+    @property
+    def mode(self):
+        return self.__mode
+
+    def grades_mode(self):
+        grades_list = self.studant_grade_list
+        duplicate_grades = [
+            grade for grade in grades_list if grades_list.count(grade) > 1
+        ]
+        duplicate_grades.sort(reverse=True)
+        return duplicate_grades[0] if len(duplicate_grades) > 0 else None
