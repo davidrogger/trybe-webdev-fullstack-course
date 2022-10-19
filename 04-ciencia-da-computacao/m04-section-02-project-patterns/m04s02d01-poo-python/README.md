@@ -291,3 +291,103 @@ class Pessoa:
             self.saldo_na_conta -= eletrodomestico.preco
             self.eletrodomestico.append(eletrodomestico)
 ```
+
+# Polimorfismo
+
+## Polimorfismo de métodos
+
+É quando um objeto pode conter diferentes declarações de um método, de acordo com os parâmetros de entrada. Algumas linguagens até permitem que você escreva um novo método como o mesmo nome, porém com mais ou menos parâmetros (C#).
+
+Exemplo:
+```
+class Pessoa:
+    def __init__(self, nome, idade=None, saldo_na_conta=None):
+        self.idade = idade
+        self.nome = nome
+        self.saldo_na_conta = saldo_na_conta
+        self.brinquedos = []
+
+pessoa_1 = Pessoa("Marcelo", 22, 700)
+pessoa_2 = Pessoa("Matheus")
+pessoa_3 = Pessoa("Matheus", 33)
+pessoa_4 = Pessoa("Matheus", saldo_na_conta=100)
+```
+
+## Polimorfismo com interface
+
+Técnica que reduz significamente o esforço para ampliar um projeto. A Interface é uma classe abstrata que define comportamentos para classes concretas.
+
+Exemplo usando 3 tipos de gráficos diferentes, gráfico radar, pizza e barras.
+
+```
+class Grafico:
+    def __init__(self, dados):
+        self.dados = dados
+
+    def desenhar(self, tipoe_de_grafico):
+        if tipo_de_grafico == "GraficoBarras"
+            self.__desenhar_grafico_barras()
+        
+        if tipo_de_grafico == "GraficoRadar"
+            self.__desenhar_grafico_radar()
+
+        if tipo_de_grafico == "GraficoPizza"
+            self.__desenhar_grafico_pizza()
+
+    def __desenhar_grafico_barras(self):
+        print("Lógica para gráfico de barras")
+
+    def __desenhar_grafico_radar(self):
+        print("Lógica para gráfico de radar")
+
+    def __desenhar_grafico_pizza(self):
+        print("Lógica para gráfico de pizza")
+
+
+grafico_1 = Grafico([1, 2])
+grafico_1.desenhar("GraficoRadar")
+```
+
+Este código pode parecer seguir as boas práticas de estrutura. Entretanto, sempre que forem adicionados novos gráficos ele ficará ainda maior e consequentemente custoso para realizar a manutenção. Essas estruturas são conhecidas como `Code Smell`, código que cheira mal.
+
+Existem diversos Code Smells conhecidos (no livro "Refatoração" de Martin Fowler são aparesentados 24), e esse apresentado no exemplo é chamado de Switch Statement(Switches repetidos). Como a vida de uma pessoa programadora consiste em resolver problemas, temos uma solução para esse Code Smell: o Poliformismo.
+
+Para implementar o polimorfismo em Python, precisamos criar uma classe que será a Interface, responsável por definir os combinados para suas classes herdeiras.
+
+Exemplo:
+```
+from abc import ABC, abstractmethod
+
+
+class Grafico(ABC)
+    @abstractmethod
+    def desenhar(self):
+        raise NotImplementedError
+```
+
+A classe herda da classe ABC do Python (Abstract Base Classes). Esta herança já avisa o Python para ele entender que este código não terá a implementação concreta de um Gráfico. Assim como o método `desenhar()` também é sinalizado como um método abstrato com `@abstractmethod`, reforçando ainda que ele não deve ser executado, exigindo que as classes herdeiras implementem suas próprias versões do método.
+
+Criando as classes:
+
+```
+class GraficoBarras(Grafico):
+    def __init__(self, dados):
+        self.dados = dados
+
+    def desenhar(self):
+        print("Lógica para gráfico de barras")
+
+class GraficoRadar(Grafico):
+    def __init__(self, dados):
+        self.dados = dados
+    
+    def desenhar(self):
+        print("Lógica para gráfico de radar")
+
+class GraficoPizza(Grafico):
+    def __init__(self, dados):
+        self.dados = dados
+    
+    def desenhar(self):
+        print("Lógica para gráfico de pizza")
+```
