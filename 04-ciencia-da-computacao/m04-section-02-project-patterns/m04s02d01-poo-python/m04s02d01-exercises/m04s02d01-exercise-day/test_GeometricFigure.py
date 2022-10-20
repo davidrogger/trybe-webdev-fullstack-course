@@ -1,5 +1,6 @@
 from Square import Square
 from Rectangle import Rectangle
+from Circle import Circle
 
 
 def test_creating_a_square():
@@ -14,3 +15,10 @@ def test_creating_a_rectangle():
 
     assert rectangle_10_20m.area() == "200m²"
     assert rectangle_10_20m.perimeter() == "60m²"
+
+
+def test_creating_a_circle():
+    circle_r10 = Circle(10)
+
+    assert circle_r10.area() == "314"
+    assert circle_r10.perimeter() == "62.8"
