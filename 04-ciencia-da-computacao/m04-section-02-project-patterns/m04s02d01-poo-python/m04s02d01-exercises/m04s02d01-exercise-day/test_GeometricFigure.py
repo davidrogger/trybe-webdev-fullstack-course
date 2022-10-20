@@ -20,5 +20,5 @@ def test_creating_a_rectangle():
 def test_creating_a_circle():
     circle_r10 = Circle(10)
 
-    assert circle_r10.area() == "314"
+    assert circle_r10.area() == "314.0"
     assert circle_r10.perimeter() == "62.8"
