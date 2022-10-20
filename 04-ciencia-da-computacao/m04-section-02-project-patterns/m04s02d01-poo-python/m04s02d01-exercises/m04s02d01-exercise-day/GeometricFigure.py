@@ -7,5 +7,5 @@ class GeometricFigure(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def perimeter(self):
+    def perimeter():
         raise NotImplementedError
