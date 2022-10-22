@@ -36,3 +36,10 @@ Classes se comunicam atráves de troca de mensagens. Entretanto, nem sempre isso
 
 Quando as mensagens que as classes utilizam para se comunicar estão em "interfaces distintas", não podemos simplesmente mudar a interface. Isso iria quebrar todos os outros lugares em que esta classe é utilizada! Usar uma terceira entidade, que faz a "tradução", é normalmente a saída mais organizada e indicada.
 
+# Strategy
+
+O polimorfismo por meio de herança nem sempre é a melhor escolha para termos um código mais flexível e passível a evolução.
+
+Strategy pode ser uma classe abstrata ou uma Interface. Se implementada como uma classe abstrada muito provavelmente é porque algum dos métodos têm implementação comuns em duas ou mais classes abaixo, na hierarquia Strategy.
+
+Resumidamente Strategy é o poliformismo seguindo um modelo de assinatura (interface).
