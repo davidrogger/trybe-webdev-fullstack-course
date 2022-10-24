@@ -247,5 +247,5 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 
 - [x] Dia 1: _P.O.O em Python_
 - [x] Dia 2: _Padrões - Iterator, Adapter, Strategy_
-- [ ] Dia 3: _Padrões - Decorator, Observer, Factory_
+- [x] Dia 3: _Padrões - Decorator, Observer, Factory_
 - [ ] Dia 4: _Projeto - Relatórios de Estoque_
