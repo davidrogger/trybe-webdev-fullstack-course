@@ -109,3 +109,18 @@ if __name__ == "__main__":
 ```
 
 O uso de meuPerfil.adicionar_post() é suficiente para realizar as notificações. Inclusive ainda podemos notificar as pessoas seugidoras a qualquer momento chamando diretamente meuPerfil.notificar_todos().Podemos ativar/desativar as formas de notificaçãoes apenas alterando um bloco parcial de código, sem precisar alterar o método notificar_todos(). Esta facilidade é conhecida como baixo acoplamento e facilita muito as manutenções futuras.
+
+# Padrão Factory
+
+Pode ser divido entre dois padrões classificados como padrões criacionais:
+
+- Factory Method: um padrão que implementa uma interface responsável por fabricar ou criar outros objetos.
+- Abstract Factory: um padrão que permite produzir famílias de objetos relacionados. Por exemplo, considere que uma fábrica pode produzir diversos carros e diferentes tipos de motores. Essa estrutura simplifica a construção de um objeto Carro, ajudando na combinação dos diferentes elementos.
+
+### O padrão factory pode ser usado para:
+
+- Substituir as Fixtures, a fim de facilitar a criação de testes;
+- Simplificar a criação de objetos diferentes, pois dispensa conhecer os métodos e parâmetros da fábrica;
+- Caso um novo tipo de objetos surja na regra de negócio, é fácil adaptar para que a fábrica também o produza;
+- Fazer uso do princípio de reponsabilidade única (SOLID), já que o código de criação do objeto se concentra em um único lugar.
+
