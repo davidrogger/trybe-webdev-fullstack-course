@@ -124,3 +124,93 @@ Pode ser divido entre dois padrões classificados como padrões criacionais:
 - Caso um novo tipo de objetos surja na regra de negócio, é fácil adaptar para que a fábrica também o produza;
 - Fazer uso do princípio de reponsabilidade única (SOLID), já que o código de criação do objeto se concentra em um único lugar.
 
+# Aplicando o padrão factory
+
+Usando uma hamburgueria como exemplo para criação de um sistema de combo de lanches.
+
+Um factory é uma classe de Interface Criadora, que é herdada por fábricas criadoras concretas;
+
+Criando uma classe abstrata, que será a interface base para as classes dos itens do cardápio:
+```
+from abc import ABC, abstractmethod
+
+class Item(ABC)
+    @abstractmethod
+    def __repr__(self):
+        pass
+```
+
+Criando itens do cardápio, que possuem a interface Item, e implementa os métodos que a interface sugere.
+```
+class ItemHamburger(Item):
+    def __repr__(self):
+        return "Hamburguer"
+
+class ItemRefrigerante(Item):
+    def __repr__(self):
+        return "Refrigerante"
+
+class ItemSorvete(Item):
+    def __repr__(self):
+        return "Sorvete"
+
+class ItemFritas(Item):
+    def __repr__(self):
+        return "Fritas"
+```
+
+Agora criando a interface criadora, que define a assinatura do método criar_combo, além de implementar os métodos exibe_itens e adicionar_itens que serão oferecidos para quem herdá-la.
+```
+class Combo(ABC):
+    def __init__(self):
+        self.itens = []
+        self.criar_combo()
+
+    @abstractmethod
+    def criar_combo():
+        pass
+
+    def exibe_itens(self):
+        return self.itens
+
+    def adicionar_itens(self, item):
+        self.itens.append(item)
+```
+
+Agora as classes criadoras concretas, que possuem a responsabilidade final de fabricar o objeto desejado e tudo que é necessário para ele:
+
+```
+class ComboTudo(Combo):
+    def criar_combo(self):
+        self.adicionar_itens(ItemHamburger())
+         self.adicionar_itens(ItemSorvete())
+        self.adicionar_itens(ItemFritas())
+        self.adicionar_itens(ItemRefrigerante())
+
+class ComboFeliz(Combo):
+    def criar_combo(self):
+        self.adicionar_itens(ItemHamburger())
+        self.adicionar_itens(ItemFritas())
+        self.adicionar_itens(ItemRefrigerante())
+
+class ComboGelado(Combo):
+    def criar_combo(self):
+        self.adicionar_itens(ItemHamburger())
+        self.adicionar_itens(ItemSorvete())
+```
+
+Podemos apenas usar a fábrica e teremos um código simples e objetivo:
+```
+if __name__ == "__main__":
+    combo_escolhido = input(
+        "Olá, qual o seu pedido? [ComboTudo, ComboFeliz, ComboGelado]: "
+    )
+
+    combo = eval(combo_escolhido)()
+
+    print(f"\nCriando o combo {type(combo).__name__}.")
+    print(f"\nCombo fabricado com os seguintes itens: {combo.exibe_itens()}")
+```
+
+O Padrão factory organzia bem o código, permitindo dividir a terfa de desenvolvimento entre mais pessoas, afinal cada pessoa pode puxar uma fábrica concreta no dia a dia.
+
