@@ -93,3 +93,19 @@ Exemplo:
 
 3. Rodolfo quer ser notificado somente por mensagem
 
+```
+# Cliente
+if __name__ == "__main__":
+    seguidores_mensagem = ["Carlos", "Claudia", "Marcia", "Rodolfo"]
+    seguidores_push_notification = ["Carlos"]
+    seguidores_email = ["Claudia", "Marcia"]
+
+    meuPerfil = Perfil()
+    NotificadorMensagem(meuPerfil, seguidores_mensagem)
+    NotificadorPushNotification(meuPerfil, seguidores_push_notification)
+    NotificadorEmail(meuPerfil, seguidores_email)
+
+    meuPerfil.adicionar_post("Olá universo da programação!")
+```
+
+O uso de meuPerfil.adicionar_post() é suficiente para realizar as notificações. Inclusive ainda podemos notificar as pessoas seugidoras a qualquer momento chamando diretamente meuPerfil.notificar_todos().Podemos ativar/desativar as formas de notificaçãoes apenas alterando um bloco parcial de código, sem precisar alterar o método notificar_todos(). Esta facilidade é conhecida como baixo acoplamento e facilita muito as manutenções futuras.
