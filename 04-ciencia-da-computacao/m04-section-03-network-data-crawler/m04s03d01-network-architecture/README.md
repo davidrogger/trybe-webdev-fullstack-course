@@ -81,7 +81,19 @@ Quando falamos de segurança nas redes, conceitos muito presentes são o de crip
 
 Utilizando certificados de segurança com os protocolos HTTPS e TLS, conseguimos fornecer um ambiente muito mais seguro para publicar nossas aplicações na internet, transmitindo confiança às pessoas que as utilizarão e aumentando sua segurança. Com esses protocolos conseguimos garantir que somos quem somos e também que estamos de fato nos comunicando com quem queremos, evitando que alguém se passe por um dos lados da comunicação ou intercepte nossas conexções. Graças ao avanços que tivemos a partir dos estudos dos algoritmos de criptografia, hoje conseguimos realizar diversos tipos de transações com segurança na internet. Outro exemplo legal de utilização desses protocolos ocorre em nosso dia-a-dia ao clonarmos um respositório do git. Quando queremos trocar dados em nossa máquina e o servidor, podemos fazê-lo tanto via HTTPS como atráves de SSH, utilizando as chaves SSH.
 
+# Ataques cibernéticos
 
+## DoS / DDoS
+
+Quando as aplicações estão expostas de forma publica, qualquer pessoa pode ter acesso a ela, e as vezes podemos ter pessoasl mal intecionadas, que pode acabar realizando diversos acessos simultâneos com intensão de ataque, isso é chamado de DDoS (Distributed Denil of Service) ou ataque distribuído de negação de serviço, tendo como objetivo tirar o serviço do ar, tornando-o temporariamente indisponível.
+
+Precisamos ter atenção contra esse tipo de atque. Provavelmente não teremos que lidar com ataques de terabits, porém aplicações menores utilizam máquinas menores. Assim sendo, nesses cenários há menos capacidade para enfrentar esse tipo de ataque, tendo a possibilidade de ficarem indisponíveis com ataques de escala bem menores.
+
+## Brute Force
+
+Um outro ataque ao qual podemos estar vulneráveis é o conhecido como "brute force", no qual indivíduos, robôs ou escripts maliciosos tentam diversas combinações de usuário e senha, com o objetivo de encontrar as combinações corretas e acessar indevidamente um sistema. Existem diversos métodos de tornar esse ataque mais efetivo, como o uso de listas de palavras com senhar e usuários comuns, tal como usuário "admin" e senha "123456".
+
+Para mitigar essas vulnerabilidades devemos utilizar senhar fortes e outros métodos de segurança pessoais com o nossos logins, como o uso de segundo fator de autenticação e outros cuidados com as senhas.
 # Firewall e Proxy
 
 ## O que são firewalls?
