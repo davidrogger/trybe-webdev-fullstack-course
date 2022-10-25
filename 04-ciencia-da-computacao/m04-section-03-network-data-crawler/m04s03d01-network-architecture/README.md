@@ -69,3 +69,14 @@ Camada física ou abstração do hardware, também chamada de camada de interfac
 
 A principal função dessa camada é realizar a interface do modelo TCP/IP com os diversos modelos de rede. Por exemplo o protocolo Ethernet, que transmite os dados atráves dos meios físicos, encontrando e  transmitindo tudo pelo melhor caminho possível. Esta camada lida com os meios de comunicação e corresponde ao nível de hardware, ou meio físico, que trata dos sinais eletrônicos, conector, pinagem, níveis de tensão, dimensão físicas, características mecânicas e elétricas...
 
+# Protocolos Seguros
+
+## SSL/TLS e HTTPS
+
+SSL (Secure Sockets Layer) quanto TLS (Transport Layer Security) são protocolos que implementam uma camada (layer) de segurança na rede, sendo o TLS o sucessor do SSL (simplificando).
+
+Já o HTTPS (Hyper Text Transfer Protocol Secure) nada mais é do que o protocolo HTTP, que vimos anteriormente, com uma camada adicional de segurança utilizando o protocolo SSL/TLS.
+
+Quando falamos de segurança nas redes, conceitos muito presentes são o de criptografia e o de cerficados de segurança.
+
+Utilizando certificados de segurança com os protocolos HTTPS e TLS, conseguimos fornecer um ambiente muito mais seguro para publicar nossas aplicações na internet, transmitindo confiança às pessoas que as utilizarão e aumentando sua segurança. Com esses protocolos conseguimos garantir que somos quem somos e também que estamos de fato nos comunicando com quem queremos, evitando que alguém se passe por um dos lados da comunicação ou intercepte nossas conexções. Graças ao avanços que tivemos a partir dos estudos dos algoritmos de criptografia, hoje conseguimos realizar diversos tipos de transações com segurança na internet. Outro exemplo legal de utilização desses protocolos ocorre em nosso dia-a-dia ao clonarmos um respositório do git. Quando queremos trocar dados em nossa máquina e o servidor, podemos fazê-lo tanto via HTTPS como atráves de SSH, utilizando as chaves SSH.
