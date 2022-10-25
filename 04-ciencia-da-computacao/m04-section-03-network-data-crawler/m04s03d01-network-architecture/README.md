@@ -25,5 +25,47 @@ Foi lançado com o objetivo de ser um padrão entre os diversos dispositivos de 
 
 - Da maneira inversa, o destinatário realiza o desencapsulamento, compreendendo os dados de cada camada e então prosseguindo para a camada seguinte.
 
+# Modelo Internet - TCP/IP
 
+O modelo ISO/OSI define camadas abstratas a serem tratadas. É necessária uma implementação que desses conceitos. Uma das implementações é o TCP/IP, que é um conjunto de protocolos de comunicação: TCP (Transmission Control Protocol - Protocolo de Controle de Transmissão) e o IP (Internet Protocol - Protocolo de Internet).
+
+O TCP/IP define 4 camadas mesclando as 7 do modelo OSI:
+
+# Aplicação
+
+A camada de aplicação contém os protocolos responsáveis por dar significado às informações, sendo a primeira camada passada para a mensagem.
+
+Temos o SMTP(Simple Mail Transfer Protocol - Transmissão de e-mails), FTP (File Transfer Protocol - Transferência de arquivos) e o HTTP (Hypertext transfer protocol - comunicação WEB).
+
+Ao subirmos um serviço web, esse processo é realizado utilizando HTTP o servidor ficará aguardando por um pedido de requisições HTTP. Quando acessamos aquele serviço pelo navegador, o navegador está fazendo uma chamada HTTP ao servidor, de modo que o servidor saberá como interpreta-lo, processa-lo e devolver a devida resposta. Essa resposta também seguirá as regras do protocolo, de modo que o navegador também saiba entender o que foi retornado e além do conteúdo das páginas, também são entregues as respostas outros dados do protocolo, como headers.
+
+Dessa mesma forma, outros protocolos podem ser utilizados nessa camada: SMTP, FTP, DHCP, entre outros. Cada protocolo terá suas regras e padrões dem odo que ambos os lados, cliente e servidor, saibam interpretar as informações.
+
+# DNS
+
+Estamos falando constantemente de endereços IP, que toda máquina possui um endereço IP para poder se comunicar na rede e ao endereçar um pacote nós o utilizamos. Mas a realidade é que não costumamos ver muito esses números ao utilizar a internet.
+
+É utilizado um sistema de nomes para identificar pontos de rede em vez de usar números, já que nomes são mais fáceis de serem utilizados por pessoas.
+
+De maneira resumida, conseguimos atribuir um nome a um endereço IP especifico.
+
+# Transporte
+
+Responsável pela transferência de dados entre diferentes máquinas (seja um servidor ou um computador pessoal). Os principais protocolos dessa camada são o TCP e o UDP.
+
+Os protocolos possuem diferentes aplicabilidades. Exemplo: para criarmos um servidor para servir uma página web não podemos ter perda de informações, caso contrário a página não chegará por completo a quem pediu. Da mesma forma que, ao construirmos uma API, temos que garantir que os dados enviados, como o conteúdo de um formulário de cadastro, cheguei até o servidor, assim como garantir que os dados respondidos em uma consulta feita ao servidor, por exemplo, sejam entregues por inteiro ao cliente que fez essa solicitação. Nesses casos o TCP é o protocolo mais adequado.
+
+Por outro lado, ao assistirmos uma live ou jogarmos algum jogo online, alguns dados podem ser perdidos ao perdermos parte da transmissão do vídeo, de maneira que perceberemos apenas uma oscilação na transmissão. Nesse caso, o UDP é mais indicado, ja que com TCP, caso essa perda de pacote ocorra, será necessário aguardar o reenvio para dar continuidade ao processo. Além disso, o UDP permitirá uma maior velocidade na transmissão e também que o conteúdo seja transmitido para diversos clientes ao mesmo tempo, dando a oportunidade de várias pessoas assistirem conteúdo em tempo real.
+
+# Rede
+
+O principal protocolo utilizado nessa camada é o IP - Internet Protocol, que inclusive dá nome ao modelo. Outras opções de protocolos dessa camada são o ICMP, NAT, ARP. Todos eles lidam com o endereçamento da comunicação.
+
+A camada TCP/IP é usada para identificar o remetente e o destinatário para que o pacote possa ser transmitido na rede.
+
+# Interface / Acesso ao meio
+
+Camada física ou abstração do hardware, também chamada de camada de interface ou acesso ao meio.
+
+A principal função dessa camada é realizar a interface do modelo TCP/IP com os diversos modelos de rede. Por exemplo o protocolo Ethernet, que transmite os dados atráves dos meios físicos, encontrando e  transmitindo tudo pelo melhor caminho possível. Esta camada lida com os meios de comunicação e corresponde ao nível de hardware, ou meio físico, que trata dos sinais eletrônicos, conector, pinagem, níveis de tensão, dimensão físicas, características mecânicas e elétricas...
 
