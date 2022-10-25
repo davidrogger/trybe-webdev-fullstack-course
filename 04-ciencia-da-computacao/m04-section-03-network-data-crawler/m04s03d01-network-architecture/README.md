@@ -80,3 +80,25 @@ Já o HTTPS (Hyper Text Transfer Protocol Secure) nada mais é do que o protocol
 Quando falamos de segurança nas redes, conceitos muito presentes são o de criptografia e o de cerficados de segurança.
 
 Utilizando certificados de segurança com os protocolos HTTPS e TLS, conseguimos fornecer um ambiente muito mais seguro para publicar nossas aplicações na internet, transmitindo confiança às pessoas que as utilizarão e aumentando sua segurança. Com esses protocolos conseguimos garantir que somos quem somos e também que estamos de fato nos comunicando com quem queremos, evitando que alguém se passe por um dos lados da comunicação ou intercepte nossas conexções. Graças ao avanços que tivemos a partir dos estudos dos algoritmos de criptografia, hoje conseguimos realizar diversos tipos de transações com segurança na internet. Outro exemplo legal de utilização desses protocolos ocorre em nosso dia-a-dia ao clonarmos um respositório do git. Quando queremos trocar dados em nossa máquina e o servidor, podemos fazê-lo tanto via HTTPS como atráves de SSH, utilizando as chaves SSH.
+
+
+# Firewall e Proxy
+
+## O que são firewalls?
+
+Em uma tradução mais livre, significa muro de fogo, ou porta corta fogo, que são portas de escada, utilizadas para evitar a passagem de fogo em caso incêndios. De maneira semelhante, os firewalls são responsáveis por impedir ou permitir a passagem de terminados tráfegos em uma rede, seja de entrada ou saída.
+
+# Iptables e Netfilter
+
+Na maioria dos sistemas operacionais existem subsistemas de filtragem de pacotes e ferramentas para gerenciamento de firewall. O sistema padrão para filtragem de pacotes do linux é o Netfilter. Existe uma ferramenta utilizada para configurar o Netfilter chamada Iptables, que opera nas camadas 2 e 3 do modelo OSI. O Iptables é, então o firewall padrão do linux e está presente na maioria das distros.
+
+## Como funciona o Iptables?
+
+Ele compara o tráfego de rede que recebe ou envia com um conjunto de regras preestabalecidas. Essas regras definem as caracterísiticas que um pacote deve possuir e a ação que deve ser tomada para esse tipo de pacote. Podemos criar regras por protocolo, porta de origem/destino, endereço IP, entre outros. Quando ocorre a correspondência de um pacote a uma característica estabelecida em uma regra é então tomada a ação, que pode ser, por exemplo, se aquele pacote será aceito, rejeitado ou registrado em um arquivo de log.
+Como diz o próprio nome, a arquitetura do Iptables é formada por "tabelas". Essas tabelas também são conhecidas como cadeias e cada uma possui tipos de regras específicas. Por exemplo, a cadeia "filter", que possui todas as políticas (regras) responsáveis por controlar o tráfego que entra ou sai do computador.
+
+# Fail2ban
+
+É um IPS(Intrusion Prevention System). Essa ferramenta monitora os logs da rede e cria regras no iptables ao detectar compotamento suspeitos, como diversas requisições de um mesmo IP ou diversas tentativas de login SSH, de modo a rejeitar aquele endereço de IP específico por determinado tempo.
+
+
