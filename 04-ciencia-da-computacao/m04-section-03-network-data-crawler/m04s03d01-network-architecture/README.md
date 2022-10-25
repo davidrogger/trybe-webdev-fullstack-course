@@ -15,3 +15,15 @@ Exemplo: Precisamos de uma camada para identificar quem está enviando a informa
 
 O conjunto dessas camadas forma o que chamamos de modelo. O modelo basicamente define quais são as camadas necessárias para a montagem de um pacote.
 
+# Modelo ISO/OSI
+
+Foi lançado com o objetivo de ser um padrão entre os diversos dispositivos de comunicação. Esse modelo divide as redes de computadores em 7 camadas: Aplicação, apresentação, sessão, transporte, rede, enlace e física.
+
+- Cada camada é responsavel pela inserção de uma funcionalidade ao modelo, de forma que a informação passa por uma primeira camada, sendo formatada e tendo informações adicionadas de acordo com sua regra.
+
+- Em seguida, o resultado desse primeiro encapsulamenteo é passado para a outra camada, onde a informação é novamente tratada e são adicionadas as informações pertinentes àquela camada. Esse processo é repetido por todas as camadas até que os dados estejam aptos para serem trafegados ao seu destino.
+
+- Da maneira inversa, o destinatário realiza o desencapsulamento, compreendendo os dados de cada camada e então prosseguindo para a camada seguinte.
+
+
+
