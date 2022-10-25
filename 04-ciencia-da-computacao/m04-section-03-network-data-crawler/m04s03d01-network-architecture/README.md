@@ -101,4 +101,9 @@ Como diz o próprio nome, a arquitetura do Iptables é formada por "tabelas". Es
 
 É um IPS(Intrusion Prevention System). Essa ferramenta monitora os logs da rede e cria regras no iptables ao detectar compotamento suspeitos, como diversas requisições de um mesmo IP ou diversas tentativas de login SSH, de modo a rejeitar aquele endereço de IP específico por determinado tempo.
 
+# Proxy
 
+Outro componente que pode fornecer mais uma camada de segurança quando falamos de redes é o proxy. Ele provém uma camada a mais de controle entre a internet e os dispositivos da rede, e pode ser utilizado para diversos fins.
+
+Um uso comum dos proxies é como uma espécie de filtro, que atráves de características de uma conexão ou tráfego consegue determinar se esse tráfego deve ser feito ou não.
+Por exemplo, para evitar acessos a rede sociais em escritórios o proxy pode ser utilizado para reconhecer palavras-chave em URLs e então recusá-las. Além disso, eles podem impedir que pessoas usuários acessem sites com conteúdos impróprios ou com potencial de ser uma página maliciosa.
