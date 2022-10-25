@@ -16,3 +16,8 @@
 
 - [Eduardo Mendes - Padrões de Projeto](https://www.youtube.com/watch?v=hVOP_XR9gEw&list=PLOQgLBuj2-3IPHFlBmqhtbM4vLJg9tob4)
 - [Design Patterns](https://wiki.c2.com/?DesignPatterns)
+
+### dia03
+
+- [Padrões de projeto em Python](https://refactoring.guru/pt-br/design-patterns/python)
+- [Design Patterns: o que são, conheça a GOF e benefícios!](https://blog.betrybe.com/desenvolvimento-web/design-patterns-tudo-sobre/)
