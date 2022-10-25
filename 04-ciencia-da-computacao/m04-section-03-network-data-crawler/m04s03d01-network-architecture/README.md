@@ -1,0 +1,7 @@
+# Redes de computadores, pacotes e protocolos
+
+Redes são um conjunto de softwares e hardwares que permitem a comunicação entre diversos dispositivos sejam, computadores, celulares, sendo capazes de compartilhar e transmitir dados uns ao outros. As redes são compostas tanto de componentes físicos (hardware) como cabos, roteadores e switches, quando de sofwares que permitem o tráfego de informações.
+
+Para trafegar uma informação em uma rede, essa informação é dividida em diversos pedaços que são chamados de pacotes ep ossuem diversos dados, além de informações de quem está enviando, qual seu destino, se alguma parte da informação se perdeu no caminho e se é necessário solicitar um reenvio, dentre outras funções.
+
+Para determinar o modo como essas informações são enviadas, trafegadas e recebidas por outro dispositivos existem os protocolos, que são conjuntos de regras que fazem esse controle de como os dados são trocados. Dessa forma, é possível que ao enviar um dado atraǘes da rede, tenhamos a garantia de que os demais dispositivos da rede entenderão do que se trata e como lidar com ele.
