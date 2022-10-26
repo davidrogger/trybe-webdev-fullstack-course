@@ -36,3 +36,8 @@ Perceba que foi retornado um 301. Isso quer dizer que existem diversos redirecio
 curl -L google.com
 ```
 
+Exercício 3: Agora utilizando o wget, pegue o conteúdo da página do site da Trybe, depois abra o arquivo HTML baixado em seu navegador. Faça o mesmo processo com outras páginas web
+```
+wget betrybe.com
+```
+
