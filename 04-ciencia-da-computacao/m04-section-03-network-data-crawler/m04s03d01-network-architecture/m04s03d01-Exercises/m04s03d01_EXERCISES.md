@@ -78,3 +78,20 @@ Perceba o que é exibido no console do server, já que não estamos utilizando o
 curl: (1) Received HTTP/0.9 when not allowed
 ```
 
+**Exercício 7:** Agora vamos explorar o outro protocolo de transporte que aprendemos. Crie um servidor UDP usando o mesmo módulo socketserver. Nosso servidor UDP deverá:
+
+Imprimir no console toda mensagem recebida (não esqueça de converter também para string).
+
+Responder com os dados recebidos (como um eco).
+
+Utilizar a porta 8084.
+
+👀 De olho nas dicas:
+
+Todas as dicas do exercício 4 se aplicam;
+telnet não funciona com udp – use netcat.
+
+**Exercício 8:** Envie pacotes para o servidor UDP utilizando o Netcat (nc). Em seguida pare o servidor e perceba que como não há conexão nada é sentido pelo client.
+```
+nc -u 127.0.0.1 8084
+```
