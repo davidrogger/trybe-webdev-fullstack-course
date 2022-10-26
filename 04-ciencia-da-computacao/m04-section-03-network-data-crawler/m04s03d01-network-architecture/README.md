@@ -133,13 +133,17 @@ Oferece uma infinidade de funções úteis como realização de autenticação, 
 
 ## Fazendo download de arquivos
 
-- `curl -0 <address>` flag `-0` inicia o download do endereço fornecido
-- `curl -s -0 <address>` adicionando a flag `-s` esconde informações de progresso
-- `curl -# -0 <address>` adicionando a flag `-#` deixa a barra de progresso simples.
-- `curl -C - -0 <address>` flag `-C` continua o download de um download interrompido. Hífen entre as flags indica ao curl para descobrir automaticamente onde continuar o download.
+- `curl -o <address>` flag `-0` inicia o download do endereço fornecido
+- `curl -s -o <address>` adicionando a flag `-s` esconde informações de progresso
+- `curl -# -o <address>` adicionando a flag `-#` deixa a barra de progresso simples.
+- `curl -C - -o <address>` flag `-C` continua o download de um download interrompido. Hífen entre as flags indica ao curl para descobrir automaticamente onde continuar o download.
 
+# Interagindo com API's com get e POST
 
+Usando uma API local com porta 3001:
 
-
+#
+Por padrão o curl usa método HTTP GET para realizar as requisições, para realizar um get da rota localhost:3001 basta usar o comando `curl localhost:3001` retornando `{"ok":true}%`
+Para especificar o metodo que vai ser usado é usada a flag `-X`, `curl -X GET <address>`.
 
 [Fonte](https://www.alura.com.br/artigos/curl-como-usar)
