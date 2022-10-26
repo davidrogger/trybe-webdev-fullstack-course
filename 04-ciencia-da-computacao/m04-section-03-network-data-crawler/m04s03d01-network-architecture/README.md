@@ -119,3 +119,27 @@ Outro componente que pode fornecer mais uma camada de segurança quando falamos 
 
 Um uso comum dos proxies é como uma espécie de filtro, que atráves de características de uma conexão ou tráfego consegue determinar se esse tráfego deve ser feito ou não.
 Por exemplo, para evitar acessos a rede sociais em escritórios o proxy pode ser utilizado para reconhecer palavras-chave em URLs e então recusá-las. Além disso, eles podem impedir que pessoas usuários acessem sites com conteúdos impróprios ou com potencial de ser uma página maliciosa.
+
+# cURL
+
+É uma ferramenta para transferir dados de um servidor, usando um dos protocolos suportados. Normalmente é usado o HTTP, tendo acesso também ao FTP, GOPHER e IMAP e LDAP.
+O navegador realiza requisições web, recebe respostas, lê/escreve e renderiza a página. Com o cURL é realizado isso, execeto a renderização.
+Oferece uma infinidade de funções úteis como realização de autenticação, interação com API's, preenchimento de formulários, download de arquivose e páginas HTML, entre muito mais...
+
+- `curl <address>` mostra o conteudo do endereço no terminal, caso seja o endereço tenha alguma redirecionamento ele não é realizado automáticamente.
+- `curl -L <address>` flag `-L` é realizado a auto redirecionamento
+- `curl -i <address>` flag `-i` mostra o cabeçalho do endereço juntamente com seu conteúdo
+- `curl -I <address>` flag `-I` ignora o conteudo da página monstrando somente o cabeçalho
+
+## Fazendo download de arquivos
+
+- `curl -0 <address>` flag `-0` inicia o download do endereço fornecido
+- `curl -s -0 <address>` adicionando a flag `-s` esconde informações de progresso
+- `curl -# -0 <address>` adicionando a flag `-#` deixa a barra de progresso simples.
+- `curl -C - -0 <address>` flag `-C` continua o download de um download interrompido. Hífen entre as flags indica ao curl para descobrir automaticamente onde continuar o download.
+
+
+
+
+
+[Fonte](https://www.alura.com.br/artigos/curl-como-usar)
