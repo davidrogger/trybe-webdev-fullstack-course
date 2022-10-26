@@ -110,3 +110,10 @@ Baixe o ngrok e extraia o arquivo baixado em uma pasta de sua preferência, conf
 Conforme instruções do site, crie um túnel para a porta 80 de sua máquina.
 
 Acesse o o link disponibilizado em seu navegador. Utilize ele para acessar de outros dispositivos, como seu smartphone ou outro computador 😎.
+
+
+**Exercício 11:** Identifique o IP interno e externo da sua máquina.
+Linux
+Rede local: `hostname -I`
+Rede Publica: `curl -s https://icanhazip.com` || curl ifconfig.me
+
