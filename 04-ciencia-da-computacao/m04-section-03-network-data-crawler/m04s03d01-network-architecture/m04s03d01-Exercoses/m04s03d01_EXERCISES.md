@@ -13,10 +13,20 @@ Faça uma chamada POST, utilizando o cURL, passando um JSON no body da requisiç
 curl -X POST http://localhost:3001/login -H "Content-Type: application/json"  -d '{ "email": "admin@admin.com", "password": "secret_admin" }'
 ```
 Faça uma chamada qualquer, utilizando o cURL, passando um header na requisição.
-Tudo na mesma linha, quebra usada apenas para organizar:
+
+
 ```
-curl -X POST http://localhost:3001/matches
--H "Content-Type: application/json"
--H "Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY2Njc5MDE1OX0.NP18YIcrt4mc9jpEYmtHxT8jTvxtZs_pdVOHRBhS65k"
+curl -X POST \
+http://localhost:3001/matches \
+-H "Content-Type: application/json" \
+-H "Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY2Njc5MDE1OX0.NP18YIcrt4mc9jpEYmtHxT8jTvxtZs_pdVOHRBhS65k" \
 -d '{ "homeTeam": 16, "awayTeam": 8, "homeTeamGoals": 2, "awayTeamGoals": 2 }'
 ```
+
+Exercício 2: Ainda utilizando o cURL, vamos explorar mais alguns conceitos do HTTP. Relembre que falamos que o HTTP organiza e dá significado aos dados encapsulados nessa camada. Por exemplo: ao vermos um 200 tanto nós quanto um client HTTP sabemos que aquela request foi realizada com sucesso. Vamos explorar isso com o cURL.
+
+Faça uma chamada GET, utilizando o cURL, para “google.com”.
+
+Perceba que foi retornado um 301. Isso quer dizer que existem diversos redirecionamentos que nos encaminham para o lugar certo. No caso, o caminho certo para a página do google é www.google.com. Ao acessarmos pelo navegador, não percebemos isso porque ele faz o redirecionamento para a página certa ao encontrar o 301, porém se você inspecionar a network vai identificar esse redirecionamento.
+
+Faça uma nova chamada a “google.com”, porém agora utilizando o parâmetro -L ou --location, que serve para “seguir redirecionamentos”.
