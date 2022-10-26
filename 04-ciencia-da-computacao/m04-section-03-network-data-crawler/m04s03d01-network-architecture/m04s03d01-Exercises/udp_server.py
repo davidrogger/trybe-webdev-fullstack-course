@@ -2,9 +2,7 @@ import socketserver
 
 
 class MyUDPHandler(socketserver.DatagramRequestHandler):
-    def handler(self):
-        self.wfile.write(b"Hello, World!\n")
-
+    def handle(self):
         for line in self.rfile:
             self.wfile.write(line)
             print(line.decode("utf-8").strip())
