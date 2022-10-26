@@ -1,13 +1,13 @@
 import socketserver
 
 
-class MyUDPHandler(socketserver.StreamRequestHandler):
+class MyUDPHandler(socketserver.DatagramRequestHandler):
     def handler(self):
         self.wfile.write(b"Hello, World!\n")
 
         for line in self.rfile:
             self.wfile.write(line)
-            print(line.decode("ascii").strip())
+            print(line.decode("utf-8").strip())
 
 
 if __name__ == "__main__":
