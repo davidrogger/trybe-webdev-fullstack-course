@@ -117,3 +117,6 @@ Linux
 Rede local: `hostname -I`
 Rede Publica: `curl -s https://icanhazip.com` || curl ifconfig.me
 
+**Exercício 12:** Identifique as interfaces de redes utilizadas por sua máquina e identifique qual está em uso agora.
+
+`ifconfig` ou `hostname -I`
