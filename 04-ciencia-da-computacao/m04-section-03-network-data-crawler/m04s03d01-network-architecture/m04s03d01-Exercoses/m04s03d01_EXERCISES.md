@@ -36,12 +36,12 @@ Perceba que foi retornado um 301. Isso quer dizer que existem diversos redirecio
 curl -L google.com
 ```
 
-Exercício 3: Agora utilizando o wget, pegue o conteúdo da página do site da Trybe, depois abra o arquivo HTML baixado em seu navegador. Faça o mesmo processo com outras páginas web
+**Exercício 3:** Agora utilizando o wget, pegue o conteúdo da página do site da Trybe, depois abra o arquivo HTML baixado em seu navegador. Faça o mesmo processo com outras páginas web
 ```
 wget betrybe.com
 ```
 
-Exercício 4: Agora vamos para a camada de transporte. Crie um servidor TCP usando o módulo socketserver que já vem embutido com o Python. Nosso servidor TCP deverá:
+**Exercício 4:** Agora vamos para a camada de transporte. Crie um servidor TCP usando o módulo socketserver que já vem embutido com o Python. Nosso servidor TCP deverá:
 
 Responder com um “Olá, client”, logo quando estabelecer uma conexão.
 
@@ -60,3 +60,12 @@ Na mesma documentação temos exemplos de classes para responder as requisiçõe
 Os dados na requisição vem em bytes, não strings! bytes podem ser decodificados em string com a codificação correta;
 Do mesmo jeito, para responder você pode precisar codificar strings em bytes;
 telnet sempre envia ASCII, já o netcat envia no encoding do sistema (em Linux, geralmente utf-8, mas confirme com o comando locale).
+
+**Exercício 5:** Utilizando o comando telnet ou o Netcat (nc):
+
+Conecte no server do exercício anterior e envie informações. O server deverá imprimir as mensagens enviadas no console.
+
+Pare o servidor e verifique o que aconteceu com a conexão que estava aberta com o comando telnet ou nc.
+```
+nc localhost 8085
+```
