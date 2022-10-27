@@ -393,3 +393,4 @@ with MongoClient() as client:
         print(book["title"])
 ```
 
+Outra Ferramenta para coleta de informação também muito poderosa é o [Scrapy](https://scrapy.org/)
