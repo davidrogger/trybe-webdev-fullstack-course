@@ -126,3 +126,41 @@ Usamos a função get para buscar o primeiro seletor ou getall para todos os val
 
 Assim como a função css que faz a busca por seletores [CSS](https://devhints.io/css), também temos a função [xpath](https://devhints.io/xpath), que faz a busca com base em Xpath.
 
+# Recursos paginados
+
+Temos 20 livros por página, sabemos que o site possue 1000 livros, para varrermos todas páginas evitando requisições desnecessárias buscando a próxima página:
+
+```
+# ...
+# for product in selector.css(".product_pod"):
+#     title = product.css("h3 a::attr(title)").get()
+#     price = product.css(".price_color::text").get()
+#     print(title, price)
+
+# Existe uma classe next, que podemos recuperar a url através do seu elemento âncora
+next_page_url = selector.css(".next a::attr(href)").get()
+print(next_page_url)
+```
+
+Para seguirmos para proxima página, o hyperlink usa a classe next, vamos usa-la para avançar as páginas e capturar todo conteudo até não haver mais um hyperlink de next.
+
+```
+from parsel import Selector
+import requests
+
+
+# Define a primeira página como próxima a ter seu conteúdo recuperado
+URL_BASE = "http://books.toscrape.com/catalogue/"
+next_page_url = 'page-1.html'
+while next_page_url:
+    # Busca o conteúdo da próxima página
+    response = requests.get(URL_BASE + next_page_url)
+    selector = Selector(text=response.text)
+    # Imprime os produtos de uma determinada página
+    for product in selector.css(".product_pod"):
+        title = product.css("h3 a::attr(title)").get()
+        price = product.css(".price_color::text").get()
+        print(title, price)
+    # Descobre qual é a próxima página
+    next_page_url = selector.css(".next a::attr(href)").get()
+```
