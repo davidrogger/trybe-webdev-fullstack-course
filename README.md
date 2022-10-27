@@ -253,6 +253,6 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 ##### Seção 03: Redes e Raspagem de Dados
 
 - [x] Dia 1: _Arquitetura de redes_
-- [ ] Dia 2: _Raspagem de Dados_
+- [x] Dia 2: _Raspagem de Dados_
 - [ ] Dia 3: _Outras Ferramentas de Raspagem de Dados_
 - [ ] Dia 4: _Projeto - Tech news_
