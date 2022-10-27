@@ -29,8 +29,11 @@ title: str = selected.css("h1::text").get()
 price: str = selected.css(".price_color::text").re_first(r"£\d+\.\d{2}")
 product_detail: str = selected.css("#product_description ~ p::text").get()
 book_cover_img = selected.css(".item img::attr(src)").get()
+available_stock = selected.css(".availability").re_first(r"\d")
 
 if product_detail.endswith("...more"):
     product_detail = product_detail[: -len("...more")]
 
-print(", ".join([title, price, product_detail, book_cover_img]))
+print(
+    ", ".join([title, price, product_detail, book_cover_img, available_stock])
+)
