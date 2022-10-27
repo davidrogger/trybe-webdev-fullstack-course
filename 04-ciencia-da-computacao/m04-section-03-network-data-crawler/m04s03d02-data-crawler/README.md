@@ -296,3 +296,9 @@ print(description)
 ```
 
 Outros exemplos de "sujeiras" são valores que contém tabulação, quebras de linha ou conteúdo além do esperado.
+
+# Fatiamento
+
+Estruturas de dados do tipo sequência, como listas, tuplas e strings, podem ter seus elementos acessados atráves de um índice.
+
+Podemos também definior dois índices que serão o valor inicial e final([inicio:fim]) de uma subsequência da estrutura. Ou três valores, sendo o último o tamanho do passo que daremos ao percorrer a subsequência([inicio:fim:passo]).
