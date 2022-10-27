@@ -9,11 +9,12 @@
 # wycats https://api.github.com/users/wycats
 # ...
 
-import json
+# import json
 import requests
 
 RESPONSE = requests.get("https://api.github.com/users")
-USERS = json.loads(RESPONSE.text)
+# USERS = json.loads(RESPONSE.text)
+USERS = RESPONSE.json()
 
 for user in USERS:
     print(user["login"], user["url"])
