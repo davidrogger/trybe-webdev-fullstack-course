@@ -249,3 +249,10 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] Dia 2: _Padrões - Iterator, Adapter, Strategy_
 - [x] Dia 3: _Padrões - Decorator, Observer, Factory_
 - [ ] Dia 4: _Projeto - Relatórios de Estoque_
+
+##### Seção 03: Redes e Raspagem de Dados
+
+- [x] Dia 1: _Arquitetura de redes_
+- [ ] Dia 2: _Raspagem de Dados_
+- [ ] Dia 3: _Outras Ferramentas de Raspagem de Dados_
+- [ ] Dia 4: _Projeto - Tech news_
