@@ -74,3 +74,31 @@ for _ in range(15):
     print(response)
     time.sleep(6)
 ```
+
+# Timeout
+
+Para garantir uma resposta quando solicitamos um recurso ao servidor, evitando problemas de lentidão ou problemas interno do servidor, podemos definir um tempo limite para que, apóe este tempo, possamos tomar alguma atitude, como realizar uma nova tentiva.
+```
+import requests
+
+# Por 10 segundos não temos certeza se a requisição irá retornar
+response = requests.get("https://httpbin.org/delay/10")
+print(response)
+```
+
+Este tempo limite normalmente é definido atráves de experimentações e análise do tempo de resposta normal de uma requisição.
+
+```
+import requests
+
+
+try:
+    # recurso demora muito a responder
+    response = requests.get("http://httpbin.org/delay/10", timeout=2)
+except requests.ReadTimeout:
+    # vamos fazer uma nova requisição
+    response = requests.get("http://httpbin.org/delay/10", timeout=2)
+finally:
+    print(response.status_code)
+```
+
