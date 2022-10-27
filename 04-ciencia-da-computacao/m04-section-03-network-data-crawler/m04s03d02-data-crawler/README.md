@@ -302,3 +302,94 @@ Outros exemplos de "sujeiras" são valores que contém tabulação, quebras de l
 Estruturas de dados do tipo sequência, como listas, tuplas e strings, podem ter seus elementos acessados atráves de um índice.
 
 Podemos também definior dois índices que serão o valor inicial e final([inicio:fim]) de uma subsequência da estrutura. Ou três valores, sendo o último o tamanho do passo que daremos ao percorrer a subsequência([inicio:fim:passo]).
+
+# Banco de Dados
+
+Com os dados coletados, precisamos armazenar em um banco. Usando o MongoDB com a biblioteca pular pymongo.
+
+Instalando: `python3 -m pip install pymongo`
+
+Criando conexão:
+```
+from pymongo import MongoClient
+
+# Por padrão o host é localhost e porta 27017
+# Estes valores podem ser modificados passando uma URI
+# client = MongoClient("mongodb://localhost:27017/")
+client = MongoClient()
+```
+
+Após estabelecida a conexão pode-se acessar o banco e posteriormente um coleção:
+
+```
+from pymongo import MongoClient
+
+client = MongoClient()
+# o banco de dados catalogue será criado se não existir
+db = client.catalogue
+# a coleção books será criada se não existir
+students = db.books
+client.close()  # fecha a conexão com o banco de dados
+```
+
+Adicionando documentos à coleção(`inserted_id`):
+```
+from pymongo import MongoClient
+
+client = MongoClient()
+db = client.catalogue
+# book representa um dado obtido na raspagem
+book = {
+    "title": "A Light in the Attic",
+}
+document_id = db.books.insert_one(book).inserted_id
+print(document_id)
+client.close()  # fecha a conexão com o banco de dados
+```
+
+Um _id é gerado e retornado ao inserir um documento na coleção. Também é possivel inserir multiplos documentos:
+```
+from pymongo import MongoClient
+
+client = MongoClient()
+db = client.catalogue
+documents = [
+    {
+        "title": "A Light in the Attic",
+    },
+    {
+        "title": "Tipping the Velvet",
+    },
+    {
+        "title": "Soumission",
+    },
+]
+db.books.insert_many(documents)
+client.close()  # fecha a conexão com o banco de dados
+```
+
+Podem ser realizadas buscas usando os métodos `find` ou `find_one`:
+```
+from pymongo import MongoClient
+
+client = MongoClient()
+db = client.catalogue
+# busca um documento da coleção, sem filtros
+print(db.books.find_one())
+# busca utilizando filtros
+for book in db.books.find({"title": {"$regex": "t"}}):
+    print(book["title"])
+client.close()  # fecha a conexão com o banco de dados
+```
+
+O cliente é um gerenciador de contexto (with), para evitar problemas com fechamento de conexão com o banco dados:
+```
+from pymongo import MongoClient
+
+
+with MongoClient() as client:
+    db = client.catalogue
+    for book in db.books.find({"title": {"$regex": "t"}}):
+        print(book["title"])
+```
+
