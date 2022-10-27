@@ -251,3 +251,48 @@ while next_page_url:
     # Descobre qual é a próxima página
     # next_page_url = selector.css(".next a::attr(href)").get()
 ```
+
+# Limpeza de dados
+
+Quando extraindo dados podem haver sujeitas ao meio da informação coletada, exmeplo, no preço aparece como `Â£26.08` ou na parte de descrição que possui um sufixo `...more`.
+
+É possivel utilizar uma expressão regular para remover os caracteres desnecessários. O padrão é conter um símbolo de libra, seguido por números, ponto para casas decimais e dois números como casas decimais. Usando o seguinte regex `£\d+\.\d{2}`.
+
+Para usar a expressão, pode-se substituir o método `getall` pelo método `re`, ou `get` por `re_first`. Esses metodos além de recuperar os valores aplicarão a expressão.
+
+Exemplo:
+```
+from parsel import Selector
+import requests
+
+
+response = requests.get("http://books.toscrape.com/")
+selector = Selector(text=response.text)
+# Extrai todos os preços da primeira página
+prices = selector.css(".product_price .price_color::text").re(r"£\d+\.\d{2}")
+print(prices)
+```
+
+Para o sufixo, poderia-se usar fatiamento. Verificando se existe o sufixo para evitar perda de contéudo.
+
+Exemplo:
+```
+from parsel import Selector
+import requests
+
+
+response = requests.get("http://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html")
+selector = Selector(text=response.text)
+
+# Extrai a descrição
+description = selector.css("#product_description ~ p::text").get()
+print(description)
+
+# "Fatiamos" a descrição removendo o sufixo
+suffix = "...more"
+if description.endswith(suffix):
+    description = description[:-len(suffix)]
+print(description)
+```
+
+Outros exemplos de "sujeiras" são valores que contém tabulação, quebras de linha ou conteúdo além do esperado.
