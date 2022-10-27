@@ -102,3 +102,27 @@ finally:
     print(response.status_code)
 ```
 
+# Analisando respostas
+
+Para realizar a extração de dados de um conteúdo web utilizando a biblioteca parsel:
+
+Instalando: `python3 -m pip install parsel`
+
+Site para treinamento de raspagem: `http://books.toscrape.com/`
+
+Criando um buscador de informações:
+```
+from parsel import Selector
+import requests
+
+
+response = requests.get("http://books.toscrape.com/")
+selector = Selector(text=response.text)
+print(selector)
+```
+
+O seletor principal que contém todo o conteúdo da página pode ser utilizado em uma busca para encontrar seletores mais específicos. Podemos fazer isto utilizando a função css. Ela recebe um seletor CSS como parâmetro, embora podemos passar um tipo especial de seletor quando queremos algum valor bem específico como o texto ou um atributo.
+Usamos a função get para buscar o primeiro seletor ou getall para todos os valores.
+
+Assim como a função css que faz a busca por seletores [CSS](https://devhints.io/css), também temos a função [xpath](https://devhints.io/xpath), que faz a busca com base em Xpath.
+
