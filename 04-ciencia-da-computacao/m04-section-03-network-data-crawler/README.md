@@ -35,3 +35,11 @@
 - [Dica - ngrok | Publicando seu localhost com túneis seguros](https://ngrok.com/)
 - [Vídeo - Como HTTPS funciona?](https://www.youtube.com/watch?v=T4Df5_cojAs)
 
+## dia 02
+
+- [Análise de dados públicos - Professor Masanori](https://www.youtube.com/playlist?list=PLUukMN0DTKCu6g2Lq1KXLnIX6Ilk4DAPI)
+- [Requests/Web scraping](https://www.youtube.com/watch?v=geGjMToK5u8)
+- [Conhecendo XPATH com Renne Rocha](https://www.youtube.com/watch?v=vuLNc2yCNYk)
+- [Criando Web Crawlers com Scrapy e Selenium para páginas com Javascript - Gileno Filho](https://www.youtube.com/watch?v=AXSo4kBAygE)
+- [[PyBR14] Web crawling e scraping com Scrapy e Scrapy Cloud - Lidiane Taquehara](https://www.youtube.com/watch?v=vmRfO2uULfw)
+- [Scrapy Video Tutorials](https://www.zyte.com/learn/how-to-get-started-with-web-scraping-using-scrapy/)
