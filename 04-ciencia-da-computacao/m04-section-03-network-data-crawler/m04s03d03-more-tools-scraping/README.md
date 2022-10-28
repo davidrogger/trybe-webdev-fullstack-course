@@ -37,3 +37,21 @@ Significado das flags:
 
 Acessando o navegador FireFox na porta 7900, poderemos conferir se o container está rodando corretamente. Conforme a documentação, será necessário apenas utilizar a senha `secret` para ter acesso ao container.
 
+## Instalação Local
+```
+python3 pip install selenium
+```
+
+Para usar a ferramenta é necessário também instalar o [driver](https://www.selenium.dev/documentation/webdriver/getting_started/install_drivers/) do browser.
+
+É essencial que tanto o driver quando o navegador estejam no path. **
+
+Nas distros linux e no macos, deve-se extrair o arquivo baixado e movê-lo para o diretório '/usr/bin'. Para isso, abra no terminal o diretório onde está o arquivo recém baixado e utilize o comando:
+```
+sudo mv geckodriver /usr/bin
+```
+
+Em ambiente virtual o diretório bin do ambiente é adicionado ao path automaticamente, então pode-se mover o binário para lá:
+```
+mv geckodriver .venv/bin
+```
