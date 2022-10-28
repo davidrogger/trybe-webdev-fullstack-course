@@ -12,3 +12,28 @@ Em casos de single Page applications(react), só após uma requisição para a p
 
 O selenium cria uma instância de uma pessoa acessando o site pelo nevador normalmente, e somente após o site terminar de carregar é que o scrape é feito.
 
+# Instalação do Selenium
+
+Pode-se usa-lo diretamente na máquina ou por meio de um container Docker.
+
+## Docker
+
+Imagem usada é selenium/standalone-firefox:
+```
+docker pull selenium/standalone-firefox:4.3.0-20220706
+```
+
+Na seção de Using your browser (no VNC client is needed), que permite inspeção visual da atividade do container através do navegador é recomendando o seguinte comando:
+```
+docker run -d -p 4444:4444 -p 7900:7900 --shm-size 2g --name firefox selenium/standalone-firefox:4.3.0-20220706
+```
+
+Significado das flags:
+- `-d`: serve para rodar o container em segundo plano
+- `-p`: vincula uma porta do SO a outra prota dentro do container
+- `--shm-size`: aumenta o limite de quantidade de memória compartilhada com o container
+- `--name`: define um nome para o container
+- `--platform`: diz ao docker qual a plataforma deve ser usada (processadors m1 devem ter essa flag)
+
+Acessando o navegador FireFox na porta 7900, poderemos conferir se o container está rodando corretamente. Conforme a documentação, será necessário apenas utilizar a senha `secret` para ter acesso ao container.
+
