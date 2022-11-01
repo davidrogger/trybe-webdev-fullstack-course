@@ -245,3 +245,44 @@ firefox = webdriver.Firefox(options=options)
 ```
 
 Mais configuração para o [options](https://www.selenium.dev/selenium/docs/api/rb/Selenium/WebDriver/Firefox/Options.html) usando firefox.
+
+# Beatiful Soup
+
+É uma biblioteca para extrair dados de arquivos HTML e XML, fornece de maneira mais simples de navegar, pesquisar e modificar a árvore de análise.
+
+## Primeiros passos
+
+Primeiramente realizando requests para usar o soup:
+
+```
+import requests
+
+url = "https://quotes.toscrape.com"
+page = requests.get(url)
+print(page.content)
+
+```
+
+# Instalando a biblioteca
+
+`pip3 install beautifulsoup==4.11.1 resquests==2.27.1`
+
+
+Começando a explorar as funcionalidades:
+```
+# import requests
+from bs4 import BeautifulSoup
+
+# url = "https://quotes.toscrape.com"
+# page = requests.get(url)
+html_content = page.text
+
+# Cria uma instância do objeto Beautiful Soup e usa o parser de HTML nativo
+# do Python
+soup = BeautifulSoup(html_content, "html.parser")
+
+# Utiliza o método prettify para melhorar a visualização do conteúdo
+print(soup.prettify())
+
+```
+
