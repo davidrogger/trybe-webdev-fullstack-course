@@ -55,3 +55,41 @@ Em ambiente virtual o diretório bin do ambiente é adicionado ao path automatic
 ```
 mv geckodriver .venv/bin
 ```
+
+# Primeiros passos com o Selenium
+
+- local:
+```
+# importação do webdriver, que é o que possibilita a implementação para todos
+# os principais navegadores da web
+from selenium import webdriver
+
+# criação de uma instância de navegador utilizando o Firefox
+firefox = webdriver.Firefox()
+
+# requisições para essa instância criada utilizando o método `get`
+response = firefox.get("https://www.python.org/")
+```
+
+- docker: com ele é necessário passar o método remote para vincular nosso arquivo de código ao container rodando na porta 7900:
+```
+# importação do webdriver, que é o que possibilita a implementação para todos
+# os principais navegadores da web
+from selenium import webdriver
+
+options = webdriver.FirefoxOptions()
+options.add_argument('--ignore-certificate-errors')
+options.add_argument('--ignore-ssl-errors=yes')
+options.add_argument('--start-maximized')
+
+firefox = webdriver.Remote(command_executor="http://localhost:4444/wd/hub", options=options)
+
+# requisições para essa instância criada utilizando o método `get`
+response = firefox.get("https://www.python.org/")
+
+```
+
+Usando o código acima, será aberto um navegador no site solicitado com um ícone na barra de endereço.
+
+Caso esteja usando o selenium com Docker, todas as ações executadas serão vistas na janela do Firefox no endereço `http://localhost:7900`
+
