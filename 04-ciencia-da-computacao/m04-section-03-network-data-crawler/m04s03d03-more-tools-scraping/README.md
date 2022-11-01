@@ -39,7 +39,7 @@ Acessando o navegador FireFox na porta 7900, poderemos conferir se o container e
 
 ## Instalação Local
 ```
-python3 pip install selenium
+python3 pip install selenium || pip3 install selenium==4.2.0
 ```
 
 Para usar a ferramenta é necessário também instalar o [driver](https://www.selenium.dev/documentation/webdriver/getting_started/install_drivers/) do browser.
@@ -58,7 +58,7 @@ mv geckodriver .venv/bin
 
 # Primeiros passos com o Selenium
 
-- local:
+# local:
 ```
 # importação do webdriver, que é o que possibilita a implementação para todos
 # os principais navegadores da web
@@ -71,7 +71,9 @@ firefox = webdriver.Firefox()
 response = firefox.get("https://www.python.org/")
 ```
 
-- docker: com ele é necessário passar o método remote para vincular nosso arquivo de código ao container rodando na porta 7900:
+# docker:
+
+Com ele é necessário passar o método remote para vincular nosso arquivo de código ao container rodando na porta 7900:
 ```
 # importação do webdriver, que é o que possibilita a implementação para todos
 # os principais navegadores da web
@@ -93,3 +95,153 @@ Usando o código acima, será aberto um navegador no site solicitado com um íco
 
 Caso esteja usando o selenium com Docker, todas as ações executadas serão vistas na janela do Firefox no endereço `http://localhost:7900`
 
+#
+
+O selenium tem vários métodos públicos, find_element_by_tag_name e dois privados que precisam ser importados através do módulo By: o find_element e o find_elements, para localizar o primeiro elemento correspondente e todos os elementos que se encaixarem na busca.
+
+O By é usado para especificar o elemento CSS que será buscado e requer dois parâmetros: o primeiro define pelo que você irá buscar e o segundo o filtro da pesquisa.
+
+```
+from selenium import webdriver
+
+# Importa o By
+from selenium.webdriver.common.by import By
+
+firefox = webdriver.Firefox()
+
+firefox.get("https://books.toscrape.com/")
+
+
+# Define a função que fará o scrape da URL recebida
+def scrape(url):
+    firefox.get(url)
+
+    # Itera entre os elementos com essa classe
+    for book in firefox.find_elements(By.CLASS_NAME, "product_pod"):
+        # Cria dict vazio para guardar os elementos capturados
+        new_item = {}
+
+        # Cria uma chave 'title' no dict que vai receber o resultado da busca
+        # O título está em uma tag anchor que está dentro de uma tag 'H3'
+        new_item["title"] = (
+            book.find_element(By.TAG_NAME, "h3")
+            .find_element(By.TAG_NAME, "a")
+            .get_attribute("innerHTML")
+        )
+
+        # O trecho do book está em um elemento da classe 'entry-excerpt'
+        new_item["price"] = book.find_element(
+            By.CLASS_NAME, "price_color"
+        ).get_attribute("innerHTML")
+
+        # O link está dentro de um atributo 'href'
+        new_item["link"] = (
+            book.find_element(By.CLASS_NAME, "image_container")
+            .find_element(By.TAG_NAME, "a")
+            .get_attribute("href")
+        )
+
+        print(new_item)
+
+
+scrape("https://books.toscrape.com/")
+```
+
+Acima foi usado o método get_attribute pois o Selenium retorna depois da busca o atributo CSS e não texto. Para realizar essa conversão é utilizado juntamente com o atributo "innerHTML" ou "href".
+
+Também foi utilizado o método find_element encadeado para procurar um elemento dentro de outro elemento.
+
+Agora coletando informação de todas as páginas do site.
+
+1. Primeiro é organizado o código e determinado que o retorno da função scrape salve o resultado da raspagem em uma lista.
+2. Cria uma nova lista para abrigar os dados de uma página;
+3. Acessa o botão para ir para a próxima página e lá refazer o processo de salvar todas as informações solicitadas, repetindo até não existir mais o botão de proximo.
+
+```
+# from selenium import webdriver
+
+# from selenium.webdriver.common.by import By
+
+
+# firefox = webdriver.Firefox()
+
+
+# def scrape(url):
+#     firefox.get(url)
+
+    books = []
+
+#     for book in firefox.find_elements(By.CLASS_NAME, "product_pod"):
+#         new_item = {}
+
+#         new_item["title"] = (
+#             book.find_element(By.TAG_NAME, "h3")
+#             .find_element(By.TAG_NAME, "a")
+#             .get_attribute("innerHTML")
+#         )
+
+#         new_item["price"] = book.find_element(
+#             By.CLASS_NAME, "price_color"
+#         ).get_attribute("innerHTML")
+
+#         new_item["link"] = (
+#             book.find_element(By.CLASS_NAME, "image_container")
+#             .find_element(By.TAG_NAME, "a")
+#             .get_attribute("href")
+#         )
+
+        books.append(new_item)
+    return books
+
+firefox.get("https://books.toscrape.com/")
+
+all_books = []
+url2request = "https://books.toscrape.com/"
+
+# Cria uma variável com o seletor que captura o link do botão de passar para
+# a próxima página
+next_page_link = (
+    firefox.find_element(By.CLASS_NAME, "next")
+    .get_attribute("innerHTML")
+)
+
+# Enquanto este botão de 'next' existir na página ele irá iterar
+while next_page_link:
+
+    # Usa o método extend para colocar todos os elementos de uma lista dentro
+    # de outra
+    all_books.extend(scrape(url2request))
+    url2request = (
+        firefox.find_element(By.CLASS_NAME, "next")
+        .find_element(By.TAG_NAME, "a")
+        .get_attribute("href")
+    )
+
+print(all_books)
+```
+
+Para não visualizarmos a navegação basta adicionar alguns parametros no options, importando do webdriver:
+
+```
+from selenium import webdriver
+# Importa a classe 'Options' do browser
+from selenium.webdriver.firefox.options import Options
+
+
+firefox = webdriver.Firefox()
+
+# Instancia um objeto da classe 'Options'
+options = Options()
+# Adiciona um argumento passando o parâmetro '--headless'
+options.add_argument('--headless')
+
+# Define que a instância do navegador deve usar as options definidas
+firefox = webdriver.Firefox(options=options)
+
+# firefox.get('https://books.toscrape.com/')
+
+# ...
+
+```
+
+Mais configuração para o [options](https://www.selenium.dev/selenium/docs/api/rb/Selenium/WebDriver/Firefox/Options.html) usando firefox.
