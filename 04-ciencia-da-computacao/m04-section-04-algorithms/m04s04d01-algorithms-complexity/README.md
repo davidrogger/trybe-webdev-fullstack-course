@@ -195,3 +195,41 @@ Dessa forma, conseguimos calcular a ordem de complexidade de um algoritmo deste 
 
 **Exercício 4:** Imagine que você recebe dois arrays de tamanho igual, array1 e array2. Para cada elemento do array1, realize uma busca binária no array2. Mostre que a ordem de complexidade do algoritmo resultante é O(n * log n), ou O(n log n).
 
+# Complexidade Exponencial e Fatorial
+
+Essas complexidades caracterizam algoritmos que, para aumentos pequenos no tamanho da entrada, aumentam gigantemente o número de operações a serem realizadas para serem executados juntamente com seu tempo de execução. O tempo de execução e espaço ocupado em cada caso é:
+
+- Exponencial: 2ⁿ (0(2ⁿ));
+- Fatorial n! (0(n!))
+
+Para uma entrada de dados n que possui vinte elementos, o algoritmo exponencial realizará aproximadamente um milhão (ou 2²⁰) de operações. Para o fatorial os mesmos vinte elementos rendem 24 quatrilhões de operações.(2432902008176640000 operações).
+
+Quando não possuimos outro algoritmo conhecido que resolve o problema, acabmos precisando recorrer ao uso de complexidade fatorial.
+
+## Exemplo:
+
+### Caixeiro-Viajante:
+
+- Dada uma lista de cidades e distância entre cada par de cidades, qual é a rota mais curta possível que visita todas as cidades exatamente uma vez e volta pela cidade de origem?
+
+A única solução exata conhecida para esse problema é a força bruta: testamos todas as possibilidades e escolher a menor rota.
+```
+- Belo Horizonte > São Paulo > Florianópolis
+
+- Belo Horizonte > Florianópolis > São Paulo
+
+- Florianópolis > Belo Horizonte > São Paulo
+
+- Florianópolis > São Paulo > Belo Horizonte
+
+- São Paulo > Belo Horizonte > Florianópolis
+
+- São Paulo > Florianópolis > Belo Horizonte
+```
+
+O número de rotas para 3 cidades é `3! == 3 * 2 * 1 = 6`. Atualmente, o Brasil tem 5570 municípios. Se nosso caixeiro viajante tivesse que passar por todos os municípios, isso daria a ele 5570 * 5569 * 5568 * ... * rotas.
+
+Quantos milhares de anos um computador precisaria para roda esse algoritmo nesse caso.
+
+Algoritmos que não têm solução conhecida em tempo polinomial, ou seja, cuja ordem de complexidade é fatorial ou exponencial e são possivelmente resolvidos somente com força bruta, pertencem a uma categoria de problemas na computação chamada **NP Completos**.
+
