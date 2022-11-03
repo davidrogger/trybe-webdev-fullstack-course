@@ -1,3 +1,8 @@
+# Exercício 2: Meça o tempo de execução do algoritmo acima e,
+# mudando o tamanho das entradas, veja como, se você aumenta
+# a entrada em n vezes, o tempo de execução aumenta em n² vezes!
+
+
 def multiply_arrays(array1, array2):
     result = []
     number_of_iterations = 0

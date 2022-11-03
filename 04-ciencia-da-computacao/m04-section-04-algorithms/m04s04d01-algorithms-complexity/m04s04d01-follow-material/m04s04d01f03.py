@@ -1,3 +1,8 @@
+# Exercício 3:** Faça um algoritmo qualquer com três loops
+# aninhados um dentro do outro. Entenda como ele terá uma
+# complexidade de O(n³)!
+
+
 def multiply_arrays(array1, array2, array3):
     result = []
     number_of_iterations = 0

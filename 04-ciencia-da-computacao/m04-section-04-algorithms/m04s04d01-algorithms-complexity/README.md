@@ -118,8 +118,4 @@ multiply_arrays(meu_array, meu_array)
 
 Conforme aumentar o tamanho dos arrays de entrada, o número de operações para a execução do algoritmo cresce ao quadrado, Isso significa que, para entradas de tamanho n, a quantidade de operações para executar o algoritmo é de n². Sendo assim, a complexidade desse algoritmo é dada por 0(n²) e a chamamos de Complexidade Quadrática.
 
-# Exercício de Fixação
-
-**Exercício 2:** Meça o tempo de execução do algoritmo acima e, mudando o tamanho das entradas, veja como, se você aumenta a entrada em n vezes, o tempo de execução aumenta em n² vezes!
-
-**Exercício 3:** Faça um algoritmo qualquer com três loops aninhados um dentro do outro. Entenda como ele terá uma complexidade de O(n³)!
+# Comparando Complexidades
