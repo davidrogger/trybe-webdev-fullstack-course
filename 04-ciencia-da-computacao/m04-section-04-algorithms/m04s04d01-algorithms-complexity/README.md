@@ -233,3 +233,43 @@ Quantos milhares de anos um computador precisaria para roda esse algoritmo nesse
 
 Algoritmos que não têm solução conhecida em tempo polinomial, ou seja, cuja ordem de complexidade é fatorial ou exponencial e são possivelmente resolvidos somente com força bruta, pertencem a uma categoria de problemas na computação chamada **NP Completos**.
 
+# Algoritmos com várias estruturas de repetição
+```
+def calculations(n):
+    number1 = 0
+    for n1 in range(n):
+        number1 += n1
+
+    number2 = 0
+    for n1 in range(n):
+       for n2 in range(n):
+            number2 += n1 + n2
+
+    number3 = 0
+    for n1 in range(n):
+       for n2 in range(n):
+           for n3 in range(n):
+               number3 += n1 + n2 + n3
+
+    return number1, number2, number3
+
+n1, n2, n3 = calculations(100)
+print(f'{n1}, {n2}, {n3}')
+```
+
+Esse algoritmo tem três estruturas de repetição evidentes: linear, quadrática e cúbica.
+
+Qual a resposta para sua ordem de complexidade: seria 0(n + n² + n³)
+
+Se os loops estão aninhados você os multiplica, e se estão paralelos você os soma.
+
+Outro exemplo:
+- Um algoritmo de busca binária que roda três vezes teria 0(3 * log n) de complexidade;
+- Um algoritmo que roda uma busca binária num array de tamanho n para cada elemento de um array de tamanho m teria 0 (m * log n) de complexidade.
+
+Ordens de complexidade diferentes, para entradas grandes, têm valores absurdamente diferentes.
+
+Imagine escrever 0(n! + log(n)). Para uma entrada de tamanho 8 esse número seria (40320 + 3). Observe como o componente fatorial da equação, n! = 40320, domina completamente  a ordem de complexidade. Nesse cenário, dizemos que a complexidade menor é desprezível e, então, a omitimos.
+
+Para valores, grandes, dizer a maior ordem de complexidade do conjunto já basta para uma boa análise. Sendo assim, ao analisar várias estruturas de repetição em paralelo, responsa somente com o valor da estrutura que tiver maior ordem de complexidade na hora de fazer a sua análise.
+
