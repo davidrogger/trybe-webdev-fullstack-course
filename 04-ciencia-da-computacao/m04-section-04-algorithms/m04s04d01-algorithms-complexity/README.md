@@ -75,3 +75,18 @@ Um ponto importante que deve ser ressaltado é que quando calculamos a complexid
 
 Quando falado em ormde de complexidade sem especificar se é de tempo ou de memória, assuma que é de tempo.
 
+# Exercício de Fixação:
+
+**Exercício 1:** Qual é a Ordem de Complexidade (complexidade de tempo) do algoritmo abaixo? E a complexidade de espaço?
+```
+def multiply_array(numbers):
+    result = 1
+    for number in numbers:
+        result *= number
+
+    return result
+```
+
+Tempo: 0(n) Linear
+Espaço: 0(1) Constante
+
