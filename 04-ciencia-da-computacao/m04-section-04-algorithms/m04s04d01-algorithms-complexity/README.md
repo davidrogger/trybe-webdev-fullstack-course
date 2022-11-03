@@ -54,3 +54,24 @@ A função matemática que representa uma relação linear é f(n) = n e a nota�
 
 - Tempo: Relacionado ao tempo de Execução do algoritmo.
 - Espaço: Relacionada ao espaço de armazenamento do algoritmo.
+
+A complexidade de um algoritmo representa o crescimento de seu tempo de execução em função de uma taxa, a quantidade de operações que ele realiza. Mas quando falamos de complexidade, não é analisando somente o tempo, mas seu espaço "gasto" também.
+
+Exemplo:
+```
+def squared_array(numbers):
+    array_of_squares = []
+    for number in numbers:
+        array_of_squares.append(number * number)
+
+    return array_of_squares
+```
+
+Esse algoritmo recebe um array de números e retornar um novo com os números ao quadrado. Ele passa por todos os elementos, se houver 10 número, na entrada serão 10 operações; se houverem 100, serão 100, em relação à complexidade de tempo, temos aqui uma taxa de crescimento linear, uma vez que o aumento no tamanho do array, faz crescer proprocionalmente o tepo gasto. Pode-se afirmar que a complexidade de tempo é 0(n), chamada geralmente tempo linear 0 faz referência a ordem de complexidade, enquanto o n representa a fórmula matemática sobre a taxa de crescimento do número de operações.
+Conforma a entrada cresce, a saída também cresce e, consequentemente, o espaço ocupado por ela, o que implica dizer que sua complexidade de espaço é dado por 0(n).
+Usando outro caso de algoritmo, em que ele recebe um array de números, e retorna a soma de todos, nesse caso, a complexidade de tempo também é de 0(n), porém sua complexidade de espaço é 0(1), pois seu retorno é consntate, ele sempre irá retornar a soma do array.
+
+Um ponto importante que deve ser ressaltado é que quando calculamos a complexidade de espaço não levamos em consideração o espaço ocupado pela entrada, um vez que o tamanho da entrada não é algo que podemos, com nosso algoritmo, influenciar.
+
+Quando falado em ormde de complexidade sem especificar se é de tempo ou de memória, assuma que é de tempo.
+
