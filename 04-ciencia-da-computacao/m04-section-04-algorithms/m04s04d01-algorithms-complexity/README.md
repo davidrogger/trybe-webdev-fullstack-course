@@ -130,3 +130,68 @@ O tempo de execução de um algoritmo cúbico cresce muito mais para uma entrada
 
 Para um algoritmo linear, com n = 1000, teremos mil operações a serem realizadas. Quando o algoritmo é 0(n²), seria um milhão de operações.
 
+# Complexidade Logarítimica
+
+Apesar do termo assustador, a complexidade Logarítimica não exige cálculos matemáticos complicados para ser entendida.
+
+Representado pela notação 0(log n), um algoritmo logarítmico tem uma alteração na taxa de execução que, geralmente, reduz pela metade o tempo de finalização das iterações ao reduzir pela metade o tamanho do input a cada iteração.
+
+O número de operações para executar o algoritmo logarítmico tem uma relação inversa ao tamanho da entrada: quanto maior ela é, menor o número de operações e, consequentemente, menor o tempo para execução do algoritmo.
+
+Suponha que vamos criar um algoritmo de lista telefônica. Temos uma lista de nomes de tamanho n, ordenada em ordem alfabética, e um nome x; devemos encontrar o número de telefone da pessoa passada na entrada.
+
+Vamos procurar pelo nome Tintim,
+
+- Buscar na página (ou posição) da lista que tenha nomes começando com a letra T;
+- Escolher uma página aleatória da lista para abrir;
+- Percebemos que caímos na posição da letra M;
+- Como M < T, na ordem alfabética, então, devemos avançar algumas posições para encontrar o T;
+- Então, escolhemos uma página que está mais adiante;
+- Percebemos que caímos na posição da letra V;
+- Como V > T, então devemos voltar algumas posições;
+- Repetimos esse processo até encontrar o nome desejado.
+
+Outra maneira de encontrar o Tintim, seria iniciando pela letra A percorrendo até chegar na Letra T encontrando o Tintim, porém essa operação seria muito maior.
+Ou seja resolvemos em menos passos o problema 0(log n).
+
+
+Algoritmo de busca binária:
+```
+# A estrutura deve estar ordenada para que a busca binária funcione
+def binary_search(numbers, target):
+    # definir os índices
+    start = 0
+    end = len(numbers) - 1
+
+    while start <= end: # os índices podem ser no máximo iguais, o início não pode ultrapassar o fim
+        mid = (start + end) // 2 # encontro o meio
+
+        if numbers[mid] == target: # se o elemento do meio for o alvo, devolve a posição do meio
+            return mid
+        
+        if target < numbers[mid]: # se o elemento for menor, atualiza o índice do fim
+            end = mid - 1
+        else: # caso contrário, atualiza o índice do inicio
+            start = mid + 1
+    
+    return -1 # Não encontrou? Retorna -1
+
+numbers = [2, 3, 4, 10, 40]
+target = 40
+
+result = binary_search(numbers, target)
+print(f"Elemento encontrado na posição: {result}")
+```
+
+Esse algoritmo corta pela metade o problema, buscando apartir do meio o numero, como ele é ordenado ele segue apartir do meio se o target for maior que o valor central, e se for menor, ele itera de forma reversa.
+
+Quando cortamos a entrada pela metade a cada interação, temos um padrão que segue a função matemática de logaritmo na base dois, assim o algoritmo é 0(log n)
+
+Um logaritmo em base 2 respresenta o número de vezes que um valor deve ser dividido pela metade para obter 1.
+
+Dessa forma, conseguimos calcular a ordem de complexidade de um algoritmo deste tipo: Quando a entrada é cortada pela metade a cada iteração temos um comportamento logarítimico.
+
+# Exercícios de Fixação
+
+**Exercício 4:** Imagine que você recebe dois arrays de tamanho igual, array1 e array2. Para cada elemento do array1, realize uma busca binária no array2. Mostre que a ordem de complexidade do algoritmo resultante é O(n * log n), ou O(n log n).
+
