@@ -92,3 +92,34 @@ Espaço: 0(1) Constante
 
 # Complexidade quadrática
 
+Dependendo da forma como um algoritmo é escrito, seu tempo de execução vai ser alterado de acordo com diferentes taxas de crescimento.
+
+Exemplo:
+```
+def multiply_arrays(array1, array2):
+    result = []
+    number_of_iterations = 0
+
+    for number1 in array1:
+        print(f'Array 1: {number1}')
+        for number2 in array2:
+            print(f'Array 2: {number2}')
+            result.append(number1 * number2)
+            number_of_iterations += 1
+
+    print(f'{number_of_iterations} iterações!')
+    return result
+
+
+meu_array = [1, 2, 3, 4, 5]
+
+multiply_arrays(meu_array, meu_array)
+```
+
+Conforme aumentar o tamanho dos arrays de entrada, o número de operações para a execução do algoritmo cresce ao quadrado, Isso significa que, para entradas de tamanho n, a quantidade de operações para executar o algoritmo é de n². Sendo assim, a complexidade desse algoritmo é dada por 0(n²) e a chamamos de Complexidade Quadrática.
+
+# Exercício de Fixação
+
+**Exercício 2:** Meça o tempo de execução do algoritmo acima e, mudando o tamanho das entradas, veja como, se você aumenta a entrada em n vezes, o tempo de execução aumenta em n² vezes!
+
+**Exercício 3:** Faça um algoritmo qualquer com três loops aninhados um dentro do outro. Entenda como ele terá uma complexidade de O(n³)!
