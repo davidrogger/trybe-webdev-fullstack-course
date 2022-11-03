@@ -119,3 +119,14 @@ multiply_arrays(meu_array, meu_array)
 Conforme aumentar o tamanho dos arrays de entrada, o número de operações para a execução do algoritmo cresce ao quadrado, Isso significa que, para entradas de tamanho n, a quantidade de operações para executar o algoritmo é de n². Sendo assim, a complexidade desse algoritmo é dada por 0(n²) e a chamamos de Complexidade Quadrática.
 
 # Comparando Complexidades
+
+- A Ordem de complexidade diz respeito à taxa de crescimento do tempo de execução (ou espaço de memória ocupado) de um algoritmo, na medida em que aumentamos o tamanho da sua entrada;
+- Uma complexidade é 0(1)(constante), quando o tempo de execução do algoritmo independe do tamanho da entrada.
+- Uma complexidade é 0(n) (linear) quando a taxa de crescimento em seu tempo de execução é linear: se aumentarmos a entrada em 2x, aumentamos o tempo de execução em 2 vezes;
+- Uma complexidade é 0(n²) (quadrática) quando a taxa de crescimento do tempo de execução do algoritmo é quadrática: se aumentamos a entrada em 2 vezes, aumentamos o tempo de execução em 4(ou 2²) vezes.
+- Uma complexidade é 0(n³) (cúbica) quando a taxa de crescimento do tempo de execução do algoritmo é cúbica: se aumentarmos a entrada em 3 vezes, aumetamos o tempo de execução em 8 (2³) vezes.
+
+O tempo de execução de um algoritmo cúbico cresce muito mais para uma entrada e muito menor que a do algoritmo linear.
+
+Para um algoritmo linear, com n = 1000, teremos mil operações a serem realizadas. Quando o algoritmo é 0(n²), seria um milhão de operações.
+
