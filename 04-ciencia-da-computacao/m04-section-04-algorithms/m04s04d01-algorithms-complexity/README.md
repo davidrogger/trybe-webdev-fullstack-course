@@ -44,11 +44,11 @@ sum_array(array_com_um_milhão_de_numeros)
 
 O tempo de execução aumenta proprocionalmente, de acordo com uma taxa. Isso é chamado de complexidade: A taxa de crescimento do tempo de execução de algoritmo; quanto maior é essa taxa, maior é seu tempo de execução, e isso faz com que sua complexidade seja maior.
 
-A ormde de complexidade nada mais é do que a representação da proproção (ou taxa) de crescimento. Quando um aumento no tamanho da entrada aumenta o tempo de execução na mesma proporção, pode-se dizer que o algoritmo é lenearmente proprocional ao tempo de execução, considerando-o um algoritmo linear.
+A ordem de complexidade nada mais é do que a representação da proproção (ou taxa) de crescimento. Quando um aumento no tamanho da entrada aumenta o tempo de execução na mesma proporção, pode-se dizer que o algoritmo é linearmente proprocional ao tempo de execução, considerando-o um algoritmo linear.
 
 A função matemática que representa uma relação linear é f(n) = n e a notação de Ordem de Complexidade para representar a taxa de crescimento do tempo de execução de um algoritmo é dada por 0(n), onde o n representa a quantidade de operações que o algoritmo vai realizar.
 
-- A ordem de complexidade pode ser chamada, de Complexidade Assintótica.
+- A ordem de complexidade pode ser chamada, de Complexidade **Assintótica**.
 
 ## Complexidade
 
@@ -89,4 +89,6 @@ def multiply_array(numbers):
 
 Tempo: 0(n) Linear
 Espaço: 0(1) Constante
+
+# Complexidade quadrática
 
