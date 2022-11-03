@@ -50,7 +50,7 @@ A função matemática que representa uma relação linear é f(n) = n e a nota�
 
 - A ordem de complexidade pode ser chamada, de Complexidade Assintótica.
 
-## Comeplexidade
+## Complexidade
 
 - Tempo: Relacionado ao tempo de Execução do algoritmo.
 - Espaço: Relacionada ao espaço de armazenamento do algoritmo.
