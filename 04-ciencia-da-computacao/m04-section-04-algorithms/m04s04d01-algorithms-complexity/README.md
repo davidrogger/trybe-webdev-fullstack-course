@@ -273,3 +273,27 @@ Imagine escrever 0(n! + log(n)). Para uma entrada de tamanho 8 esse número seri
 
 Para valores, grandes, dizer a maior ordem de complexidade do conjunto já basta para uma boa análise. Sendo assim, ao analisar várias estruturas de repetição em paralelo, responsa somente com o valor da estrutura que tiver maior ordem de complexidade na hora de fazer a sua análise.
 
+# Melhor caso, pior e médio caso
+
+Eles significam: "A depender da entrada, o algoritmo pode executar em 0(1) ou 0(n).
+```
+def linear_search(numbers, target):
+    n = len(numbers) # N será a quantidade de elementos da lista
+    for index in range(0, n): # vamos iterar a lista completa
+        if numbers[index] == target: # se encontrar o elemento alvo, retorne a posição
+            return index
+
+    return -1 # Não encontrou? Retorne -1
+
+
+print(linear_search([1, 2, 3], 2))  # saída: 1
+print(linear_search([1, 2, 3], 4))  # saída: -1
+```
+
+Para entradas muito grandes, esse algoritmo é 0(n)
+
+Caso tenhamos sorte e o número que procuramos seja o primeiro, mesmo para uma entrada infinita, nossa complexidade será 0(1). Esse é o melhor caso desse algoritmo. De forma análoga, o pior caso é o número ser o último elemento do array, ou seja 0(n)
+
+O caso médio, seria algo como 0(n * 1/2). Nesse caso, o número que procuramos está no meio da lista. Mas para entradas muito grandes, aprendemos a desprezar os números menos relevantes da soma, podemos simplificar e dizer que o caso médio é 0(n).
+
+Diferentes algoritmos têm diferentes cenários de melhor caso, pior caso e caso médio.
