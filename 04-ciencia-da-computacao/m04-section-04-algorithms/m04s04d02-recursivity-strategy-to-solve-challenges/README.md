@@ -57,3 +57,31 @@ Nome da função e parâmetro:
 2. Dentro da função criada, definimos qual é a condição de parada da função.
 3. A condição de parada faz uma comparação entre o valor da condição como o parâmetro que a função está recebendo. Caso a condição não se satisfaça, a função é chamada novamente com um novo parâmetro. Caso contrário a execução para na condição de parada.
 
+# A pilha de chamadas
+
+A pilha de chamadas, conhecida como call stack, organiza as sub-rotinas que estão executando no computador. Trazendo para o contexto de recursividade, a pilha de chamadas registra a execução das funções ou seja está sendo executada, em que ponto ela deve retornar, qual é a proxima a ser chamada, etc.
+
+Exemplo:
+
+Uma função A está sendo executada e durante a sua execução ela precisa do resultado do processamento de outra função B a qual ela chama. Diante disso, a funçãoA ficará aguardando na pilha de chamadas enquanto a função B executa. Quando B terminar, seu resultado voltará para A que vai continuar sua execução.
+
+- Toda vez que chamamos uma função em um programa, o sistema operacional reserva memória para as variáveis e parâmetros da função;
+- Sempre quando uma função é executada, ela é aguardada na pilha;
+- Quando a função termina de ser executada, ela sai da pilha.
+
+```
+def saudacao():
+    print("Oi")
+
+def despedida():
+    print("Tchau")
+
+def init():
+    print("Inicio")
+    saudacao()
+    print("Fim")
+    despedida()
+
+init()
+```
+
