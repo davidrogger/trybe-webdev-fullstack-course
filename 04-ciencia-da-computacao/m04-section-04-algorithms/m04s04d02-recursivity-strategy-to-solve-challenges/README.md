@@ -85,3 +85,10 @@ def init():
 init()
 ```
 
+# Iterativo x Recursivo!
+
+Escolher entre uma solução e outra depende muito da necessidade.
+
+- Escolher uma solução recursiva, não significa ganho de performance, muito pelo contrário, grande parte das vezes, a solução iterativa será mais perfomática.
+- Escolher s olução recursiva terá um ganho na diminuição de complexidade do código do projeto. Complexidade = legibilidade. O código fica mais simples, mais harmonioso, quando utilizado a recursividade.
+
