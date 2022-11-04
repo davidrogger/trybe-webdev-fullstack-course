@@ -92,3 +92,31 @@ Escolher entre uma solução e outra depende muito da necessidade.
 - Escolher uma solução recursiva, não significa ganho de performance, muito pelo contrário, grande parte das vezes, a solução iterativa será mais perfomática.
 - Escolher s olução recursiva terá um ganho na diminuição de complexidade do código do projeto. Complexidade = legibilidade. O código fica mais simples, mais harmonioso, quando utilizado a recursividade.
 
+# Análise de algoritmos recursivos
+
+## Árvore de recursão
+
+Pode ser usado para estimar o curso de um algoritmo. É um medo de analisar o seu custo, o que ajuda a decidir se tal solução vale apena ou não.
+
+Pode-se visualiar nível por nível da estrutura de um algoritmo recursivo, pro meio da árvore. No final, tem-se uma estimativa de tempo do problema.
+
+Exemplo:
+```
+def fibonacci(num):  # nome da função e parâmetro
+    if (num <= 1):  # condição de parada
+        return num
+    else:
+        return fibonacci(num - 2) + fibonacci(num - 1)  # chamada de si mesma com um novo valor
+```
+Usando um código recursivo para cálculo de Fibonacci.
+Visualizamo a representação do algoritmo Fibonacci resursivo abaixo, convertido em uma estrutura de árvore:
+
+![Fluxograma Fibonacci Recursivo](/04-ciencia-da-computacao/m04-section-04-algorithms/m04s04d02-recursivity-strategy-to-solve-challenges/m04s04d02-follow-material/Fluxograma%20Fibonacci%20Recursivo.png)
+
+Cada nó da árvore acima representa o custo da solução de um subproblema. Quando olhamos para árvore como um todo, quando expandimos ela, podemos somar todos os custos de cada nível dessa árvore e então teríamos o resultado total do problema.
+
+O problema começa com apenas um nó e vai decompondo até alcançar os casos base, que são as "folhas" da árvore. Folhas são, basicamente, nós da estrutura que não possuem nenhum nó abaixo deles.
+
+Analisando de forma interativa, como essa árvore chegou a esse resultado passo a passo:
+
+![Exemplo retirado do site: www.visualgo.net/en/recursion](/04-ciencia-da-computacao/m04-section-04-algorithms/m04s04d02-recursivity-strategy-to-solve-challenges/m04s04d02-follow-material/gif%20Arvore%20recursao%20fibonacci.gif)
