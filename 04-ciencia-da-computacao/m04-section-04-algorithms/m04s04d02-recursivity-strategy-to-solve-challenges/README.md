@@ -120,3 +120,15 @@ O problema começa com apenas um nó e vai decompondo até alcançar os casos ba
 Analisando de forma interativa, como essa árvore chegou a esse resultado passo a passo:
 
 ![Exemplo retirado do site: www.visualgo.net/en/recursion](/04-ciencia-da-computacao/m04-section-04-algorithms/m04s04d02-recursivity-strategy-to-solve-challenges/m04s04d02-follow-material/gif%20Arvore%20recursao%20fibonacci.gif)
+
+# Principais cuidados ao usar recursão
+
+Chamadas de funções ocupam memória já que toda vez que uma chamada é feita, o SO reserva memória para as variáveis e parâmetros.
+
+Quando um loop recursivo é muito, ele ferá muitas chamadas, e quando ele faz muitas chamadas podemos ter um stack overflow (que não é apenas o fórum de ajuda para devs). O stack overflow, ou estouro de pilha, significa que ficaríamos sem memória para continuar com a execução do programa.
+
+Para evitar um estouro de pilha, é importante que as chamadas recursivas parem. Para que consigamos fazer as chamadas recursivas pararem é importante lembrarmos sempre de implementar a condição de parada na função.
+
+Apesar de funções recursivas serem mais harmoniosas e fáceis de implementar, elas costumam ser menos eficientes que do que as iterativas, por causa do overhead de empilhar e desempilhar chamadas de funções.
+
+Não é tão simples decidir quando usar uma solução recursiva para um problema, mas você vai perceber que alguns problemas são muito mais fácieis e intuitivos de serem resolvidos recursivamente. É nesses casos que a recursã ovale apena.
