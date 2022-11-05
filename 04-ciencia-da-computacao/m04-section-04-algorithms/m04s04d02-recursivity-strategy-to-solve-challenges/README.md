@@ -132,3 +132,33 @@ Para evitar um estouro de pilha, é importante que as chamadas recursivas parem.
 Apesar de funções recursivas serem mais harmoniosas e fáceis de implementar, elas costumam ser menos eficientes que do que as iterativas, por causa do overhead de empilhar e desempilhar chamadas de funções.
 
 Não é tão simples decidir quando usar uma solução recursiva para um problema, mas você vai perceber que alguns problemas são muito mais fácieis e intuitivos de serem resolvidos recursivamente. É nesses casos que a recursã ovale apena.
+
+# Estratégias para solução de problemas
+
+## Iterativa
+
+A solução iterativa é caracterizada pela repetição de uma determinada operação, procurando resolver algum problema encontrando sucessivas aproximações, a partir de uma suposição inicial.
+
+A ideia nesse tipo de processo é repetir um determinado cálculo várias vezes, obtendo-se a cada repetição, ou iteração, um resultado mais preciso que aquele obtido na iteração anterior.
+
+A cada iteração, utiliza-se o resultado da anterior como parâmetro de entrada para o cálculo seguinte. O resultado é uma sequência de valores aproximados, não exatos, mas que estão dentro de uma faixa de erro aceitável.
+
+## Força bruta
+
+
+Também conhecida como tentativa e erro ou busca exaustiva, é a estratégia mais trivial e intuitva para solução de problemas. Ela consiste em enumerar todas as combinações possíveis para uma solução avaliar se satisfazem o problema. Dessa forma, é possível escolher a melhor das soluções, mas apesar de trivial, em alguns casos a força bruta possui desempenho geralmente ruim.
+
+# Dividir e conquistar
+
+Também chamada de divisão e conquista, consiste em dividir o problema em partes menores, encontrar soluções para as partes, e só então combinar as soluções obtidas em uma solução global.
+
+Essa estratégia nos quais os subproblemas são menores do que o problema original, geralmetne leva à soluções eficientes e harmoniosas, especialmente quando é utilizado a recursividade.
+
+Ela emprega modularização de programas e frequentemente conduz a um algoritmo simples e eficiente. Esta técnica é bastante utilizada em desenvolvimento de algoritmos paralelos, onde os subproblemas são tipicamente independentes um dos outros, podendo assim serem resolvidos separadamente.
+
+A modularização de um programa consiste em dividi-lo em partes funcionais que conversam entre si, tornando o software mais eficiente.
+
+Técnica consistem em três passos:
+- Divisão: dividir a instância do problema original em duas ou mais instâncias menores, considerando-as como subproblemas;
+- Conquista: resolver cada subproblema recursivamente;
+- Combinação: combinar as soluções encontradas em cada subproblema, compondo uma solução para o problema original.
