@@ -4,4 +4,9 @@
 
 
 def even_number_counter(n):
-    pass
+    counter = 0
+    for number in range(0, n):
+        if number % 2 == 0:
+            counter += 1
+
+    return counter
