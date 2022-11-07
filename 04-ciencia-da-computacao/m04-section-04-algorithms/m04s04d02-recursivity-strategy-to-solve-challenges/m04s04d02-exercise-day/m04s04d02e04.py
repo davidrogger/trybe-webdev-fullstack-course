@@ -2,12 +2,26 @@
 # encontrar o máximo divisor comum (mdc) de dois inteiros.
 
 
-# def recursive_mdc(n1, n2):
-#     pass
+def recursive_mdc_aux(n1, n2, divider):
+    if n1 % divider == 0 and n2 % divider == 0:
+        n1_divided = n1 / divider
+        n2_divided = n2 / divider
+        return divider * recursive_mdc_aux(n1_divided, n2_divided, divider)
+    elif n1 % divider == 0:
+        n1_divided = n1 / divider
+        return recursive_mdc_aux(n1_divided, n2, divider)
+    elif n2 % divider == 0:
+        n2_divided = n2 / divider
+        return recursive_mdc_aux(n1, n2_divided, divider)
+    elif n1 == 1 and n2 == 1:
+        return 1
+    else:
+        return recursive_mdc_aux(n1, n2, divider + 1)
 
 
-# def divider(n1, n2, divider):
-#     pass
+def recursive_mdc(n1, n2):
+    divider = 2
+    return recursive_mdc_aux(n1, n2, divider)
 
 
 def mdc(n1, n2):
@@ -34,6 +48,14 @@ def mdc(n1, n2):
     return mdc_value
 
 
+def gabarito_mdc(a, b):
+    if b == 0:
+        return a
+    return gabarito_mdc(b, a % b)
+
+
 if __name__ == "__main__":
-    mdc_value = mdc(20, 24)
+    # mdc_value = mdc(20, 24) # 4
+    # mdc_value = recursive_mdc(20, 24)
+    mdc_value = gabarito_mdc(20, 24)
     print(mdc_value)

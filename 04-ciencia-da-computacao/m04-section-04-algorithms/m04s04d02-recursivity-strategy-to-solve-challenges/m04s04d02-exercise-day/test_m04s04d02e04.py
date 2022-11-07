@@ -1,4 +1,4 @@
-from m04s04d02e04 import mdc
+from m04s04d02e04 import mdc, recursive_mdc
 import pytest
 
 
@@ -30,4 +30,14 @@ def test_mdc(numbers):
         expect = number["expect"]
 
         mdc_value = mdc(number1, number2)
+        assert mdc_value == expect
+
+
+def test_recursive_mdc(numbers):
+    for number in numbers:
+        number1 = number["n1"]
+        number2 = number["n2"]
+        expect = number["expect"]
+
+        mdc_value = recursive_mdc(number1, number2)
         assert mdc_value == expect
