@@ -260,6 +260,6 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 ##### Seção 04: Algoritmos
 
 - [x] Dia 1: _Complexidade de ALgoritmos_
-- [ ] Dia 2: _Recursividade e Estratégias para solução de problemas_
+- [x] Dia 2: _Recursividade e Estratégias para solução de problemas_
 - [ ] Dia 3: _Algoritmos de ordenação e busca_
 - [ ] Dia 4: _Projeto - Algoritmos_
