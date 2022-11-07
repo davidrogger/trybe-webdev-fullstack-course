@@ -27,7 +27,7 @@ def test_mdc(numbers):
     for number in numbers:
         number1 = number["n1"]
         number2 = number["n2"]
-        number = number["expect"]
+        expect = number["expect"]
 
         mdc_value = mdc(number1, number2)
-        assert mdc_value == number
+        assert mdc_value == expect
