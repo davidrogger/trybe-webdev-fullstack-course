@@ -19,6 +19,23 @@ def is_number_prime(n):
         return True
 
 
+# Gabarito
+
+
+def temdivisor(n, i, j):
+    if i > j:
+        return False
+    elif n % i == 0:
+        return True
+    else:
+        return temdivisor(n, i + 1, j)
+
+
+def primo(n):
+    return n > 1 and not (temdivisor(n, 2, n - 1))
+
+
 if __name__ == "__main__":
-    is_prime = is_number_prime(5)
-    print(is_prime)
+    # is_prime = is_number_prime(5)
+    # print(is_prime)
+    print(primo(5))
