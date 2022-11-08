@@ -1,4 +1,4 @@
-from scraper import fetch, scrape_novidades
+from scraper import fetch, scrape_novidades, scrape_next_page_link
 
 
 def test_fetch_timeout():
@@ -44,3 +44,17 @@ def test_scrape_news_invalid_url():
     html = fetch(url)
     links = scrape_novidades(html)
     assert links == expect
+
+
+def test_scrape_next_page_link_found():
+    url = "https://blog.betrybe.com/"
+    html = fetch(url)
+    next_page_link = scrape_next_page_link(html)
+    assert "http" in next_page_link
+
+
+def test_scrape_next_page_link_not_found():
+    url = "https://blog.betrybe.com/page/76/"
+    html = fetch(url)
+    next_page_link = scrape_next_page_link(html)
+    assert next_page_link is None

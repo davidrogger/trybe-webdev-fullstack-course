@@ -20,3 +20,9 @@ def scrape_novidades(html):
     selector = Selector(html)
     news_links = selector.css(".entry-title a::attr(href)").getall()
     return news_links
+
+
+def scrape_next_page_link(html):
+    selector = Selector(html)
+    next_page_link = selector.css(".next::attr(href)").get()
+    return next_page_link
