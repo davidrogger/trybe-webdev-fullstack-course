@@ -26,3 +26,25 @@ def scrape_next_page_link(html):
     selector = Selector(html)
     next_page_link = selector.css(".next::attr(href)").get()
     return next_page_link
+
+
+def scrape_noticia(news_html):
+    selector = Selector(news_html)
+
+    news_info = {}
+
+    # news_info["url"] = selector.css("").get()
+    news_info["title"] = selector.css(".entry-title::text").get()
+    news_info["timestamp"] = selector.css(".meta-date::text").re_first(
+        r"\d{2}/\d{2}/\d{4}"
+    )
+    news_info["writer"] = selector.css(".author a::text").get()
+    news_info["comments_count"] = int(
+        selector.css(".post-comments .title-block::text").re_first(r"\d")
+        or "0"
+    )
+    news_info["summary"] = selector.css(".entry-content p::text").get()
+    news_info["tags"] = selector.css(".post-tags a::text").getall()
+    news_info["category"] = selector.css(".category-style .label::text").get()
+
+    return news_info["category"]

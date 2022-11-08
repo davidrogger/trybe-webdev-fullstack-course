@@ -1,4 +1,9 @@
-from scraper import fetch, scrape_novidades, scrape_next_page_link
+from scraper import (
+    fetch,
+    scrape_novidades,
+    scrape_next_page_link,
+    scrape_noticia,
+)
 
 
 def test_fetch_timeout():
@@ -58,3 +63,15 @@ def test_scrape_next_page_link_not_found():
     html = fetch(url)
     next_page_link = scrape_next_page_link(html)
     assert next_page_link is None
+
+
+def test_scrape_noticias():
+    url = "https://blog.betrybe.com/noticias/"
+    endpoint = (
+        "bill-gates-e-cetico-sobre-criptomoedas-e-nfts-entenda-o-motivo/"
+    )
+    url2 = "https://blog.betrybe.com/carreira/passos-fundamentais-para-aprender-a-programar/"
+    html = fetch(url + endpoint)
+    # html = fetch(url2)
+    data = scrape_noticia(html)
+    assert data == ""
