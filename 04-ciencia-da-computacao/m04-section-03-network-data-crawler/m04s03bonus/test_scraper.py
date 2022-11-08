@@ -1,4 +1,4 @@
-from scraper import fetch
+from scraper import fetch, scrape_novidades
 
 
 def test_fetch_timeout():
@@ -27,3 +27,20 @@ def test_fetch_html_response():
     url = "https://blog.betrybe.com/"
     response = fetch(url)
     assert expect in response
+
+
+def test_scrape_news_valid_url():
+    url = "https://blog.betrybe.com/"
+    html = fetch(url)
+    links = scrape_novidades(html)
+    assert len(links) == 12
+    for link in links:
+        assert "http" in link
+
+
+def test_scrape_news_invalid_url():
+    expect = []
+    url = "https://davidrogger.github.io/"
+    html = fetch(url)
+    links = scrape_novidades(html)
+    assert links == expect

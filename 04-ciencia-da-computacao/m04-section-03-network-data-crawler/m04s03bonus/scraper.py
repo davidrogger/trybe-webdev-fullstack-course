@@ -1,6 +1,7 @@
 from requests import HTTPError, ReadTimeout
 import requests
 import time
+from parsel import Selector
 
 
 def fetch(url):
@@ -13,3 +14,9 @@ def fetch(url):
         return None
     else:
         return response.text
+
+
+def scrape_novidades(html):
+    selector = Selector(html)
+    news_links = selector.css(".entry-title a::attr(href)").getall()
+    return news_links
