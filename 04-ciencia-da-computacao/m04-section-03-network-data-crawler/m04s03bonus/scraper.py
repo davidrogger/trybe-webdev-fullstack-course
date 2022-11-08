@@ -33,7 +33,9 @@ def scrape_noticia(news_html):
 
     news_info = {}
 
-    # news_info["url"] = selector.css("").get()
+    news_info["url"] = selector.css(
+        ".pk-share-buttons-wrap::attr(data-share-url)"
+    ).get()
     news_info["title"] = selector.css(".entry-title::text").get()
     news_info["timestamp"] = selector.css(".meta-date::text").re_first(
         r"\d{2}/\d{2}/\d{4}"
@@ -47,4 +49,4 @@ def scrape_noticia(news_html):
     news_info["tags"] = selector.css(".post-tags a::text").getall()
     news_info["category"] = selector.css(".category-style .label::text").get()
 
-    return news_info["category"]
+    return news_info

@@ -4,6 +4,25 @@ from scraper import (
     scrape_next_page_link,
     scrape_noticia,
 )
+import pytest
+
+
+@pytest.fixture
+def fake_page():
+    return """
+        <a class="category-style" href="#">
+            <span class="label">Notícias</span>
+        </a>
+        <h1 class="entry-title">Title Test</h1>
+        <span class="author">
+            <a class="url fn n" href="#">Allan Camilo</a>
+        </span>
+        <li class="meta-date">15/06/2022</li>
+        <div class="entry-content">
+            <p>Paragrafo Teste</p>
+        </div>
+        <div class="pk-share-buttons-wrap" data-share-url="https://teste.com">
+        """
 
 
 def test_fetch_timeout():
@@ -65,13 +84,17 @@ def test_scrape_next_page_link_not_found():
     assert next_page_link is None
 
 
-def test_scrape_noticias():
-    url = "https://blog.betrybe.com/noticias/"
-    endpoint = (
-        "bill-gates-e-cetico-sobre-criptomoedas-e-nfts-entenda-o-motivo/"
-    )
-    url2 = "https://blog.betrybe.com/carreira/passos-fundamentais-para-aprender-a-programar/"
-    html = fetch(url + endpoint)
-    # html = fetch(url2)
-    data = scrape_noticia(html)
-    assert data == ""
+def test_scrape_noticias(fake_page):
+    expect = {
+        "url": "https://teste.com",
+        "title": "Title Test",
+        "timestamp": "15/06/2022",
+        "writer": "Allan Camilo",
+        "comments_count": 0,
+        "summary": "Paragrafo Teste",
+        "tags": [],
+        "category": "Notícias",
+    }
+
+    data = scrape_noticia(fake_page)
+    assert data == expect
