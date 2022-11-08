@@ -55,3 +55,7 @@ print(f"Lista inicial: {numbers}")
 ordered_numbers = selection_sort(numbers)
 print(f"Lista final: {ordered_numbers}")
 ```
+
+A complexidade deste algoritmo, que independente de todos os elementos estarem ordenados, ou parcialmente, sempre será percorrido o array completamente e também n - 1 elementos a cada iteração. Sendo uma complexidade 0(n²) para todos os casos.
+
+Como foi criado apenas algumas variáveis de controle e não uma lista auxiliar, o algoritmo tem uma complexidade de espaço constante.
