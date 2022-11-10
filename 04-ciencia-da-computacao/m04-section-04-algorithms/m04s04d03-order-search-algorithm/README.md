@@ -177,3 +177,46 @@ A separação em partes traz uma complexidade 0(log n), e as misturas 0(n). Resu
 
 Como é um algoritmo recursivo, consome mais memória, possuindo uma complexidade de espaço 0(n), cresce linearmente proprocional à entrada de dados.
 
+# Quick Sort
+
+Também utiliza da técnica de divisão e conquista. Sua estratégia de ordenação consiste em determinar um elemento pivô (nome dado ao elemento que divide o array em porções menores). Em seguida, todos os elementos maiores que o pivô serão colocados à direita e os menores à esquerda. Com isso, o pivô será colocado em sua posição correta e teremos duas subcoleções não ordenadas ao seu redor. Recursivamente ordenamos os sub arrays, repetindo o mesmo processo de escolha do pivô e particionamento(divisão).
+
+O quicksort possui dois procedimentos:
+
+- Função quicksort: a coleção será particionada de acordo com o pivô.
+- Função partition: ela é a chave para o algoritmo. Nela a coleção será reorganizada.
+
+Exemplo:
+```
+def quick_sort(numbers, start, end):
+    if start < end:
+        p = partition(numbers, start, end) 
+        quick_sort(numbers, start, p - 1) # Os menores em relação ao pivô ficarão à esquerda
+        quick_sort(numbers, p + 1, end) # Os maiores elementos em relação ao pivô ficarão à direita
+
+# função auxiliar responsável pela partição do array
+# escolhendo um pivô e fazendo movimentações dos sub arrays gerados
+
+def partition(numbers, start, end):
+    pivot = numbers[end]
+    delimiter = start - 1
+
+    for index in range(start, end):
+        # o índice será o elemento em análise no momento, ele passará por todos os elementos
+        if numbers[index] <= pivot:
+          delimiter = delimiter + 1
+          numbers[index], numbers[delimiter] = numbers[delimiter], numbers[index]
+
+    numbers[delimiter + 1], numbers[end] = numbers[end], numbers[delimiter + 1]
+
+    return delimiter + 1
+
+numbers = [6, 5, 3, 1, 8, 7, 2, 4]
+quick_sort(numbers, 0, len(numbers) - 1)
+print(numbers)
+```
+
+Esta ordenação possui com complexidade 0(n log n), em um pior caso, ondeo array está ordenado de forma inversa, ocorrerá com complexidade 0(n²)
+
+Quando é usada a função sorted padrão do python ou faz array.sort, é utilizado uma ordenadação chamada TimSort, que é um algoritmo híbrido que mistura o merge sort e insertion sort. Ele é utilizado pela linguagem Java para ordenar arrays também.
+
