@@ -121,4 +121,59 @@ numbers = [7, 5, 9, 2, 6, 8]
 print(bubble_sort(numbers))
 ```
 
-Assim como nos algoritmos de força bruta, no pior caso do buble sort ele será 0(n²).
+Assim como nos algoritmos de força bruta, no pior caso do bubble sort ele será 0(n²).
+
+# Algoritmos que usam dividir e conquistar
+
+Consiste em dividir um problema grande em partes menores, encontrar soluções para as partes menores, e então combinar as soluções obtidas em uma solução global. Esta técnica produz um algoritmo eficiente caso a divisão e conquista sejam eficientes.
+
+Toda solução recusiva pode ser reescrita de forma iterativa.
+
+## Merge sort
+
+Ordenação por mistura é um algoritmo onde a técnica da divisão e conquista funciona dividindo a coleção em porções menores até atingir uma coleção mínima. Em seguida, misturando as porções de forma ordenada até que toda a coleção seja reunida novamente, resultando na ordenação.
+
+Exemplo:
+
+```
+def merge_sort(numbers, start=0, end=None):
+    if end is None:
+        end = len(numbers)
+    if (end - start) > 1: # se não reduzi o suficiente, continua
+        mid = (start + end) // 2 # encontrando o meio
+        merge_sort(numbers, start, mid) # dividindo as listas
+        merge_sort(numbers, mid, end)
+        merge(numbers, start, mid, end) # unindo as listas
+
+# função auxiliar que realiza a mistura dos dois arrays
+
+def merge(numbers, start, mid, end):
+    left = numbers[start:mid] # indexando a lista da esquerda
+    right = numbers[mid:end] # indexando a lista da direita
+
+    left_index, right_index = 0, 0 # as duas listas começarão do início
+
+    for general_index in range(start, end): # percorrer sobre a lista inteira como se fosse uma
+        if left_index >= len(left): # se os elementos da esquerda acabaram, preenche o restante com a lista da direita 
+            numbers[general_index] = right[right_index]
+            right_index = right_index + 1
+        elif right_index >= len(right): # se os elementos da direita acabaram, preenche o restante com a lista da esquerda
+            numbers[general_index] = left[left_index]
+            left_index = left_index + 1
+        elif left[left_index] < right[right_index]: # se o elemento do topo da esquerda for menor que o da direita, ele será o escolhido
+            numbers[general_index] = left[left_index]
+            left_index = left_index + 1
+        else:
+            numbers[general_index] = right[right_index] # caso o da direita seja menor, ele será o escolhido
+            right_index = right_index + 1
+
+
+numbers = [6, 5, 3, 1, 8, 7, 2, 4]
+merge_sort(numbers, 0, len(numbers))
+print(numbers)
+```
+
+A separação em partes traz uma complexidade 0(log n), e as misturas 0(n). Resultando em uma complexidade de 0(n long n), independente do array estar ordenado por completo, não ordenada, ou parcialmente ordenado.
+
+Como é um algoritmo recursivo, consome mais memória, possuindo uma complexidade de espaço 0(n), cresce linearmente proprocional à entrada de dados.
+
