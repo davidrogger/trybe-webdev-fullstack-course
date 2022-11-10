@@ -3,6 +3,8 @@ from scraper import (
     scrape_novidades,
     scrape_next_page_link,
     scrape_noticia,
+    get_last_n_news_links,
+    get_tech_news,
 )
 import pytest
 
@@ -98,3 +100,17 @@ def test_scrape_noticias(fake_page):
 
     data = scrape_noticia(fake_page)
     assert data == expect
+
+
+def test_get_last_n_news_links():
+    news_quantity = 16
+    expect = news_quantity
+    news_info = get_last_n_news_links(news_quantity)
+
+    assert len(news_info) == expect
+
+
+def test_get_tech_news():
+    news_infos = get_tech_news(2)
+
+    assert news_infos == ""
