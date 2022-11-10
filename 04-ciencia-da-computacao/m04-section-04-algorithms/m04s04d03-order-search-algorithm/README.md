@@ -278,3 +278,10 @@ target = 40
 result = binary_search(numbers, target)
 print(f"Elemento encontrado na posição: {result}")
 ```
+
+# Complexidade
+
+O algoritmo linear_seach, no pior caso (se o elemento estiver na última posição ou não existir), precisará percorrer toda a estrutura para encontrar o elemento. Diante disso, sua complexidade é 0(n). No entanto, o algoritmo de linear_search não necessita que a coleção esteja ordenada.
+
+No caso do algoritmo binary_search, no pior caso ele precisara de 0(log n) operações para encontrar o elemento (também caso não exista).
+
