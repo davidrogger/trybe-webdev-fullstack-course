@@ -244,3 +244,37 @@ def linear_search(numbers, target):
 print(linear_search([1, 2, 3], 2))  # saída: 1
 print(linear_search([1, 2, 3], 4))  # saída: -1
 ```
+
+## Busca Binária
+
+Técnica de divisão e conquista que dependende da coleção estar ordenada e seu funcionamento é por meio de múliplas divisões do espaço de busca, reduzindo-o, buscando o elemento no meio do espaço.
+
+Busca binária é mais rápida que a busca linear, visto que o número de comparações necessárias, mesmo em um caso onde não encontre um elemento, é menor.
+
+Exemplo:
+
+```
+def binary_search(numbers, target):
+    # definir os índices
+    start = 0
+    end = len(numbers) - 1
+
+    while start <= end: # os índices podem ser no máximo iguais, o início não pode ultrapassar o fim
+        mid = (start + end) // 2 # encontro o meio
+
+        if numbers[mid] == target: # se o elemento do meio for o alvo, devolve a posição do meio
+            return mid
+        
+        if target < numbers[mid]: # se o elemento for menor, atualiza o índice do fim
+            end = mid - 1
+        else: # caso contrário, atualiza o índice do inicio
+            start = mid + 1
+    
+    return -1 # Não encontrou? Retorna -1
+
+numbers = [2, 3, 4, 10, 40]
+target = 40
+
+result = binary_search(numbers, target)
+print(f"Elemento encontrado na posição: {result}")
+```
