@@ -88,3 +88,37 @@ print(insertion_sort(numbers))
 Em um pior e medio caso, onde a lista esteja inversamente ordenada, teremos uma complexidade de 0(n²). Se a lista estiver ordenada, será uma complexidade 0(n), pois só fará a iteração de todos os elementos, e não precisará ficar remanejando os elementos.
 
 Como foi criado apenas algumas variáveis de controle e não criamos uma lista auxiliar, algoritmo tem uma complexidade de espaço constante, ou seja, não muda, seja para 10, 1000 ou 100000 elementos.
+
+# Algoritmos que usam soluções iterativas
+
+Soluções iterativas consistem na realização de uma ou mais operações repetidas vezes, por meio de comandos de repetição. São consideradas iterativas operações de comparação e troca de elementos repetidas vezes por meio de comandos de repetição (for).
+
+Toda solução iterativa pode ser reescrita de forma recursiva
+
+## Bubble Sort
+
+Ordenação por bolha, têm esse nome, pois a movimentação dos elementos lembra o movimento de bolhas flutuando. Nesse caso, são realizadas múltiplas iterações sobre a coleção, sempre comparando o valor ao item adjacente e realizando a troca daqueles que estão fora de ordem. A cada iteração o próximo maior valor é colocado em sua posição correta, ou seja, cada item se desloca como uma bolha para a posição a qual pertence.
+
+Pode-se imaginar que os maiores elementos da lista serão jogados para as últimas posições como se elas flutuassem.
+
+Exemplo:
+```
+def bubble_sort(numbers):
+    n = len(numbers) # Quantidade de elementos na lista
+
+    for ordered_elements in range(n - 1): # Precisamos ordenar n-1 elementos
+        for item in range(0, n - 1 - ordered_elements): # Vamos percorrer até o elemento anterior ao ordenado
+            if numbers[item] > numbers[item + 1]: # se um elemento for maior, flutuamos ele para cima
+                current_element = numbers[item]
+                numbers[item] = numbers[item + 1]
+                numbers[item + 1] = current_element
+                
+                # Lembra da troca com desempacotamento?
+                # numbers[item], numbers[item + 1] = numbers[item + 1], numbers[item]
+    return numbers
+
+numbers = [7, 5, 9, 2, 6, 8]
+print(bubble_sort(numbers))
+```
+
+Assim como nos algoritmos de força bruta, no pior caso do buble sort ele será 0(n²).
