@@ -59,3 +59,32 @@ print(f"Lista final: {ordered_numbers}")
 A complexidade deste algoritmo, que independente de todos os elementos estarem ordenados, ou parcialmente, sempre será percorrido o array completamente e também n - 1 elementos a cada iteração. Sendo uma complexidade 0(n²) para todos os casos.
 
 Como foi criado apenas algumas variáveis de controle e não uma lista auxiliar, o algoritmo tem uma complexidade de espaço constante.
+
+# Insertion Sort
+
+Insere um elemento de cada vez em sua posição correta. Faz analogia a um jogo de cartas, onde cada nova carta recebida fosse movida até achar a posição correta, fazendo isso sucessivamente até que esteja ordenada. A ordenação por inserção é mais eficiente que a ordenação por seleção e também considereda mais simples.
+
+Exemplo:
+```
+def insertion_sort(numbers):
+    n = len(numbers) # (6) Quantidade de elementos na lista
+
+    for index in range(1, n): # (1~5) Começaremos a ordenar pelo segundo elemento
+        key = numbers[index] # (5) Pegamos o segundo elemento e o definimos como chave
+
+        new_position = index - 1 # (0) Tomamos a posição anterior para iniciar a comparação
+        while new_position >= 0 and numbers[new_position] > key: # Enquanto a chave for menor, remaneja o elemento para frente
+            numbers[new_position + 1] = numbers[new_position] # Remaneja o elemento
+            new_position = new_position - 1 # (-1)
+
+        numbers[new_position + 1] = key # Insere a chave na posição correta
+
+    return numbers
+
+numbers = [7, 5, 9, 2, 6, 8]
+print(insertion_sort(numbers))
+```
+
+Em um pior e medio caso, onde a lista esteja inversamente ordenada, teremos uma complexidade de 0(n²). Se a lista estiver ordenada, será uma complexidade 0(n), pois só fará a iteração de todos os elementos, e não precisará ficar remanejando os elementos.
+
+Como foi criado apenas algumas variáveis de controle e não criamos uma lista auxiliar, algoritmo tem uma complexidade de espaço constante, ou seja, não muda, seja para 10, 1000 ou 100000 elementos.
