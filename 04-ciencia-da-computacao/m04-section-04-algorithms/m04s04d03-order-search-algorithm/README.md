@@ -220,3 +220,27 @@ Esta ordenação possui com complexidade 0(n log n), em um pior caso, ondeo arra
 
 Quando é usada a função sorted padrão do python ou faz array.sort, é utilizado uma ordenadação chamada TimSort, que é um algoritmo híbrido que mistura o merge sort e insertion sort. Ele é utilizado pela linguagem Java para ordenar arrays também.
 
+# Algoritmos de Busca
+
+Algoritmos desta categoria buscam um item com uma determinada propriedade dentro de uma coleção, podendo esta coleção ser gerada elemento a elemento, a partir de uma série de operações (fórmula matemática, procedimento), não necessitando uma coleção de fato. Esses algortimos não devem ser associados somente com arrays. São considerados algoritmos desta categoria aqueles que fazem travessias em estruturas de dados com o propósito de encontrar um valor.
+
+## Busca Linear
+
+Consiste em percorrer toda a estrutura elemento a elemento, tentando encontrar o valor.
+
+Uma busca simples, porém não a mais rápida, ja que realiza a verificação de todos elementos para encontra o correspondente.
+
+Exemplo:
+```
+def linear_search(numbers, target):
+    n = len(numbers) # N será a quantidade de elementos da lista
+    for index in range(0, n): # vamos iterar a lista completa
+        if numbers[index] == target: # se encontrar o elemento alvo, retorne a posição
+            return index
+
+    return -1 # Não encontrou? Retorne -1
+
+
+print(linear_search([1, 2, 3], 2))  # saída: 1
+print(linear_search([1, 2, 3], 4))  # saída: -1
+```
