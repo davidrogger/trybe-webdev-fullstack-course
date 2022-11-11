@@ -2,6 +2,7 @@ from random import shuffle
 from Cronometro import Cronometro
 
 from selection_sort import selection_sort
+from insertion_sort import insertion_sort
 
 # Exercício 3 Execute os algoritmos de ordenação por seleção e
 # inserção, para as entradas de dados ordenadas, inversamente
@@ -10,7 +11,7 @@ from selection_sort import selection_sort
 
 # ▶️ A entrada de dados pode ser gerada da seguinte maneira:
 
-list_size = 10000
+list_size = 20000
 
 ordenados = list(range(list_size))
 inversamente_ordenados = list(reversed(range(list_size)))
@@ -22,17 +23,30 @@ select_operations = [
     {
         "type": "Seleção Ordenada",
         "list": ordenados,
-        "method": selection_sort,
     },
     {
         "type": "Seleção Inversamente Ordenada",
         "list": inversamente_ordenados,
-        "method": selection_sort,
     },
     {
         "type": "Seleção Aleatória",
         "list": aleatorios,
-        "method": selection_sort,
+    },
+]
+
+
+insertion_operations = [
+    {
+        "type": "Inserção Ordenada",
+        "list": ordenados,
+    },
+    {
+        "type": "Inserção Inversamente Ordenada",
+        "list": inversamente_ordenados,
+    },
+    {
+        "type": "Inserção Aleatória",
+        "list": aleatorios,
     },
 ]
 
@@ -40,6 +54,13 @@ select_operations = [
 for operation in select_operations:
     name = operation["type"]
     with Cronometro(f"{name}"):
-        method_order = operation["method"]
         elements = operation["list"]
-        method_order(elements)
+        selection_sort(elements)
+    print("\n")
+
+for operation in insertion_operations:
+    name = operation["type"]
+    with Cronometro(f"{name}"):
+        elements = operation["list"]
+        insertion_sort(elements)
+    print("\n")

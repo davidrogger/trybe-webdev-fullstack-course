@@ -21,3 +21,9 @@ def selection_sort(numbers):  # [10, 5, 3, 6, 1]
         ] = current_element  # primeira iteração = numbers[1] = 10
 
     return numbers
+
+
+if __name__ == "__main__":
+    list_example = [10, 5, 3, 6, 1]
+    order_list = selection_sort(list_example)
+    print(order_list)
