@@ -14,7 +14,7 @@ def merge(numbers, start, mid, end):
 
     left_index, right_index = 0, 0
 
-    for general_index in range(start, end):  # O(n)
+    for general_index in range(start, end):
         if left_index >= len(left):
             numbers[general_index] = right[right_index]
             right_index = right_index + 1
