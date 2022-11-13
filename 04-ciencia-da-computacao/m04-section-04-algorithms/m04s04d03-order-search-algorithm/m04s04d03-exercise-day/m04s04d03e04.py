@@ -8,10 +8,14 @@ from random import shuffle
 # valores aleatórios. Explique através de análise de
 # complexidade o que ocorre.
 
-# Bubble O(n²)
-# Merge O(n log n)
+# Bubble O(n²) Quanto maior a lista maior a quantidade de
+# iterações realizadas no bubble, por sempre ter que
+# percorrer todo o array 2 vezes, para realizar a comparação dos numeros
 
-size = 20000
+# Merge O(n log n) Ao quebrar a lista em pequenas iterações sem repetir
+# a lista completa mais de 1 vez, somente fragmentos
+
+size = 10000
 
 numbers = list(range(size))
 
