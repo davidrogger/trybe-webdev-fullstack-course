@@ -13,6 +13,26 @@ def bubble_sort(numbers):
     return numbers
 
 
+def bubble_sort2(array):
+    has_swapped = True
+    num_of_iterations = 0
+    list_size = len(array)
+
+    while has_swapped:
+        has_swapped = False
+
+        for element in range(list_size - num_of_iterations - 1):
+            if array[element] > array[element + 1]:
+                array[element], array[element + 1] = (
+                    array[element + 1],
+                    array[element],
+                )
+                has_swapped = True
+        num_of_iterations += 1
+
+    return array
+
+
 # Complexidade de tempo Quadratica O(n²)
 # Complexidade de espaço O(n)
 
