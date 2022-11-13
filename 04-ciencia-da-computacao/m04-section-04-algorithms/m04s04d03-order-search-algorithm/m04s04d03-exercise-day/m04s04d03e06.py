@@ -47,13 +47,16 @@ if __name__ == "__main__":
     example3 = [True, True, True, True, True, False, False]  # 5
     example4 = [True, True, True, True, True, True, True]  # -1
     example5 = [True, True, True, True, True, True, True, True, False]  # 8
+    example6 = [False, True, True, True, True, True, True, True, False]  # 0
     result1 = find_index_fail(example1)
     result2 = find_index_fail(example2)
     result3 = find_index_fail(example3)
     result4 = find_index_fail(example4)
     result5 = find_index_fail(example5)
+    result6 = find_index_fail(example6)
     print(f"False Position in the first example: {result1}")
     print(f"False Position in the first example: {result2}")
     print(f"False Position in the first example: {result3}")
     print(f"False Position in the first example: {result4}")
     print(f"False Position in the first example: {result5}")
+    print(f"False Position in the first example: {result6}")
