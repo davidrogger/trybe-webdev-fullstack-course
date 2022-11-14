@@ -12,3 +12,10 @@
 ### dia02
 
 - [Técnicas de divisão, conquista e de programação dinâmica para a resolução de Problemas de Otimização](http://www.prof-lori-viali.com/graduacao/po_2/literatura/pdinamica/artigos/Vol8_Artigo1.pdf)
+
+### dia03
+
+- [Visualização gráfica dos algoritmos de ordenação](https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html)
+- [Programação Dinâmica - Playlist sobre ordenações](https://www.youtube.com/watch?v=ZT_dT8yn48s&list=PL5TJqBvpXQv4l7nH-08fMfyl7aDFNW_fC)
+- [Visualização gráfica dos algoritmos de busca](https://www.cs.usfca.edu/~galles/visualization/Search.html)
+- [Programação Dinâmica - Busca Binária](https://youtu.be/EgLE5HwRy_M)

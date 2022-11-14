@@ -261,5 +261,5 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 
 - [x] Dia 1: _Complexidade de ALgoritmos_
 - [x] Dia 2: _Recursividade e Estratégias para solução de problemas_
-- [ ] Dia 3: _Algoritmos de ordenação e busca_
+- [x] Dia 3: _Algoritmos de ordenação e busca_
 - [ ] Dia 4: _Projeto - Algoritmos_
