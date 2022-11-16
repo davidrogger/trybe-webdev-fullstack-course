@@ -94,3 +94,16 @@ A CPU pode ler da memória uma instrução, por exemplo, indicando para definir 
 Dessa forma, tudo no computador é tratado como dados e instruções, sempre utilizando números através da representação binária.
 
 Pense no que é um monitor de computador: uma matriz de pequenas luzes que chamamos de pixels.  Cada pixel é composto por três luzes: Uma vermelha (R) uma verde (G) e uma azul (B). Um byte codifica, em oito bits, o quão intensamente cada uma dessas três luzinhas deve se acender. Se quisermos exbir uma imagem em um monitor com resolução de 1280 pixels horizonstais por 720 pixels verticais (HD), são necessários 1280 x 720 x 3 = 2.764.800 bytes (quase 3MB) em memórias para armazenar a intensidade luminosa de cada luzinha presente no monitor. Realizando operações lógicas ou aritméticas nos valores armazenados na memória, mudamos a imagem que é exibida.
+
+# Operações por segundo
+
+Para gerenciar todas as atividades e a comunicação entre os componentes do computador, existe um componente eletrônico que gera um sinal de "clock". Esse sinal é uma alternância entre tensões altas e baixas a cada fração de tempo, seguindo a mesma ideia de representação de 0 e 1.
+
+A frequência do clock é medida em hertz (Hz), ciclos por segundo. Ou seja, o número de operações básicas capazes de serem executadas em 1 segundo. O período de um clock é o tempo entre uma operação e outra.
+
+Um computador com um processador com frequência de 1Hz consegue realizar uma operação básica por segundo. Esse número costuma ser muito maior, como 2GHz, o que significa que esse CPU consegue realizar cerca de 2 bilhoes de operações básicas (ciclos) por segundo, com cada ciclo demorando 0,0000000005 segundos ou 0,5 nanosegundos.
+
+Um processador não necessariamente consegue executar uma instrução por ciclo, pois isso depende de sua arquitetura. Em processadores de computadores Desktop normalmente uma instrução possui de 5 a 10 operações básicas, fazendo com que a execução de uma instrução demore mais do que somente um ciclo.
+
+Atualmente, existem diversos tipos de processadores com vários recursos para aumentar seu poder computacional, como, por exemplo, processadores multi-cores (com mais de um núcleo) com 4 ou 8 cores que conseguem processar muito mais instruções. Um quadcore (4 núcleos) com 2GHz, por exemplo, pode executar por volta de 1 bilhão de instruções por segundo, com algumas operações básicas cada uma.
+
