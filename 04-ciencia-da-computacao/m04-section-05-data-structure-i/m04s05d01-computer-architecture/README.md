@@ -27,3 +27,22 @@ Celulares, tables, video-games, smartwatches entre outros, funciona com base no 
 
 ![Modelo de Von Neumann](./Modelo%20de%20Von%20Neumann.png)
 
+# Lógica binária
+
+O sistema binário foi inventando pelo matemático alemão Gottfried Leibniz, no século 18. Os computadores processam informações baseando-se no sistema binário com o que chamamos de bits. Um bit é a menor unidade em um sistema digital e pode assumir o valor 0 ou 1. Eletronicamente esse valor pode ser representado pela prsença ou ausência de tensão ou corrente elétrica.
+
+O bit é representado por um "b" (minúsculo) é o agrupamento de 8 bits correspondem à 1 byte, representado por um "B" (maiúsculo). 1 byte é capaz de armazenar um valor decimal de 0 e 255 (000 000 e 111 1111).
+
+Relembre também as unidades de medidas com a tabela abaixo:
+
+![Unidades de medidas](unidades%20de%20medidas.png)
+
+- Convencionalmente, a presença de tensão ou corrente elétrica pode ser considerada como verdadeiro, 1, e a ausência como false, 0;
+
+- Os dispositivos que podem se comportar como chaves eletrônicas são os transistores, onde a tensão ou corrente na entrada resulta na presença ou ausência de uma tensão ou corrente na saída;
+
+- Transistores podem ser agrupados de maneira a formarem as portas lógicas NOT, AND, OR, XOR, entre outras. Estas porta slógicas apresentam, para uma mesma combinação de valores de entrada (conjunto de fios com ou sem tensão/corrente elétrica 0s e 1s), a mesma saída. As portas lógicas seguem a mesma ideia das condicionais utilizadas nas linguagens de programação, como podemos ver na tabela:
+
+![Tabel verdade](true_table.png)
+
+- Portas lógicas podem formar circuitos de soma de bits. Daí temos adição, subtração, multiplicação, divisão, e assim sucessivamente, sempre seguindo a lógica binária.
