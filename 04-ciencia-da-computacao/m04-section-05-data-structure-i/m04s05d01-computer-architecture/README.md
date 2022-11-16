@@ -170,3 +170,8 @@ Vemos então, para concluir, que as memórias tem dois tradeoffs a se considerar
 - Velocidade versus volatilidade: memórias de escrita e leitura mais rápidas tendem a ser voláteis, ou seja, quando o computador é desligado os dados da memória são apagados! Nos HDs (não voláteis) isso não acontece. Na memória RAM (volátil) sim.
 - Velocidade versus capacidade: memórias mais rápidas costumam ser mais caras, e por isso costumam ser comercializadas com capacidades menores. Um pente de 8 GB de RAM custa aproximadamente o mesmo que um SSD de 240GB ou que um HD de 1 TB.
 
+# Sistema Operacional
+
+Quando ligamos o computador, os componentes são ligados e em seguida o sistema operacional assume o controle da máquina, gerenciando seus diversos dispositivos e executando os processos básicos para seu funcionamento, normalmente finaliznado com a apresentação de sua interface para que possamos interagir com ele.
+Apartir do sistema operacional, podemos logar, abrir programas, jogar, escrever e executar códigos, navegar na internet entre outras tarefas. Tudo isso pode ser feito de maneira simples e amigável graças ao Sistema operacional. Eles realizam os complexos processos de interação com o hardware que vismo acima, assim como outros de forma que possamos nos preocupar somente com a realização da tarefa que desajamos.
+E isso impulsinou a revolução dos computadores, permitindo pessoas sem prévio conhecimento de ciência da computação e eletrônica, podessesm utilizar de maneira fácil essas poderosas máquinas.
