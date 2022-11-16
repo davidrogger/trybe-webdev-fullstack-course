@@ -107,3 +107,20 @@ Um processador não necessariamente consegue executar uma instrução por ciclo,
 
 Atualmente, existem diversos tipos de processadores com vários recursos para aumentar seu poder computacional, como, por exemplo, processadores multi-cores (com mais de um núcleo) com 4 ou 8 cores que conseguem processar muito mais instruções. Um quadcore (4 núcleos) com 2GHz, por exemplo, pode executar por volta de 1 bilhão de instruções por segundo, com algumas operações básicas cada uma.
 
+# Barramentos
+
+Ambos componentes realizam a troca constante de informações: o processador está constantemente buscando por instruções na memória e dados a serem processados e devolvendo os resultados desses processamentos para a memória.
+
+Para realizar essa troca são realizados dois tipos de operações, uma sendo a leitura da memória para carregar quais são as instruções a serem executadas. Esses dados são lidos e gravados em registradores do processador. Esse processo é chamado de load. A outra operação é quando o processador precisa armazenar dados na memória como os resultados dos processamentos e das operações que ele realizou durante uma operação.
+Esse processo é chamado de store.
+
+Essas comunicações dos componentes são realizadas a partir de "vias" que ligam os dois componentes. Essas vias são chamadas de barramentos, que são conjuntos de fios. Conforme vimos, ambos componentes utilizam números binários representados por grandezas elétricas (tensão/corrente). Dessa forma, os barramentos conseguem comunicá-los transmitindo essas grandezas.
+
+Basicamente a memória principal é ligada a CPU por 3 dessas vias:
+
+- Endereço (ADDR): Indica o endereço da célula de memória para aquela operação;
+- Dados (DATA): Transfere a informação da memória para a CPU e vice-versa.
+- Controle(CTRL): Indica a "direção" dos dados para a operação, ou seja, se os dados serão transferidos da CPU para a memória (escrita) ou da memória para a CPU (leitura).
+
+As linhas vista em placas de circuito, são os barramentos ligando diversas peças de diversas formas.
+
