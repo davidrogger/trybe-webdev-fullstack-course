@@ -25,7 +25,7 @@ Turing definiu o conceito de algoritmo, que na época não era definido. Por mei
 
 Celulares, tables, video-games, smartwatches entre outros, funciona com base no modelo inventando em 1945 pelo matemático John Von Neumann, esse modelo define um computador como uma máquina que possui dois elementos principais: uma memória principal (como a memória RAM), onde podemos registrar e ler instruções e dados e um processador (CPU), responsável por buscar tais informações, realizar os cálculos e armazenar os resultados novamente na memória.
 
-![Modelo de Von Neumann](./Modelo%20de%20Von%20Neumann.png)
+![Modelo de Von Neumann](./img/Modelo%20de%20Von%20Neumann.png)
 
 # Lógica binária
 
@@ -35,7 +35,7 @@ O bit é representado por um "b" (minúsculo) é o agrupamento de 8 bits corresp
 
 Relembre também as unidades de medidas com a tabela abaixo:
 
-![Unidades de medidas](unidades%20de%20medidas.png)
+![Unidades de medidas](./img/unidades%20de%20medidas.png)
 
 - Convencionalmente, a presença de tensão ou corrente elétrica pode ser considerada como verdadeiro, 1, e a ausência como false, 0;
 
@@ -43,6 +43,6 @@ Relembre também as unidades de medidas com a tabela abaixo:
 
 - Transistores podem ser agrupados de maneira a formarem as portas lógicas NOT, AND, OR, XOR, entre outras. Estas porta slógicas apresentam, para uma mesma combinação de valores de entrada (conjunto de fios com ou sem tensão/corrente elétrica 0s e 1s), a mesma saída. As portas lógicas seguem a mesma ideia das condicionais utilizadas nas linguagens de programação, como podemos ver na tabela:
 
-![Tabel verdade](true_table.png)
+![Tabel verdade](./img/true_table.png)
 
 - Portas lógicas podem formar circuitos de soma de bits. Daí temos adição, subtração, multiplicação, divisão, e assim sucessivamente, sempre seguindo a lógica binária.
