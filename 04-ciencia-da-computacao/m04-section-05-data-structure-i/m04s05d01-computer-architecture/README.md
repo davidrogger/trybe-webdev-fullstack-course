@@ -175,3 +175,28 @@ Vemos então, para concluir, que as memórias tem dois tradeoffs a se considerar
 Quando ligamos o computador, os componentes são ligados e em seguida o sistema operacional assume o controle da máquina, gerenciando seus diversos dispositivos e executando os processos básicos para seu funcionamento, normalmente finaliznado com a apresentação de sua interface para que possamos interagir com ele.
 Apartir do sistema operacional, podemos logar, abrir programas, jogar, escrever e executar códigos, navegar na internet entre outras tarefas. Tudo isso pode ser feito de maneira simples e amigável graças ao Sistema operacional. Eles realizam os complexos processos de interação com o hardware que vismo acima, assim como outros de forma que possamos nos preocupar somente com a realização da tarefa que desajamos.
 E isso impulsinou a revolução dos computadores, permitindo pessoas sem prévio conhecimento de ciência da computação e eletrônica, podessesm utilizar de maneira fácil essas poderosas máquinas.
+
+# Sistema Operacional - Gerenciamentos
+
+Windows, MacOS, linux e outros SOs (como android, iOS, etc) possuem vantagens, desvantagens e particularidades. Apesar de suas diferenças, os diversos sistemas operacionais compartilham de um conceito principal: realizam a gerência dos hardware e sua interação com os softwares, controlando os processos, arquivos, memória, rede e os dispositivos conectados ao computador. Dessa forma, ele trabalha com um intermediário, fazendo com que o software e hardware interajam corretamente, garantindo que todas as partes trabalhem juntas como um "time" e agindo como um lider responsável por manter a harmnonia entre sistemas de memória, arquivos processos, dispositivos, etc.
+
+# Memória
+
+A memória é gerenciada pelo SO, que realiza a troca de dados com o processador, a memória principal e a memória secundária, buscando por espaços vazios na memória e os preenchendo com dados para o funcionamento de programas e comandos. Esse processo é chamado de alocação. Ao longo da evolução dos computadores, esse processo foi evoluindo para se tornar cada vez mais eficiente, utilizando a arquitetura e as caracteristicas que vimos.
+
+# Processos
+
+O SO também decide como será realizada a distribuição dos diversos processos para serem executados pelo "cérebro" do computador, a CPU. A partir daí, ele acompanha os estados da execução desses processos realizando os devidos tratamentos, como voltar ou remover o processo da fila de processamentos.
+
+Tudo que você executa no computador é realizado com base em processos: um programa quando aberto, um comando executado no terminal, etc...
+
+# Arquivos
+
+O SO também controla os arquivos do computador, sejam eles arquivos de dados, de programas ou aplicativos instalados. Através da interface do SO, conseguimos navegadar entre diretórios armazenados nos diversos dispositivos de memória secundária do nosso computador, seja o HD, um pendrive ou nosso celular que esteja conectado em nossa máquina, sendo possível abrir, criar deletar, copiar e editar arquivos.
+Também é responsavel por gerenciar o sistema de permissões desses arquivos controlando os diversos tipos de acesso, impedindo que um usuário comum execute um comando que precisa de permissão de super usuário.
+
+# Scheduling (agendador de tarefas)
+
+O escalonamento de processos ou agendador de tarefas (em inglês scheduling) é uma atividade organizacional feita pelo escalonador (scheduler) da CPU ou de um sistema distribuído, possibilitando executar os processos mais viáveis e concorrentes, priorizando determinados tipos de processos, como os [I/O Bound](https://pt.wikipedia.org/wiki/I/O_bound) e os [CPU Bound](https://pt.wikipedia.org/wiki/CPU_bound).
+O escalonador de processo é um processo que deve ser executado quando ocorre uma mudança de contexto (troca de processo), ao passo que ele escolhe o processo que será executado pelo CPU, sendo o escalonamento realizado com auxílio do hardware.
+[Mais sobre o Scheduler](https://pt.wikipedia.org/wiki/Escalonamento_de_processos)
