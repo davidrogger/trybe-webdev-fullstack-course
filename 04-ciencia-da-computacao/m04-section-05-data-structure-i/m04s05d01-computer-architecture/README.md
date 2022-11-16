@@ -62,3 +62,12 @@ Essas diversas "prateleiras" são as células da memória principal, cada uma se
 Cada célula pode armazenar diversas informações como dados para serem processados, incluindo endereço de outras células, instruções e resultados de processamentos. Essas informações são armazenadas em bits e as células possuem uma capacidade limitada de armazenamento: por exemplo, 8 bits (1 byte) por célula.
 
 A capacidade total da memória é dada pela quantidade de suas células multiplicada pela capacidade de armazenamento de cada uma. Por exemplo, uma memória com 1024 células de 8 bits (1 byte) tem a capacidade de armazenar 1024 bytes (8192 bits), ou 1KB.
+
+# Endereços
+
+Cada célula possui um endereço único, que é chamado de address ou ADDR, e estes são um conjunto de números que, para o computador, é representado por um número binário como todo o resto, ou seja, utilizando somente os dígitos 0 ou 1.
+
+A quantidade de dígitos utilizados para representar um endereço varia e, com ela, a quantidade de células endereçáveis. Se utilizarmos apenas 1 dígito, só poderemos localizar duas células, uma com endereço #0 e outra com o endereço #1. Se tivermos 2 dígitos, poderemos ter os endereços #00, #01, #10 e #11 e assim por diante. Normalmente a memória principal de um computador possui milares de endereços possíveis e mesmo computadores de pequeno porte possuem algumas centenas de células na memória.
+
+O conceito de computador vai além dos computadores pessoais. Seguindo o modelo de Van Neumann, portanto essas características são válidas para diversos dispositivos, como seu smartphone, tablet, alguns computador de bordo de veículos, entre outros que usam essa arquitetura. As "máquinas de Turing" estão por toda parte.
+
