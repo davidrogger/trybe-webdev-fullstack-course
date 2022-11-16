@@ -18,3 +18,12 @@ Máquinas de turing são dispositivos teoricos e hipotético, que não possuem l
 Uma classe que tem como caracteristica de uma determinada entrada, reconhece-la ou rejeita-la, isso pode ser abstraido para linguagem de programação, onde digitarmos nosso codigo no editor, ele poderá ser reconhecido ou não, ele poderá compilado ou não e as máquinas de turing fazem isso reconhecem a palavra, se elas fazem parte ou não do vocabulario de uma linguagem, podendo nos indicar problemas lexus ou de sintáticos e semânticos no código. Muito similar ao que acontece, quando executamos um código.
 
 Turing definiu o conceito de algoritmo, que na época não era definido. Por meio dos estudos de Turing, podemos criar novas linguagens de programação, novos compiladores, novos frameworks entre outras coisas.
+
+# Computadores Modernos
+
+## Modelo de Von Neumann
+
+Celulares, tables, video-games, smartwatches entre outros, funciona com base no modelo inventando em 1945 pelo matemático John Von Neumann, esse modelo define um computador como uma máquina que possui dois elementos principais: uma memória principal (como a memória RAM), onde podemos registrar e ler instruções e dados e um processador (CPU), responsável por buscar tais informações, realizar os cálculos e armazenar os resultados novamente na memória.
+
+![Modelo de Von Neumann](./Modelo%20de%20Von%20Neumann.png)
+
