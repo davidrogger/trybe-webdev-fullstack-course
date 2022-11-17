@@ -24,7 +24,7 @@ class SecondaryMemory:
         index = str(index)
         file_name = join(self.disk_path, index)
         with open(file_name, "r") as file:
-            return file.read()
+            return int(file.read())
 
     def clean(self):
         rmtree(self.disk_path)

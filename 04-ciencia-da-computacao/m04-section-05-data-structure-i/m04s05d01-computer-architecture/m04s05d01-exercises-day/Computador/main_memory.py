@@ -8,8 +8,8 @@ class MainMemory:
     def get(self, index):
         try:
             value = self.loaded_memory[index]
-            if isinstance(value, int):
-                return value
+            if value.isnumeric():
+                return int(value)
 
         except IndexError:
             pass
