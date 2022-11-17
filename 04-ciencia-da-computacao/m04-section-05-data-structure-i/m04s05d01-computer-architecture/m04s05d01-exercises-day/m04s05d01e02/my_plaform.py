@@ -6,3 +6,13 @@
 # A plataforma que está sendo utilizada (linux, win32, darwin, etc);
 # A versão (release);
 # A arquitetura (x32 ou x64);
+import platform
+
+
+computer_platform = platform.system()
+computer_release = platform.release()
+computer_architecture, _ = platform.architecture()
+
+print(f"My plataform: {computer_platform}")
+print(f"My release: {computer_release}")
+print(f"My architecture: {computer_architecture}")
