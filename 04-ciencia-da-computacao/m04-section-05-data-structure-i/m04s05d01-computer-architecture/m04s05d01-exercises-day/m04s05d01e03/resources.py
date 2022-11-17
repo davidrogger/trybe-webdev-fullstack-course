@@ -26,20 +26,25 @@ cpu_l_cache = (
     f", L3{dict_info['L3 cache']}"
 )
 
-memory_info = [
-    info
-    for info in subprocess.check_output("free")
-    .decode("UTF-8")
-    .split("\n")[1]
-    .split(" ")
-    if info != ""
-]
 
-total_memory = int(memory_info[1]) / 1000
-used_memory = int(memory_info[2]) / 1000
+def get_memory():
+    memory_info = [
+        info
+        for info in subprocess.check_output("free")
+        .decode("UTF-8")
+        .split("\n")[1]
+        .split(" ")
+        if info != ""
+    ]
+
+    total_memory = int(memory_info[1]) / 1000
+    used_memory = int(memory_info[2]) / 1000
+
+    return total_memory, used_memory
+
 
 print(f"CPU Model: {cpu_model}")
 print(f"CPU Model: {cpu_cores}")
 print(f"CPU Model: {cpu_l_cache}")
 
-print(f"Total: {total_memory}\n" f"Usada: {used_memory}")
+print(f"Total: {get_memory()[0]}\n" f"Usada: {get_memory()[1]}")
