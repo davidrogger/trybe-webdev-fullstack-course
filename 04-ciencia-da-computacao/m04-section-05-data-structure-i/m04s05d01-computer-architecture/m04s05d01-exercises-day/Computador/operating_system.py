@@ -43,3 +43,44 @@ timer(f"Soma na memória secundária: {secondary_sum}", secondary_get_init_time)
 secondary_clean_init_time = perf_counter()
 secondary.clean()
 timer("Clean na memória secundária", secondary_clean_init_time)
+
+
+# Números carregados na memória principal
+# Tempo para a tarefa terminar: 0.000042
+
+# Soma na memória principal: 12121200
+# Tempo para a tarefa terminar: 0.000065
+
+# Clean na memória principal
+# Tempo para a tarefa terminar: 0.000003
+
+# Números carregados na memória secundária
+# Tempo para a tarefa terminar: 0.023601
+
+# Soma na memória secundária: 12121200
+# Tempo para a tarefa terminar: 0.003856
+
+# Clean na memória secundária
+# Tempo para a tarefa terminar: 0.003660
+
+# - WITHOUT CLEAN -
+
+# Números carregados na memória principal
+# Tempo para a tarefa terminar: 0.000036
+
+# Soma na memória principal: 12121200
+# Tempo para a tarefa terminar: 0.000078
+
+# Números carregados na memória secundária
+# Tempo para a tarefa terminar: 0.019013
+
+# Soma na memória secundária: 12121200
+# Tempo para a tarefa terminar: 0.005751
+
+# - WITHOUT LOAD -
+
+# Soma na memória principal: 0
+# Tempo para a tarefa terminar: 0.000063
+
+# Soma na memória secundária: 12121200
+# Tempo para a tarefa terminar: 0.003484
