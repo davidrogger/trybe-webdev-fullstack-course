@@ -3,3 +3,10 @@
 # em execução por um determinado tempo. Agora utilizando
 # os comandos de monitoramento visto no conteúdo, exiba
 # os processos em execução e então identifique o seu processo.
+from time import sleep
+from os import getpid
+
+print(getpid())
+sleep(20)
+
+# ps aux | grep <id>
