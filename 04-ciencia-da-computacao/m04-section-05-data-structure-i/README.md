@@ -18,3 +18,11 @@
 - [Uma máquina de Turing construída 100% no Minecraft](https://www.youtube.com/watch?v=1X21HQphy6I)
 - [A criação dos computadores pessoais | Nerdologia](https://www.youtube.com/watch?v=Vb0iORewZDA)
 - [Sistemas Operacionais - Gerência de Memória](https://www.youtube.com/watch?v=o3pAMI4ZlRY)
+
+## Dia02
+
+- [Data structures: Python lists](https://raul.dev/post/python_list_data_structure/)
+- [Brilliant.org: Arrays ADT](https://brilliant.org/wiki/arrays-adt/)
+- [Sidenotes - Arrays - Lucas Magnum](https://medium.com/@lucasmagnum/sidenotes-array-abstract-data-type-data-structure-b154140c8305)
+- [Numpy Manual](https://numpy.org/doc/stable/)
+- [Documentação do módulo array](https://docs.python.org/pt-br/3/library/array.html)
