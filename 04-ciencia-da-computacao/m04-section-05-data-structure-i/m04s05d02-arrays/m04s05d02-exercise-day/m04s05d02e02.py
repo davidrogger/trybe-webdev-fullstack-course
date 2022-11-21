@@ -50,3 +50,6 @@ if __name__ == "__main__":
     assert shuffle_numbers(first_cards) == [2, 4, 6, 5]
     assert shuffle_numbers(second_cards) == [1, 7, 4, 6, 4, 6]
     assert shuffle(third_cards) == [1, 7, 8, 4, 6, 4, 6]
+
+# Faça a análise de complexidade da sua solução.
+# Como o array é percorrido pelo menos 1 vez por inteiro é logaritmica O (n)
