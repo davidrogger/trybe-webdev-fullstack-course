@@ -267,7 +267,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 ##### Seção 05: Estrutura de Dados I: Arrays, Listas, Filas e Pilhas
 
 - [x] Dia 1: _Arquitetura de Computadores_
-- [ ] Dia 2: _Arrays_
+- [x] Dia 2: _Arrays_
 - [ ] Dia 3: _Nó e Lista Encadeadas_
 - [ ] Dia 4: _Pilhas e Filas_
 - [ ] Dia 4: _Projeto - TING Trybe Is Not Google_
