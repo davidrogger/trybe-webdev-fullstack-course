@@ -100,18 +100,30 @@ class LinkedList:
 if __name__ == "__main__":
     linked_list = LinkedList()
 
-    print(linked_list)
-    linked_list.insert_first(3)
-    print(linked_list)
+    print(linked_list.is_empty())
     linked_list.insert_first(1)
     print(linked_list)
-    linked_list.insert_last(7)
+
+    linked_list.insert_first(2)
     print(linked_list)
-    linked_list.insert_at(5, 1)
+
+    linked_list.insert_last(3)
     print(linked_list)
-    linked_list.remove_first()
-    print(linked_list)
+
     linked_list.remove_last()
     print(linked_list)
+
+    linked_list.remove_first()
+    print(linked_list)
+
+    linked_list.insert_at(5, 1)
+    print(linked_list)
+
     linked_list.remove_at(0)
     print(linked_list)
+
+    linked_list.insert_at(6, 1)
+    linked_list.insert_at(7, 2)
+    linked_list.insert_at(8, 3)
+    linked_list.insert_at(9, 4)
+    print(linked_list.get_element_at(3))
