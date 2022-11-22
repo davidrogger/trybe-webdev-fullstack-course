@@ -66,6 +66,22 @@ class LinkedList:
         self.__length -= 1
         return value_to_be_removed
 
+    def remove_at(self, position):
+        if position < 1:
+            return self.remove_first()
+        if position >= len(self):
+            return self.remove_last()
+
+        previous_to_be_removed = self.head_value
+        while position > 1:
+            previous_to_be_removed = previous_to_be_removed.next
+            position -= 1
+        value_to_be_removed = previous_to_be_removed.next
+        previous_to_be_removed.next = value_to_be_removed.next
+        value_to_be_removed.next = None
+        self.__length -= 1
+        return value_to_be_removed
+
 
 if __name__ == "__main__":
     linked_list = LinkedList()
@@ -82,4 +98,6 @@ if __name__ == "__main__":
     linked_list.remove_first()
     print(linked_list)
     linked_list.remove_last()
+    print(linked_list)
+    linked_list.remove_at(0)
     print(linked_list)

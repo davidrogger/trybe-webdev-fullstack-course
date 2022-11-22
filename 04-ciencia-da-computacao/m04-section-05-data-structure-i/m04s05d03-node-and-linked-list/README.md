@@ -257,3 +257,38 @@ class LinkedList:
         self.__length -= 1
         return value_to_be_removed
 ```
+
+# Remover em qualquer posição
+
+Com a posição do elemento desejamos a remoção dele na estrutura.
+
+Considerações:
+
+- Se o elemento tem a posição inferior a 1, será removido na posição inicial, utilizando a função remove_first;
+- Se o elemento tem ap osição igual ou superior a quantidade de elementos, será removido na posição final, utilizando a função remove_last.
+```
+# from node import Node
+
+
+class LinkedList:
+    # ...
+
+    def remove_at(self, position):
+        if position < 1:
+            return self.remove_first()
+        if position >= len(self):
+            return self.remove_last()
+
+        previous_to_be_removed = self.head_value
+        while position > 1:
+            previous_to_be_removed = previous_to_be_removed.next
+            position -= 1
+        value_to_be_removed = previous_to_be_removed.next
+        previous_to_be_removed.next = value_to_be_removed.next
+        value_to_be_removed.next = None
+        self.__length -= 1
+        return value_to_be_removed
+```
+
+Lógica similar ao remover do final, no entento não analisamos se existe um próximo, mas se o próximo é a posição que queremos remover.
+
