@@ -93,6 +93,9 @@ class LinkedList:
                 value_returned = Node(value_to_be_returned.value)
             return value_returned
 
+    def is_empty(self):
+        return not self.__length
+
 
 if __name__ == "__main__":
     linked_list = LinkedList()

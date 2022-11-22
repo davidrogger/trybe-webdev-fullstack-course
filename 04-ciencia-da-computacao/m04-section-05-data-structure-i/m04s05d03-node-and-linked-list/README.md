@@ -327,3 +327,19 @@ Um ponto de atenção para as verificações constantes presentes no código, el
 
 Por fim, retornamos um novo Node como o mesmo valor do existente em nossa estrutura. Isto é necessário para que retornemos apenas o valor, e não a referência aos demais elementos.
 
+# Está vazia
+
+Devemos informar se a estrutura está vazia, como possuímos um campo length podemos utilizá-lo como ponto a ser analisado, afinal se o mesmos for 0 nossa estrutura não possui elementos
+```
+# from node import Node
+
+
+class LinkedList:
+    # ...
+
+    def is_empty(self):
+        return not self.__length
+```
+
+O uso do not next contexto nos informa se a estrutura está vazia, já que not 0 == True (0 == False).
+
