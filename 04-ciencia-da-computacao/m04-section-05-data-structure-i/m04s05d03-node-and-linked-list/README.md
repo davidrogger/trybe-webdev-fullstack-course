@@ -292,3 +292,38 @@ class LinkedList:
 
 Lógica similar ao remover do final, no entento não analisamos se existe um próximo, mas se o próximo é a posição que queremos remover.
 
+# Obter elemento em qualquer posição
+
+Informando a posição do elemento a função deve retornar uma cópia do Node existente em nossa estrutura.
+
+Considerações:
+
+- Se o elemento tem a posição inferior a 1, será retornado o contéudo dap osição inicial;
+- Se eo elemento tem ap osição igual ou superior a quantidade de elementos, será retornando o conteúdo da posição final.
+```
+# from node import Node
+
+
+class LinkedList:
+    # ...
+
+    def get_element_at(self, position):
+        value_returned = None
+        value_to_be_returned = self.head_value
+        if value_to_be_returned:
+            while position > 0 and value_to_be_returned.next:
+                value_to_be_returned = value_to_be_returned.next
+                position -= 1
+            if value_to_be_returned:
+                value_returned = Node(value_to_be_returned.value)
+        return value_returned
+```
+
+Um ponto de atenção para as verificações constantes presentes no código, elas indicam que:
+
+- Caso não haja elementos em nossa estrutura será retornado None;
+- Caso a posição seja menor igual a 0, será retornado o primeiro elemento;
+- Caso a posição seja maior igua a N, onde N é o tamanho da lista, será retornado o último elemento.
+
+Por fim, retornamos um novo Node como o mesmo valor do existente em nossa estrutura. Isto é necessário para que retornemos apenas o valor, e não a referência aos demais elementos.
+
