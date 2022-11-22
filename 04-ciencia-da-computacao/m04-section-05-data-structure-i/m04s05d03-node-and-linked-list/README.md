@@ -72,3 +72,140 @@ Neste caso como temos uma forma de guardar a primeira e a última posição, pod
 
 O primeiro nó da lista se chama HEAD, e o ultimo TAIL.
 
+# Implementação de um Node
+
+Será declarado o construtor da classe Node, declaramos a propriedade que indica o próximo elemento (next) como tendo o valor, por default, None:
+```
+class Node:
+    def __init__(self, value):
+        self.value = value  # 🎲 Dado a ser armazenado
+        self.next = None  # 👉 Forma de apontar para outro nó
+
+    def __str__(self):
+        return f"Node(value={self.value}, next={self.next})"
+```
+
+Iniciando a estrutura da LinkedList:
+```
+class LinkedList:
+    def __init__(self):
+        self.head_value = None
+        self.__length = 0
+
+    def __str__(self):
+        return f"LinkedList(len={self.__length}, value={self.head_value})"
+
+    def __len__(self):
+        return self.__length
+```
+# Inserir no início
+
+Informando que o primeiro elemento inserido será o novo head_value
+```
+# from node import Node
+
+
+class LinkedList:
+    # ...
+
+    def insert_first(self, value):
+        first_value = Node(value)
+        self.head_value = first_value
+        self.__length += 1
+```
+
+Inserindo o valor 3, teremos o seguindo resultado:
+```
+LinkedList(len=1 value=Node(value=3 next=None))
+```
+
+Seguindo essa abordagem faz com que os elementos anteriores sejam sobrepostos pelo novo. Devemos indicar que o elemento atual, será o next do elemento que estamos inserindo.
+
+O next será preenchido com o valor que está atualmente na head, para que o novo valor que está sendo inserido no início da lista, seja preenchido na variável head.
+
+Assim inserindo um proximo número, teremos o resultado:
+```
+LinkedList(len=2 value=Node(value=1 next=Node(value=3 next=None)))
+```
+
+# Inserir no final
+
+Deve-se informar que o elemento que estamos inserindo é o ultimo na estrutura de cadeia de nodes:
+```
+# from node import Node
+
+
+class LinkedList:
+    # ...
+
+    def insert_last(self, value):
+        last_value = Node(value)
+        current_value = self.head_value
+
+        while current_value.next:
+            current_value = current_value.next
+        current_value.next = last_value
+        self.__length += 1
+```
+
+Está abordagem esteria correta, desde que houvesse ao menos um elemento em nossa estrutura. Porém, caso haja nenhum elemento, o trecho: while current_value.next: causaria o error: AttributeError: "NoneType" object has no atttribute "next".
+
+Isso acontece, pois o head_value ainda não possui valor. Para corrigir essa lógica, podemos utilizar a função insert_first.
+
+```
+# from node import Node
+
+
+class LinkedList:
+    # ...
+
+    def insert_last(self, value):
+        last_value = Node(value)
+        current_value = self.head_value
+
+        # Mais abaixo criaremos o método is_empty()
+        # que substituirá a condição deste if
+        if current_value is None:
+            return self.insert_first(value)
+
+        while current_value.next:
+            current_value = current_value.next
+        current_value.next = last_value
+        self.__length += 1
+```
+
+Foi necessario percorrer toda a cadeia de Nodes, pois assim não perdemos a referência para a cabeça da estrutura head.
+
+# Inserir em qualquer posição
+
+Deve-se informar o que o elemento que estamos inserindo seja adicionado na posição desejada em nossa estrutura.
+
+A primeiro posição, assim como em arrays, é considerada como 0
+
+Considerações:
+
+- Se o elemento tem a posição inferior a 1, será adicionado na posição inicial, utilizando a furnção insert_first;
+- Se o elemento tem a posição igual ou superior a quantidade de elementos, será adicionado na posição final, utilizando a função insert_last.
+```
+# from node import Node
+
+
+class LinkedList:
+    # ...
+
+    def insert_at(self, value, position):
+        if position < 1:
+            return self.insert_first(value)
+        if position >= len(self):
+            return self.insert_last(value)
+        current_value = self.head_value
+        while position > 1:
+            current_value = current_value.next
+            position -= 1
+        next_value = Node(value)
+        next_value.next = current_value.next
+        current_value.next = next_value
+        self.__length += 1
+```
+
+A lógica é similar ao insert no final, não analisamos se existe um próximo, mas sim, se o próximo é a posição para inserir o novo valor.
