@@ -209,3 +209,51 @@ class LinkedList:
 ```
 
 A lógica é similar ao insert no final, não analisamos se existe um próximo, mas sim, se o próximo é a posição para inserir o novo valor.
+
+# Remover no início
+
+Removendo a head, em casos de estrutura vazia, retornando None:
+```
+# from node import Node
+
+
+class LinkedList:
+    # ...
+
+    def remove_first(self):
+        value_to_be_removed = self.head_value
+        if value_to_be_removed:
+            self.head_value = self.head_value.next
+            value_to_be_removed.next = None
+            self.__length -= 1
+        return value_to_be_removed
+```
+
+O elemento next passa a ser o primeiro elemento, já que a head irá referenciá-lo
+
+# Remover no final
+
+Devemos informar que o elemento que estamos removendo seja o último da nossa estrutura de cadeia de Nodes. Os problemas vistos na sessão Inserir no final também se aplicam aqui.
+
+Caso tenhamos apenas um elemento em nosso estrutura, invocaremos a função de remoção existente, remove_first:
+```
+# from node import Node
+
+
+class LinkedList:
+    # ...
+
+    def remove_last(self):
+        if len(self) <= 1:
+            return self.remove_first()
+
+        previous_to_be_removed = self.head_value
+
+        while previous_to_be_removed.next.next:
+            previous_to_be_removed = previous_to_be_removed.next
+
+        value_to_be_removed = previous_to_be_removed.next
+        previous_to_be_removed.next = None
+        self.__length -= 1
+        return value_to_be_removed
+```
