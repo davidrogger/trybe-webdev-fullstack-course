@@ -82,6 +82,18 @@ class LinkedList:
             value_returned = Node(value_to_be_returned.value)
             return value_returned
 
+    def index_of(self, value):
+        current_index = 0
+        value_found = self.head_value
+        last_position = self.__length - 1
+        while current_index <= last_position:
+            if value_found.value == value:
+                return current_index
+            else:
+                current_index += 1
+                value_found = value_found.next
+        return -1
+
     def __get_node_at(self, position):
         value_to_be_returned = self.head_value
         if value_to_be_returned:
