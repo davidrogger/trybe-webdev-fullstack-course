@@ -6,6 +6,15 @@ class LinkedList:
         self.head_value = None
         self.__length = 0
 
+    def __call__(self):
+        self_copy = LinkedList()
+        element_position = 0
+        while len(self_copy) < len(self):
+            element = self.get_element_at(element_position)
+            self_copy.insert_at(element, element_position)
+            element_position += 1
+        return self_copy
+
     def __str__(self):
         return f"LinkedList(len={self.__length}, value={self.head_value})"
 
@@ -102,6 +111,17 @@ class LinkedList:
                 position -= 1
         return value_to_be_returned
 
+    def clean_duplicate(self):
+        position = self.__length
+
+        while position > 0:
+            current_node = self.remove_first()
+            if self.index_of(current_node.value) == -1:
+                self.insert_last(current_node.value)
+            position -= 1
+
+        return self
+
     def is_empty(self):
         return not self.__length
 
@@ -113,10 +133,15 @@ class LinkedList:
 if __name__ == "__main__":
     linked_list = LinkedList()
 
-    linked_list.insert_first(1)  # 4
-    linked_list.insert_first("David")  # 3
-    linked_list.insert_first("Rogger")  # 2
-    linked_list.insert_first("teste")  # 1
-    linked_list.insert_first(15)  # 0
+    linked_list.insert_last(1)
+    linked_list.insert_last(2)
+    linked_list.insert_last(3)
+    linked_list.insert_last(10)
+    linked_list.insert_last(10)
+    linked_list.insert_last(15)
 
-    linked_list.remove_last()
+    print(linked_list)
+
+    linked_list.clean_duplicate()
+
+    print(linked_list)
