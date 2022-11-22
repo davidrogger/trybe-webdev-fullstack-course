@@ -47,3 +47,16 @@ LinkedLists não tem as restrições de acesso como nas seguintes TADs:
 - DEQUE: Acessa apenas as extremidades - Deque
 
 Uma lista encadeada possibilita acessar qualquer elemento, sem exceção.
+
+# Quais as operações mais comuns?
+
+- insert_first nos permite adicionar um `Node` no início da lista(O(1));
+- insert_last nos permite adicionar um `Node` no final da lista(O(n));
+- insert_at nos permite adicionar um `Node` em qualquer posição da lista(O(n));
+- remove_first nos permite remover um `Node` do final da lista(O(1));
+- remove_last nos permite remover um `node` do final da lista(O(n));
+- remove_at nos permite remover um `Node` em qualquer posição da lista(O(n));
+- clear nos permite remover todos os `Node`s da lista(O(n));
+- get_element_at nos permite visualizar o `node` em qualquer posição da lista(O(n));
+- is_empty nos permite identificar se existe ao menos um `Node` na lista(O(1))
+
