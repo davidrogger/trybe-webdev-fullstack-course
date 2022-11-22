@@ -60,3 +60,15 @@ Uma lista encadeada possibilita acessar qualquer elemento, sem exceção.
 - get_element_at nos permite visualizar o `node` em qualquer posição da lista(O(n));
 - is_empty nos permite identificar se existe ao menos um `Node` na lista(O(1))
 
+# Encadeamento duplo
+
+As listas normais têm seus nós ligados por ponteiros em somente uma direção. Mas e se precisarmos, percorrer a lista também no sentido oposto, nada impede de criar ponteiros no sentido oposto, fazendo com que cada nó aponte para o anterior e ao próximo.
+
+A vantagem é mais facilidade de percorrer esta lista no sentido oposto. A desvantagem é que ocupamos mais espaço de memória, pois temos uma quantidade maior de ponteiros. Podemos construir nossos nós com mais de um ponteiro, isso possibilita montarmos estruturas diferentes, como as listas duplamente encadeadas, ou árvores por exemplo.
+
+O principal motivo da evolução da lista encadeada para a lista duplamente encadeada é a capacidade de optimização em operações nas extremidades.
+
+Neste caso como temos uma forma de guardar a primeira e a última posição, podemos obter complexidade O(1), em ambas operações insert e remove.
+
+O primeiro nó da lista se chama HEAD, e o ultimo TAIL.
+
