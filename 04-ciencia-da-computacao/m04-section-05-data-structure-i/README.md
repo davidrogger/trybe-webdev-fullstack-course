@@ -26,3 +26,8 @@
 - [Sidenotes - Arrays - Lucas Magnum](https://medium.com/@lucasmagnum/sidenotes-array-abstract-data-type-data-structure-b154140c8305)
 - [Numpy Manual](https://numpy.org/doc/stable/)
 - [Documentação do módulo array](https://docs.python.org/pt-br/3/library/array.html)
+
+## Dia03
+
+- [#SideNotes - Linked List - Abstract Data Type and Data Structure](https://medium.com/@lucasmagnum/sidenotes-linked-list-abstract-data-type-and-data-structure-fd2f8276ab53)
+- [Construindo uma Lista Encadeada em Python](https://www.youtube.com/watch?v=jIM87UqOq3g)
