@@ -269,5 +269,5 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] Dia 1: _Arquitetura de Computadores_
 - [x] Dia 2: _Arrays_
 - [x] Dia 3: _Nó e Lista Encadeadas_
-- [ ] Dia 4: _Pilhas e Filas_
+- [x] Dia 4: _Pilhas e Filas_
 - [ ] Dia 4: _Projeto - TING Trybe Is Not Google_
