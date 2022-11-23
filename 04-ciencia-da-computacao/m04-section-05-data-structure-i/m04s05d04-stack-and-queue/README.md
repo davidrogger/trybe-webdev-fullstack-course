@@ -51,3 +51,27 @@ Se for adicionado a função traceback.print_stack(file=sys.stdout) conseguimos 
 
 ![](./img/callstack.png)
 
+# Utilização de pilhas na resolução de expressões
+
+Na validação de expressões matemáticas, exstem diversos tipos de representações de expressões, como, infixa e pós fixa. QUando escrevemos a expressão (A + B) * C, estamos escrevendo uma expressão no formato infixa. A mesma expressão, quando escrita no formato pós fixa, ficaria um pouco diferente: A B + C *. E para resolver essa expressão, usamos o A e B para aplicar a operação de soma (o + logo após as variáveis). Quando obtivermos o resultado da sema, aplicamos a operação de multiplicação com a variável C (o * logo após o C), iremos resolvendo a expressão sempre de dois em dois operadores, da esquerda para direita.
+
+Exemplo:
+Com a expressão pós fixa: A B + C *, substituindo as variáveis ficaríamos com: `5 10 + 3 *`
+
+![](./img/expressao1.png)
+
+Inicialmente realizamos a soma dos dois primeiros valores então iremos rseolver a primeira parte da operação (5 10 +). O resultado é 15.
+
+Ficando: `15 3 *`
+
+Repetimos a ação com multiplicação, pegando os dois primeiros valores da expressão. Resultando em 45
+
+![](./img/expressao3.png)
+
+Note que resolvemos a expressão da esquerda para direita, sempre aplicando as operações nos dois últimos números da expressão. Dessa forma adicionamos esses números em uma pilha e então aplicamos a operação no primeiro e no segundo item do topo da pilha, até que reste somente um item na pilha. Considerando ap rimeira parte da expressão, `10 5 +`, nós iremos adicionar o valor 10 e 5 no topo da pilha e quando lermos o valor +, aplicaremos a operação nos dois itens do topo. Então adicionamos o resultado no topo da pilha:
+
+![](./img/expressao-op1.png)
+
+Com o resultado da operação, adicionamos novamente na pilha para podermos continuar com as outras partes da expressão. A segunda operação de multiplicação, entre o resultado da soma (15) e o valor da variável C (3), segue o mesmo principio da primeira operação. Nós retiramos os valores da pilha para então executar a multiplicação.
+Então adicionamos o resultado novamente na pilha, ficando somente com um valor, que é o resultado da expressão.
+
