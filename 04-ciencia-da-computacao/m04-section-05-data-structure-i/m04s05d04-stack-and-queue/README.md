@@ -26,3 +26,28 @@ Para resolver diversos problemas em linguagens de programação. Muitas linguage
 Pilhas também podem ser utilizadas para replicar o funcionamento de algoritmos recursivos, ou qualquer outro cenário em que temos uma coleção de elementos e precisamos controlar qual foi o elemento mais recente.
 
 Conceitualmente, pilhas não têm limite de tamanho, porém nas implementações reais a linguagem de programação define um tamanho máximo, pois nossos computadores têm memória limitada. Quando, por exemplo, fazemos uma chamada recursiva sem uma condição de parada correta, a pilha de chamadas vai aumentando até estourar o limite da linguagem, gerando um overflow.
+
+# Utilização de pilhas no controle de chamada de funções
+
+A linguagem python, por exemplo, utiliza a pilha em duas importantes funcionalidades da aplicação.
+Para controlar as chamadas de funções, a linguagem mantém uma pilha com quais funções devem ser executadas após a execução de uma função.
+
+Exemplo:
+
+Considerando uma função que ela recebe um argumento indicando o caminho de um vídeo. Dentro dessa função é chamado outra função, que recebe o argumento do caminho do vídeo repassado da função original. O código dessa função ficaria assim:
+```
+def load_video(video_path):
+    print('Carregando vídeo do caminho:', video_path)
+    return 'fake vídeo'
+
+def process_video(video_path):
+    print('Carregando vídeo...')
+    loaded_video = load_video(video_path)
+    # Faz alguma coisa legal com o vídeo
+```
+Ao invocarmos a função para processar o video, o interpretador do python começa a executa-la e, ao chegar na linha que invocamos a função de leitura do video, o Python faz um push da função corrente(process_video()) na pilha de execução, com todo seu contexto, para então executar a função de leitura. Quando a função de leitura for finalizada o Python irá fazer um pop da pilha para continuar a execução da aplicação.
+
+Se for adicionado a função traceback.print_stack(file=sys.stdout) conseguimos ver quais os itens presentes na call stack do Python.
+
+![](./img/callstack.png)
+
