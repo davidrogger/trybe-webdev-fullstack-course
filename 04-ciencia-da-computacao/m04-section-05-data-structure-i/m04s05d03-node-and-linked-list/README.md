@@ -209,3 +209,137 @@ class LinkedList:
 ```
 
 A lógica é similar ao insert no final, não analisamos se existe um próximo, mas sim, se o próximo é a posição para inserir o novo valor.
+
+# Remover no início
+
+Removendo a head, em casos de estrutura vazia, retornando None:
+```
+# from node import Node
+
+
+class LinkedList:
+    # ...
+
+    def remove_first(self):
+        value_to_be_removed = self.head_value
+        if value_to_be_removed:
+            self.head_value = self.head_value.next
+            value_to_be_removed.next = None
+            self.__length -= 1
+        return value_to_be_removed
+```
+
+O elemento next passa a ser o primeiro elemento, já que a head irá referenciá-lo
+
+# Remover no final
+
+Devemos informar que o elemento que estamos removendo seja o último da nossa estrutura de cadeia de Nodes. Os problemas vistos na sessão Inserir no final também se aplicam aqui.
+
+Caso tenhamos apenas um elemento em nosso estrutura, invocaremos a função de remoção existente, remove_first:
+```
+# from node import Node
+
+
+class LinkedList:
+    # ...
+
+    def remove_last(self):
+        if len(self) <= 1:
+            return self.remove_first()
+
+        previous_to_be_removed = self.head_value
+
+        while previous_to_be_removed.next.next:
+            previous_to_be_removed = previous_to_be_removed.next
+
+        value_to_be_removed = previous_to_be_removed.next
+        previous_to_be_removed.next = None
+        self.__length -= 1
+        return value_to_be_removed
+```
+
+# Remover em qualquer posição
+
+Com a posição do elemento desejamos a remoção dele na estrutura.
+
+Considerações:
+
+- Se o elemento tem a posição inferior a 1, será removido na posição inicial, utilizando a função remove_first;
+- Se o elemento tem ap osição igual ou superior a quantidade de elementos, será removido na posição final, utilizando a função remove_last.
+```
+# from node import Node
+
+
+class LinkedList:
+    # ...
+
+    def remove_at(self, position):
+        if position < 1:
+            return self.remove_first()
+        if position >= len(self):
+            return self.remove_last()
+
+        previous_to_be_removed = self.head_value
+        while position > 1:
+            previous_to_be_removed = previous_to_be_removed.next
+            position -= 1
+        value_to_be_removed = previous_to_be_removed.next
+        previous_to_be_removed.next = value_to_be_removed.next
+        value_to_be_removed.next = None
+        self.__length -= 1
+        return value_to_be_removed
+```
+
+Lógica similar ao remover do final, no entento não analisamos se existe um próximo, mas se o próximo é a posição que queremos remover.
+
+# Obter elemento em qualquer posição
+
+Informando a posição do elemento a função deve retornar uma cópia do Node existente em nossa estrutura.
+
+Considerações:
+
+- Se o elemento tem a posição inferior a 1, será retornado o contéudo dap osição inicial;
+- Se eo elemento tem ap osição igual ou superior a quantidade de elementos, será retornando o conteúdo da posição final.
+```
+# from node import Node
+
+
+class LinkedList:
+    # ...
+
+    def get_element_at(self, position):
+        value_returned = None
+        value_to_be_returned = self.head_value
+        if value_to_be_returned:
+            while position > 0 and value_to_be_returned.next:
+                value_to_be_returned = value_to_be_returned.next
+                position -= 1
+            if value_to_be_returned:
+                value_returned = Node(value_to_be_returned.value)
+        return value_returned
+```
+
+Um ponto de atenção para as verificações constantes presentes no código, elas indicam que:
+
+- Caso não haja elementos em nossa estrutura será retornado None;
+- Caso a posição seja menor igual a 0, será retornado o primeiro elemento;
+- Caso a posição seja maior igua a N, onde N é o tamanho da lista, será retornado o último elemento.
+
+Por fim, retornamos um novo Node como o mesmo valor do existente em nossa estrutura. Isto é necessário para que retornemos apenas o valor, e não a referência aos demais elementos.
+
+# Está vazia
+
+Devemos informar se a estrutura está vazia, como possuímos um campo length podemos utilizá-lo como ponto a ser analisado, afinal se o mesmos for 0 nossa estrutura não possui elementos
+```
+# from node import Node
+
+
+class LinkedList:
+    # ...
+
+    def is_empty(self):
+        return not self.__length
+```
+
+O uso do not next contexto nos informa se a estrutura está vazia, já que not 0 == True (0 == False).
+
