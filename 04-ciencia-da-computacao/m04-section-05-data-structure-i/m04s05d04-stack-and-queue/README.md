@@ -12,3 +12,10 @@ Podemos criar uma pilha utilizando alguma outra estrutura de dados como listas e
 
 Se encontramos um elemento fechando na string, e a pilha estiver vazia, significa que fechamos algo sem antes abrir, ou seja, a string não está "balanceada". Se terminarmos a string, e houverem elementos na pilha ainda, significa que abrimos algo sem fechar depois. E se encontrarmos um símbulo na string, e o símbolo no topo da pilha for par diferente, significa que eles estão na ordem errada. O caso correto é quando terminamos a string com sucess, e a pilha está vazia!
 
+# Operações comuns
+
+Ao se manipular uma pilha, existem algumas operações que são comuns de serem utilizadas. São elas: push, pop e peek.
+
+- push: adiciona um item ao topo da pilha, quando utilizando pilhas, podemos aidicionar novos valores apenas no topo dela.
+- pop e peek: São usadas para ler valores do topo da pilha. Sua diferença é que a pop remove o item da pilha, e peek somente lê.
+
