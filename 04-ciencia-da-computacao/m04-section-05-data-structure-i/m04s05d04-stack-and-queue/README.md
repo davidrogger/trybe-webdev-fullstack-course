@@ -74,4 +74,3 @@ Note que resolvemos a expressão da esquerda para direita, sempre aplicando as o
 
 Com o resultado da operação, adicionamos novamente na pilha para podermos continuar com as outras partes da expressão. A segunda operação de multiplicação, entre o resultado da soma (15) e o valor da variável C (3), segue o mesmo principio da primeira operação. Nós retiramos os valores da pilha para então executar a multiplicação.
 Então adicionamos o resultado novamente na pilha, ficando somente com um valor, que é o resultado da expressão.
-
