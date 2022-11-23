@@ -74,3 +74,15 @@ Note que resolvemos a expressão da esquerda para direita, sempre aplicando as o
 
 Com o resultado da operação, adicionamos novamente na pilha para podermos continuar com as outras partes da expressão. A segunda operação de multiplicação, entre o resultado da soma (15) e o valor da variável C (3), segue o mesmo principio da primeira operação. Nós retiramos os valores da pilha para então executar a multiplicação.
 Então adicionamos o resultado novamente na pilha, ficando somente com um valor, que é o resultado da expressão.
+
+# Filas
+
+Assim como temos a mentalidade First In, Last Out para problemas que são pilhas, precisamos de outra mentalidade para problemas que são filas: First In, First Out (FIFO). Quem chega primeiro recebe atendimento primeiro, nada mais justo. Assim todos são atendidos com uma demora mais parecida.
+
+Na computação também temos problemas que requerem a mentailidade FIFO. Por exemplo, já parou para pensar como é que um processador com um único núcleo consegue rodar um sistema operacional inteiro, e mais 17 programas ao mesmo tempo?
+Cada programa demanda uma série de operações, e um núcleo só pode executar uma de cada vez; ele coloca as operações em uma fila, e resolve estas operações uma por uma, garantindo assim que todos os programas consigam rodar e prosseguir em suas tarefas.
+
+Assim como a pilha o TAD Fila, também pode ser implementado tanto em um array como em uma lista; o importante não é a forma que ela é implementada em código, mas sim a forma que ela se comporta; que métodos ela expões. No caso da fila, as operações devem ser as seguintes;
+
+- Push: Adiciona um elemento no final da fila
+- Pop Remove e retorna o primeiro elemento da fila
