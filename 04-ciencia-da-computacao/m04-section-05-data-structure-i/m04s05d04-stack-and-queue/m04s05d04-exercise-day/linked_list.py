@@ -31,3 +31,6 @@ class LinkedList:
 
         self.tail = current_element
         self.__length += 1
+
+    def insert_last(self, value):
+        pass
