@@ -43,3 +43,33 @@ class LinkedList:
 
     def get_tail(self):
         return self.__tail.value
+
+    def __get_node_at(self, position):
+        last_position = self.__length - 1
+        if position > last_position or position < 0:
+            raise IndexError
+        elif position == last_position:
+            return self.__tail
+        elif position == 0:
+            return self.__head
+
+        current_element = self.__head
+        while position > 0:
+            current_element = current_element.next
+            position -= 1
+        return current_element
+
+    def get_element_at(self, position):
+        element_found = self.__get_node_at(position)
+        return element_found.value
+
+    def insert_at(self, value, position):
+        if position >= self.__length:
+            self.insert_last(value)
+        elif position <= 0:
+            self.insert_first(value)
+
+        previous_element = self.__get_node_at(position - 1)
+        old_element = previous_element.next
+        previous_element.next = Node(value)
+        previous_element.next.next = old_element
