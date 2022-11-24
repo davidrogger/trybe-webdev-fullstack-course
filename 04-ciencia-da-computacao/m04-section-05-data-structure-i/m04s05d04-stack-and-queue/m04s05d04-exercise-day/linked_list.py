@@ -63,7 +63,7 @@ class LinkedList:
         element_found = self.__get_node_at(position)
         return element_found.value
 
-    def insert_at(self, value, position):
+    def insert_at(self, position, value):
         if position >= self.__length:
             self.insert_last(value)
         elif position <= 0:
@@ -73,3 +73,4 @@ class LinkedList:
         old_element = previous_element.next
         previous_element.next = Node(value)
         previous_element.next.next = old_element
+        self.__length += 1
