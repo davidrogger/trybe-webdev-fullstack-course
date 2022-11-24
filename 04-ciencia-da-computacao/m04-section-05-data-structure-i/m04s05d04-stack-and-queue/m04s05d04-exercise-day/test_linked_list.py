@@ -48,6 +48,11 @@ def test_get_at_position_linked_list(linked_list):
     assert linked_list.get_element_at(2) == "Teste2"
     assert linked_list.get_element_at(3) == "new_Last"
 
+    with pytest.raises(IndexError):
+        linked_list.get_element_at(4)
+    with pytest.raises(IndexError):
+        linked_list.get_element_at(-1)
+
 
 def test_insert_at_position_linked_list(linked_list):
     expected_inserted_element = "Insert Test"
