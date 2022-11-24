@@ -10,35 +10,26 @@ def test_create_a_linked_list():
 
 def test_insert_first_element_linked_list():
     linked_list = LinkedList()
-    repr_expect = (
-        "LinkedList:"
-        "(len=3"
-        ", value=Node(value=new_Header"
-        ", next=Node(value=Teste"
-        ", next=Node(value=Jonas, next=None))))"
-    )
+    expect_first_element = "new_Header"
+    expect_last_element = "Jonas"
 
     linked_list.insert_first("Jonas")
     linked_list.insert_first("Teste")
     linked_list.insert_first("new_Header")
 
-    assert str(linked_list) == repr_expect
+    assert linked_list.get_head() == expect_first_element
+    assert linked_list.get_tail() == expect_last_element
 
 
 def test_insert_last_element_linked_list():
     linked_list = LinkedList()
-    repr_expect = (
-        "LinkedList:"
-        "(len=4"
-        ", value=Node(value=Header"
-        ", next=Node(value=Teste1"
-        ", next=Node(value=Teste2"
-        ", next=Node(value=new_Last, next=None)))))"
-    )
+    expect_first_element = "Header"
+    expect_last_element = "new_Last"
 
     linked_list.insert_first("Header")
     linked_list.insert_last("Teste1")
     linked_list.insert_last("Teste2")
     linked_list.insert_last("new_Last")
 
-    assert str(linked_list) == repr_expect
+    assert linked_list.get_head() == expect_first_element
+    assert linked_list.get_tail() == expect_last_element
