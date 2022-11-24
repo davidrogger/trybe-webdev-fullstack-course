@@ -33,4 +33,10 @@ class LinkedList:
         self.__length += 1
 
     def insert_last(self, value):
-        pass
+        if self.is_empty():
+            self.insert_first(value)
+
+        self.tail.next = Node(value)
+        self.tail = self.tail.next
+
+        self.__length += 1
