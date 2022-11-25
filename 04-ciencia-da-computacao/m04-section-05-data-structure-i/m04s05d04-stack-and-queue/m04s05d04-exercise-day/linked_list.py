@@ -51,7 +51,7 @@ class LinkedList:
             return None
         return self.__tail.value
 
-    def __get_node_at(self, position):
+    def get_node_at(self, position):
         last_position = self.__length - 1
         if position > last_position or position < 0:
             raise IndexError
@@ -67,7 +67,7 @@ class LinkedList:
         return current_element
 
     def get_element_at(self, position):
-        element_found = self.__get_node_at(position)
+        element_found = self.get_node_at(position)
         return element_found.value
 
     def insert_at(self, position, value):
@@ -76,7 +76,7 @@ class LinkedList:
         elif position <= 0:
             self.insert_first(value)
 
-        previous_element = self.__get_node_at(position - 1)
+        previous_element = self.get_node_at(position - 1)
         old_element = previous_element.next
         previous_element.next = Node(value)
         previous_element.next.next = old_element
@@ -102,7 +102,7 @@ class LinkedList:
         else:
             last_position = self.__length - 1
             element_removed = self.__tail
-            previous_element_tail = self.__get_node_at(last_position - 1)
+            previous_element_tail = self.get_node_at(last_position - 1)
             previous_element_tail.next = None
             self.__tail = previous_element_tail
             self.__length -= 1
@@ -118,7 +118,7 @@ class LinkedList:
         elif position == last_position:
             self.remove_last
         else:
-            previous_to_be_removed = self.__get_node_at(position - 1)
+            previous_to_be_removed = self.get_node_at(position - 1)
             element_to_be_removed = previous_to_be_removed.next
             previous_to_be_removed.next = element_to_be_removed.next
             self.__length -= 1

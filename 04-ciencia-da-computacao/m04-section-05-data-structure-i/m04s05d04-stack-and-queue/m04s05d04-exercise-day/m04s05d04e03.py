@@ -15,4 +15,16 @@ from m04s05d04e02 import Stack
 
 class StackWithMin(Stack):
     def min_value(self):
-        raise NotImplementedError
+        current_min_value = self.stack.get_node_at(0)
+        current_value = self.stack.get_node_at(0)
+        while current_value.next:
+            if current_value.next.value < current_min_value.value:
+                current_min_value = current_value.next
+            current_value = current_value.next
+
+        return current_min_value.value
+
+
+# Faça a análise de complexidade da sua solução.
+# Por ser necessário verificar todos os valores dos nodes, para encontrar
+# o menor valor, complexidade de tempo O(n), logarítimica
