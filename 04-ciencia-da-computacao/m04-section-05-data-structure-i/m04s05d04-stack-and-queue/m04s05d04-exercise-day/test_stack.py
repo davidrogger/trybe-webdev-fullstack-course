@@ -37,5 +37,8 @@ def test_stack_peek(stack_test: Stack):
     assert stack_test.peek() == second_expect
 
 
-def test_stack_is_empty():
-    assert Stack().is_empty()
+def test_stack_is_empty(stack_test: Stack):
+    assert stack_test.is_empty() is False
+    for _ in range(len(stack_test)):
+        stack_test.pop()
+    assert stack_test.is_empty() is True

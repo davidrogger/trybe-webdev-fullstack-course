@@ -21,5 +21,5 @@ class Stack:
     def peek(self):
         return self.stack.get_tail()
 
-    def is_empty(self, value):
+    def is_empty(self):
         raise NotImplementedError
