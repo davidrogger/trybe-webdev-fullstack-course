@@ -101,3 +101,6 @@ class LinkedList:
         self.__length -= 1
 
         return element_removed
+
+    def remove_at(self, position):
+        pass

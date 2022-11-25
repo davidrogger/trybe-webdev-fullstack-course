@@ -91,3 +91,17 @@ def test_remove_last(linked_list: LinkedList):
 
     assert linked_list.get_tail() == second_expect
     assert len(linked_list) == 2
+
+
+def test_remove_at(linked_list: LinkedList):
+    expect = "new_Last"
+
+    linked_list.remove_at(2)
+
+    assert linked_list.get_element_at(2) == expect
+    assert len(linked_list) == 3
+
+    linked_list.remove_at(1)
+
+    assert linked_list.get_element_at(1) == expect
+    assert len(linked_list) == 2
