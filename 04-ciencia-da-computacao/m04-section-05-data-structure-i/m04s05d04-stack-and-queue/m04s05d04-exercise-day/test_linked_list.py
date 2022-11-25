@@ -74,3 +74,16 @@ def test_remove_first(linked_list: LinkedList):
     linked_list.remove_first()
 
     assert linked_list.get_head() == second_expect
+
+
+def test_remove_last(linked_list: LinkedList):
+    first_expect = "Teste2"
+    second_expect = "Teste1"
+
+    linked_list.remove_last()
+
+    assert linked_list.get_tail() == first_expect
+
+    linked_list.remove_last()
+
+    assert linked_list.get_tail() == second_expect

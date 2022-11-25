@@ -87,3 +87,6 @@ class LinkedList:
         self.__head = element_removed.next
 
         return element_removed
+
+    def remove_last(self):
+        pass
