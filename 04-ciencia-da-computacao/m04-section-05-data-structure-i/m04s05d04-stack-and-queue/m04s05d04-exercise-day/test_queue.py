@@ -25,8 +25,11 @@ def test_enqueue():
     assert len(new_queue) == 4
 
 
-# def test_dequeue():
-#     pass
+def test_dequeue(queue_test: Queue):
+    queue_test.dequeue()
+    assert len(queue_test) == 3
+    queue_test.dequeue()
+    assert len(queue_test) == 2
 
 
 # def test_peek():
