@@ -26,4 +26,4 @@ class Queue:
         return self.queue.get_head()
 
     def is_empty(self):
-        raise NotImplementedError
+        return self.queue.is_empty()
