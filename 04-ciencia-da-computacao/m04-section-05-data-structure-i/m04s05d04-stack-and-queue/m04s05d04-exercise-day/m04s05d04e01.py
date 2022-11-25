@@ -17,10 +17,10 @@ class Queue:
         pass
 
     def dequeue(self):
-        pass
+        raise NotImplementedError
 
     def peek(self):
-        pass
+        raise NotImplementedError
 
     def is_empty(self):
-        pass
+        raise NotImplementedError
