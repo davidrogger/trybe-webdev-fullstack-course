@@ -80,4 +80,10 @@ class LinkedList:
         self.__length += 1
 
     def remove_first(self):
-        pass
+        if self.is_empty():
+            return None
+
+        element_removed = self.__head
+        self.__head = element_removed.next
+
+        return element_removed
