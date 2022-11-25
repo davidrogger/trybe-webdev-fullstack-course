@@ -3,16 +3,19 @@ from node import Node
 
 class LinkedList:
     def __init__(self):
-        self.__head = Node("HEAD")
-        self.__tail = self.__head
-        self.__head.next = None
-        self.__length = 0
+        self.initial_format()
 
     def __len__(self):
         return self.__length
 
     def __repr__(self):
         return f"LinkedList:(len={self.__length}, value={self.__head})"
+
+    def initial_format(self):
+        self.__head = Node("HEAD")
+        self.__tail = self.__head
+        self.__head.next = None
+        self.__length = 0
 
     def is_empty(self):
         return not self.__length
@@ -119,4 +122,4 @@ class LinkedList:
             return element_to_be_removed
 
     def clear(self):
-        pass
+        self.initial_format()
