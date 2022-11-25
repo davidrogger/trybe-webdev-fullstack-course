@@ -9,3 +9,10 @@
 # content_stack.push(-2)
 # content_stack.push(3)
 # print(content_stack.min_value()) # saída: -2
+
+from m04s05d04e02 import Stack
+
+
+class StackWithMin(Stack):
+    def min_value(self):
+        raise NotImplementedError
