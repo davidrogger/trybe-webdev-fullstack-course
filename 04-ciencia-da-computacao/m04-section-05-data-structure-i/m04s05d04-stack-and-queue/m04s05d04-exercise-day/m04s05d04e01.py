@@ -23,7 +23,7 @@ class Queue:
         self.queue.remove_first()
 
     def peek(self):
-        raise NotImplementedError
+        return self.queue.get_head()
 
     def is_empty(self):
         raise NotImplementedError
