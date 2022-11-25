@@ -9,8 +9,11 @@ class Stack:
     def __init__(self):
         self.stack = LinkedList()
 
+    def __len__(self):
+        return len(self.stack)
+
     def push(self, value):
-        raise NotImplementedError
+        self.stack.insert_last(value)
 
     def pop(self, value):
         raise NotImplementedError
