@@ -29,8 +29,12 @@ def test_stack_pop(stack_test: Stack):
     assert len(stack_test) == 1
 
 
-def test_stack_peek():
-    assert Stack().peek()
+def test_stack_peek(stack_test: Stack):
+    first_expect = "Modiz"
+    second_expect = "Caius"
+    assert stack_test.peek() == first_expect
+    stack_test.pop()
+    assert stack_test.peek() == second_expect
 
 
 def test_stack_is_empty():
