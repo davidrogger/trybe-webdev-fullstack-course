@@ -2,7 +2,11 @@ from m04s05d04e02 import Stack
 
 
 def test_stack_push():
-    assert Stack().push("empty")
+    new_stack = Stack()
+    new_stack.push("Teste")
+    assert len(new_stack) == 1
+    new_stack.push("Teste2")
+    assert len(new_stack) == 2
 
 
 def test_stack_pop():
