@@ -19,7 +19,7 @@ class Stack:
         self.stack.remove_last()
 
     def peek(self):
-        raise NotImplementedError
+        return self.stack.get_tail()
 
     def is_empty(self, value):
         raise NotImplementedError
