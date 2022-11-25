@@ -70,10 +70,12 @@ def test_remove_first(linked_list: LinkedList):
     linked_list.remove_first()
 
     assert linked_list.get_head() == first_expect
+    assert len(linked_list) == 3
 
     linked_list.remove_first()
 
     assert linked_list.get_head() == second_expect
+    assert len(linked_list) == 2
 
 
 def test_remove_last(linked_list: LinkedList):
@@ -83,7 +85,9 @@ def test_remove_last(linked_list: LinkedList):
     linked_list.remove_last()
 
     assert linked_list.get_tail() == first_expect
+    assert len(linked_list) == 3
 
     linked_list.remove_last()
 
     assert linked_list.get_tail() == second_expect
+    assert len(linked_list) == 2
