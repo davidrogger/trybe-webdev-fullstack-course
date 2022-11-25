@@ -15,10 +15,10 @@ class Stack:
     def push(self, value):
         self.stack.insert_last(value)
 
-    def pop(self, value):
+    def pop(self):
         raise NotImplementedError
 
-    def peek(self, value):
+    def peek(self):
         raise NotImplementedError
 
     def is_empty(self, value):
