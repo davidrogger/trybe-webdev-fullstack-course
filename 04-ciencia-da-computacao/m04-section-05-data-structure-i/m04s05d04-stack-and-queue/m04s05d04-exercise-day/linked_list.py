@@ -117,3 +117,6 @@ class LinkedList:
             self.__length -= 1
 
             return element_to_be_removed
+
+    def clear(self):
+        pass

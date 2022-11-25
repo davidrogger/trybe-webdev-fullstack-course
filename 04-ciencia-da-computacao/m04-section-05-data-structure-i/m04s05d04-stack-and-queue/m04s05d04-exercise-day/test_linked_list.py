@@ -105,3 +105,12 @@ def test_remove_at(linked_list: LinkedList):
 
     assert linked_list.get_element_at(1) == expect
     assert len(linked_list) == 2
+
+
+def test_clear(linked_list: LinkedList):
+    repr_expect = "LinkedList:(len=0, value=Node(value=HEAD, next=None))"
+
+    linked_list.clear()
+
+    assert len(linked_list) == 0
+    assert str(linked_list) == repr_expect
