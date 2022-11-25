@@ -16,7 +16,7 @@ class Stack:
         self.stack.insert_last(value)
 
     def pop(self):
-        raise NotImplementedError
+        self.stack.remove_last()
 
     def peek(self):
         raise NotImplementedError
