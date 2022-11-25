@@ -32,8 +32,12 @@ def test_dequeue(queue_test: Queue):
     assert len(queue_test) == 2
 
 
-# def test_peek():
-#     pass
+def test_peek(queue_test: Queue):
+    first_expect = "Jonas"
+    second_expect = "Bahdok"
+    assert queue_test.peek() == first_expect
+    queue_test.dequeue()
+    assert queue_test.peek() == second_expect
 
 
 # def test_is_empty():

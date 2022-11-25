@@ -20,7 +20,7 @@ class Queue:
         self.queue.insert_last(value)
 
     def dequeue(self):
-        raise NotImplementedError
+        self.queue.remove_first()
 
     def peek(self):
         raise NotImplementedError
