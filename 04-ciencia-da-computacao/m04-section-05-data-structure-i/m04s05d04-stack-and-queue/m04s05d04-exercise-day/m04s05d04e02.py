@@ -22,4 +22,4 @@ class Stack:
         return self.stack.get_tail()
 
     def is_empty(self):
-        raise NotImplementedError
+        return self.stack.is_empty()
