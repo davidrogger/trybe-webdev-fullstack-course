@@ -9,3 +9,5 @@ def test_stack_push_limited():
     with pytest.raises(StackOverflow):
         for number in push_numbers:
             limit.push(number)
+
+    assert limit.peek() == 2

@@ -25,6 +25,9 @@ class StackOverflow(OverflowError):
 class StackLimited(Stack):
     def __init__(self, limit):
         self.__limit = limit
+        super().__init__()
 
     def push(self, value):
-        raise NotImplementedError
+        if len(self) == self.__limit:
+            raise StackOverflow
+        super().push(value)
