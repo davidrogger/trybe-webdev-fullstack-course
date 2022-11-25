@@ -31,3 +31,9 @@ class StackLimited(Stack):
         if len(self) == self.__limit:
             raise StackOverflow
         super().push(value)
+
+
+# Faça a análise de complexidade da sua solução.
+# Complexidade constante O(1), pois não há necessidade vasculhar informações
+# o limite é definido inicialmente, e sempre que algo novo for adicionado
+# é verficiar se o tamanho está no limite.
