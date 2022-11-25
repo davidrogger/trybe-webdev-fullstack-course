@@ -39,9 +39,13 @@ class LinkedList:
         self.__length += 1
 
     def get_head(self):
+        if self.is_empty():
+            return None
         return self.__head.value
 
     def get_tail(self):
+        if self.is_empty():
+            return None
         return self.__tail.value
 
     def __get_node_at(self, position):
