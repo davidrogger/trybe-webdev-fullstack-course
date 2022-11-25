@@ -34,7 +34,7 @@ def test_insert_first_element_linked_list():
     assert linked_list.get_tail() == expect_last_element
 
 
-def test_insert_last_element_linked_list(linked_list):
+def test_insert_last_element_linked_list(linked_list: LinkedList):
     expect_first_element = "Header"
     expect_last_element = "new_Last"
 
@@ -42,7 +42,7 @@ def test_insert_last_element_linked_list(linked_list):
     assert linked_list.get_tail() == expect_last_element
 
 
-def test_get_at_position_linked_list(linked_list):
+def test_get_at_position_linked_list(linked_list: LinkedList):
     assert linked_list.get_element_at(0) == "Header"
     assert linked_list.get_element_at(1) == "Teste1"
     assert linked_list.get_element_at(2) == "Teste2"
@@ -54,10 +54,23 @@ def test_get_at_position_linked_list(linked_list):
         linked_list.get_element_at(-1)
 
 
-def test_insert_at_position_linked_list(linked_list):
+def test_insert_at_position_linked_list(linked_list: LinkedList):
     expected_inserted_element = "Insert Test"
     expected_old_element = "Teste2"
     linked_list.insert_at(2, expected_inserted_element)
 
     assert linked_list.get_element_at(2) == expected_inserted_element
     assert linked_list.get_element_at(3) == expected_old_element
+
+
+def test_remove_first(linked_list: LinkedList):
+    first_expect = "Teste1"
+    second_expect = "Teste2"
+
+    linked_list.remove_first()
+
+    assert linked_list.get_head() == first_expect
+
+    linked_list.remove_first()
+
+    assert linked_list.get_head() == second_expect

@@ -78,3 +78,6 @@ class LinkedList:
         previous_element.next = Node(value)
         previous_element.next.next = old_element
         self.__length += 1
+
+    def remove_first(self):
+        pass
