@@ -40,5 +40,12 @@ def test_peek(queue_test: Queue):
     assert queue_test.peek() == second_expect
 
 
-# def test_is_empty():
-#     pass
+def test_is_empty():
+    new_queue = Queue()
+    assert new_queue.is_empty() is True
+
+    new_queue.enqueue("teste")
+    assert new_queue.is_empty() is False
+
+    new_queue.dequeue()
+    assert new_queue.is_empty() is True
