@@ -14,3 +14,17 @@
 #     content_stack.push(3)
 # except StackOverflow:
 #     print("Não é possível adicionar outro item à pilha")
+
+from m04s05d04e02 import Stack
+
+
+class StackOverflow(OverflowError):
+    pass
+
+
+class StackLimited(Stack):
+    def __init__(self, limit):
+        self.__limit = limit
+
+    def push(self, value):
+        raise NotImplementedError
