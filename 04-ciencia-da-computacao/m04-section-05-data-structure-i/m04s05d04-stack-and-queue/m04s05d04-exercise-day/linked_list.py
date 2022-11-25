@@ -35,11 +35,11 @@ class LinkedList:
     def insert_last(self, value):
         if self.is_empty():
             self.insert_first(value)
+        else:
+            self.__tail.next = Node(value)
+            self.__tail = self.__tail.next
 
-        self.__tail.next = Node(value)
-        self.__tail = self.__tail.next
-
-        self.__length += 1
+            self.__length += 1
 
     def get_head(self):
         if self.is_empty():

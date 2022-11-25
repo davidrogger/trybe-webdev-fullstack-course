@@ -27,16 +27,29 @@ def test_insert_first_element_linked_list():
     expect_last_element = "Jonas"
 
     linked_list.insert_first("Jonas")
+    assert len(linked_list) == 1
+
     linked_list.insert_first("Teste")
+    assert len(linked_list) == 2
+
     linked_list.insert_first("new_Header")
+    assert len(linked_list) == 3
 
     assert linked_list.get_head() == expect_first_element
     assert linked_list.get_tail() == expect_last_element
 
 
-def test_insert_last_element_linked_list(linked_list: LinkedList):
+def test_insert_last_element_linked_list():
+    linked_list = LinkedList()
     expect_first_element = "Header"
-    expect_last_element = "new_Last"
+    expect_last_element = "insert_Last"
+
+    assert len(linked_list) == 0
+
+    linked_list.insert_last(expect_first_element)
+    assert len(linked_list) == 1
+    linked_list.insert_last(expect_last_element)
+    assert len(linked_list) == 2
 
     assert linked_list.get_head() == expect_first_element
     assert linked_list.get_tail() == expect_last_element
