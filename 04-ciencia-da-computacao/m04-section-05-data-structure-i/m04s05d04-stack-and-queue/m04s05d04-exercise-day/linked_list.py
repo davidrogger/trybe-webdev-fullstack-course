@@ -103,4 +103,17 @@ class LinkedList:
         return element_removed
 
     def remove_at(self, position):
-        pass
+        last_position = self.__length - 1
+        if self.is_empty():
+            return None
+        elif position == 0:
+            self.remove_first
+        elif position == last_position:
+            self.remove_last
+        else:
+            previous_to_be_removed = self.__get_node_at(position - 1)
+            element_to_be_removed = previous_to_be_removed.next
+            previous_to_be_removed.next = element_to_be_removed.next
+            self.__length -= 1
+
+            return element_to_be_removed
