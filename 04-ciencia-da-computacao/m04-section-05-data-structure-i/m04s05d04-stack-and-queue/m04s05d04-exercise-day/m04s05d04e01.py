@@ -13,8 +13,11 @@ class Queue:
     def __init__(self):
         self.queue = LinkedList()
 
-    def enqueue(self):
-        pass
+    def __len__(self):
+        return len(self.queue)
+
+    def enqueue(self, value):
+        self.queue.insert_last(value)
 
     def dequeue(self):
         raise NotImplementedError
