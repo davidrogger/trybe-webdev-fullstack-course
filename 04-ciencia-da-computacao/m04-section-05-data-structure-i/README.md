@@ -31,3 +31,9 @@
 
 - [#SideNotes - Linked List - Abstract Data Type and Data Structure](https://medium.com/@lucasmagnum/sidenotes-linked-list-abstract-data-type-and-data-structure-fd2f8276ab53)
 - [Construindo uma Lista Encadeada em Python](https://www.youtube.com/watch?v=jIM87UqOq3g)
+
+## Dia04
+
+-[Stacks - A Level Computer Science](https://www.youtube.com/watch?v=zIbQf_yR7-U)
+-[Stack - LeetCode](https://leetcode.com/tag/stack/)
+-[Stack Data Structure](https://www.geeksforgeeks.org/stack-data-structure/)
