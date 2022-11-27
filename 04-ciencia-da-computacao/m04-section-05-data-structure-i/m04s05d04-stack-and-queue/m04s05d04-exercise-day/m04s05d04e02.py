@@ -12,6 +12,9 @@ class Stack:
     def __len__(self):
         return len(self.stack)
 
+    def __repr__(self) -> str:
+        return self.stack
+
     def push(self, value):
         self.stack.insert_last(value)
 
