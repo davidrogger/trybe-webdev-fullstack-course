@@ -5,3 +5,29 @@
 
 # Nota: transforme as expressões em pós fixas e atribua valores.
 # Caso seja necessário, faça o cast do valor para ponto flutuante.
+
+from m04s05d04e02 import Stack
+
+
+# GABARITO
+def solve_expression(expr):
+    stack = Stack()
+    tokens_list = expr.split(" ")
+
+    for token in tokens_list:
+        if token == "+":
+            result = stack.pop() + stack.pop()
+            stack.push(result)
+        elif token == "*":
+            result = stack.pop() * stack.pop()
+            stack.push(result)
+        elif token == "-":
+            result = stack.pop() - stack.pop()
+            stack.push(result)
+        elif token == "/":
+            result = stack.pop() / stack.pop()
+            stack.push(result)
+        else:
+            stack.push(int(token))
+
+    return stack.pop()
