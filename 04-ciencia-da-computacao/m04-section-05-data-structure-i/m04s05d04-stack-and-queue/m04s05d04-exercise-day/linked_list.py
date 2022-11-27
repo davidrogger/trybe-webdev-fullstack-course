@@ -85,20 +85,21 @@ class LinkedList:
     def remove_first(self):
         if self.is_empty():
             return None
-        elif len(self) == 1:
-            self.initial_format()
         else:
             element_removed = self.__head
             self.__head = element_removed.next
             self.__length -= 1
 
-            return element_removed
+            if len(self) == 0:
+                self.initial_format()
+
+            return element_removed.value
 
     def remove_last(self):
         if self.is_empty():
             return None
         elif len(self) == 1:
-            self.initial_format()
+            return self.remove_first()
         else:
             last_position = self.__length - 1
             element_removed = self.__tail
@@ -107,7 +108,7 @@ class LinkedList:
             self.__tail = previous_element_tail
             self.__length -= 1
 
-            return element_removed
+            return element_removed.value
 
     def remove_at(self, position):
         last_position = self.__length - 1

@@ -16,7 +16,7 @@ class Stack:
         self.stack.insert_last(value)
 
     def pop(self):
-        self.stack.remove_last()
+        return self.stack.remove_last()
 
     def peek(self):
         return self.stack.get_tail()
