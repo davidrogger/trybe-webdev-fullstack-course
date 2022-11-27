@@ -50,7 +50,24 @@ def add_vehicle():
 
 
 def remove_vehicle():
-    print("Not Implemented")
+    street = Stack()
+    lokking_plate = input("What plate should be removed ?: ")
+    car_removed = False
+
+    while not car_removed and not garage.is_empty():
+        moving_car = garage.pop()
+        if moving_car == lokking_plate:
+            print(f"Vehicle {moving_car} found, and removed")
+            car_removed = True
+        else:
+            street.push(moving_car)
+
+    while not street.is_empty():
+        moving_car = street.pop()
+        garage.push(moving_car)
+
+    if not car_removed:
+        print("\nVehicle not found with this plate")
 
 
 def parked_vehicle():
@@ -85,3 +102,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+    # Complexidade O(n), pois há necessidade de percorrer a lista de carros
+    # para localiza-los
