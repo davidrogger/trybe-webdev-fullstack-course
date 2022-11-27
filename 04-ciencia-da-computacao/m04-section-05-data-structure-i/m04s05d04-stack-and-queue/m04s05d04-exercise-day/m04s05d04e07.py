@@ -19,6 +19,9 @@ def reverse_word(stack):
         if char != "(":
             reversed_word.append(char)
 
+    for letter in reversed_word:
+        stack.push(letter)
+
 
 def reverse_letters(phrase):
     stack = Stack()
@@ -34,4 +37,12 @@ def reverse_letters(phrase):
     while not stack.is_empty():
         reversed_phrase.append(stack.pop())
 
-    return "".join(reversed_phrase)
+    return "".join(reversed(reversed_phrase))
+
+
+if __name__ == "__main__":
+    assert reverse_letters("teste(lagel)") == "testelegal"
+    assert reverse_letters("(abcd)") == "dcba"
+    assert reverse_letters("(u(love)i)") == "iloveu"
+    assert reverse_letters("(ed(et(oc))el)") == "letecode"
+    assert reverse_letters("a(bcdefghijkl(mno)p)q") == "alkjihgfedcbmnoq"
