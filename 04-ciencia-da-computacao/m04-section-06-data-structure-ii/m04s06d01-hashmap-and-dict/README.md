@@ -53,3 +53,12 @@ Python tem complexidade mais baixa, mas gasta muito espaço. Java utiliza bem me
 São estruturas de dados do tipo chave-valor que são implementados como hashmaps por baixo dos panos. A combinação de hash functions e tratamento de colisões do Dict garantem uma complexidade assintótica de O(1) para inserção de consulta. São estruturas muito eficientes, versáteis e poderosas. O Dict considera verificações importantes como a existência de apenas uma chave, bem como fornece diversos métodos convenientes para acesso e manipulação dos dados.
 
 Apenas objetos imutáveis podem ser utilizados como chave, ou seja, apenas aqueles objetos que depois de instanciados não podem ser alterados. Isso varia de linguagem para linguagem. Em python, os objetos imutáveis são: int, float, string, tuple, range, byte e frozenset.
+
+# Exemplos de aplicações que usam Hashmaps
+
+## Resolução DNS
+
+Ao acessar um website com o endereço [http://adit.io.](http://adit.io.). O computador deve traduzir adit.io para a forma de enreço de IP. Para cada website o endereço deverá ser traduzido para um endereço de IP.
+
+Mapear o endereço de um website para um endereço IP é um caso de utilização de tabelas hash. E as tabelas hash são uma das maneiras pelas quais esta funcionalidade pode ser implementada.
+
