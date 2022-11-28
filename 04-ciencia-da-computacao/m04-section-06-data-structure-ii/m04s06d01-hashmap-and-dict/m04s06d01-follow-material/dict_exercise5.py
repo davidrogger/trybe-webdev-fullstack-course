@@ -8,7 +8,10 @@
 
 
 def create_dict_value():
-    return {value: value * 2 for value in range(3, 21)}
+    return {
+        value: value * 2
+        for value in range(3, 21)
+        }
 
 
 if __name__ == "__main__":
