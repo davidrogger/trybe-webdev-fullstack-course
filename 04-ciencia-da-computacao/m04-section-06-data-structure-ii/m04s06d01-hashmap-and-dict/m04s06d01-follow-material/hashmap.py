@@ -20,6 +20,15 @@ class HashMap:
         address = self.get_address(id_num)
         return self._buckets[address] is not None
 
+    def update_value(self, id_nume, new_name):
+        raise NotImplementedError
+
+
+def test_create_hashmap():
+    hashmap = HashMap()
+
+    assert isinstance(hashmap, HashMap)
+
 
 def test_get_id_in_hashmap():
     employees = [
@@ -34,4 +43,8 @@ def test_get_id_in_hashmap():
     for employee in employees:
         company.insert(employee)
 
-    print(company.get_value(23))
+    assert company.get_value(23) == "name2"
+
+    company.update_value(10, "name30")
+
+    assert company.get_value(10) == "name30"
