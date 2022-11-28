@@ -20,3 +20,30 @@ Quando duas chaves diferentes resultam no mesmo address, exemplo, chaves 14 e 24
 
 Caso um elemento recebe o mesmo endereço, basta adicionar na lista, Isso faz com que o cada bucket tenha seu próprio encadeamento de objetos.
 
+## Complexidade
+
+As inserções continuam com complexidade O(1), mas todos os demais métodos agora iteram sobre uma lista de tamanho variado, Caso o item de interesse seja a primeira posição(melhor caso), teremos O(1), mas isso raramente vai acontecer na vida real. No pior caso, será o último, resultando em uma complexidade proprocional ao tamanho da lista que está naquele endereço, o que é uma performance pior do que O(1).
+
+Combinando hash com separate chaining, fez com que o acesso à informação não fosse exatamente O(1). Isso demonstra como a análise de complexidade na vida real é mais complicada do que na teoria. E o mais importante: demonstra como as decisões de implementação de cada estrutura de dados afetam a performance final.
+
+# Open Addressing com Linear Probing
+
+É onde o endereço final não é conhecido e o hashcode é utilizado apenas para iniciar a busca de um bucket vazio dentro da própria lista de buckets. Essa busca por um espaço vazio pode ser feita de diversas maneiras.
+
+Quando a busca por um espaço vazio é feita olhando um índice após o outro, é chamada de Linear probing, mas existem vários outros métodos de busca pelo espaço vazio, incluindo cálculos matemáticos mais complexos para ir "saltando" de índice em índice.
+
+Exercício 3: Descubra qual técnica de tratamento de colisão é utilizada pelo Dict, de Python e o HashMap, do Java. Em inglês, o termo de busca é “collision resolution“.
+
+A classe Dict do python usa Open Addresing e Java utiliza Separate Chaining.
+
+Dict, utiliza a técnica de tratamento de colisão chamada Open Addressing e busca  o próximo espaço vazio em duas fases. Ambas as fases utilizam a representação binária da chave e aplicam formulas matemáticas para definir o próximo índice a ser visitado.
+
+A classe HashMap, de Java, utiliza a técnica de Separate Chaining, mas quando a lista do bucket começa a ficar grande, Java substitui essa lista por uma [Árvore Binária de busca](https://pt.wikipedia.org/wiki/%C3%81rvore_bin%C3%A1ria_de_busca), mais eficiente do que uma lista para operações de busca.
+
+Exercício 4: Como as diferentes implementações afetam a performance? Quais são os prós e contras da implementação de cada linguagem?
+
+A solução do Python determina o próximo índice a ser visitado de maneira relativamente randômica e resulta em uma complexidade assontótica de tempo de O(1). Por outro lado, para evitar que o vetor buckets, fique rapidamente sem espaço, um Dict é inicializado com uma lista de tamanho 2**15 ints. Como em Python cada int ocupada 24 bytes, no mínimo, o uso de memória é consideravel.
+
+Em java, o tamanho inicial é menor, uma vez o que tende a crescer são as chains, de cada bucket e não a lista de buckets. Por outro lado, temos o trade-off com o custo de tempo. Para cada consulta, o tempo de busca é proprocional à quantidade de itens naquela bucket que sendo uma árvore, chega a O(log n).
+
+Python tem complexidade mais baixa, mas gasta muito espaço. Java utiliza bem melhor a memória, porém tem maior complexidade para consultas.
