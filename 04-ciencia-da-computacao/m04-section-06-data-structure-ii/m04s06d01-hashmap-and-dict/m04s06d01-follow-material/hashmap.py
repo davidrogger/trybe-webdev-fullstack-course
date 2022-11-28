@@ -3,18 +3,21 @@ from employee import Employee
 
 class HashMap:
     def __init__(self):
-        self._buckets = [None for _ in range(10)]
+        self._buckets = [[] for _ in range(10)]
 
     def get_address(self, id_num):
         return id_num % 10
 
     def insert(self, employee: Employee):
         address = self.get_address(employee.id_num)
-        self._buckets[address] = employee
+        self._buckets[address].append(employee)
 
     def get_value(self, id_num):
         address = self.get_address(id_num)
-        return self._buckets[address].name
+        for employee in self._buckets[address]:
+            if employee.id_num == id_num:
+                return employee.name
+        return None
 
     def has(self, id_num):
         address = self.get_address(id_num)
@@ -22,7 +25,9 @@ class HashMap:
 
     def update_value(self, id_nume, new_name):
         address = self.get_address(id_nume)
-        self._buckets[address].name = new_name
+        for employee in self._buckets[address]:
+            if employee.id_num == id_nume:
+                employee.name = new_name
 
 
 def test_create_hashmap():

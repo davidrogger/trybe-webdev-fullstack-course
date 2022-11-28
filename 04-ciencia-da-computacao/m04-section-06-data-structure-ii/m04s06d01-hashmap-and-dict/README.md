@@ -10,3 +10,13 @@ Por conferir essa segurança, o procedimento de hashing tem uso em criptografia,
 
 A estratégia de armazenamento de dados da hashmap é submeter o dado a um procedimento matemática (hash function) para obter um endereço único onde ela será guardada(address). Na relação chave-valor, o id numérico da classe Employee é a chave e o objeto Employee inteiro é o valor. A hash function vai ler o valor da chave para definir o endereço do objeto como um todo.
 
+# Colisão
+
+Quando duas chaves diferentes resultam no mesmo address, exemplo, chaves 14 e 24, resultam no address 4, isso é chamado de colisão.
+
+# Soluções:
+
+## Separate Chaining
+
+Caso um elemento recebe o mesmo endereço, basta adicionar na lista, Isso faz com que o cada bucket tenha seu próprio encadeamento de objetos.
+
