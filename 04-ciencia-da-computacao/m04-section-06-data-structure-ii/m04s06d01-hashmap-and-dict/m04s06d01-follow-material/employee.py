@@ -10,3 +10,7 @@ class HashMap:
 
     def get_address(self, id_num):
         return id_num % 10
+
+    def insert(self, employee):
+        address = self.get_address(employee.id_num)
+        self._buckets[address] = employee
