@@ -47,3 +47,9 @@ A solução do Python determina o próximo índice a ser visitado de maneira rel
 Em java, o tamanho inicial é menor, uma vez o que tende a crescer são as chains, de cada bucket e não a lista de buckets. Por outro lado, temos o trade-off com o custo de tempo. Para cada consulta, o tempo de busca é proprocional à quantidade de itens naquela bucket que sendo uma árvore, chega a O(log n).
 
 Python tem complexidade mais baixa, mas gasta muito espaço. Java utiliza bem melhor a memória, porém tem maior complexidade para consultas.
+
+# Dict de Python
+
+São estruturas de dados do tipo chave-valor que são implementados como hashmaps por baixo dos panos. A combinação de hash functions e tratamento de colisões do Dict garantem uma complexidade assintótica de O(1) para inserção de consulta. São estruturas muito eficientes, versáteis e poderosas. O Dict considera verificações importantes como a existência de apenas uma chave, bem como fornece diversos métodos convenientes para acesso e manipulação dos dados.
+
+Apenas objetos imutáveis podem ser utilizados como chave, ou seja, apenas aqueles objetos que depois de instanciados não podem ser alterados. Isso varia de linguagem para linguagem. Em python, os objetos imutáveis são: int, float, string, tuple, range, byte e frozenset.
