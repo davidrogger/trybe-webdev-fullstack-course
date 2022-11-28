@@ -62,3 +62,8 @@ Ao acessar um website com o endereço [http://adit.io.](http://adit.io.). O comp
 
 Mapear o endereço de um website para um endereço IP é um caso de utilização de tabelas hash. E as tabelas hash são uma das maneiras pelas quais esta funcionalidade pode ser implementada.
 
+# Cache
+
+A cada pergunta que você não sabe você precisa pesquisar uma resposta, e só então você consiguirá responder, logo você terá memorizado. É desta forma que o cache funciona: os websites lembram dos dados em vez de recalculá-los a cada solicitação.
+
+Esta técnica é uma maneira comum de agilizar as coisas. Todos os grandes sites usam caching, e os dados destes cachings são armazenados em uma tabela hash.
