@@ -21,7 +21,8 @@ class HashMap:
         return self._buckets[address] is not None
 
     def update_value(self, id_nume, new_name):
-        raise NotImplementedError
+        address = self.get_address(id_nume)
+        self._buckets[address].name = new_name
 
 
 def test_create_hashmap():
