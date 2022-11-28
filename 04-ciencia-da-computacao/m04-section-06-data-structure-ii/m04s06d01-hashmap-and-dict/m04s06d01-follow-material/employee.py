@@ -14,3 +14,7 @@ class HashMap:
     def insert(self, employee):
         address = self.get_address(employee.id_num)
         self._buckets[address] = employee
+
+    def get_value(self, id_num):
+        address = self.get_address(id_num)
+        return self._buckets[address].name
