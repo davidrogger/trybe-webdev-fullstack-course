@@ -238,3 +238,6 @@ Por baixo dos panos, a classe Set é uma modificação da classe Dict e não um 
 
 Set é uma coleção não ordenada de objetos imutáveis únicos. Por não se preocupar com a ordem, set não guarda a ordem de inserção e não é possível indexar elementos com [] como em listas ou Dicts. Assim como Dict, só é possível usar objetos imutáveis como chave. Mas dict admite guardar valores, então é possível mapear chaves para Dicts. Mas set não guarda valores e é um objeto mutável, então não é possivel guardar sets dentro de um set. Para resolver isso, existe o frozenset.
 
+# Frozenset
+
+São objetos idênticos a set, porém são imutáveis; uma vez instanciados, não é possível adicionar ou remover elementos e todos os métodos que realizam essas duas operações estão indisponíveis no frozenset. Todos os demais métodos de set funcionam em um frozenset. Para criar sets de set, o elemento de dentro precisa ser um frozenset.
