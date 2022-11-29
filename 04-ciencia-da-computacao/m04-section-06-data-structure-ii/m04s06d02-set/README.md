@@ -231,3 +231,10 @@ C = {0, 3, 6, 9}
 B = {12, 15, 18}
 # saída: {}
 ```
+
+# A classe set
+
+Por baixo dos panos, a classe Set é uma modificação da classe Dict e não um vetor de booleanos. Set é um hashmap, mas não é um simples mapeamento da chave True, a classe set não guarda valor nenhum, ou seja, não está exatamente replicando uma estrutura do tipo "chave-valor", pois não há valor. Por isso, ocupa menos espaço do que um Dict, ao mesmo tempo em que mantém a eficiência das operações.
+
+Set é uma coleção não ordenada de objetos imutáveis únicos. Por não se preocupar com a ordem, set não guarda a ordem de inserção e não é possível indexar elementos com [] como em listas ou Dicts. Assim como Dict, só é possível usar objetos imutáveis como chave. Mas dict admite guardar valores, então é possível mapear chaves para Dicts. Mas set não guarda valores e é um objeto mutável, então não é possivel guardar sets dentro de um set. Para resolver isso, existe o frozenset.
+
