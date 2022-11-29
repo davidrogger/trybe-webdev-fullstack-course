@@ -29,3 +29,15 @@ if element in colection:
 if element not in colection:
     # ...
 ```
+
+# União
+
+<div align="center">
+  <img
+    src="./img/union.png"
+    height="300px"
+    width="300px"
+    style="background:white; border-radius:10px;"
+  \>
+</div>
+
