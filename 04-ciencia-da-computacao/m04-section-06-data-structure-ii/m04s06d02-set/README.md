@@ -294,3 +294,21 @@ if 2 in conjuntoA:
 if 7 not in conjuntoA:
     print("7 não está em A")
 ```
+
+# Operações que envolvem outro conjunto
+
+- [Documentação do set](https://docs.python.org/3.7/library/stdtypes.html#set-types-set-frozenset)
+
+As operações que envolvem outros conjuntos implementam todas as operações matemáticas que se aplicam a conjuntos.
+
+- set.isdisjoint(other): retorna True se o set não tem nenhum elemento em comum com other, ou seja, se a intersecção é vazia;
+- set.issubset(other): verificar se set é um subconjunto de other, se o elemento do set está em other;
+- set.issuperset(other): verifica se set é um superconjunto de other, se todos os elementos de other estão em set. A diferença de um superconjunto e de um subconjunto é que no superconjunto pode ter outros elementos, além dos elementos de other já presentes dentro de set. Já no subconjunto não;
+- set == other: verifica se os conjuntos são iguais, se todos elementos de set estão em other e se todos os elementos de other estão em set. Não importando a ordem.
+
+Métodos sobre dois ou mais conjuntos por vez. Cada uma das operações tem a sua versão que modifica o set original com o resultado da operação e não retorna nada.
+
+- set.union(others): retorna a união entre o set e todos os others passados;
+- set.intersection(others): retorna a interseção entre set e todos os others;
+- set.difference(others): retorna a diferença entre set e todos os other passados;
+- set.symmetric_difference(others): retorna todos os elementos que estejam em um mas não estejam no outro conjunto (opera apenas sobre dois conjuntos).
