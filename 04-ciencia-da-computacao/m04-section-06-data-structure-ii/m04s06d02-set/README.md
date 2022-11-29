@@ -197,3 +197,17 @@ A = {1, 2, 3}
 # entrada: 0
 # saída: False
 ```
+
+Exercício 4: União
+
+União: Todos os elementos que estão em A OU em B
+
+- Crie um método com a assinatura abaixo, que recebe como parâmetro outro objeto da classe Conjunto:
+```
+def union(self, conjuntoB):
+    # retorno: outro objeto Conjunto com união do próprio objeto com o conjuntoB
+```
+
+- Na main, instancie dois objetos do tipo Conjunto. Preencha o primeiro com os valores de 1 a 10, e o segundo, com valores de 10 a 20;
+
+- Imprima na tela a união dos dois conjuntos.
