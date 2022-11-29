@@ -99,3 +99,21 @@ Casos em que o conjuntos são utilizados:
 
 - Programa Educacional: um programa, temos acesso ao log de quem já entregou a avaliação 1 e de quem já entregou a avaliação 2. Queremos saber quem já entregou a 1, mas não a 2. Para isso, podemos criar uma função que verifique se uma pessoa consta no log de avaliação 1, mas não consta nos logs da avaliação 2. Os nomes dos alunos nos logs formam um conjunto, pois não são duplicados e a ordem das entregas não importa.
 - SQL: um cenário onde operações sobre conjuntos são pesadamente utilizados são queries em bancos de dados. O comando SELECT cria um conjunto e comandos como UNION, INTERSECT e EXCEPT nada mais são do que operações sobre conjuntos. O SELECT cria um conjunto com linhas únicas. Utilizar um comando de conjuntos sobre os resultados de dois ou mais SELECT implicarão em eliminação de duplicados e desconsideração de ordem. [Explicação sobre set](https://pt.wikipedia.org/wiki/Opera%C3%A7%C3%B5es_SET_(SQL))
+
+# Conjuntos representados por vetores
+```
+A = {1, 2, 3}
+B = {2, 3, 4}
+```
+
+Os elementos são números inteiros e pequenos, podemos fazer uso dos índices de um vetor de booleanos para identificar a presença ou não de cada elemento:
+```
+A = [False, True, True, True, False]
+#      0     1     2     3     4
+```
+
+Para saber se um elemento pertence ao conjunto, basta verificar se A[2] é True, por exemplo. O acesso direto aos endereços do vetor, consulta, inserção e remoção, ocorrem em O(1). Os lados negativos dessa implementação são:
+
+- Caso os elementos não sejam valores pequenos;
+- Caso os elementos sejam valores muito esparsos, como {1, 1000, 20000}. Assim teríamos muitos espaços subutilizados na memória;
+- Caso os elementos não sejam números
