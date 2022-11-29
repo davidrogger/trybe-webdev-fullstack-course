@@ -82,3 +82,20 @@ Todos os elementos que pertencem exclusivamente a A ou a B
   \>
 </div>
 
+# Subconjunto
+
+Não é uma operação. É qualquer conjunto em que todos os seus elementos pertencem ao conjunto maior (superconjunto). Conjunto Vazio e o próprio conjunto são subconjuntos dele mesmo.
+
+<div align="center">
+  <img
+    src="./img/Subconjuntos.png"
+    height="300px"
+    width="300px"
+    style="background:white; border-radius:10px;"
+  \>
+</div>
+
+Casos em que o conjuntos são utilizados:
+
+- Programa Educacional: um programa, temos acesso ao log de quem já entregou a avaliação 1 e de quem já entregou a avaliação 2. Queremos saber quem já entregou a 1, mas não a 2. Para isso, podemos criar uma função que verifique se uma pessoa consta no log de avaliação 1, mas não consta nos logs da avaliação 2. Os nomes dos alunos nos logs formam um conjunto, pois não são duplicados e a ordem das entregas não importa.
+- SQL: um cenário onde operações sobre conjuntos são pesadamente utilizados são queries em bancos de dados. O comando SELECT cria um conjunto e comandos como UNION, INTERSECT e EXCEPT nada mais são do que operações sobre conjuntos. O SELECT cria um conjunto com linhas únicas. Utilizar um comando de conjuntos sobre os resultados de dois ou mais SELECT implicarão em eliminação de duplicados e desconsideração de ordem. [Explicação sobre set](https://pt.wikipedia.org/wiki/Opera%C3%A7%C3%B5es_SET_(SQL))
