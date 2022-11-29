@@ -32,6 +32,8 @@ if element not in colection:
 
 # União
 
+Todos os elementos que pertencem a A ou a B
+
 <div align="center">
   <img
     src="./img/union.png"
@@ -41,3 +43,15 @@ if element not in colection:
   \>
 </div>
 
+# Intersecção
+
+Todos elementos que pertencem a A e a B
+
+<div align="center">
+  <img
+    src="./img/intersection.png"
+    height="300px"
+    width="300px"
+    style="background:white; border-radius:10px;"
+  \>
+</div>
