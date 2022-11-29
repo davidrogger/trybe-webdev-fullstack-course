@@ -117,3 +117,22 @@ Para saber se um elemento pertence ao conjunto, basta verificar se A[2] é True,
 - Caso os elementos não sejam valores pequenos;
 - Caso os elementos sejam valores muito esparsos, como {1, 1000, 20000}. Assim teríamos muitos espaços subutilizados na memória;
 - Caso os elementos não sejam números
+
+# Conjuntos representados por Dict
+
+Casos em que o vetor não se mostra uma boa solução, contendo chaves sendo strings, podemos utilizar uma hashmap. Poderíamos mapear para qualquer coisa, uma vez que esses valores nunca serão acessados e estariam lá apenas porque a hash exige. Vamo usar booleanos, que ocupam pouco espaço.
+```
+A = {1, 2, 3}
+# 0: False
+# 1: True
+# 2: True
+# 3: True
+# 4: False
+# ...
+```
+
+É importante entender as operações sobre conjuntos por de baixo dos panos:
+
+- Para entender a complexidade das operações, precisamos saber como elas são realizadas;
+- Caso a linguagem com a qual estamos trabalhando não tenha uma representação de dicada. Ou seja, a linguagem não atende as nossas necessidades. Nesse caso teríamos que implementar as operações manualmente;
+- Em entrevistas de algoritmos (whiteboards), se o problema em questão for implementar uma classe "Set", é evidente que nós não poderemos utilizar os métodos prontos. Teremos que saber implementar do zero. Observação: caso a estrutura de dados seja apenas auxiliar, não é necessário implementar do zero.
