@@ -302,8 +302,21 @@ if 7 not in conjuntoA:
 As operações que envolvem outros conjuntos implementam todas as operações matemáticas que se aplicam a conjuntos.
 
 - set.isdisjoint(other): retorna True se o set não tem nenhum elemento em comum com other, ou seja, se a intersecção é vazia;
+
 - set.issubset(other): verificar se set é um subconjunto de other, se o elemento do set está em other;
 - set.issuperset(other): verifica se set é um superconjunto de other, se todos os elementos de other estão em set. A diferença de um superconjunto e de um subconjunto é que no superconjunto pode ter outros elementos, além dos elementos de other já presentes dentro de set. Já no subconjunto não;
+```
+>>> conjunto1 = {1,2,3}
+>>> conjunto2 = {1,2,3,4,5,6}
+>>> conjunto1.issubset(conjunto2)
+True
+>>> conjunto2.issubset(conjunto1)
+False
+>>> conjunto2.issuperset(conjunto1)
+True
+>>> conjunto1.issuperset(conjunto2)
+False
+```
 - set == other: verifica se os conjuntos são iguais, se todos elementos de set estão em other e se todos os elementos de other estão em set. Não importando a ordem.
 
 Métodos sobre dois ou mais conjuntos por vez. Cada uma das operações tem a sua versão que modifica o set original com o resultado da operação e não retorna nada.
