@@ -55,3 +55,16 @@ Todos elementos que pertencem a A e a B
     style="background:white; border-radius:10px;"
   \>
 </div>
+
+# Diferença
+
+Todos os elementos que pertencem a A e não pertencem a B
+
+<div align="center">
+  <img
+    src="./img/difference.png"
+    height="300px"
+    width="300px"
+    style="background:white; border-radius:10px;"
+  \>
+</div>
