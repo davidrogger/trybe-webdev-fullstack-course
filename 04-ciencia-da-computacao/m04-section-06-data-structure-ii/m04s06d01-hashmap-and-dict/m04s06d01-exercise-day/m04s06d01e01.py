@@ -13,3 +13,7 @@
 # # saída: 10
 # """Explicação: As palavras que podem ser formadas com os caracteres
 # da string são "hello" (tamanho 5) e "world" (tamanho 5)."""
+
+
+def match_words(words, chars):
+    raise NotImplementedError
