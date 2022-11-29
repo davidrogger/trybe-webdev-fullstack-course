@@ -21,6 +21,9 @@ class Conjunto:
 
         return str_elements
 
+    def __contains__(self, item):
+        return self.elements[item]
+
     def add(self, element):
         self.elements[element] = True
 
@@ -32,4 +35,7 @@ if __name__ == "__main__":
     for element in elements:
         conjunto.add(element)
 
-    print(conjunto)
+    print(conjunto)  # {0, 10, 100, 1000}
+
+    print(100 in conjunto)  # True
+    print(5 in conjunto)  # False
