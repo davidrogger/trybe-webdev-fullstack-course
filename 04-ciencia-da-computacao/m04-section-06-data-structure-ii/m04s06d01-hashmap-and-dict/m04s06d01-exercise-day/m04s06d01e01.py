@@ -15,5 +15,18 @@
 # da string são "hello" (tamanho 5) e "world" (tamanho 5)."""
 
 
+# Complexidade O(n^2)
 def match_words(words, chars):
-    raise NotImplementedError
+    char_catalog = {char: True for char in chars}
+    compatible_words = []
+
+    for word in words:
+        length = len(word)
+        match_letters = 0
+        for letter in word:
+            if letter in char_catalog:
+                match_letters += 1
+        if length == (match_letters):
+            compatible_words.append(length)
+
+    return sum(compatible_words)
