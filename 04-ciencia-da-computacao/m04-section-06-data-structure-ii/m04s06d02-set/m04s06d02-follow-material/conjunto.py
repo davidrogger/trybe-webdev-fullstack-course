@@ -2,6 +2,25 @@ class Conjunto:
     def __init__(self):
         self.elements = [False for _ in range(1001)]
 
+    def __str__(self):
+        elements = []
+
+        for index, element in enumerate(self.elements):
+            if element:
+                elements.append(index)
+
+        length = len(elements)
+
+        str_elements = "{"
+
+        for position, element in enumerate(elements, start=1):
+            if position == length:
+                str_elements += f"{element}" + "}"
+            else:
+                str_elements += f"{element}, "
+
+        return str_elements
+
     def add(self, element):
         self.elements[element] = True
 
@@ -12,3 +31,5 @@ if __name__ == "__main__":
 
     for element in elements:
         conjunto.add(element)
+
+    print(conjunto)
