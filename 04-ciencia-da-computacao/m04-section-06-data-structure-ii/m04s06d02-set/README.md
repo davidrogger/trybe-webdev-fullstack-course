@@ -68,3 +68,17 @@ Todos os elementos que pertencem a A e não pertencem a B
     style="background:white; border-radius:10px;"
   \>
 </div>
+
+# Diferença Simétrica
+
+Todos os elementos que pertencem exclusivamente a A ou a B
+
+<div align="center">
+  <img
+    src="./img/simetric_diff.png"
+    height="300px"
+    width="300px"
+    style="background:white; border-radius:10px;"
+  \>
+</div>
+
