@@ -136,3 +136,16 @@ A = {1, 2, 3}
 - Para entender a complexidade das operações, precisamos saber como elas são realizadas;
 - Caso a linguagem com a qual estamos trabalhando não tenha uma representação de dicada. Ou seja, a linguagem não atende as nossas necessidades. Nesse caso teríamos que implementar as operações manualmente;
 - Em entrevistas de algoritmos (whiteboards), se o problema em questão for implementar uma classe "Set", é evidente que nós não poderemos utilizar os métodos prontos. Teremos que saber implementar do zero. Observação: caso a estrutura de dados seja apenas auxiliar, não é necessário implementar do zero.
+
+# Criando a classe Conjunto
+
+Exercícios de fixação
+Exercício 1: Inicializando a classe e adicionando elementos
+
+Crie uma classe chamada Conjunto;
+
+Escreva um construtor que defina uma lista do tamanho necessário. Inicialize todos os valores com False, uma vez que ainda não temos valores adicionados;
+
+Crie um método add(item) que recebe um valor até 1000 e adiciona no conjunto;
+
+Na main (dentro de: if __name__ == "__main__":), instancie um objeto do tipo Conjunto e adicione os valores.
