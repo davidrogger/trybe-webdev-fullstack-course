@@ -29,15 +29,19 @@
 
 # # saída: 'Marco'
 # Faça a análise de complexidade da sua solução.
+# https://wiki.python.org/moin/TimeComplexity
+# Complexidade Linear
 
 
 def bluff_game(players: dict):
-    p1_numbers, p2_numbers = [set(numbers) for numbers in players.values()]
-    p1_name, p2_name = players
-    p1_difference = p1_numbers.difference(p2_numbers)
-    p2_difference = p2_numbers.difference(p1_numbers)
-    p1_total = max(p1_difference) - min(p1_difference)
-    p2_total = max(p2_difference) - min(p2_difference)
+    p1_numbers, p2_numbers = [
+        set(numbers) for numbers in players.values()
+    ]  # O(n)
+    p1_name, p2_name = players  # O(1)
+    p1_difference = p1_numbers.difference(p2_numbers)  # O(n)
+    p2_difference = p2_numbers.difference(p1_numbers)  # O(n)
+    p1_total = max(p1_difference) - min(p1_difference)  # O(n)
+    p2_total = max(p2_difference) - min(p2_difference)  # O(n)
 
     if p1_total > p2_total:
         return p1_name
