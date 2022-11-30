@@ -29,3 +29,7 @@
 
 # # saída: 'Marco'
 # Faça a análise de complexidade da sua solução.
+
+
+def bluff_game(players):
+    pass
