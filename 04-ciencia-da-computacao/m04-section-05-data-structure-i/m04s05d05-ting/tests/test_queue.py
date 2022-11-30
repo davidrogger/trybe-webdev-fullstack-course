@@ -44,3 +44,22 @@ def test_dequeue_elements(queue: Queue):
         queue.dequeue()
 
     assert len(queue) == second_length_expect
+
+
+def test_search(queue: Queue):
+    expect_script = [
+        (0, 1),
+        (1, 2),
+        (2, 10),
+        (3, 5),
+        (4, 30),
+        (5, 60),
+    ]
+
+    for position, expect in expect_script:
+        assert queue.search(position) == expect
+
+    queue.dequeue()
+
+    with pytest.raises(IndexError):
+        queue.search(5)
