@@ -8,6 +8,7 @@ import pytest
 def instance_populated():
     instance = Queue()
     process("mock_file/test_file.txt", instance)
+    process("mock_file/test_file2.txt", instance)
     return instance
 
 
@@ -15,33 +16,46 @@ def test_word_search_success(instance_populated):
     expect_script = [
         (
             "line",
-            {
-                "palavra": "line",
-                "arquivo": "mock_file/test_file.txt",
-                "ocorrencias": [
-                    {
-                        "linha": 1,
-                    },
-                    {
-                        "linha": 2,
-                    },
-                    {
-                        "linha": 3,
-                    },
-                ],
-            },
+            [
+                {
+                    "palavra": "line",
+                    "arquivo": "mock_file/test_file.txt",
+                    "ocorrencias": [
+                        {
+                            "linha": 1,
+                        },
+                        {
+                            "linha": 2,
+                        },
+                        {
+                            "linha": 3,
+                        },
+                    ],
+                },
+                {
+                    "palavra": "line",
+                    "arquivo": "mock_file/test_file2.txt",
+                    "ocorrencias": [
+                        {
+                            "linha": 2,
+                        },
+                    ],
+                },
+            ],
         ),
         (
             "second",
-            {
-                "palavra": "second",
-                "arquivo": "mock_file/test_file.txt",
-                "ocorrencias": [
-                    {
-                        "linha": 2,
-                    },
-                ],
-            },
+            [
+                {
+                    "palavra": "second",
+                    "arquivo": "mock_file/test_file.txt",
+                    "ocorrencias": [
+                        {
+                            "linha": 2,
+                        },
+                    ],
+                },
+            ],
         ),
     ]
 
@@ -53,19 +67,11 @@ def test_word_search_not_found(instance_populated):
     expect_script = [
         (
             "fourth",
-            {
-                "palavra": "fourth",
-                "arquivo": "mock_file/test_file.txt",
-                "ocorrencias": [],
-            },
+            [],
         ),
         (
             "404",
-            {
-                "palavra": "404",
-                "arquivo": "mock_file/test_file.txt",
-                "ocorrencias": [],
-            },
+            [],
         ),
     ]
     for word, expect in expect_script:
