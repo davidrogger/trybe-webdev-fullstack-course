@@ -14,44 +14,59 @@ def instance_populated():
 def test_word_search_success(instance_populated):
     expect_script = [
         (
-            str(
-                {
-                    "palavra": "line",
-                    "arquivo": "mock_file/test_file.txt",
-                    "ocorrencias": [
-                        {
-                            "linha": 1,
-                        },
-                        {
-                            "linha": 2,
-                        },
-                        {
-                            "linha": 3,
-                        },
-                    ],
-                }
-            ),
             "line",
+            {
+                "palavra": "line",
+                "arquivo": "mock_file/test_file.txt",
+                "ocorrencias": [
+                    {
+                        "linha": 1,
+                    },
+                    {
+                        "linha": 2,
+                    },
+                    {
+                        "linha": 3,
+                    },
+                ],
+            },
         ),
         (
-            str(
-                {
-                    "palavra": "second",
-                    "arquivo": "mock_file/test_file.txt",
-                    "ocorrencias": [
-                        {
-                            "linha": 2,
-                        },
-                    ],
-                }
-            ),
             "second",
+            {
+                "palavra": "second",
+                "arquivo": "mock_file/test_file.txt",
+                "ocorrencias": [
+                    {
+                        "linha": 2,
+                    },
+                ],
+            },
         ),
     ]
 
-    for expect, word in expect_script:
+    for word, expect in expect_script:
         assert exists_word(word, instance_populated) == expect
 
 
-def test_word_search_not_found():
-    pass
+def test_word_search_not_found(instance_populated):
+    expect_script = [
+        (
+            "fourth",
+            {
+                "palavra": "fourth",
+                "arquivo": "mock_file/test_file.txt",
+                "ocorrencias": [],
+            },
+        ),
+        (
+            "404",
+            {
+                "palavra": "404",
+                "arquivo": "mock_file/test_file.txt",
+                "ocorrencias": [],
+            },
+        ),
+    ]
+    for word, expect in expect_script:
+        assert exists_word(word, instance_populated) == expect
