@@ -1,9 +1,10 @@
 from file_management.file_process import process, remove, file_metadata
 from file_management.Queue import Queue
 import pytest
+from _pytest.capture import CaptureFixture
 
 
-def test_file_process(capsys):
+def test_file_process(capsys: CaptureFixture):
     new_queue = Queue()
     process("mock_file/test_file.txt", new_queue)
     out, _ = capsys.readouterr()
@@ -37,7 +38,9 @@ def queue_populated():
     return new_queue
 
 
-def test_remove_having_an_element(queue_populated, capsys):
+def test_remove_having_an_element(
+    queue_populated: Queue, capsys: CaptureFixture
+):
     expect = "Arquivo mock_file/test_file.txt removido com sucesso"
     assert len(queue_populated) == 1
 
@@ -59,7 +62,7 @@ def test_remove_empty(capsys):
     assert out == expect
 
 
-def test_metadata_success(queue_populated, capsys):
+def test_metadata_success(queue_populated: Queue, capsys: CaptureFixture):
     expect = str(
         {
             "nome_do_arquivo": "mock_file/test_file.txt",
@@ -76,3 +79,12 @@ def test_metadata_success(queue_populated, capsys):
     out, _ = capsys.readouterr()
 
     assert out == expect
+
+
+def test_metadata_invalid_index(
+    queue_populated: Queue, capsys: CaptureFixture
+):
+    expect = "Posição inválida"
+    file_metadata(queue_populated, 1)
+    _, err = capsys.readouterr()
+    assert err == expect
