@@ -24,3 +24,7 @@ def exists_word(search_word: str, instance: Queue):
             report.append(data_found)
 
     return report
+
+
+def search_by_word(search_word: str, instance: Queue):
+    pass
