@@ -89,11 +89,11 @@ def test_search_by_word_success(instance_populated):
                     "ocorrencias": [
                         {
                             "linha": 1,
-                            "conteudo": "First line",
+                            "conteudo": "First line\n",
                         },
                         {
                             "linha": 2,
-                            "conteudo": "Second line",
+                            "conteudo": "Second line\n",
                         },
                         {
                             "linha": 3,
@@ -107,7 +107,7 @@ def test_search_by_word_success(instance_populated):
                     "ocorrencias": [
                         {
                             "linha": 2,
-                            "conteudo": "This Line should be found",
+                            "conteudo": "This Line should be found\n",
                         },
                     ],
                 },
@@ -122,7 +122,7 @@ def test_search_by_word_success(instance_populated):
                     "ocorrencias": [
                         {
                             "linha": 2,
-                            "conteudo": "Second line",
+                            "conteudo": "Second line\n",
                         },
                     ],
                 },
