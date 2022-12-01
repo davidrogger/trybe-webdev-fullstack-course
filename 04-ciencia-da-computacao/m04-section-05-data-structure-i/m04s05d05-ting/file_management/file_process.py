@@ -3,14 +3,6 @@ from file_management.file_management import text_importer
 import sys
 
 
-def get_file_name(path_file):
-    file_name = path_file
-    if "/" in path_file:
-        last_element = -1
-        file_name = path_file.split("/")[last_element]
-    return file_name
-
-
 def is_new_file(file_name, instance: Queue):
     instance_length = len(instance)
     for index in range(instance_length):
@@ -21,14 +13,12 @@ def is_new_file(file_name, instance: Queue):
     return True
 
 
-def file_process(path_file: str, instance: Queue):
-    file_name = get_file_name(path_file)
-
-    if is_new_file(file_name, instance):
+def process(path_file: str, instance: Queue):
+    if is_new_file(path_file, instance):
         file_lines = text_importer(path_file)
 
         file_data = {
-            "nome_do_arquivo": file_name,
+            "nome_do_arquivo": path_file,
             "qtd_linhas": len(file_lines),
             "linhas_do_arquivo": file_lines,
         }
@@ -36,3 +26,12 @@ def file_process(path_file: str, instance: Queue):
         instance.enqueue(file_data)
 
         return sys.stdout.write(str(file_data))
+
+
+def remove(instance: Queue):
+    if len(instance):
+        first_out = instance.dequeue()
+        file_path = first_out["nome_do_arquivo"]
+        return sys.stdout.write(f"Arquivo {file_path} removido com sucesso")
+    else:
+        return sys.stdout.write("Não há elementos")
