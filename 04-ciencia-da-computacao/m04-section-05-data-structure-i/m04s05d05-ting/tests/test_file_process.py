@@ -1,4 +1,4 @@
-from file_management.file_process import process, remove
+from file_management.file_process import process, remove, file_metadata
 from file_management.Queue import Queue
 import pytest
 
@@ -53,6 +53,25 @@ def test_remove_empty(capsys):
     new_queue = Queue()
 
     remove(new_queue)
+
+    out, _ = capsys.readouterr()
+
+    assert out == expect
+
+
+def test_metadata_success(queue_populated, capsys):
+    expect = str(
+        {
+            "nome_do_arquivo": "mock_file/test_file.txt",
+            "qtd_linhas": 3,
+            "linhas_do_arquivo": [
+                "First line\n",
+                "Second line\n",
+                "Third line",
+            ],
+        }
+    )
+    file_metadata(queue_populated, 0)
 
     out, _ = capsys.readouterr()
 

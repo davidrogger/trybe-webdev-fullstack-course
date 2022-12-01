@@ -35,3 +35,7 @@ def remove(instance: Queue):
         return sys.stdout.write(f"Arquivo {file_path} removido com sucesso")
     else:
         return sys.stdout.write("Não há elementos")
+
+
+def file_metadata(instance: Queue, position):
+    pass
