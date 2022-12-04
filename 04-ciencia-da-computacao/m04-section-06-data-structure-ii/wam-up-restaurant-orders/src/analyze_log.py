@@ -65,11 +65,16 @@ def get_open_days():
     return open_days
 
 
-def get_days_off_by(name, source):
+def get_days_off(name, source):
     open_days = get_open_days()
     client_present_days = source[name]["days"]
 
     return open_days.difference(client_present_days)
+
+
+def generate_log_file(log, file_path):
+    with open(file_path, "w") as file:
+        file.write(log)
 
 
 def analyze_log(path_to_file):
@@ -80,9 +85,18 @@ def analyze_log(path_to_file):
     maria_most_ordered = get_most_ordered_by("maria", clients_data)
 
     arnaldo_order_hamburguer = get_qt_product_order_by(
-        "arnaldo", "pizza", clients_data
+        "arnaldo", "hamburguer", clients_data
     )
 
     joao_never_order = get_never_order_by("joao", clients_data)
 
-    joao_never_come = get_days_off_by("joao", clients_data)
+    joao_never_come = get_days_off("joao", clients_data)
+
+    log_data = (
+        f"{maria_most_ordered}\n"
+        f"{arnaldo_order_hamburguer}\n"
+        f"{joao_never_order}\n"
+        f"{joao_never_come}"
+    )
+
+    generate_log_file(log_data, "data/mkt_campaign.txt")
