@@ -47,6 +47,14 @@ def get_qt_product_order_by(name, product, source):
     return product_quantity
 
 
+def get_never_order_by(name, source):
+    client_orders = source[name]["orders"]
+    client_set_orders = set(client_orders)
+    menu = {"hamburguer", "pizza", "misto-quente", "coxinha"}
+
+    return menu.difference(client_set_orders)
+
+
 def analyze_log(path_to_file):
     orders = get_orders(path_to_file)
 
@@ -57,3 +65,5 @@ def analyze_log(path_to_file):
     arnaldo_order_hamburguer = get_qt_product_order_by(
         "arnaldo", "pizza", clients_data
     )
+
+    joao_never_order = get_never_order_by("joao", clients_data)
