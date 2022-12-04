@@ -55,6 +55,23 @@ def get_never_order_by(name, source):
     return menu.difference(client_set_orders)
 
 
+def get_open_days():
+    week_days = ["segunda", "terça"]
+    open_days = set(["sabado"])
+
+    for day in week_days:
+        open_days.add(f"{day}-feira")
+
+    return open_days
+
+
+def get_days_off_by(name, source):
+    open_days = get_open_days()
+    client_present_days = source[name]["days"]
+
+    return open_days.difference(client_present_days)
+
+
 def analyze_log(path_to_file):
     orders = get_orders(path_to_file)
 
@@ -67,3 +84,5 @@ def analyze_log(path_to_file):
     )
 
     joao_never_order = get_never_order_by("joao", clients_data)
+
+    joao_never_come = get_days_off_by("joao", clients_data)
