@@ -39,9 +39,21 @@ def get_most_ordered_by(name, source):
     return most_ordered
 
 
+def get_qt_product_order_by(name, product, source):
+    product_quantity = 0
+    client_orders = source[name]["orders"]
+    if product in client_orders:
+        product_quantity = client_orders[product]
+    return product_quantity
+
+
 def analyze_log(path_to_file):
     orders = get_orders(path_to_file)
 
     clients_data = get_clients_data(orders)
 
     maria_most_ordered = get_most_ordered_by("maria", clients_data)
+
+    arnaldo_order_hamburguer = get_qt_product_order_by(
+        "arnaldo", "pizza", clients_data
+    )
