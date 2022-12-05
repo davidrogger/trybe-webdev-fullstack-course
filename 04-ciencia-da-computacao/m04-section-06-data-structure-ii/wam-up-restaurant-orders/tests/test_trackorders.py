@@ -52,3 +52,10 @@ def test_get_days_never_visited_per_costumer(file_data: TrackOrders):
     days_never_visited = file_data.get_days_never_visited_per_costumer("Jonas")
 
     assert days_never_visited == expect
+
+
+def test_get_busiest_day(file_data: TrackOrders):
+    expect = "quarta-feira"
+    busiest_day = file_data.get_busiest_day()
+
+    assert busiest_day == expect
