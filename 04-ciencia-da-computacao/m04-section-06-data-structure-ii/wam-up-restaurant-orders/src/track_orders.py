@@ -1,16 +1,13 @@
-from collections import Counter
-
-
 class TrackOrders:
     def __init__(self) -> None:
-        self.orders = dict()
+        self.costumers = dict()
         self.menu = set()
         self.open_days = dict()
         self.busiest_day = None
         self.less_busy_day = None
 
     def __len__(self):
-        return len(self.orders)
+        return len(self.costumers)
 
     def update_busiest_day(self, day):
         if not self.busiest_day:
@@ -42,34 +39,54 @@ class TrackOrders:
         self.update_less_busy_day(day)
 
     def add_new_order(self, costumer, order, day):
-        if costumer not in self.orders:
-            self.orders[costumer] = dict()
-            self.orders[costumer]["orders"] = list()
-            self.orders[costumer]["days"] = set()
+        if costumer not in self.costumers:
+            self.costumers[costumer] = dict()
+            self.costumers[costumer]["orders"] = dict()
+            self.costumers[costumer]["days"] = set()
+            self.costumers[costumer]["most_ordered"] = None
 
         self.menu.add(order)
         self.add_movement_day(day)
+        self.update_costumer_orders(costumer, order)
 
-        self.orders[costumer]["orders"].append(order)
-        self.orders[costumer]["days"].add(day)
+        self.costumers[costumer]["days"].add(day)
+
+    def update_costumer_orders(self, costumer, order):
+        orders = self.costumers[costumer]["orders"]
+
+        if order not in orders:
+            orders[order] = 1
+        else:
+            orders[order] += 1
+
+        self.update_most_ordered_dish(costumer, order)
+
+    def update_most_ordered_dish(self, costumer, order):
+        costumer_data = self.costumers[costumer]
+        if not self.costumers[costumer]["most_ordered"]:
+            costumer_data["most_ordered"] = order
+        else:
+            order_qt = costumer_data["orders"][order]
+            most_ordered_qt = costumer_data["orders"][
+                costumer_data["most_ordered"]
+            ]
+
+            if order_qt > most_ordered_qt:
+                costumer_data["most_ordered"] = order
 
     def get_most_ordered_dish_per_costumer(self, costumer):
-        orders = self.orders[costumer]["orders"]
-        counted_dishes = Counter(orders)
-        dish_name, _ = counted_dishes.most_common(1)[0]
+        return self.costumers[costumer]["most_ordered"]
 
-        return dish_name
-
-    def get_dish_quantity_per_costumer(self, costumer, order):
+    def get_order_frequency_per_costumer(self, costumer, order):
         pass
 
     def get_never_ordered_per_costumer(self, costumer):
-        ordered_dishes = set(self.orders[costumer]["orders"])
+        ordered_dishes = set(self.costumers[costumer]["orders"])
 
         return self.menu.difference(ordered_dishes)
 
     def get_days_never_visited_per_costumer(self, costumer):
-        visited_days = self.orders[costumer]["days"]
+        visited_days = self.costumers[costumer]["days"]
         open_days = set(self.open_days)
 
         return open_days.difference(visited_days)
