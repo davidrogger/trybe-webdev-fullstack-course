@@ -78,7 +78,7 @@ class TrackOrders:
         return self.costumers[costumer]["most_ordered"]
 
     def get_order_frequency_per_costumer(self, costumer, order):
-        pass
+        return self.costumers[costumer]["orders"][order]
 
     def get_never_ordered_per_costumer(self, costumer):
         ordered_dishes = set(self.costumers[costumer]["orders"])
