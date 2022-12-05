@@ -9,8 +9,12 @@ def file_data():
         ("Jonas", "pizza", "terça-feira"),
         ("Jonas", "coxinha", "quarta-feira"),
         ("Modiz", "miojo", "quarta-feira"),
+        ("Onizuk", "pizza", "quarta-feira"),
+        ("Onizuk", "pizza", "quinta-feira"),
         ("Modiz", "coxinha", "quinta-feira"),
+        ("Modiz", "dogao", "sexta-feira"),
         ("Jonas", "hamburguer", "sexta-feira"),
+        ("Onizuk", "pizza", "sabado"),
         ("Modiz", "camarao", "sabado"),
     ]
     track_orders = TrackOrders()
@@ -41,7 +45,7 @@ def test_get_most_ordered_dish_per_costumer(file_data: TrackOrders):
 
 
 def test_get_never_ordered_per_costumer(file_data: TrackOrders):
-    expect = set(["camarao", "miojo"])
+    expect = set(["camarao", "dogao", "miojo"])
     nerver_ordered = file_data.get_never_ordered_per_costumer("Jonas")
 
     assert nerver_ordered == expect
@@ -59,3 +63,10 @@ def test_get_busiest_day(file_data: TrackOrders):
     busiest_day = file_data.get_busiest_day()
 
     assert busiest_day == expect
+
+
+def test_get_least_busy_day(file_data: TrackOrders):
+    expect = "segunda-feira"
+    less_busy_day = file_data.get_least_busy_day()
+
+    assert less_busy_day == expect
