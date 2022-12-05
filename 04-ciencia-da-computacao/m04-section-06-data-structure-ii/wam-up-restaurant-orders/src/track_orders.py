@@ -35,6 +35,9 @@ class TrackOrders:
 
         return self.menu.difference(ordered_dishes)
 
+    def get_days_never_visited_per_costumer():
+        pass
+
     def get_busiest_day(self):
         pass
 

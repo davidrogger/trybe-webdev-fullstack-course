@@ -8,10 +8,10 @@ def file_data():
         ("Jonas", "coxinha", "segunda-feira"),
         ("Jonas", "pizza", "terça-feira"),
         ("Jonas", "coxinha", "quarta-feira"),
-        ("Jonas", "hamburguer", "sexta-feira"),
         ("Modiz", "miojo", "quarta-feira"),
-        ("Modiz", "camarao", "quarta-feira"),
-        ("Modiz", "coxinha", "quarta-feira"),
+        ("Modiz", "coxinha", "quinta-feira"),
+        ("Jonas", "hamburguer", "sexta-feira"),
+        ("Modiz", "camarao", "sabado"),
     ]
     track_orders = TrackOrders()
 
@@ -45,3 +45,10 @@ def test_get_never_ordered_per_costumer(file_data: TrackOrders):
     nerver_ordered = file_data.get_never_ordered_per_costumer("Jonas")
 
     assert nerver_ordered == expect
+
+
+def test_get_days_never_visited_per_costumer(file_data: TrackOrders):
+    expect = set(["quinta-feira", "sabado"])
+    days_never_visited = file_data.get_days_never_visited_per_costumer("Jonas")
+
+    assert days_never_visited == expect
