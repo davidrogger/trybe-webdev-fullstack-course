@@ -6,7 +6,13 @@ class TrackOrders:
         return len(self.orders)
 
     def add_new_order(self, costumer, order, day):
-        pass
+        if costumer not in self.orders:
+            self.orders[costumer] = dict()
+            self.orders[costumer]["orders"] = list()
+            self.orders[costumer]["days"] = set()
+
+        self.orders[costumer]["orders"].append(order)
+        self.orders[costumer]["days"].add(day)
 
     def get_most_ordered_dish_per_costumer(self, costumer):
         pass
