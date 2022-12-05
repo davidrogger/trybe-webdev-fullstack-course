@@ -1,4 +1,24 @@
 from src.track_orders import TrackOrders
+import pytest
+
+
+@pytest.fixture
+def file_data():
+    orders = [
+        ("Jonas", "coxinha", "segunda-feira"),
+        ("Jonas", "pizza", "terça-feira"),
+        ("Jonas", "coxinha", "quarta-feira"),
+        ("Jonas", "hamburguer", "sexta-feira"),
+        ("Modiz", "miojo", "quarta-feira"),
+        ("Modiz", "camarao", "quarta-feira"),
+        ("Modiz", "coxinha", "quarta-feira"),
+    ]
+    track_orders = TrackOrders()
+
+    for name, dish, day in orders:
+        track_orders.add_new_order(name, dish, day)
+
+    return track_orders
 
 
 def test_start_length_track():
@@ -13,29 +33,15 @@ def test_add_new_order():
     assert len(track_orders) == 1
 
 
-def test_get_most_ordered_dish_per_costumer():
-    track_orders = TrackOrders()
-    track_orders.add_new_order("Jonas", "coxinha", "segunda-feira")
-    track_orders.add_new_order("Jonas", "pizza", "terça-feira")
-    track_orders.add_new_order("Jonas", "coxinha", "quarta-feira")
-    track_orders.add_new_order("Jonas", "hamburguer", "sexta-feira")
-
+def test_get_most_ordered_dish_per_costumer(file_data: TrackOrders):
     expect = "coxinha"
-    most_ordered = track_orders.get_most_ordered_dish_per_costumer("Jonas")
+    most_ordered = file_data.get_most_ordered_dish_per_costumer("Jonas")
 
     assert most_ordered == expect
 
 
-def test_get_never_ordered_per_costumer():
-    track_orders = TrackOrders()
-    track_orders.add_new_order("Jonas", "coxinha", "segunda-feira")
-    track_orders.add_new_order("Jonas", "pizza", "terça-feira")
-    track_orders.add_new_order("Jonas", "coxinha", "quarta-feira")
-    track_orders.add_new_order("Modiz", "camarao", "quarta-feira")
-    track_orders.add_new_order("Jonas", "hamburguer", "sexta-feira")
-    track_orders.add_new_order("Modiz", "coxinha", "quarta-feira")
-
-    expect = "camarao"
-    nerver_ordered = track_orders.get_never_ordered_per_costumer("Jonas")
+def test_get_never_ordered_per_costumer(file_data: TrackOrders):
+    expect = set(["camarao", "miojo"])
+    nerver_ordered = file_data.get_never_ordered_per_costumer("Jonas")
 
     assert nerver_ordered == expect
