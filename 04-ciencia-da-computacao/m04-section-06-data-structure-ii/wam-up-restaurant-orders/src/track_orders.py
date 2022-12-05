@@ -1,3 +1,6 @@
+from collections import Counter
+
+
 class TrackOrders:
     def __init__(self) -> None:
         self.orders = dict()
@@ -15,7 +18,11 @@ class TrackOrders:
         self.orders[costumer]["days"].add(day)
 
     def get_most_ordered_dish_per_costumer(self, costumer):
-        pass
+        orders = self.orders[costumer]["orders"]
+        counted_dishes = Counter(orders)
+        dish_name, _ = counted_dishes.most_common(1)[0]
+
+        return dish_name
 
     def get_dish_quantity_per_costumer(self, costumer, order):
         pass
