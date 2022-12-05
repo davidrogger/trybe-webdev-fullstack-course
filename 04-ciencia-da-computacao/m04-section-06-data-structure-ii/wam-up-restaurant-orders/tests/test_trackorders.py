@@ -70,3 +70,12 @@ def test_get_least_busy_day(file_data: TrackOrders):
     less_busy_day = file_data.get_least_busy_day()
 
     assert less_busy_day == expect
+
+
+def test_get_order_frequency(file_data: TrackOrders):
+    expect = 1
+    order_frequency = file_data.get_order_frequency_per_costumer(
+        "Jonas", "hamburguer"
+    )
+
+    assert order_frequency == expect
