@@ -1,0 +1,2 @@
+class InventoryControl:
+    pass
