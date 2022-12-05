@@ -4,6 +4,7 @@ from collections import Counter
 class TrackOrders:
     def __init__(self) -> None:
         self.orders = dict()
+        self.menu = set()
 
     def __len__(self):
         return len(self.orders)
@@ -13,6 +14,8 @@ class TrackOrders:
             self.orders[costumer] = dict()
             self.orders[costumer]["orders"] = list()
             self.orders[costumer]["days"] = set()
+
+        self.menu.add(order)
 
         self.orders[costumer]["orders"].append(order)
         self.orders[costumer]["days"].add(day)
@@ -28,7 +31,9 @@ class TrackOrders:
         pass
 
     def get_never_ordered_per_costumer(self, costumer):
-        pass
+        ordered_dishes = set(self.orders[costumer]["orders"])
+
+        return self.menu.difference(ordered_dishes)
 
     def get_busiest_day(self):
         pass
