@@ -24,3 +24,18 @@ def test_get_most_ordered_dish_per_costumer():
     most_ordered = track_orders.get_most_ordered_dish_per_costumer("Jonas")
 
     assert most_ordered == expect
+
+
+def test_get_never_ordered_per_costumer():
+    track_orders = TrackOrders()
+    track_orders.add_new_order("Jonas", "coxinha", "segunda-feira")
+    track_orders.add_new_order("Jonas", "pizza", "terça-feira")
+    track_orders.add_new_order("Jonas", "coxinha", "quarta-feira")
+    track_orders.add_new_order("Modiz", "camarao", "quarta-feira")
+    track_orders.add_new_order("Jonas", "hamburguer", "sexta-feira")
+    track_orders.add_new_order("Modiz", "coxinha", "quarta-feira")
+
+    expect = "camarao"
+    nerver_ordered = track_orders.get_never_ordered_per_costumer("Jonas")
+
+    assert nerver_ordered == expect
