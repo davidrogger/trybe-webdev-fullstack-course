@@ -57,3 +57,6 @@ class InventoryControl:
             quantities_to_buy[ingredient] = minimum_quantity - current_quantity
 
         return quantities_to_buy
+
+    def get_available_dishes(self):
+        pass
