@@ -17,3 +17,18 @@ def test_get_quantities_to_buy():
     }
 
     assert inventory.get_quantities_to_buy() == expect
+
+
+def test_ordering_more_than_the_stock():
+    inventory = InventoryControl()
+
+    for _ in range(10):
+        inventory.add_new_order("Jonas", "pizza", "sabado")
+        inventory.add_new_order("Modiz", "pizza", "sabado")
+        inventory.add_new_order("Onizuk", "pizza", "sabado")
+        inventory.add_new_order("Bahdok", "pizza", "sabado")
+        inventory.add_new_order("Isa", "pizza", "sabado")
+
+    dish_ordered = inventory.add_new_order("Denji", "bauru", "domingo")
+
+    assert dish_ordered is False
