@@ -4,9 +4,9 @@ from src.track_orders import TrackOrders
 class InventoryControl:
     INGREDIENTS = {
         "hamburguer": ["pao", "carne", "queijo"],
-        "pizza": ["massa", "queijo", "molho", "tomate"],
+        "pizza": ["massa", "queijo", "molho"],
         "misto-quente": ["pao", "queijo", "presunto"],
-        "bauru": ["pao", "queijo", "presunto", "tomate"],
+        "bauru": ["pao", "queijo", "presunto"],
         "coxinha": ["massa", "frango"],
     }
 
@@ -35,11 +35,17 @@ class InventoryControl:
 
     def update_current_inventory(self, order):
         for ingredient in self.INGREDIENTS[order]:
-            self.CURRENT_INVENTORY[ingredient] -= 1
+            if not self.CURRENT_INVENTORY[ingredient]:
+                raise ValueError("Insuficient quantity")
+            else:
+                self.CURRENT_INVENTORY[ingredient] -= 1
 
     def add_new_order(self, costumer, order, day):
-        self.orders.add_new_order(costumer, order, day)
-        self.update_current_inventory(order)
+        try:
+            self.orders.add_new_order(costumer, order, day)
+            self.update_current_inventory(order)
+        except ValueError:
+            return False
 
     def get_quantities_to_buy(self):
         quantities_to_buy = dict()
