@@ -29,6 +29,6 @@ def test_ordering_more_than_the_stock():
         inventory.add_new_order("Bahdok", "pizza", "sabado")
         inventory.add_new_order("Isa", "pizza", "sabado")
 
-    dish_ordered = inventory.add_new_order("Denji", "bauru", "domingo")
+    success_ordered = inventory.add_new_order("Denji", "coxinha", "domingo")
 
-    assert dish_ordered is False
+    assert success_ordered is False
