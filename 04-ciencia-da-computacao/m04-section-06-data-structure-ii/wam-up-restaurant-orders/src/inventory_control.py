@@ -30,6 +30,14 @@ class InventoryControl:
         "frango": 50,
     }
 
+    AVAILABLE_DISHES = {
+        "hamburguer",
+        "pizza",
+        "misto-quente",
+        "bauru",
+        "coxinha",
+    }
+
     def __init__(self):
         self.orders = TrackOrders()
 
@@ -39,6 +47,7 @@ class InventoryControl:
                 raise ValueError("Insuficient quantity")
             else:
                 self.CURRENT_INVENTORY[ingredient] -= 1
+                self.update_available_dishes(ingredient)
 
     def add_new_order(self, costumer, order, day):
         try:
@@ -58,5 +67,22 @@ class InventoryControl:
 
         return quantities_to_buy
 
+    def find_dishes_using(self, ingredient):
+        dishes = set()
+
+        for dishe in self.INGREDIENTS:
+            if ingredient in self.INGREDIENTS[dishe]:
+                dishes.add(dishe)
+
+        return dishes
+
+    def update_available_dishes(self, ingredient):
+        dishes_found = self.find_dishes_using(ingredient)
+
+        if not self.CURRENT_INVENTORY[ingredient]:
+            self.AVAILABLE_DISHES = self.AVAILABLE_DISHES.difference(
+                dishes_found
+            )
+
     def get_available_dishes(self):
-        pass
+        return self.AVAILABLE_DISHES
