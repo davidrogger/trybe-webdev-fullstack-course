@@ -1,0 +1,8 @@
+-r requirements.txt
+
+black==22.10.0
+flake8==6.0.0
+pytest==7.2.0
+pytest-json==0.4.0
+pytest-cov==2.10.1
+pubsub==0.1.2
