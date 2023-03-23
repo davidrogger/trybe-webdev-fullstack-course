@@ -25,7 +25,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] Dia 02: _HTML & CSS - Primeiros passos em CSS_
 - [x] Dia 03: _HTML & CSS - Seletores e posicionamento_
 - [x] Dia 04: _HTML Sem&atilde;ntico_
-- [ ] Dia 05: _[Projeto - HTML & CSS]()_
+- [x] Dia 05: _[Projeto - HTML & CSS](https://github.com/davidrogger/trybe-fundamentos/tree/initial-readme-update/projects_code/01_lessons_learn)_
 
 ##### Seção 04: Introdução - JavaScript
 
