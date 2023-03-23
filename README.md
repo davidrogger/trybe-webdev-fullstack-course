@@ -41,11 +41,11 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [X] Dia 02: _JavaScript - Trabalhando com elementos_
 - [x] Dia 03: _JavaScript - Eventos_
 - [x] Dia 04: _JavaScript - Web Storage_
-- [ ] Dia 05: _[Projeto BÔNUS - Arte com Pixels]()_
-- [ ] BÔNUS: _[Projeto BÔNUS - Meme Generator]()_
-- [ ] BÔNUS: _[Projeto BÔNUS - Lista de tarefas]()_
-- [ ] BÔNUS: _[Projeto BÔNUS - Adivinhe a Cor]()_
-- [ ] BÔNUS: _[Projeto BÔNUS - Carta Misteriosa]()_
+- [x] Dia 05: _[Projeto BÔNUS - Arte com Pixels](https://github.com/davidrogger/trybe-fundamentos/tree/initial-readme-update/projects_code/03.1_pixels_art)_
+- [x] BÔNUS: _[Projeto BÔNUS - Meme Generator](https://github.com/davidrogger/trybe-fundamentos/tree/initial-readme-update/projects_code/03.3_meme_generetor)_
+- [x] BÔNUS: _[Projeto BÔNUS - Lista de tarefas](https://github.com/davidrogger/trybe-fundamentos/tree/initial-readme-update/projects_code/03.2_todo_list)_
+- [x] BÔNUS: _[Projeto BÔNUS - Adivinhe a Cor](https://github.com/davidrogger/trybe-fundamentos/tree/initial-readme-update/projects_code/03.4_color_guess)_
+- [x] BÔNUS: _[Projeto BÔNUS - Carta Misteriosa](https://github.com/davidrogger/trybe-fundamentos/tree/initial-readme-update/projects_code/03.5_mistery_letter)_
 
 ##### Seção 06: HTML & CSS avançado
 
