@@ -85,31 +85,31 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 
 - [x] Dia 01: _Introdução Front-end, React e "Hello, world" no React!_
 - [x] Dia 02: _Componentes React_
-- [ ] Dia 03: _[Projeto - Sistema Solar]()_
+- [x] Dia 03: _[Projeto - Sistema Solar](https://github.com/davidrogger/trybe-project-solar-system)_
 
 ##### Seção 02: Componentes com Estado, Eventos e Formulários com React
 
 - [x] Dia 01: _Components com estado e eventos_
 - [x] Dia 02: _Formulário no React_
-- [ ] Dia 03: _[Projeto - Super Tryunfo]()_
+- [x] Dia 03: _[Projeto - Super Tryunfo](https://github.com/davidrogger/trybe-project-tryunfo)_
 
 ##### Seção 03: Ciclo de Vida de Componentes e React Router
 
 - [x] Dia 01: _Ciclo de vida de componentes_
 - [x] Dia 02: _React Router_
-- [ ] Dia 03: _[Projeto - Trybe Tunes]()_
+- [x] Dia 03: _[Projeto - Trybe Tunes](https://github.com/davidrogger/trybe-project-trybetunes)_
 
 ##### Seção 04: Metodologias Ágeis
 
 - [x] Dia 01: _Metodologias Ágeis_
-- [ ] Dia 02: _[Projeto - Frontend Online Store]()_
+- [x] Dia 02: _[Projeto - Frontend Online Store](https://github.com/davidrogger/trybe-project-frontend-online-store)_
 
 ##### Seção 05: Testes automatizados com React Testing Library
 
 - [x] Dia 01: _Primeiros Passos_
 - [x] Dia 02: _Mocks e Inputs_
 - [x] Dia 03: _Testando Reac Router_
-- [ ] Dia 04: _[Projeto - Testes em React]()_
+- [x] Dia 04: _[Projeto - Testes em React](https://github.com/davidrogger/trybe-project-react-testing-library)_
 
 ##### Seção 06: Introdução ao Redux
 
@@ -118,22 +118,22 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] Dia 03: _Usando o Redux no React - Prática_
 - [x] Dia 04: _Usando o Redux no React - Actions Assíncronas_
 - [x] Dia 05: _Testes em React-Redux_
-- [ ] Dia 06: _[Projeto - Trybe Wallet]()_
+- [x] Dia 06: _[Projeto - Trybe Wallet](https://github.com/davidrogger/trybe-project-trybewallet)_
 
 ##### Seção 07: Projeto React
 
-- [ ] Dia 01: _[Projeto - Jogo de Trivia Redux]()_
+- [x] Dia 01: _[Projeto - Jogo de Trivia Redux](https://github.com/davidrogger/trybe-project-trivia)_
 
 ##### Seção 08: Context API & React Hooks
 
 - [x] Dia 01: _Context API do React_
 - [x] Dia 02: _React Hooks - useState e useContext_
 - [x] Dia 03: _React Hooks - useEffect e Hooks customizados_
-- [ ] Dia 04: _[Projeto - StarWars Datatable com Context API e Hooks]()_
+- [x] Dia 04: _[Projeto - StarWars Datatable com Context API e Hooks](https://github.com/davidrogger/trybe-project-starwars-planets-search)_
 
 ##### Seção 09: Projeto Final de Front-end
 
-- [ ] Dia 01: _[Projeto - App de Receitas]()_
+- [x] Dia 01: _[Projeto - App de Receitas](https://github.com/davidrogger/trybe-project-recipes-app)_
 
 ## Módulo 03 - Desenvolvimento Back-end :heavy_check_mark:
 
