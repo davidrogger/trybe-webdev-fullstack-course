@@ -61,7 +61,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] Dia 01: _JavaScript ES6 - let, const, arrow functions e template literals_
 - [x] Dia 02: _JavaScript ES6 - Fluxo de exceção e Objects_
 - [x] Dia 03: _Primeiros passos em Jest_
-- [ ] Dia 04: _[Projeto - JavaScript Testes Unitários]()_
+- [x] Dia 04: _[Projeto - JavaScript Testes Unitários](https://github.com/davidrogger/trybe-fundamentos/tree/initial-readme-update/projects_code/05_unit_test)_
 
 ##### Seção 08: JavaScript ES6
 
@@ -70,14 +70,14 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] Dia 03: _JavaScript ES6 - Higher Order Functions - map e filter_
 - [x] Dia 04: _JavaScript ES6 - Higher Order Functions - reduce_
 - [x] Dia 05: _JavaScript ES6 - spread operator, rest parameter, destructuring e mais_
-- [ ] Dia 06: _[Projeto - Zoo functions]()_
+- [x] Dia 06: _[Projeto - Zoo functions](https://github.com/davidrogger/trybe-fundamentos/tree/initial-readme-update/projects_code/06_zoo_functions)_
 
 ##### Seção 09: Assincronicidade & Callbacks
 
 - [x] Dia 01: _JavaScript Assíncrono e Callbacks_
 - [x] Dia 02: _JavaScript Assíncrono - Fetch API e async/await_
 - [x] Dia 03: _Jest - Testes Assíncronos_
-- [ ] Dia 04: _[Projeto - Carrinho de Compras]()_
+- [x] Dia 04: _[Projeto - Carrinho de Compras](https://github.com/davidrogger/trybe-fundamentos/tree/initial-readme-update/projects_code/07_shopping_cart)_
 
 ## Módulo 02 - Desenvolvimento Front-end :heavy_check_mark:
 
