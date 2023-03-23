@@ -142,7 +142,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] Dia 01: _Introdução - Back-end - Utilizando Containers - Docker_
 - [x] Dia 02: _Manipulação e Criação de Imagens no Docker_
 - [x] Dia 03: _Orquestrando Containers com Docker Compose_
-- [ ] Dia 04: _[Projeto - Docker Todo-List]()_
+- [x] Dia 04: _[Projeto - Docker Todo-List](https://github.com/davidrogger/trybe-docker-todo-list)_
 
 ##### Seção 02: Introdução à SQL
 
@@ -150,14 +150,14 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] Dia 02: _Encontrando dados em um banco de dados_
 - [x] Dia 03: _Filtrando dados de forma específica_
 - [x] Dia 04: _Manipulando tabelas_
-- [ ] Dia 05: _[Projeto - All For One]()_
+- [x] Dia 05: _[Projeto - All For One](https://github.com/davidrogger/trybe-mysql-all-for-one)_
 
 ##### Seção 03: Funções SQL, JOINs e Normalização
 
 - [x] Dia 01: _Funções mais usadas no SQL_
 - [x] Dia 02: _Descomplicando JOINs_
 - [x] Dia 03: _Transformando ideais em um modelo de banco de dados_
-- [ ] Dia 04: _[Projeto - One For All]()_
+- [x] Dia 04: _[Projeto - One For All](https://github.com/davidrogger/trybe-mysql-one-for-all)_
 
 ##### Seção 04: Introdução ao desenvolvimento Web com Node.js
 
@@ -166,7 +166,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] Dia 03: _Mocha, Chai e Sion - Testes de Back-end com Node.js_
 - [x] Dia 04: _Express - HTTP com node.js_
 - [x] Dia 05: _Express - Middlewares_
-- [ ] Dia 06: _[Projeto - Talker Manager]()_
+- [x] Dia 06: _[Projeto - Talker Manager](https://github.com/davidrogger/trybe-project-talker-manager)_
 
 ##### Seção 05: Node.js: Camada de Serviço e Arquitetura Rest e Restful
 
@@ -174,7 +174,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] Dia 02: _Arquitetura de Software - Camada de Controller e Service_
 - [x] Dia 03: _Arquitetura Web - Rest e Restful_
 - [x] Dia 04: _Arquitetura de Software - Testando as Camadas_
-- [ ] Dia 05: _[Projeto - Store Manager]()_
+- [x] Dia 05: _[Projeto - Store Manager](https://github.com/davidrogger/trybe-project-store-manager)_
 
 ##### Seção 06: Nodejs: ORM e Autenticação
 
@@ -182,7 +182,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] Dia 02: _ORM  Associations_
 - [x] Dia 03: _JWT - (JSON Web Token)_
 - [x] Dia 04: _Testando APIs com Testes de Integração_
-- [ ] Dia 05: _[Projeto - API de Blogs]()_
+- [x] Dia 05: _[Projeto - API de Blogs](https://github.com/davidrogger/trybe-project-blogs-api)_
 
 ##### Seção 07: Deployment
 
@@ -195,7 +195,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] Dia 01: _Introdução - TypeScript_
 - [x] Dia 02: _Tipagem Estática e Generics_
 - [x] Dia 03: _Express com TypeScript_
-- [ ] Dia 04: _[Projeto - Trybe Smith]()_
+- [x] Dia 04: _[Projeto - Trybe Smith](https://github.com/davidrogger/trybe-project-trybesmith)_
 
 ##### Seção 09: Programação Orientada a Objetos (POO) e SOLID
 
@@ -204,11 +204,11 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] Dia 03: _Polimorfismo_
 - [x] Dia 04: _SOLID - Introdução e Princípios S, O e D_
 - [x] Dia 05: _SOLID - Princípios L e I_
-- [ ] Dia 06: _[Projeto - Trybers and Dragons]()_
+- [x] Dia 06: _[Projeto - Trybers and Dragons](https://github.com/davidrogger/trybe-project-trybers-and-dragons)_
 
 ##### Seção 09: Project Trybe Futebol Club
 
-- [ ] Dia 01: _[Projeto - Trybe Futebol Club]()_
+- [x] Dia 01: _[Projeto - Trybe Futebol Club](https://github.com/davidrogger/trybe-project-futebol-club)_
 
 ##### Seção 10: Introdução ao MongoDB
 
@@ -217,17 +217,17 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] Dia 03: _Operadores de consulta_
 - [x] Dia 04: _Updates Simples_
 - [x] Dia 05: _Updates Complexos - Arrays_
-- [ ] Dia 06: _[Projeto - Commerce]()_
+- [ ] Dia 06: _[Projeto - Commerce](https://github.com/davidrogger/trybe-project-mongodb-commerce)_
 
 ##### Seção 11: MongoDB com Node.js e POO
 
 - [x] Dia 01: _Mongoose e Arquitetura MSC(camada Model)_
 - [x] Dia 02: _Mongoose e Arquitetura MSC(camada Service e Controller)_
-- [ ] Dia 03: _[Projeto - Car Shop]()_
+- [x] Dia 03: _[Projeto - Car Shop](https://github.com/davidrogger/trybe-project-car-shop)_
 
 ##### Seção 12: Project App Delivery
 
-- [ ] Dia 01: _[Projeto - App Delivery]()_
+- [x] Dia 01: _[Projeto - App Delivery](https://github.com/davidrogger/trybe-project-delivery-app)_
 
 ##### Seção 13: MasterClass - VPS, CI/CD
 
