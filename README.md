@@ -233,7 +233,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] Dia 01: _VPS_
 - [x] Dia 02: _VPS_
 
-## Módulo 04: Ciência da Computação :hourglass_flowing_sand:
+## Módulo 04: Ciência da Computação :heavy_check_mark:
 
 ##### Seção 01: Introdução à Python
 
