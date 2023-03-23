@@ -33,7 +33,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] Dia 02: _JavaScript - Array e loop For_
 - [x] Dia 03: _JavaScript - L&oacute;gica de Programa&ccedil;&atilde;o e Algoritmos_
 - [x] Dia 04: _JavaScript - Objetos e fun&ccedil;&otilde;es_
-- [ ] Dia 05: _[Projeto - Playground Functions]()_
+- [x] Dia 05: _[Projeto - Playground Functions](https://github.com/davidrogger/trybe-fundamentos/tree/initial-readme-update/projects_code/02_playground_functions)_
 
 ##### Seção 05: Introdu&ccedil;&atilde;o - JavaScript - Projetos
 
