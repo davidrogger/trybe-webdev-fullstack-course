@@ -188,7 +188,6 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 
 - [x] Dia 01: _Introdução - Deploy - Infraestrtutura Deploy com Heroku_
 - [x] Dia 02: _Deploy Docker & Heroku_
-- [ ] Dia 03: _[Projeto - Stranger Things]()_
 
 ##### Seção 08: TypeScript
 
