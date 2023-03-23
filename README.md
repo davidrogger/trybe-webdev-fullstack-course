@@ -240,28 +240,28 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] Dia 1: _Aprendendo Python_
 - [x] Dia 2: _Entrada e Saída de Dados_
 - [x] Dia 3: _Testes_
-- [ ] Dia 4: _Projeto - Job Insights_
+- [x] Dia 4: _[Projeto - Job Insights](https://github.com/davidrogger/trybe-project-job-insights)_
 
 ##### Seção 02: Padrões de Projeto
 
 - [x] Dia 1: _P.O.O em Python_
 - [x] Dia 2: _Padrões - Iterator, Adapter, Strategy_
 - [x] Dia 3: _Padrões - Decorator, Observer, Factory_
-- [ ] Dia 4: _Projeto - Relatórios de Estoque_
+- [x] Dia 4: _Projeto - [Relatórios de Estoque](https://github.com/davidrogger/trybe-project-inventory-report)_
 
 ##### Seção 03: Redes e Raspagem de Dados
 
 - [x] Dia 1: _Arquitetura de redes_
 - [x] Dia 2: _Raspagem de Dados_
 - [x] Dia 3: _Outras Ferramentas de Raspagem de Dados_
-- [ ] Dia 4: _Projeto - Tech news_
+- [x] Dia 4: _[Projeto - Tech news](https://github.com/davidrogger/trybe-project-tech-news)_
 
 ##### Seção 04: Algoritmos
 
 - [x] Dia 1: _Complexidade de ALgoritmos_
 - [x] Dia 2: _Recursividade e Estratégias para solução de problemas_
 - [x] Dia 3: _Algoritmos de ordenação e busca_
-- [ ] Dia 4: _Projeto - Algoritmos_
+- [x] Dia 4: _[Projeto - Algoritmos](https://github.com/davidrogger/trybe-project-algorithms)_
 
 ##### Seção 05: Estrutura de Dados I: Arrays, Listas, Filas e Pilhas
 
@@ -269,10 +269,10 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] Dia 2: _Arrays_
 - [x] Dia 3: _Nó e Lista Encadeadas_
 - [x] Dia 4: _Pilhas e Filas_
-- [ ] Dia 4: _Projeto - TING Trybe Is Not Google_
+- [x] Dia 4: _[Projeto - TING Trybe Is Not Google](https://github.com/davidrogger/trybe-project-ting)_
 
 ##### Seção 06: Estrutura de Dados II: Hashmaps e Sets
 
 - [x] Dia 1: _Hashmap e Dict_
 - [x] Dia 2: _Set_
-- [ ] Dia 3: _Projeto - Restaurant Orders_
+- [x] Dia 3: _[Projeto - Restaurant Orders](https://github.com/davidrogger/trybe-project-restaurant-orders)_
