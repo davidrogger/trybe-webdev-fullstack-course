@@ -54,7 +54,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [x] Dia 03: _CSS Flexbox - Part 1_
 - [x] Dia 04: _CSS Flexbox - Part 2_
 - [x] Dia 05: _CSS Responsivo - Mobile First_
-- [ ] Dia 06: _[Projeto - Trybewarts]()_
+- [x] Dia 06: _[Projeto - Trybewarts](https://github.com/davidrogger/trybe-fundamentos/tree/main/projects_code/04_trybewarts)_
 
 ##### Seção 07: JavaScript ES6 & Testes Unitários
 
