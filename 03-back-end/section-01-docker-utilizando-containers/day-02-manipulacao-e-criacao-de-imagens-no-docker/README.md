@@ -67,7 +67,7 @@ COPY package*.json ./
 
 ## RUN
 
-É usado para executar uma lista de comandos durante a criação da imagem.
+O comando deve ser executado durante a construção da imagem docker.
 ```
 RUN ["<COMANDO>", "<SUBCOMANDO>", "<PARAMETRO-1>", ... , "<PARAMETRO-N>"]
 ```
