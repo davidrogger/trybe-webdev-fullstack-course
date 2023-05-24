@@ -174,7 +174,9 @@ Por último, rodamos a imagem em um contêiner, utilizando o comando run.
 Após isso, temos que dizer para o contêiner o que deve acontecer: se ele deve se manter ativo ou não. Caso o contrário, o contêiner é encerrado, o que faz parte de seu ciclo de vida.
 
 Sintaxe para os comandos do docker:
-`docker <comando> <sub-comando> <parâmetros>`
+```
+docker <comando> <sub-comando> <parâmetros>
+```
 
 Podemos abreviar alguns comandos, como foi o caso do docker run hello-world, que também poderia ser escrito como docker container run hello-world. Utilizaremos esta última forma por ser mais atual e verbosa.
 
@@ -207,14 +209,15 @@ Exemplo:
 
 #### Rodando o contêiner de forma interativa
 
-E se quisermos, por exemplo, utilizar um terminal dentro do contêiner (à la inception)? É só passar o parâmetro -ti⁸ ao comando run que dá acesso a esse terminal*:
+Para usar o terminar acessando o container diretamente basta passar o parâmetro -ti ao comando run que dá acesso a esse terminal*:
 O comando -ti são dois comandos juntos:
--t que indica pro Docker que estamos requisitando um terminal no contêiner que consiga imprimir o retorno dos nossos comandos;
--i que estabelece uma interface de comunicação física com esse terminal, no caso, por meio do teclado.
+`-t` que indica pro Docker que estamos requisitando um terminal no contêiner que consiga imprimir o retorno dos nossos comandos;
+`-i` que estabelece uma interface de comunicação física com esse terminal, no caso, por meio do teclado.
 
 ## Principais comandos do CLI
 
-[Documentação de comandos](https://docs.docker.com/engine/reference/commandline/docker/)
+- [Documentação de comandos](https://docs.docker.com/engine/reference/commandline/docker/)
+- [Comandos para usar com docker run](https://docs.docker.com/engine/reference/commandline/run/#name)
 
 Deve-se criar um novo contêiner e rodá-lo logo em seguida:
 ```
