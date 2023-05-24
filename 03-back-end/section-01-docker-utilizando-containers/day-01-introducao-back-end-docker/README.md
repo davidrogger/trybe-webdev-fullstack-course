@@ -143,6 +143,20 @@ O [Docker Hub](https://hub.docker.com/) é o principal repositório de imagens D
 
 O registry é um sistema de armazenamento e entrega no qual podemos ter um usuário com nossas próprias imagens. Possui certa similaridade com o GitHub, já que podemos dar pull nessas imagens para uso posterior.
 
+### Registry
+
+Local remoto onde é enviado ou baixado as imagens do Docker.\
+
+Plataformas de Registry:\
+- [Docker Hub](https://hub.docker.com/): registry público da empresa Docker Hub.
+- [Quay Container Registry](): registry semelhante ao Docker hub, oferecido pela Red Hat
+
+Grandes empresas como AWS, GCP e Azure tem seu propri serviço de registry.
+
+- [Amazon Elastic Container Registry](https://aws.amazon.com/pt/ecr/): ECR.
+- [Google Container Registry](https://cloud.google.com/container-registry): GCR
+- [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/): ACR
+
 ## Fluxo padrão
 
 ![fluxo docker](/03-back-end/bloco-19-docker-utilizando-containers/images/docker-flow.webp)
