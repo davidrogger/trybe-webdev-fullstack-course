@@ -39,3 +39,23 @@ docker build -t my-image . // Imagem com nome my-image localizada na pasta atual
 
 - -p com ele minusculo é possivel definir a atribuição da porta `-p 1234:80` (host:container), atribuido a porta 1234 para porta 80 do container.
 - -P atribui de forma aleatória a porta para o container.
+
+### Docker compose
+
+Para forçar a remodelagem da imagem da composição é usada a flag --build
+```
+docker compose up -d --build
+```
+
+Para iniciar apenas um servidor de um arquivo docker compose com diversos serviços;
+```
+docker compose up -d [nome-do-serviço]
+```
+
+Para acompanhar em tempo real os logs do compose;
+```
+docker compose logs --tail [nome-do-serviço]
+docker compose logs --tail [nome-do-serviço] 5 // especificando a quantidade de linhas a serem mostradas
+docker compose logs -t // short tag, não é possivel definir a quantidade de linhas com o short
+
+```
