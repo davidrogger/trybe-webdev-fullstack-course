@@ -28,6 +28,12 @@ Remove todos container e imagens Docker:
 docker system prune -af
 ```
 
+### Volume
+
+```
+docker volume help
+```
+
 ### Dockerfile
 
 ```
