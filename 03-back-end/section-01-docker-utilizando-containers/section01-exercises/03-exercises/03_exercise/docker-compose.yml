@@ -26,5 +26,7 @@ services:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       timeout: 5s
       retries: 3
+    volumes:
+      - ./db_store/:/var/lib/mysql
 networks:
   net_blog:
