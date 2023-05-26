@@ -357,6 +357,7 @@ Recursos Adicionais:
 3. [O que é um banco de dados?](https://www.homehost.com.br/blog/tutoriais/mysql/o-que-e-um-banco-de-dados/)
 4. [Explicação e exercícios sobre tipos de chaves](https://www.blogson.com.br/chave-primaria-estrangeira-e-composta-no-mysql)
 5. [SQL vs NoSQL, como são diferentes?](https://www.treinaweb.com.br/blog/sql-vs-nosql-qual-usar)
+6. [Guia de Estilo SQL · SQL Style Guide](https://www.sqlstyle.guide/pt-br/)
 
 # 20.2
 1. [Introdução ao básico do SQL com prática](https://sqlzoo.net/wiki/SELECT_basics)
