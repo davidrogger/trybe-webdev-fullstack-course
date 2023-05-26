@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  wordpress:
+    image: wordpress:php8.0
+    restart: always
+    networks:
+      - net_wordpress
+    ports:
+      - 8080:80
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      - WORDPRESS_DB_HOST=db:3306
+      - WORDPRESS_DB_USER=wordpress
+      - WORDPRESS_DB_PASSWORD=password
+      - WORDPRESS_DB_NAME=wordpress
+  
+  db:
+    image: mysql:5.7.40
+    restart: always
+    networks:
+      - net_wordpress
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 5s
+      retries: 3
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpass
+      - MYSQL_DATABASE=wordpress
+      - MYSQL_USER=wordpress
+      - MYSQL_PASSWORD=password
+
+networks:
+  net_wordpress:
+
+volumes:
+  db_data:
