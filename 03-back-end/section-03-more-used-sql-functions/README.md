@@ -1257,6 +1257,75 @@ END $$
 DELIMITER ;
 ```
 
+# Exists
+
+Retorna os registros de uma tabela que possue relacionamentos com outros tabela.\
+
+Exemplo;
+```
+USE praticando;
+
+SELECT `name` FROM manufacturers AS m
+WHERE NOT EXISTS (
+    SELECT * FROM products
+    WHERE manufacturer = m.code
+);
+```
+Neste exemplo, queremos vizualizar o nome da manufacturer que não possui relacionamento por meio do código há tabela products.\
+A empresa que não tiver seu código na tabela de products, irá aparecer no resultado. Agora removento a negação do exists, ele retornaria o nome de todas empresa que tem seu Code relacionados em products.
+
+## Practices
+
+Banco de dados praticando: [link](https://lms-assets.betrybe.com/lms/praticando.sql).
+
+Banco de dados hotel: [link](https://lms-assets.betrybe.com/lms/hotel.sql).
+
+1. Usando o EXISTS na tabela books_lent e books, exiba o id e título dos livros que ainda não foram emprestados.
+
+```
+SELECT Id, Title FROM Books AS b
+WHERE NOT EXISTS (
+	SELECT * FROM Books_Lent
+    WHERE book_id = b.Id
+);
+```
+
+2. Usando o EXISTS na tabela books_lent e books, exiba o id e título dos livros estão atualmente emprestados e que contêm a palavra “lost” no título.
+
+```
+SELECT Id, Title FROM Books AS b
+WHERE EXISTS (
+	SELECT * FROM Books_Lent
+    WHERE book_id = b.Id AND b.title LIKE '%lost%'
+);
+```
+
+3. Usando a tabela carsales e customers, exiba apenas o nome dos clientes que ainda não compraram um carro.
+
+```
+SELECT Name FROM Customers AS c
+WHERE NOT EXISTS (
+	SELECT * FROM CarSales
+    WHERE CustomerId = c.CustomerId
+);
+```
+
+4. Usando o comando EXISTS em conjunto com JOIN e as tabelas cars, customers e carsales, exiba o nome do cliente e o modelo do carro de todos os clientes que fizeram compras de carros.
+
+```
+SELECT c.`Name`, cr.`Name`
+FROM Customers AS c
+INNER JOIN CarSales AS cs
+ON c.CustomerId = cs.CustomerId
+INNER JOIN Cars AS cr
+ON cr.id = cs.CarId
+WHERE EXISTS (
+	SELECT * FROM Cars
+    WHERE id = cs.CarId
+);
+```
+
+
 #
 
 # 21.1
