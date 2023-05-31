@@ -1072,6 +1072,114 @@ SELECT GetTotalFilmCategory('Action');
 - Stored Procedures permite alterar o estado global.
 - Stored Procedures permitem realizar o tratamento de excepções, via try/catch.
 
+# Trigger
+
+Blocos de código SQL disparados em reação a alguma atividade que ocorreu no banco. Sendo possivel dispara-los em dois momentos antes ou depois da ação.\
+
+Trigger pode ser ativado quando realizada as ações de INSERT, UPDATE e DELETE.\
+
+Quando usando o trigger, temos acesso as variaveis OLD e NEW, que armazenam informações, de antes da ação (OLD) e depois (NEW).
+
+Quando elas estão disponiveis;
+
+| Operação | OLD | NEW |
+| :--: | :--: | :--: |
+| INSERT | Não | Sim |
+| UPDATE | Sim | Sim |
+| DELETE | Sim | Não |
+
+Sintaxe;
+```
+DELIMITER $$
+
+CREATE TRIGGER nome_do_trigger
+[BEFORE | AFTER] [INSERT | UPDATE | DELETE] ON tabela
+FOR EACH ROW
+BEGIN
+    -- SQL
+END $$
+
+DELIMITER ;
+```
+
+Modelo para Exemplos;
+```
+CREATE DATABASE IF NOT EXISTS rede_social;
+
+USE rede_social;
+
+CREATE TABLE perfil(
+    perfil_id INT PRIMARY KEY AUTO_INCREMENT,
+    saldo DECIMAL(10, 2) NOT NULL DEFAULT 0,
+    ultima_atualização DATETIME,
+    acao VARCHAR(50),
+    ativo BOOLEN DEFAULT 1
+) engine = InnoDB;
+
+CREATE TABLE log_perfil(
+    acao_id INT PRIMARY KEY AUTO_INCREMENT,
+    perfil_id INT,
+    acao VARCHAR(300),
+    data_acao DATE
+) engine = InnoDB;
+```
+
+Exemplo;
+```
+USE rede_social;
+
+DELIMITER $$
+
+CREATE TRIGGER trigger_perfil_insert
+    BEFORE INSERT ON perfil
+    FOR EACH ROW
+BEGIN
+    SET NEW.ultima_atualizacao = NOW(),
+        NEW.acao = 'INSERT';
+END $$
+
+DELIMITER ;
+```
+
+Dessa forma quando criarmos um novo cadastro, será inserido a data atual, e a ação de INSERT naquela inserção, mantendo um log de ações.\
+
+Exemplo;
+```
+USE rede_social;
+
+DELIMITER $$
+
+CREATE TRIGGER trigger_perfil_update
+    BEFORE UPDATE ON perfil
+    FOR EACH ROW
+BEGIN
+    SET NEW.ultima_atualizacao = NOW(),
+        NEW.acao = 'UPDATE';
+END $$
+
+DELIMITER ;
+```
+
+Agora, sempre que for realizada uma atualiada no perfil, é atualizada a data com a ultima ação, como update.\
+
+Exemplo;
+```
+USE rede_social;
+
+DELIMITER $$
+
+CREATE TRIGGER trigger_perfil_delete
+    AFTER DELETE ON perfil
+    FOR EACH ROW
+BEGIN
+    INSERT INTO log_perfil(acao, data_acao)
+    VALUE (OLD.perfil_ID, 'exclusão', NOW());
+END $$
+
+DELIMITER ;
+```
+
+Com esse trigger, quando for deletado alguma linha do perfil, fica armazenado um log de exclusão com data.
 #
 
 # 21.1
