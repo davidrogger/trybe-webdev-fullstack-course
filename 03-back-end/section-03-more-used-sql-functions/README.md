@@ -1180,6 +1180,83 @@ DELIMITER ;
 ```
 
 Com esse trigger, quando for deletado alguma linha do perfil, fica armazenado um log de exclusão com data.
+
+## Trigger Practices
+
+```
+CREATE DATABASE IF NOT EXISTS automoveis;
+
+USE automoveis;
+
+CREATE TABLE carros(
+    id_carro INT PRIMARY KEY auto_increment,
+    preco DECIMAL(12, 2) NOT NULL DEFAULT 0,
+    data_atualizacao DATETIME,
+    acao VARCHAR(15),
+    disponivel_em_estoque BOOLEAN DEFAULT 0
+) engine = InnoDB;
+
+CREATE TABLE log_operacoes(
+    operacao_id INT AUTO_INCREMENT PRIMARY KEY,
+    tipo_operacao VARCHAR(15) NOT NULL,
+    data_ocorrido DATE NOT NULL
+) engine = InnoDB;
+```
+
+1. Crie um TRIGGER que, a cada nova inserção feita na tabela carros, defina o valor da coluna data_atualizacao para o momento do ocorrido, a acao para 'INSERÇÃO' e a coluna disponivel_em_estoque para 1.
+```
+USE automoveis;
+
+DELIMITER $$
+
+CREATE TRIGGER insert_new_car
+    BEFORE INSERT ON carros
+    FOR EACH ROW
+BEGIN
+    SET NEW.data_atualizacao = NOW(),
+        NEW.acao = 'INSERÇÃO',
+        NEW.disponivel_em_estoque = 1;
+END $$
+
+DELIMITER $$
+```
+2. Crie um TRIGGER que, a cada atualização feita na tabela carros, defina o valor da coluna data_atualizacao para o momento do ocorrido e a acao para 'ATUALIZAÇÃO'.
+
+```
+USE automoveis;
+
+DELIMITER $$
+
+CREATE TRIGGER update_car
+    BEFORE UPDATE ON carros
+    FOR EACH ROW
+BEGIN
+    SET NEW.data_atualizacao = NOW(),
+        NEW.acao = 'ATUALIZAÇÃO';
+END $$
+
+DELIMITER ;
+```
+
+3. Crie um TRIGGER que, a cada exclusão feita na tabela carros, envie para a tabela log_operacoes as informações do tipo_operacao como 'EXCLUSÃO' e a data_ocorrido como o momento da operação.
+
+```
+USE automoveis;
+
+DELIMITER $$
+
+CREATE TRIGGER delete_car
+    AFTER DELETE ON carros
+    FOR EACH ROW
+BEGIN
+    INSERT INTO log_operacoes (tipo_operacao, data_ocorrido)
+    VALUES
+        ('EXCLUSÃO', NOW());
+END $$
+
+DELIMITER ;
+```
+
 #
 
 # 21.1
