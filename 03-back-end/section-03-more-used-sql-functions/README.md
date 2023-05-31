@@ -928,6 +928,143 @@ END $$
 DELIMITER ;
 ```
 
+# Stored Functions
+
+DRY (Don't Repeat Yourself) é uma prática bem comum que tem como foco o reaproveitamento de código, evitando a repetição do mesmo código ao longo do projeto.\
+Para aplicar isso com SQL é usado o stored function, com ele podemos encapsular as queries mais usadas dentro de um bloco nomeado e parametrizável.
+
+Sintaxe;
+```
+USE banco_de_dados;
+DELIMITER $$
+
+CREATE FUNCTION nome_da_função(parametro1, parametro2, ...n)
+RETURN tipo_de_dado tipo_de_retorno
+BEGIN
+    query_sql
+    RETURN resultado_a_ser_retornado;
+END $$
+
+DELIMITER ;
+```
+
+Exemplo;
+```
+USE sakila;
+DELIMITER $$
+
+CREATE FUNCTION MoviesWithActor(id INT)
+RETURNS INT READS SQL DATA // retorna um inteiro e somente lê os dados no banco
+BEGIN
+    DECLARE movie_total INT;
+    SELECT COUNT(*)
+    FROM filme_actor
+    WHERE film_actor.actor_id = id INTO movie_total;
+    RETURN movie_total;
+END $$
+
+DELIMITER ;
+```
+
+Exemplo;
+```
+USE sakila;
+DELIMITER $$
+
+CREATE FUNCTION GetFullName(id INT)
+RETURNS VARCHAR(200) READS SQL DATA
+BEGIN
+    DECLARE full_name VARCHA(200)
+    SELECT concat(first_name, ' ', last_name)
+    FROM actor
+    WHERE actor_id = id
+    LIMIT 1
+    INTO full_name;
+    RETURN full_name;
+END $$
+
+DELIMITER ;
+```
+
+Chamando as Funções;
+```
+SELECT MoviesWithActor(1);
+SELECT GetFullName(1);
+```
+
+## Pratices
+
+1. Utilizando a tabela sakila.payment, monte uma function que retorna a quantidade total de pagamentos feitos até o momento por um determinado customer_id.
+
+```
+USE sakila;
+DELIMITER $$
+
+CREATE FUNCTION GetTotalPaymentDoneBy(id INT)
+RETURNS INT READS SQL DATA
+BEGIN
+    DECLARE total INT;
+    SELECT COUNT(1)
+    FROM payment
+    WHERE customer_id = id AND payment_date IS NOT NULL INTO total;
+    RETURN total;
+END $$
+
+DELIMITER ;
+
+SELECT GetTotalPaymentDoneBy(2);
+```
+
+2. Crie uma function que, dado o parâmetro de entrada inventory_id, retorna o nome do filme vinculado ao registro de inventário com esse id.
+
+```
+USE sakila;
+
+DELIMITER $$
+
+CREATE FUNCTION GetFilmeNameBy(id INT)
+RETURNS VARCHAR(50) READS SQL DATA
+BEGIN
+	DECLARE film_title VARCHAR(50);
+    SELECT title
+	FROM film f
+	INNER JOIN inventory i
+	ON f.film_id = i.film_id
+	WHERE i.inventory_id = id INTO film_title;
+    RETURN film_title;
+END $$
+
+DELIMITER $$
+
+SELECT GetFilmeNameBy(156);
+```
+
+3. Crie uma function que receba uma determinada categoria de filme em formato de texto (ex: 'Action', 'Horror') e retorna a quantidade total de filmes registrados nessa categoria.
+
+```
+USE sakila;
+
+DELIMITER $$
+
+CREATE FUNCTION GetTotalFilmCategory(category_selected VARCHAR(50))
+RETURNS INT READS SQL DATA
+BEGIN
+	DECLARE total INT;
+	SELECT
+	COUNT(1)
+	FROM film f
+	INNER JOIN film_category fc
+	ON f.film_id = fc.film_id
+	INNER JOIN category c
+	ON fc.category_id = c.category_id
+	WHERE c.`name` = category_selected INTO total;
+    RETURN total;
+END $$
+
+DELIMITER ;
+
+SELECT GetTotalFilmCategory('Action');
+```
 
 #
 
