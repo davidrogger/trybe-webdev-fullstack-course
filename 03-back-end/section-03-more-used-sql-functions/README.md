@@ -711,7 +711,7 @@ Podemos armazenar blocos de código para serem usados posteriormente no MySQL de
 
 Como o próprio nome ja diz, o código fica armazenado no servidor do banco de dados para que possa ser utilizado sem a necessidade de reescrever uma funcionalidade.
 
-Para tonar a leitura do código mais fácil e a manutenção simples, siga o seguinte padrão ao nomear suas procedures e functions:
+Para tornar a leitura do código mais fácil e a manutenção simples, siga o seguinte padrão ao nomear suas procedures e functions:
 ```
 -- Verbo + Resultado
 
@@ -915,6 +915,18 @@ DELIMITER ;
 CALL filmByCategory('animation');
 ```
 3. Monte uma procedure que receba o email de um cliente como parâmetro de entrada e diga se o cliente está ou não ativo, através de um parâmetro de saída.
+
+```
+USE sakila
+DELIMITER $$
+
+CREATE PROCEDURE checkCLientStatusBy(IN customerEmail VARCHAR(100))
+BEGIN
+    SELECT CONCAT(first_name, ' is ', IF(active = 1, 'active', 'inative')) FROM customer
+    WHERE email = emailSelected;
+END $$
+DELIMITER ;
+```
 
 
 #
