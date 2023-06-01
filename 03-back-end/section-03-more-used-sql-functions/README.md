@@ -1817,10 +1817,100 @@ ou
 DESCRIBE nome_da_tabela;
 ```
 
+# Table Drop
 
+Para excluir/remover uma tabela;
 
+```
+USE nome_do_banco;
+DROP TABLE nome_da_tabela;
+```
 
+Lembrando da necessidade de analise de chaves estrangeiras, possivelmente recebendo um error, caso a tabela tenha algum vinculo com outra tabela, sem o efeito CASCATE, para remoção em conjunto.
 
+# Index
+
+Envolve a ideia de melhoria de busca no banco, que normalmente é aplicado em primary key, uniques, index e fulltext index.
+
+## Criando index
+
+Criando um índice;
+```
+CREATE INDEX nome_index ON tabela(coluna);
+ou
+CREATE FULLTEXT INDEX nome_index ON tabela(coluna);
+ou
+CREATE UNIQUE INDEX nome_do_indice ON tabela(coluna);
+```
+
+Definindo índice na criação da tabela;
+```
+CREATE TABLE nome_tabela(
+    coluna1 INT PRIMARY KEY
+    coluna2 VARCHAR(100)
+    INDEX coluna2_index(coluna2)
+) ENGINE=InnoDB;
+```
+
+Atualizando uma tabela;
+```
+ALTER TABLE nome_tabela
+ADD INDEX nome_index(nome_coluna);
+```
+
+Índices são uteis para melhorar a performance de busca, porém tem seus benficios e malecifícios;
+
+Positivos;
+- Acelera as queries select;
+- Permite tornar uma coluna única;
+- Permite buscar em grandes pedaços de texto usando o FULLTEXT INDEX;
+- Acelera as operações de UPDATE que usam WHERE;
+
+Negativos;
+- Ocupam espaço em disco;
+- Tornam lentas as operações de INSERT, UPDATE e DELETE, pois cada índice precisa ser atualizado junto com os dados;
+
+# FULLTEXT INDEX
+
+Quando usando o index em um texto a busca é realizada usando o MATCH e AGAINS;
+```
+SELECT *
+FROM tabela
+WHERE MATCH(coluna) AGAINST('busca')
+Sem o index seria
+WHERE addres LIKE '%drive%';
+```
+
+Para verificar os index de uma tabela basta usar o comando;
+```
+SHOW INDEX FROM tabela;
+```
+
+É retornado os elementos que são index com alguns detalhes;
+
+- Table: O nome da tabela em que o índice está definido.
+- Non_unique: Indica se o índice pode ter valores duplicados ou não. O valor 0 indica que o índice é único, ou seja, não permite duplicatas. O valor 1 indica que o índice permite valores duplicados.
+- Key_name: O nome do índice.
+- Seq_in_index: A posição da coluna dentro do índice. Se um índice tiver várias colunas, essa coluna indicará a ordem em que as colunas aparecem no índice.
+- Column_name: O nome da coluna associada ao índice.
+- Collation: A configuração de ordenação (collation) da coluna. Indica como as comparações e classificações de texto são realizadas para essa coluna no contexto do índice.
+- Cardinality: O valor aproximado da cardinalidade do índice, ou seja, o número de valores distintos na coluna indexada. Esse valor é uma estimativa estatística usada pelo otimizador do MySQL para determinar o plano de execução de consultas.
+- Sub_part: Indica uma parte do comprimento da coluna que está indexada, se aplicável. Se a coluna inteira estiver indexada, esse valor será nulo.
+- Packed: Indica se a coluna está compactada em um índice PACK_KEYS. O valor "NULL" indica que a coluna não está compactada.
+- Null: Indica se a coluna pode conter valores nulos ou não. O valor "YES" indica que a coluna pode conter nulos. O valor "NO" indica que a coluna não permite valores nulos.
+- Index_type: O tipo de índice usado. Pode ser "BTREE" (índice B-tree padrão), "FULLTEXT" (índice de texto completo) ou "HASH" (índice hash).
+- Comment: Qualquer comentário adicional sobre o índice.
+- Index_comment: O comentário associado ao índice, se houver algum. Pode ser usado para fornecer informações adicionais sobre o propósito ou a funcionalidade do índice.
+- Visible: Indica se o índice está visível para o otimizador de consultas. O valor "YES" indica que o índice está visível e pode ser considerado pelo otimizador para executar consultas. O valor "NO" indica que o índice não está visível e não será considerado pelo otimizador.
+- Expression: Se o índice for baseado em uma expressão, o campo "Expression" conterá a expressão utilizada para criar o índice. Uma expressão é uma fórmula ou uma combinação de colunas que é usada para criar um índice derivado ou virtual.
+
+## Quando não usar index
+
+- Em tabelas pequenas, pois a diferença de performance será mínima, se houver;
+- Em colunas que retornarão uma grande quantidade dados quando filtradas. Por exemplo, você não adicionaria os artigos “o” e “a” ao índice de um livro;
+- Em tabelas que frequentemente têm atualizações em grande escala, uma vez que a performance dessas atualizações será afetada;
+- Em colunas que são frequentemente manipuladas, haja vista que a manutenção do índice dessa coluna pode demandar muito tempo quando feita em excesso;
+- Em colunas que possuem muitos valores nulos.
 #
 
 # 21.1
@@ -1847,6 +1937,7 @@ DESCRIBE nome_da_tabela;
 - [Quando é recomandado o uso de chave composta](https://pt.stackoverflow.com/questions/15883/quando-%C3%A9-recomendado-o-uso-de-chave-prim%C3%A1ria-composta)
 - [Normalização em Bancos de Dados - Diego Machado](https://medium.com/@diegobmachado/normaliza%C3%A7%C3%A3o-em-banco-de-dados-5647cdf84a12)
 - [Conceitos gerais sobre normalização](https://www.luis.blog.br/normalizacao-de-dados-e-as-formas-normais.html)
+- [Diagrama com lucid](https://lucid.app/)
 
 # Extra
 
