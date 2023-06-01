@@ -1352,3 +1352,20 @@ WHERE EXISTS (
 - [Quando é recomandado o uso de chave composta](https://pt.stackoverflow.com/questions/15883/quando-%C3%A9-recomendado-o-uso-de-chave-prim%C3%A1ria-composta)
 - [Normalização em Bancos de Dados - Diego Machado](https://medium.com/@diegobmachado/normaliza%C3%A7%C3%A3o-em-banco-de-dados-5647cdf84a12)
 - [Conceitos gerais sobre normalização](https://www.luis.blog.br/normalizacao-de-dados-e-as-formas-normais.html)
+
+# Extra
+
+- [Explicação detalhada sobre UNION no Macoratti](http://www.macoratti.net/13/05/sql_uni1.htm)
+- [UNION desconstruido com exemplos no SQLServerTutorial.net](https://www.sqlservertutorial.net/sql-server-basics/sql-server-union/)
+- [Diferenças entre JOIN e SUBQUERY](https://www.essentialsql.com/what-is-the-difference-between-a-join-and-subquery)
+- [Como utilizar subqueries](https://qhmit.com/mysql/examples/mysql_subquery.cfm)
+- [Como utilizar Stored Procedures](https://qhmit.com/mysql/tutorial/mysql_stored_procedures.cfm)
+- [Tutorial sobre Stored Procedures do MySQL Tutorial](https://www.mysqltutorial.org/getting-started-with-mysql-stored-procedures.aspx)
+- [Vantagens e desvantagens das Stored Procedures](https://www.devmedia.com.br/stored-procedures-no-mysql/29030)
+- [Amadurecendo com Separation Of Concerns](https://www.devmedia.com.br/amadurecendo-com-separation-of-concerns/18699)
+- [MySQL Delimiter](https://www.mysqltutorial.org/mysql-stored-procedure/mysql-delimiter/)
+- [Como declarar variáveis em MySQL](https://stackoverflow.com/questions/11754781/how-to-declare-a-variable-in-mysql)
+- [Tipo de dados em MySQL](https://www.mysqltutorial.org/mysql-data-types.aspx)
+- [Um pouco mais sobre o EXISTS](https://www.w3resource.com/sql/special-operators/sql_exists.php)
+- [Index Seek vs Index Scan - Index Seek vs Index Scan (em inglês)](https://dba.stackexchange.com/questions/42553/index-seek-vs-index-scan)
+- [Difference between scans - Difference between table scan, index scan, and inde seek in SQL Server Database (em inglês)](https://www.java67.com/2017/12/difference-between-table-scan-index.html)
