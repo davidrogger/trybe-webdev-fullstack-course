@@ -1755,6 +1755,74 @@ DROP VIEW nome_da_view;
 ```
 #
 
+# ALTER TABLE
+
+Para realizar alterações na estrutura de uma tabela;\
+
+Adicionar uma nova coluna;
+```
+ALTER TABLE nome_da_tabela ADD COLUMN nome_nova_coluna tipo constrains
+```
+Exemplo;
+```
+ALTER TABLE noticia ADD COLUMN data_postagem date NOT NULL;
+```
+
+ Modificar o tipo e propriedades de uma coluna;
+```
+ALTER TABLE nome_da_tabela MODIFY nome_coluna modificação;
+```
+Exemplo;
+```
+ALTER TABLE noticia MODIFY noticia_id BIGINT;
+```
+
+Exemplo adicionar incremento automático a uma coluna
+```
+ALTER TABLE noticia MODIFY noticia_id BIGINT auto_increment;
+```
+
+Alterar o tipo e nome de uma coluna
+```
+ALTER TABLE nome_da_tabela CHANGE nome_coluna novo_nome tipos constrains;
+```
+Exemplo;
+```
+ALTER TABLE noticia CHANGE historia conteudo_postagem VARCHAR(1000) NOT NULL;
+```
+
+Excluir uma coluna
+```
+ALTER TABLE nome_da_tabela DROP COLUMN nome_coluna;
+```
+Exemplo;
+```
+ALTER TABLE noticia DROP COLUMN data_postagem;
+```
+
+Adicionar uma nova coluna após outra
+```
+ALTER TABLE nome_da_tabela ADD COLUMN nome_coluna tipo constrains AFTER nome_coluna;
+```
+Exemplo;
+```
+ALTER TABLE noticia ADD COLUMN data_postagem DATETIME NOT NULL AFTER titulo;
+```
+
+Para verificar as colunas da tabela;
+```
+USE nome_do_banco;
+SHOW COLUMNS FROM nome_da_tabela;
+ou
+DESCRIBE nome_da_tabela;
+```
+
+
+
+
+
+#
+
 # 21.1
 
 - [O que é linguagem de programação de alto/baixo nível?](https://woliveiras.com.br/posts/o-que-e-linguagem-de-programacao-de-alto-nivel/)
