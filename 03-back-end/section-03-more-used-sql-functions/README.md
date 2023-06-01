@@ -1955,3 +1955,6 @@ SHOW INDEX FROM tabela;
 - [Um pouco mais sobre o EXISTS](https://www.w3resource.com/sql/special-operators/sql_exists.php)
 - [Index Seek vs Index Scan - Index Seek vs Index Scan (em inglês)](https://dba.stackexchange.com/questions/42553/index-seek-vs-index-scan)
 - [Difference between scans - Difference between table scan, index scan, and inde seek in SQL Server Database (em inglês)](https://www.java67.com/2017/12/difference-between-table-scan-index.html)
+- [MySQL Create Index - w3resource](https://www.w3resource.com/mysql/creating-table-advance/create-index.php)
+- [MySQL Views - w3resource](https://www.w3resource.com/mysql/mysql-views.php)
+- [Integridade referencial](https://pt.wikipedia.org/wiki/Integridade_referencial)
