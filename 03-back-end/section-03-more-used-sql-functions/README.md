@@ -1690,6 +1690,71 @@ INSERT funcionario_setor(funcionario_id, setor_id) VALUES
 
 #
 
+# DUMPs
+
+No contexto de banco de dados é o ato de pegar o esquema do banco e opcionalmente salvá-los em um arquivo de texto, na forma de instruções SQL. Possibilitando o uso desse arquivo em outro lugar.
+
+## Criando um dump com MySQL Workbench
+
+1. Escolha quais bancos de dados devem ser incluídos no backup;
+2. Escolha quais tabelas deve ser incluídas no backup;
+3. Escolha se Stored Procedures e Stored Functions devem ou não ser incluídas;
+4. Escolha se gostaria de exportar apenas estrutura (Structure Only), apenas os dados (Data Only) ou ambos (Structure and Data);
+5. Escolha se gostaria de incluir os triggers no arquivo de backup;
+6. Escolha se gostaria de incluir o esquema (código para criar banco de dados. Ex.: CREATE DATABASE);
+7. Selecione o local para onde exportar o arquivo.
+
+# Clonar tabelas existentes
+
+Algo útil para realizar simulações sem usar a tabela original.
+
+Sinxate;
+```
+CREATE TABLE nome_tabela_clone LIKE tabela_referencia;
+```
+
+- O comando não copia os dados, apenas a estrutura;
+- Quando não espcificado qual banco a ser utilizado, a nova tabela será inserida no banco que estiver ativo no momento do comando.
+
+```
+USE nome_do_banco_de_dados;
+CREATE TABLE nome_para_nova_tabela LIKE tabela_a_ser_clonada;
+```
+#
+
+# View
+
+Tabela temporária no banco, que pode ser consultada como qualquer outra. Porém ela é criada a partir de uma query que você definir de forma temporaria.
+
+Sintaxe;
+```
+USE nome_do_banco
+CREATE VIEW nome_da_view AS query;
+```
+
+Exemplo;
+```
+USE sakila;
+CREATE VIEW top_10_customers AS
+    SELECT c.customer_id, c.first_name, SUM(p.amount) AS total_amount_spent
+    FROM payment p
+    INNER JOIN customer c ON p.customer_id = c.customer_id
+    GROUP BY customer_id
+    ORDER BY total_amount_spend DESC
+    LIMIT 10;
+```
+
+Agora quando for necessário coletar essas informaçãos do select da view, basta apenas usa-la;
+```
+SELECT * FROM top_10_customers;
+```
+
+Para excluir uma view;
+```
+DROP VIEW nome_da_view;
+```
+#
+
 # 21.1
 
 - [O que é linguagem de programação de alto/baixo nível?](https://woliveiras.com.br/posts/o-que-e-linguagem-de-programacao-de-alto-nivel/)
