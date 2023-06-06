@@ -1,0 +1,12 @@
+{
+  "name": "04_print_file",
+  "version": "1.0.0",
+  "description": "",
+  "main": "getFileData.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

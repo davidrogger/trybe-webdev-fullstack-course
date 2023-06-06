@@ -1,0 +1,15 @@
+{
+  "name": "03_bmi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bmi.js",
+  "scripts": {
+    "bmi": "node index"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
