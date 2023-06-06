@@ -19,3 +19,5 @@ async function main() {
     console.error('Error: %s', e.path);
   }
 }
+
+module.exports = fileData;
