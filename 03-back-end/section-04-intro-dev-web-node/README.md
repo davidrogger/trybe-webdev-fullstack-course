@@ -211,6 +211,13 @@ Responsável pro baixar e instalar pacotes Node.js do NPM para o nosso pacote. V
 - [O guia completo do package.json do Node.js](https://www.luiztools.com.br/post/o-guia-completo-do-package-json-do-node-js/)
 - [Tudo que você queria saber sobre o package-lock.json, mas estava com vergonha de perguntar](https://medium.com/devzera/tudo-que-voc%C3%AA-queria-saber-sobre-o-package-lock-json-mas-estava-com-vergonha-de-perguntar-e70589f2855f)
 - [Entendendo módulos ES6](https://medium.com/trainingcenter/entendendo-m%C3%B3dulos-no-javascript-73bce1d64dbf)
+- [Sobre Versionamento Semântico](https://semver.org/lang/pt-BR/)
+- [CommonJS vs. ES Modules: Modules and Imports in NodeJS](https://reflectoring.io/nodejs-modules-imports/)
+- [Dissertação sobre as principais Licenças de Software](https://www.teses.usp.br/teses/disponiveis/45/45134/tde-14032012-003454/publico/MestradoVanessaSabino.pdf)
+- [Como funcionam as licenças open source?](https://medium.com/code-prestige/como-funcionam-as-licen%C3%A7as-open-source-9ff1da677ccd)
+- [O lado Legal do Open Source](https://opensource.guide/pt/legal/)
+- [Vídeo do canal Código Fonte explicando sobre Licenças de Software](https://www.youtube.com/watch?v=fPfzp6ov2bQ)
+
 
 # 22.2
 
