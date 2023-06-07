@@ -1,0 +1,12 @@
+{
+  "name": "07_promise",
+  "version": "1.0.0",
+  "description": "",
+  "main": "myPromise.js",
+  "scripts": {
+    "myPromise": "node myPromise"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
