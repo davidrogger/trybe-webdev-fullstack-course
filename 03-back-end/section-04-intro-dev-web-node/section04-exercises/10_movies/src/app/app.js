@@ -1,6 +1,6 @@
 const express = require('express');
 const {
-  getAllMovies, getMovieBy, addNewMovie, updateMovieBy, deleteMovieBy,
+  getAllMovies, getMovieBy, addNewMovie, updateMovieBy, deleteMovieBy, getMovieIncludes,
 } = require('../assets/fsHandler');
 
 const app = express();
@@ -14,6 +14,13 @@ app.get('/status', (_, res) => {
 app.get('/movies', async (_, res) => {
   const movies = await getAllMovies();
   res.status(200).json(movies);
+});
+
+app.get('/movies/search', async (req, res) => {
+  const titleIncludes = req.query.q;
+  const moviesFound = await getMovieIncludes(titleIncludes);
+
+  res.status(200).json(moviesFound);
 });
 
 app.get('/movies/:id', async (req, res) => {

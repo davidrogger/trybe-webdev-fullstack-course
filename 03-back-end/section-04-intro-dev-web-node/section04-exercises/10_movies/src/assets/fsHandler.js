@@ -17,6 +17,18 @@ async function getMovieBy(id) {
   return { found: movies[index], index };
 }
 
+async function getMovieIncludes(title) {
+  const movies = await getAllMovies();
+  const standardizeTitle = title.toLowerCase();
+
+  if (!title) return movies;
+
+  return movies
+    .filter(
+      ({ movie }) => movie.toLowerCase().includes(standardizeTitle),
+    );
+}
+
 function generateId() {
   return Date.now();
 }
@@ -67,4 +79,5 @@ module.exports = {
   addNewMovie,
   updateMovieBy,
   deleteMovieBy,
+  getMovieIncludes,
 };
