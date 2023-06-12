@@ -12,7 +12,7 @@ async function getMovieBy(id) {
   const movies = await getAllMovies();
   const index = movies.findIndex((movie) => movie.id === Number(id));
 
-  if (!index) throw new Error('Id not found');
+  if (!movies[index]) throw new Error('Id not found');
 
   return { found: movies[index], index };
 }

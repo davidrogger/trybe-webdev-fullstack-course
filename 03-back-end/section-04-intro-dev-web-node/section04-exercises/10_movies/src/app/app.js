@@ -27,7 +27,7 @@ app.get('/movies/:id', async (req, res) => {
   const { id } = req.params;
   const movie = await getMovieBy(id);
 
-  res.status(200).json(movie);
+  res.status(200).json(movie.found);
 });
 
 app.post('/movies', async (req, res) => {
