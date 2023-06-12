@@ -1,7 +1,9 @@
 const express = require('express');
-const { getAllMovies, getMovieBy } = require('../assets/fsHandler');
+const { getAllMovies, getMovieBy, addNewMovie } = require('../assets/fsHandler');
 
 const app = express();
+
+app.use(express.json());
 
 app.get('/status', (_, res) => {
   res.status(200).json({ message: 'online' });
@@ -17,6 +19,13 @@ app.get('/movies/:id', async (req, res) => {
   const movie = await getMovieBy(id);
 
   res.status(200).json(movie);
+});
+
+app.post('/movies', async (req, res) => {
+  const payload = req.body;
+  const movie = await addNewMovie(payload);
+
+  res.status(201).json(movie);
 });
 
 module.exports = app;

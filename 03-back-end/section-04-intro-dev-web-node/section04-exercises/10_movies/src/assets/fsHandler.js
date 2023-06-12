@@ -17,7 +17,26 @@ async function getMovieBy(id) {
   return movieFound;
 }
 
+function generateId() {
+  return Date.now();
+}
+
+async function addNewMovie(movie) {
+  const movies = await getAllMovies();
+  const id = generateId();
+
+  if (!movie) throw new Error('Empty body, not allowed');
+
+  const newMovie = { id, ...movie };
+  movies.push(newMovie);
+
+  fs.writeFile(moviesPath, JSON.stringify(movies));
+
+  return newMovie;
+}
+
 module.exports = {
   getAllMovies,
   getMovieBy,
+  addNewMovie,
 };
