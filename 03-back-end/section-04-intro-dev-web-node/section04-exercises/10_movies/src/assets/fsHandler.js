@@ -8,6 +8,16 @@ async function getAllMovies() {
   return JSON.parse(movies);
 }
 
+async function getMovieBy(id) {
+  const movies = await getAllMovies();
+  const movieFound = movies.find((movie) => movie.id === Number(id));
+
+  if (!movieFound) throw new Error('Id not found');
+
+  return movieFound;
+}
+
 module.exports = {
   getAllMovies,
+  getMovieBy,
 };
