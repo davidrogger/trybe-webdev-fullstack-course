@@ -10,11 +10,11 @@ async function getAllMovies() {
 
 async function getMovieBy(id) {
   const movies = await getAllMovies();
-  const movieFound = movies.find((movie) => movie.id === Number(id));
+  const index = movies.findIndex((movie) => movie.id === Number(id));
 
-  if (!movieFound) throw new Error('Id not found');
+  if (!index) throw new Error('Id not found');
 
-  return movieFound;
+  return { found: movies[index], index };
 }
 
 function generateId() {
@@ -35,8 +35,36 @@ async function addNewMovie(movie) {
   return newMovie;
 }
 
+async function updateMovieBy(id, payload) {
+  if (!id || !payload) throw new Error('Missing data to update');
+
+  const movies = await getAllMovies();
+  const { found: movieFound, index: movieIndex } = await getMovieBy(id);
+
+  const movieUpdated = { ...movieFound, ...payload };
+
+  movies.splice(movieIndex, 1, movieUpdated);
+
+  fs.writeFile(moviesPath, JSON.stringify(movies));
+
+  return movieUpdated;
+}
+
+async function deleteMovieBy(id) {
+  if (!id) throw new Error('Missing id input');
+
+  const movies = await getAllMovies();
+  const movie = await getMovieBy(id);
+
+  movies.splice(movie.index, 1);
+
+  fs.writeFile(moviesPath, JSON.stringify(movies));
+}
+
 module.exports = {
   getAllMovies,
   getMovieBy,
   addNewMovie,
+  updateMovieBy,
+  deleteMovieBy,
 };
