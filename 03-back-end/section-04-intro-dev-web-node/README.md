@@ -243,6 +243,34 @@ As promises foram introduzidas à especificação do JavaScript em 2015, como fe
 
 Em JavaScript, as Promises funcionam do mesmo jeito que uma promessa na vida real, uma pessoal pede algo, e outra promete a realização, no cumprimento dela, ela é resolvida, ou caso aconteça algum impedimento a promessa pode ser rejeitada.
 
+# [Status Code](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status)
+
+- 100: Rseponsta de informação
+- 200: Resposta de sucesso
+- 300: Redirecionamento
+- 400: Erro do cliente
+- 500: Erro do servidor
+
+# Envio de requisições
+
+## Query String
+
+Usando o método get por meio de query na rota:
+```
+/rota?variavel1=valor&variavel2=valor
+```
+## Params Route
+
+Usando método get por parametros na rota:
+```
+/rota/:paremtro
+```
+
+## Body
+
+Usando método post enviando um corpo seja json, texto ou demais tipos de cotneudo de corpos.\
+Os dados são viados via corpo, por questões de segurança e também pelo tamanho de conteudo enviado, ser muito extenso para ser enviado via linha.\
+
 
 
 #
