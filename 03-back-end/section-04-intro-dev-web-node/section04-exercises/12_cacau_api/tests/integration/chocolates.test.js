@@ -6,7 +6,7 @@ const { expect } = chai;
 
 const chocolates = require('../mock/mock_chocolates');
 
-const app = {};
+const app = require('../../src/app/app');
 
 describe('Method Get /chocolates', () => {
   it('Should list all chocolates', async () => {
