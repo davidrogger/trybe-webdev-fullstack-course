@@ -1,10 +1,15 @@
 const fs = require('fs/promises');
 const { resolve } = require('path');
 
-const dataPath = resolve(__dirname, '../../db/chocolates.json');
+const dataPath = resolve(__dirname, '../../db/cacau_store.json');
+
+async function readCacauFile() {
+  return JSON.parse(await fs.readFile(dataPath));
+}
 
 async function getAllChocolates() {
-  return JSON.parse(fs.readFile(dataPath));
+  const dataFile = await readCacauFile();
+  return dataFile.chocolates;
 }
 
 module.exports = {
