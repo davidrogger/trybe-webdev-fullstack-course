@@ -1,0 +1,19 @@
+{
+	"env": {
+		"commonjs": true,
+		"mocha": true,
+		"node": true
+	},
+	"extends": [
+		"plugin:mocha/recommended",
+		"eslint:recommended",
+		"airbnb-base"
+	],
+	"rules": {
+		"no-console": "off",
+		"mocha/no-mocha-arrows": "off"
+	},
+	"plugins": [
+		"mocha"
+	]
+}
