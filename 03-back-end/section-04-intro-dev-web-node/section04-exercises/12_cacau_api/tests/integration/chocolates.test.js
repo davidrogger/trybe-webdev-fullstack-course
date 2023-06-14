@@ -73,7 +73,15 @@ describe('Route Get /chocolates', () => {
 
   describe('Route get /chocolates/search', () => {
     it('Should return the chocolates with the word typed', async () => {
-
+      const searchWords = ['mo', 'white'];
+      await Promise.all(
+        searchWords.map(async (word) => {
+          const endpoint = `/chocolates/search?name=${word}`;
+          const response = await chai.request(app).get(endpoint);
+          expect(response.status).to.be.equals(200);
+          expect(response.body.chocolates).to.be.deep.equals(expectedData.chocoSearch[word]);
+        }),
+      );
     });
   });
 });

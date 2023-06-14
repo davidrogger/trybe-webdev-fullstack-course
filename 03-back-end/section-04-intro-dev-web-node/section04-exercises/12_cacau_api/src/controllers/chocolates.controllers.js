@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const chocolateService = require('../services/chocolates.service');
 
-const route = Router();
+const route = Router({ strict: true });
 
 route.get('/total', async (_, res) => {
   try {
@@ -9,6 +9,15 @@ route.get('/total', async (_, res) => {
     res.status(200).json({ total });
   } catch (error) {
     res.status(error.status || 500).json({ message: error.message });
+  }
+});
+
+route.get('/', async (_, res) => {
+  try {
+    const chocolates = await chocolateService.getAllChocolates();
+    res.status(200).json({ chocolates });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
 });
 
@@ -31,15 +40,6 @@ route.get('/brand/:id', async (req, res) => {
     res.status(200).json({ chocolates });
   } catch (error) {
     res.status(error.status || 500).json({ message: error.message });
-  }
-});
-
-route.get('/', async (_, res) => {
-  try {
-    const chocolates = await chocolateService.getAllChocolates();
-    res.status(200).json({ chocolates });
-  } catch (error) {
-    res.status(500).json({ message: error.message });
   }
 });
 
