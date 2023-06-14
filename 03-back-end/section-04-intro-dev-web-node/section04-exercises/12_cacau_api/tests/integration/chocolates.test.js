@@ -83,5 +83,12 @@ describe('Route Get /chocolates', () => {
         }),
       );
     });
+
+    it('Should return an empty list with status 404 when not found the name', async () => {
+      const emptyList = [];
+      const response = await chai.request(app).get('/chocolates/search?name=teste');
+      expect(response.status).to.be.equals(404);
+      expect(response.body.chocolates).to.be.deep.equal(emptyList);
+    });
   });
 });
