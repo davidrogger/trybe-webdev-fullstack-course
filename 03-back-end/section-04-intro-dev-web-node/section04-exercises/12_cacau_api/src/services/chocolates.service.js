@@ -24,7 +24,26 @@ async function getChocolateById(id) {
   return chocolateFound;
 }
 
+async function brandIdExists(id) {
+  const dataFile = await readCacauFile();
+  const brandFound = dataFile.brands.find((brand) => brand.id === Number(id));
+
+  if (!brandFound) throw new NotFoundError('Brand ID not found');
+
+  return brandFound;
+}
+
+async function getChocolatesByBrandId(id) {
+  const dataFile = await readCacauFile();
+  const chocolatesFound = dataFile.chocolates.filter(
+    (chocolate) => chocolate.brandId === Number(id),
+  );
+  return chocolatesFound;
+}
+
 module.exports = {
   getAllChocolates,
   getChocolateById,
+  brandIdExists,
+  getChocolatesByBrandId,
 };

@@ -49,7 +49,7 @@ describe('Route Get /chocolates', () => {
           const endpoint = `/chocolates/brand/${brand}`;
           const response = await chai.request(app).get(endpoint);
           expect(response.status).to.be.equals(200);
-          expect(response.body.chocolates).to.be.equals(mockChocoByBrand[brand]);
+          expect(response.body.chocolates).to.be.deep.equal(mockChocoByBrand[brand]);
         }),
       );
     });

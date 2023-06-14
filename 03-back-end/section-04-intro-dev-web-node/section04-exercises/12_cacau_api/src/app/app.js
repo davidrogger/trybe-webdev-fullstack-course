@@ -1,10 +1,10 @@
 const express = require('express');
-const chocolatesRoute = require('../routes/chocolates');
+const chocolatesController = require('../controllers/chocolates.controllers');
 
 const app = express();
 
 app.use(express.json());
 
-app.use('/chocolates', chocolatesRoute);
+app.use('/chocolates', chocolatesController);
 
 module.exports = app;
