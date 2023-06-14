@@ -25,7 +25,9 @@ route.get('/search', async (req, res) => {
   try {
     const { name } = req.query;
     const chocolates = await chocolateService.getAllChocolatesIncludesName(name);
-    res.status(200).json({ chocolates });
+    const status = chocolates.length ? 200 : 404;
+
+    res.status(status).json({ chocolates });
   } catch (error) {
     res.status(error.status || 500).json({ message: error.message });
   }
