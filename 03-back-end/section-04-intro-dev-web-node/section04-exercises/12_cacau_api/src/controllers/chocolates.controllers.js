@@ -3,12 +3,12 @@ const chocolateService = require('../services/chocolates.service');
 
 const route = Router();
 
-route.get('/', async (_, res) => {
+route.get('/total', async (_, res) => {
   try {
-    const chocolates = await chocolateService.getAllChocolates();
-    res.status(200).json({ chocolates });
+    const total = await chocolateService.getTotalChocolates();
+    res.status(200).json({ total });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(error.status || 500).json({ message: error.message });
   }
 });
 
@@ -31,6 +31,15 @@ route.get('/brand/:id', async (req, res) => {
     res.status(200).json({ chocolates });
   } catch (error) {
     res.status(error.status || 500).json({ message: error.message });
+  }
+});
+
+route.get('/', async (_, res) => {
+  try {
+    const chocolates = await chocolateService.getAllChocolates();
+    res.status(200).json({ chocolates });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
 });
 
