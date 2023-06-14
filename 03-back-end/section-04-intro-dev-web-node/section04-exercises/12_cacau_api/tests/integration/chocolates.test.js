@@ -54,9 +54,19 @@ describe('Route Get /chocolates', () => {
       );
     });
     it('Should response 404 if the brand is not found', async () => {
+      const expectedMessage = 'Brand ID not found';
       const response = await chai.request(app).get('/chocolates/brand/10');
       expect(response.status).to.be.equals(404);
-      expect(response.body.message).to.be.equals('Brand ID not found');
+      expect(response.body.message).to.be.equals(expectedMessage);
+    });
+  });
+
+  describe('Route get /chocolates/total', () => {
+    it('Should return the total of type of chocolates recorded', async () => {
+      const totalExpected = 4;
+      const response = await chai.request(app).get('/chocolates/total');
+      expect(response.status).to.be.equals(200);
+      expect(response.body.total).to.be.equals(totalExpected);
     });
   });
 });
