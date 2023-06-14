@@ -6,7 +6,8 @@ const { expect } = chai;
 
 const sinon = require('sinon');
 const fs = require('fs');
-const { mockFile, mockChocoByBrand } = require('../mock/mock_chocolates');
+const { mockFile } = require('../mock/mock_chocolates');
+const expectedData = require('../expectedData/expected.variables');
 
 const app = require('../../src/app/app');
 
@@ -45,11 +46,11 @@ describe('Route Get /chocolates', () => {
       const brands = [1, 2];
 
       await Promise.all(
-        brands.map(async (brand) => {
-          const endpoint = `/chocolates/brand/${brand}`;
+        brands.map(async (brandId) => {
+          const endpoint = `/chocolates/brand/${brandId}`;
           const response = await chai.request(app).get(endpoint);
           expect(response.status).to.be.equals(200);
-          expect(response.body.chocolates).to.be.deep.equal(mockChocoByBrand[brand]);
+          expect(response.body.chocolates).to.be.deep.equal(expectedData.chocoByBrand[brandId]);
         }),
       );
     });
@@ -67,6 +68,12 @@ describe('Route Get /chocolates', () => {
       const response = await chai.request(app).get('/chocolates/total');
       expect(response.status).to.be.equals(200);
       expect(response.body.total).to.be.equals(totalExpected);
+    });
+  });
+
+  describe('Route get /chocolates/search', () => {
+    it('Should return the chocolates with the word typed', async () => {
+
     });
   });
 });
