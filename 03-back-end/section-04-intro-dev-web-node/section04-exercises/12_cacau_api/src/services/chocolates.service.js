@@ -46,10 +46,19 @@ async function getTotalChocolates() {
   return dataFile.chocolates.length;
 }
 
+async function getAllChocolatesIncludesName(name) {
+  const allChocolates = await getAllChocolates();
+  const nameStandardized = name.toLowerCase();
+  return allChocolates.filter(
+    (chocolate) => chocolate.name.toLowerCase().includes(nameStandardized),
+  );
+}
+
 module.exports = {
   getAllChocolates,
   getChocolateById,
   brandIdExists,
   getChocolatesByBrandId,
   getTotalChocolates,
+  getAllChocolatesIncludesName,
 };

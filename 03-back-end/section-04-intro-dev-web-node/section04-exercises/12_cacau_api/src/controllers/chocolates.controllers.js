@@ -21,6 +21,16 @@ route.get('/', async (_, res) => {
   }
 });
 
+route.get('/search', async (req, res) => {
+  try {
+    const { name } = req.query;
+    const chocolates = await chocolateService.getAllChocolatesIncludesName(name);
+    res.status(200).json({ chocolates });
+  } catch (error) {
+    res.status(error.status || 500).json({ message: error.message });
+  }
+});
+
 route.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
