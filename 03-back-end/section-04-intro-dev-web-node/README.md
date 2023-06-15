@@ -1031,7 +1031,8 @@ Esse tipo de erro pode acontecer ao fazer uma query para um banco, e ter várias
 
 Para que não seja necessário ter que criar estruturas try/catch sempre que formos utilizar códigos que eventuralmente podem disparar exceções podemos usar um pacote chamado express-rescue.
 
-# Pacote express-rescue
+# Pacotes middlewares de terceiros
+## Pacote express-rescue
 
 Está disponível no npm e nos ajuda com a tarefa de garantri que os erros sempre sejam tratados.
 Primeiro é necessário fazer a instalação `npm i express-rescue`
@@ -1058,6 +1059,47 @@ module.exports = (err, req, res, next) => {
 Foi convertido um erro de leitura de arquivo para um erro que o middleware de erros sabe formatar. Nos middlewares comuns precisamos nos preocupar apenas com o minho feliz, ao passo que nos middlewares de erro nos preocupamos apenas com o fluxo de erros.
 
 Também é utilizado um array para passar mais de um middleware para uma mesma rota. Poderia ser passado como parâmetro, mas um array deixa mais explícita a intenção de realmente utilizar vários middlewares em uma mesma rota.
+
+## express.json
+
+Sub dependencia usando o bodyParse, é usado para o uso do body em uma requisição, caso não seja usado esse middleware não é possível acessar o body.
+
+## express.static
+
+É um middle do express, para acessar diretamente um arquivo, que foi definido no caminho do static, um exemplo seria acessar diretamente uma imagem que está localizada em uma pasta na api;
+
+```
+const express = require('express');
+
+const app = express();
+
+app.use('/static', express.static('./caminho-da-imagem'));
+
+```
+
+Digamos que existe um arquivo na pasta public, que está relativamente uma pasta atrás do arquivo que está rodando a api e queremos acessar uma imagem chamada, imagem-teste.png;
+
+```
+app.use('/static', express.static('../public/imagem-teste.png'));
+```
+
+Ao realizar um get para o `endereço/public/imagem-teste.png`, no navegador, ele ja apresentará a imagem no navegador.
+
+## Logs com morgan
+
+Middleware para gerar logs da api. Onde é possivel personagem e gerar diversas forma de logs de acesso, até criar arquivos de log conforma a [documentação](https://www.npmjs.com/package/morgan) orienta.
+
+## Cross Origin RResource Sharing ([CORS](https://www.npmjs.com/package/cors))
+
+Middleware para restrição e permissão de recursos de páginas da web por outro dominio, permite definirmos qual dominio pode acessar a api, e libera esse tipo de acesso, por padrão o express, bloqueia o acesso.
+
+## [Helmet](https://github.com/helmetjs/helmet)
+
+Middlware de segurança, é uma coleção de várias funções menores que definem cabeçalhos de resposta HTTP relacionadas a segurança.
+
+# [express-rate-limit](https://github.com/express-rate-limit/express-rate-limit)
+
+Middleware para definir limites de requisiçoes, que ajudam a evitar uso excessivo das requisições, evitando até mesmo um ataque DoS/DDoS, 
 
 # Recursos adicionais
 # 4.1
