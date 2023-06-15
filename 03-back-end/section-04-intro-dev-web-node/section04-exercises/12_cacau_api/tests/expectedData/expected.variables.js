@@ -41,7 +41,14 @@ const chocoSearch = {
   ],
 };
 
+const chocoUpdated = {
+  id: 1,
+  name: 'Choquito',
+  brandId: 1,
+};
+
 module.exports = {
   chocoByBrand,
   chocoSearch,
+  chocoUpdated,
 };

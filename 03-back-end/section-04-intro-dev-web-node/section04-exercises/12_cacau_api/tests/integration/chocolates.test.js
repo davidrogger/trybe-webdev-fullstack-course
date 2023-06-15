@@ -91,4 +91,41 @@ describe('Route Get /chocolates', () => {
       expect(response.body.chocolates).to.be.deep.equal(emptyList);
     });
   });
+
+  describe('Route Put /chocolates/:id', () => {
+    it('Should return status 404 when the id is not found', async () => {
+      const messageExpected = 'Chocolate ID not found';
+      const response = await chai.request(app).put('/chocolate/20');
+      expect(response.status).to.be.equals(404);
+      expect(response.body.message).to.be.equal(messageExpected);
+    });
+    it('Should return status 400 when missing a required field', async () => {
+      const messageDefault = 'Missing required field';
+      const failRequests = [
+        {
+          missingField: 'name',
+          bodySent: { brandId: 1 },
+        },
+        {
+          missingField: 'brandId',
+          bodySent: { name: 'Choquito' },
+        },
+      ];
+      await Promise.all(
+        failRequests.map(async ({ missingField, bodySent }) => {
+          const response = await chai.request(app).put('/chocolate/1').send(bodySent);
+          expect(response.status).to.be.equals(400);
+          expect(response.body.message).to.be.equal(`${messageDefault} ${missingField}`);
+        }),
+      );
+    });
+    it('Should update the chocolate', async () => {
+      sinon.stub(fs.promises, 'writeFile').resolves();
+      const updateBody = { name: 'Choquito', brandId: 1 };
+      const response = await chai.request(app).put('/chocolate/1').send(updateBody);
+      expect(response.status).to.be.equals(200);
+      expect(response.body.chocolate).to.be.deep.equal(expectedData.chocoUpdated);
+      expect(fs.promises.writeFile.called).to.be.equal(true);
+    });
+  });
 });
