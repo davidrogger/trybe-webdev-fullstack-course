@@ -55,4 +55,20 @@ route.get('/brand/:id', async (req, res) => {
   }
 });
 
+route.put('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const chocolateFound = await chocolateService.getChocolateById(id);
+
+    const updatedData = await chocolateService.verifyChocolateBody(req.body);
+
+    const chocolate = await chocolateService.updateChocolateById(
+      { ...chocolateFound, ...updatedData },
+    );
+    res.status(200).json({ chocolate });
+  } catch (error) {
+    res.status(error.status || 500).json({ message: error.message });
+  }
+});
+
 module.exports = route;

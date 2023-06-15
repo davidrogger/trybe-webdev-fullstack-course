@@ -95,7 +95,7 @@ describe('Route Get /chocolates', () => {
   describe('Route Put /chocolates/:id', () => {
     it('Should return status 404 when the id is not found', async () => {
       const messageExpected = 'Chocolate ID not found';
-      const response = await chai.request(app).put('/chocolate/20');
+      const response = await chai.request(app).put('/chocolates/20');
       expect(response.status).to.be.equals(404);
       expect(response.body.message).to.be.equal(messageExpected);
     });
@@ -113,7 +113,7 @@ describe('Route Get /chocolates', () => {
       ];
       await Promise.all(
         failRequests.map(async ({ missingField, bodySent }) => {
-          const response = await chai.request(app).put('/chocolate/1').send(bodySent);
+          const response = await chai.request(app).put('/chocolates/1').send(bodySent);
           expect(response.status).to.be.equals(400);
           expect(response.body.message).to.be.equal(`${messageDefault} ${missingField}`);
         }),
@@ -122,7 +122,7 @@ describe('Route Get /chocolates', () => {
     it('Should update the chocolate', async () => {
       sinon.stub(fs.promises, 'writeFile').resolves();
       const updateBody = { name: 'Choquito', brandId: 1 };
-      const response = await chai.request(app).put('/chocolate/1').send(updateBody);
+      const response = await chai.request(app).put('/chocolates/1').send(updateBody);
       expect(response.status).to.be.equals(200);
       expect(response.body.chocolate).to.be.deep.equal(expectedData.chocoUpdated);
       expect(fs.promises.writeFile.called).to.be.equal(true);

@@ -1,6 +1,7 @@
 const fs = require('fs/promises');
 const { resolve } = require('path');
 const { NotFoundError } = require('../errors/NotFoundError');
+const { BadRequestError } = require('../errors/BadRequestError');
 
 const dataPath = resolve(__dirname, '../../db/cacau_store.json');
 
@@ -54,6 +55,24 @@ async function getAllChocolatesIncludesName(name) {
   );
 }
 
+async function verifyChocolateBody(body) {
+  const isNameFilled = !!body.name;
+  const isBrandIdFilled = !!body.brandId;
+  const defaultMessageError = 'Missing required field';
+  if (!isNameFilled) throw new BadRequestError(`${defaultMessageError} name`);
+  if (!isBrandIdFilled) throw new BadRequestError(`${defaultMessageError} brandId`);
+
+  return body;
+}
+
+async function updateChocolateById(chocolateUpdated) {
+  const chocolates = await getAllChocolates();
+  const chocolateIndex = chocolates.findIndex((chocolate) => chocolate.id === chocolateUpdated.id);
+  chocolates.splice(chocolateIndex, 1, chocolateUpdated);
+  await fs.writeFile(dataPath, chocolates);
+  return chocolateUpdated;
+}
+
 module.exports = {
   getAllChocolates,
   getChocolateById,
@@ -61,4 +80,6 @@ module.exports = {
   getChocolatesByBrandId,
   getTotalChocolates,
   getAllChocolatesIncludesName,
+  verifyChocolateBody,
+  updateChocolateById,
 };
