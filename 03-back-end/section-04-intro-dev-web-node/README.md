@@ -388,7 +388,397 @@ Entretanto, uma das vantagens de se usar o Express para construção de APIs é 
 
 Além disso, torna-se mais simples retornar um formato específico solicitado pelo cliente e retornar um status HTTP.
 
+#
 
+
+# API
+
+Application Programing Interface, interface de programação de aplicação, é qualquer coisa que permita a comunicação, de forma programática com uma determinada aplicação.
+São extremamente importantes nos dias de hoje, em que temos mútiplos clients se comunicando com o mesmo servidor.
+
+# ENDPOINT
+
+São como o proprio nome diz, o final do endereço que lidam com informações especificas, eles seguem recras;
+
+A-dress vem do endereço de onde ele está hospetadada
+B-inding como você vai poder acessar esse dado se é uma regra ou metodo.
+C-ontract é algo que você pode ver dado a requisição que foi feita. Exemplo: se você está fazendo uma requisição de produtos, você irá ter acesso aos produtos.
+
+AS API's seguem uma especificação podem ser Open API ou GRPC API.
+
+# Segurança
+
+Quando lidando com endpoint expostos é importante adesão de criptografia para os dados e certificação SSL(HTTPS) a certificação trás mais credibilidade para aplicação.
+
+# Express
+
+É um framework Node.js criado para facilitar a criação de APIs HTTP com Node. Ele foi construído pensando em um padrão de APIS chamado REST.
+Existem outras ferrametnas semelhantes no mercado, mas ele é pergamente adotado pela comunidade hoje, e seu lançamento foi no final de 2010 deixando ele mais maduro para o uso, e ele é um framework sem opinião, isso significa que ele não impõe um padrão de desenvolvimento na hora de escrever sua aplicação.
+
+Hoje ele faz parte do [Node.js Foundation](https://openjsf.org/) mostrando o quão relevante ele é para a comunidade.
+
+# Criando uma aplicação com Express
+```
+mkdir hello-express
+cd hello-express
+npm init -y
+```
+
+instalando: `npm i express`
+
+Criando um arquivo js na sequencia.
+
+# Nodemon
+
+Para facilitar o fluxo de desenvolvimento usamos o Nodemon, que reinicia a aplicação toda vez que editarmos e salvamos os nossos arquivos. Para utilizar esse pacote, vamos começar instalando ele.
+
+`npm i nodemon -D`
+
+Após instalar devemos adicionar o uso do node no script do package.json
+```
+//...
+// "scripts": {
+//    "test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "nodemon index.js"
+//  },
+// ...
+```
+
+Ele não deve ser utilizado para rodar a aplicação para o usuário final, por reiniciar toda hora que o arquivo sofre alguma alteração, deve-se usar como `node index.js`.
+
+# Roteamento
+
+O aspecto mais básico de uma API HTTP se dá através de suas rotas, também chamadas de endpoints. Uma rota ou endpoint é definida pelo método HTTP e caminho.
+
+No express. uma rota é registrada utilizando a assinatura app.METODO(caminho, callback), onde a função de callback recebe três parâmetros: request, response e next.
+
+- request: geralmetne chamado de req, contém as informações enviadas pelo cliente ao servidor;
+- next: função que diz para o Express que aquela callback terminou de ser executada, e que ele deve prosseguir para executar a próxima callback para aquela rota. Este parâmetro é opcional.
+```
+const express = require('express');
+const app = express();
+
+/* Rota com caminho '/', utilizando o método GET */
+app.get('/', function (req, res) {
+  res.send('Hello World!');
+});
+
+/* Rota com caminho '/', utilizando o método POST */
+app.post('/', function (req, res) {
+  res.send('Hello World!');
+});
+
+/* Rota com caminho '/', utilizando o método PUT */
+app.put('/', function (req, res) {
+  res.send('Hello World!');
+});
+
+/* Rota com caminho '/', utilizando o método DELETE */
+app.delete('/', function (req, res) {
+  res.send('Hello World!');
+});
+
+/* Rota com caminho '/' para qualquer método HTTP */
+app.all('/', function (req, res) {
+  res.send('Hello World!');
+});
+
+/* Ou podemos encadear as requisições para evitar repetir o caminho */
+app
+  .route('/')
+  .get(function (req, res) {
+		// Requisições para rota GET `/` são resolvidas aqui!
+    res.send('Hello World! Get');
+  })
+  .post(function (req, res) {
+		// Requisições para rota POST `/` são resolvidas aqui!
+    res.send('Hello World! post');
+  });
+
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!');
+});
+```
+
+# Estruturando uma API
+
+Ao invés de utilizar o método .send, vamos usar o json, ja que o send consegue retornar a resposta de uma requisição de uma forma genérica, adaptando o tipo do retorno ao que será retornado, para deixar mais evidente o que vai ser devolvido é usado o .json.
+```
+const express = require('express');
+
+const app = express();
+
+const recipes = [
+  { id: 1, name: 'Lasanha', price: 40.0, waitTime: 30 },
+  { id: 2, name: 'Macarrão a Bolonhesa', price: 35.0, waitTime: 25 },
+  { id: 3, name: 'Macarrão com molho branco', price: 35.0, waitTime: 25 },
+];
+
+app.get('/recipes', (req, res) => {
+  res.json(recipes);
+});
+
+app.listen(3001, () => {
+  console.log('Aplicação ouvindo na porta 3001');
+});
+```
+
+Para uma aplicação back-end receber requisições de uma aplicação front-end, ou qualquer outra aplicação, é precisa instalar um módulo que libera o acesso da nossa API para outras aplicações. Para isso basta instalar um módulo chamado cors usando npm i cors e adicionar as seguintes linhas no seu arquivo index.js
+```
+// const express = require('express');
+// const app = express();
+const cors = require('cors');
+
+app.use(cors());
+```
+
+# Parâmetros de rota
+
+Caso precisemos acessar objetos específicos, o Express tem alguns recursos que vaibilizam passar informações para além da rota que você deseja buscar.
+Páginas seguindo o mesmo template com informações diferentes são um exemplo de uso de parâmetro de rota, seguindo o padrão http://<site>/noticias/489 ou http://<site>/pedidos/713.
+Para facilitar o processo é utilizado parâmetros de rota, que no express, podem ser definidos assim: </rota>/<:parametro> onde :parametro vai servir para qualquer valor que vier na URL com aquele prefixo.
+
+No caso da API de receitas, pode-se montar uma rota que recebe o id como parâmetro:
+```
+// const express = require('express');
+// const app = express();
+//
+// const recipes = [
+//   { id: 1, name: 'Lasanha', price: 40.0, waitTime: 30 },
+//   { id: 2, name: 'Macarrão a Bolonhesa', price: 35.0, waitTime: 25 },
+//   { id: 3, name: 'Macarrão com molho branco', price: 35.0, waitTime: 25 },
+// ];
+//
+// app.get('/recipes', function (req, res) {
+// 	res.json(recipes);
+// });
+
+app.get('/recipes/:id', function (req, res) {
+  const { id } = req.params;
+  const recipe = recipes.find((r) => r.id === Number(id));
+
+  if (!recipe) return res.status(404).json({ message: 'Recipe not found!'});
+
+  res.status(200).json(recipe);
+});
+
+// app.listen(3001, () => {
+//   console.log('Aplicação ouvindo na porta 3001');
+// });
+```
+
+No código acima, o que fizemos foi adicionar uma rota /recipes/:id
+Qualquer rota que chegar nesse formato, independentemente do id ser um número ou string, vai cair na segunda rota (ao invés de cair na rota /recipes definida no tópico anterior).
+Para cessar o valor do parâmetro evniado na URL é feita a desestruturação do atributo id do objeto req.params. Note que o objeto req traz informações a respeito da requisição. É importante que o nome do parâmetro noemado na rota seja igual ao atributo que você está desestruturando. Por exemplo, se na definição da rota estivesse escrito /recipes/:nome teríamos que usar const { nome } = req.params.
+
+# Query String
+
+É usado em funcionalidades de pesquisa, quando se utiliza além da barra de pesquisa, filtros avançados para definir o preço máximo, marca e outras classificações em e-commerces.
+```
+// ...
+
+app.get('/recipes/search', function (req, res) {
+  const { name } = req.query;
+  const filteredRecipes = recipes.filter((r) => r.name.includes(name));
+  res.status(200).json(filteredRecipes);
+});
+
+
+// app.get('/recipes/:id', function (req, res) {
+// 	const { id } = req.params;
+// 	const recipe = recipes.find((r) => r.id === Number(id));
+//  if (!recipe) return res.status(404).json({ message: 'Recipe not found!'});
+//
+//  res.status(200).send(recipe);
+// });
+
+// ...
+```
+
+A rota ficou apenas com o prefixo /recipes/search, já que os parâmetros enviados via query string não dependem desse prefixo e sim das informações que vem após o uso da ? na URL. é importante entender que é possível colocar na URL quantos parâmetros forem necessários, desde que eles sigam o formato <chave>=valor e que entre cada parâmetro exista o & para definir que ali está sendo passado um novo parâmetro.
+
+Quando houver rotas com um mesmo radical e uma dela tuilizar parâmetro de rota, as rotas mais específicas sempre devem ser definidas antes. Isso por que ao resolver uma rota, o Express verifica rota por rota qual corresponde à URL que chegou. Se a rota for /recipessearch depois da rota /recipes/:id, o Express vai entender a palavra search como um id e vai chamar a callback da rota /recipes/:id.
+
+Agora dicionando a possibilidade de filtro pelo preço:
+```
+// ...
+
+app.get('/recipes/search', function (req, res) {
+	const { name, maxPrice } = req.query;
+	const filteredRecipes = recipes.filter((r) => r.name.includes(name) && r.price < Number(maxPrice));
+	res.status(200).json(filteredRecipes);
+})
+
+// ...
+```
+
+Não foi preciso alterar a definição da rota, apenas foi feita uma alteração no código da callback para desestruturar também o atributo maxPrice do objeto req.query. Além disso, foi adicionado uma condição na chamada da função filter para filtrar os objetos pelo nome e pelo valor do atributo maxPrice enviado na requisição.
+
+# Recebendo dados no body da requisição
+
+Como visto é possível receber dados da URL via query string, porém em casos de dados sensíveis como uma senha ou número de algum documento importante, enviado via URL qualquer pessoa que conseguir espiar o tráfego da rede entre o cliente o servidor vai ter acesso a essa informação. Uma forma que o protocolo HTTP encontrou para resolver isso foi criando o tráfego atraves do corpo da requisição, onde o que acontece é uma compressão dos dados enviados que só serão descomprimidos do lado do back-end. Além de não deixar as informações trafegadas tão exposta, isso deixa a requisição um pouco mais rápida, ja que ocorre um processo de serialização dos dados enviados. Porém para enviar dados no body da requisição, geralmetne você precisa usar algum tipo especifico de requisição, como o verbo HTTP POST.
+
+Para isso é necessário instalar o pacote bodyParse. Para conseguir remontar os dados enviados precisamos parsear as informações para um formato compreensível para o back-end, esse formato é o JSON.
+```
+npm i body-parser
+```
+
+No express, é possível ter rotas com o mesmo caminho desde que o método (ou verbo) HTTP utilizado seja diferente, na outra rota foi definido o que acontece para o método GET.
+
+Por padrão as requisições são feitas no navegador ou no fetch como GET, para modificar o fetch seria necessario um segundo parâmetro de um objeto passando as configurações de method, headers, body.
+
+Exemplo:
+```
+fetch(`http://localhost:3001/recipes/`, {
+  method: 'POST',
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    id: 4,
+    name: 'Macarrão com Frango',
+    price: 30
+  })
+});
+```
+
+- method: Método HTTP utilizado. Existem 4 que são mais utilizados (GET, POST, PUT e DELETE);
+
+- headers: Define algumas informações sobre a requisição como o atributo Accept que diz qual o tipo de dado esperado como resposta dessa requisição e o Content-Type que sinaliza que no corpo da requisição está sendo enviado um JSON;
+
+- body: É o corpo da requisição. Como no HTTP só é possível trafegar texto, é necessário transformar o objeto JavaScript que você quer enviar para uma string JSON. Por isso que o lado do back-end é necessário utilizar o body Parser para transformar as informações que foram trafegadas como string JSON, de volta para um objeto Javascript.
+
+Não é possível fazer requisiçoes POST diretamente pelo navegador como foi feito para requisição para rota GET / recipes.
+Por isso deve-se usar aplicações como o Insomnia ou Postman para fazer requisições de qualquer tipo diferente do GET.
+
+Usando o HTTPie para exemplificar a inserção de um item ao array da nossa API
+```
+http POST :3001/recipes id:=4 name='Macarrão com Frango' price:=30 // execute apenas essa linha!
+> HTTP/1.1 201 Created
+> Connection: keep-alive
+> Content-Length: 32
+> Content-Type: application/json; charset=utf-8
+> Date: Sat, 21 Aug 2021 19:26:46 GMT
+> ETag: W/"20-bnfMbzwQ0XaOf5RuS+0mkUwjAeU"
+> Keep-Alive: timeout=5
+> X-Powered-By: Express
+>
+> {
+>     "message": "Recipe created successfully!"
+> }
+```
+
+Nos campos id e price foi utilizado := enquanto em name apenas =, Isso acontece pois o operador = envia os dados como string, enquanto com := o dado é enviado como número.
+Como no exemplo é uma lista de receitas através de um array, sempre que a aplicação é reiniciada, o array volta ao formato original, com os 3 objetos definidos direto no código. Por tanto, caso as receitas que foram inseridas sumam repentinamente da listagem, provavelmente foi por isso, os dados estão armazenados em memória.
+```
+// ...
+
+app.post('/recipes', function (req, res) {
+	const { id, name, price } = req.body;
+	recipes.push({ id, name, price});
+	res.status(201).json({ message: 'Recipe created successfully!'});
+});
+
+// ...
+```
+
+Na primeira linha os atributos id, name e price foram desestruturados do objeto req.body para que, na segunda linha, esses valores sejam utilizados para inserir um novo objeto dentro do array receitas.
+Na terceira e ultima linha, a resposta foi retornada como status 201, que serve para sinalizar que ocorreu uma operação de persistência de uma informação e um json com o atributo message. Pronto, agora você tem uma rota que permite cadastrar novas receitas no array.
+
+## Headers
+
+Assim como é possível enviar informações no **body** da requisição, também é possível enviar informações no **header** da mesma. Imagine que você precisa ter uma rota que recebe um token para ser validada, a regra de validação é checar se o token possui 16 caracteres:
+```
+// ...
+
+app.get('/validateToken', function (req, res) {
+  const token = req.headers.authorization;
+  if (token.length !== 16) return res.status(401).json({message: 'Invalid Token!'})';
+
+  res.status(200).json({message: 'Valid Token!'})'
+});
+
+// ...
+```
+
+Exemplo usando HTTPie para fazer uma requisição enviando informações no headers:
+```
+http :3001/validateToken Authorization:abc # vai devolver token inválido
+http :3001/validateToken Authorization:S6xEzQUTypw4aj5A # vai devolver token válido
+```
+
+# Atualizando e deletando objetos através da API
+
+Métodos PUT e DELETE ditam e removem objetos. O express tem métodos específicos para definir rotas para esses dois verbos.
+
+## PUT
+```
+// ...
+
+app.put('/recipes/:id', function (req, res) {
+  const { id } = req.params;
+  const { name, price } = req.body;
+  const recipeIndex = recipes.findIndex((r) => r.id === Number(id));
+
+  if (recipeIndex === -1) return res.status(404).json({ message: 'Recipe not found!' });
+
+  recipes[recipeIndex] = { ...recipes[recipeIndex], name, price };
+
+  res.status(204).end();
+});
+// ...
+```
+
+No frond-end, para fazer requisições do tipo PUT e DELETE através do fetch api:
+```
+// Requisição do tipo PUT
+fetch(`http://localhost:3001/recipes/2`, {
+  method: 'PUT',
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    name: 'Macarrão ao alho e óleo',
+    price: 40
+  })
+});
+
+// Requisição do tipo DELETE
+fetch(`http://localhost:3001/recipes/4`, {
+  method: 'DELETE',
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  }
+});
+```
+
+Quando se é feita uma requisição para uma rota que não existe por padrão o Express retorna a seguinte linha:
+```
+http GET :3001/xablau
+> <!DOCTYPE html>
+> <html lang="en">
+> <head>
+> <meta charset="utf-8">
+> <title>Error</title>
+> </head>
+> <body>
+> <pre>Cannot GET /xablau</pre>
+> </body>
+> </html>
+```
+
+Porém ela não é intuitiva para identificar que aquela rota não existe, para retornar uma resposta mais intuitiva é interessante usar o médoto app.all:
+```
+//...
+app.all('*', function (req, res) {
+	return res.status(404).json({ message: `Rota '${req.path}' não existe!`});
+});
+
+app.listen(3001);
+```
 #
 
 
@@ -513,7 +903,161 @@ sinon.stub(fs, 'readFileSync')
 
 É necessario importar o módulo fs e então farmos para o sinon criar um stub para a função readFileSync, que retornará "Valor a ser retornado", conforme especificado no returns.
 
+#
 
+# Middlewares
+
+No express qualquer função passada para uma rota é um middleware, seja de forma direita ou indireta.
+
+Middleware são funções que realizam o tratamento de uma request e que pode encerrar essa request ou chamar o próximo middleware.
+Essas funções recebem três parâmetros, req, res e next. Eles podem retornar qualquer coisa, incluindo promises, o express ignora o retorno dos middlewares, visto que o importante é se aquele middleware chamou ou não um método que encerra a request, ou a função next.
+
+# Middlewares globais com app.use
+
+Usado quando precisamos reaproveitar um middleware para todas as rotas da aplicação.
+Exemplo, quando vamos criar uma forma de autenticar se um determinado usuário pode ter acesso à nossa API de receitas. Para isso, será necessário enviar as informações de nome de usuário e senha pelo Header da requisição.
+
+## Passando valores entre middlewares com objeto req
+
+Middlewares também podem modificar o objeto req, e essas modificações serão recebidas pelos próximos middlewares caso next seja chamado. Geralmetne utilizamos isso para propagar informações de um middleware para o outro.
+
+# Pacotes que são middlewares
+
+Existem pacotes que nos fornecem ferrametnas necessárias para o desenvolvimento de nossa aplicações. Um exemplo disso é o módulo body-parser. Ele é um middleware que lê o corpo da request, cria nela uma propriedade body e coloca o contúdo do corpo lá. Para utiliza-lo e ter acesso às informações do corpo da request, só precisamos instalá-lo.
+A função json() utilizada diz ao body parse que queremos um middleware que processe corpos de requisições escritos em JSON. Se executarmos API e fizermos uma requisição do tipo POST, conseguiremos ter acesso aos valores evnaidos no body da requisição. Porém se tirarmos o uso deste middleware, as requisições do tipo POST não conseguem processar os dados enviados no body da requisição.
+
+# Visualizando o conteúdo das requisições no Console
+
+É comum ter dificuldade para visualizar o que está sendo feito por cada endpoint em cada requisição.
+Para resolver esse problema, é possível adicionar um middleware que imprimirá no console as informações recebidas no parâmetro req.
+```
+app.use((req, _res, next) => {
+  console.log('req.method:', req.method);
+  console.log('req.path:', req.path);
+  console.log('req.params:', req.params);
+  console.log('req.query:', req.query);
+  console.log('req.headers:', req.headers);
+  console.log('req.body:', req.body);
+  next();
+});
+```
+
+Sempre que uma requisição http for executada, o middleware criado imprimirá no console as informações contidas no parâmetro req. Lembrando que isso só afetará as rotas que forem declaradas abaixo da definição do app.use.
+
+# Router middleware
+
+É um middleware que agrupa várias rotas em um mesmo lugar, como se fosse uma versão mini do app do Express. Ele é depois "plugado" no "app principal".
+
+Analise o arquivo index.js na src
+
+O uso de mais de um parâmetro na chamada à função app.use. Isso diz ao Express que queremos que aquele middleware (no caso o router) seja executado para qualquer rota que comece com aquele caminho, evitando a repetição de nomes, por isso é definido router.get('/:id) o caminho acessado seria o "recipes/:id".
+
+Routers suportam que qualquer tipo de middleware seja registrado. Se tivermos vários endpoints com autenticação e vários endpoints abertos, podemos criar um router, e registrar nele nosso middleware de autenticação, bem como todas as rotas que precisam ser autenticadas, registrando as rotas abertas diretamente no app.
+```
+/* recipesRouter.js */
+// const express = require('express');
+// const router = express.Router();
+
+const authMiddleware = require('./auth-middleware');
+router.use(authMiddleware);
+
+// ...
+
+// module.exports = router;
+```
+```
+/* index.js */
+// const express = require('express');
+// const bodyParser = require('body-parser');
+const authMiddleware = require('./auth-middleware');
+
+// const app = express();
+// app.use(bodyParser.json());
+
+// Esta rota não passa pelo middleware de autenticação!
+app.get('/open', function (req, res) {
+	res.send('open!')
+});
+
+// Esta rota passa pelo middleware de autenticação!
+app.get('/fechado', authMiddleware, function (req, res) {
+	res.send('closed!')
+});
+
+const recipesRouter = require('./recipesRouter');
+
+/* Todas as rotas com /recipes/<alguma-coisa> entram aqui e vão para o roteador. */
+app.use('/recipes', recipesRouter);
+
+// app.all('*', function (req, res) {
+// 	return res.status(404).json({ message: `Rota '${req.path}' não existe!`});
+// });
+
+
+// app.listen(3001, () => { console.log('Ouvindo na porta 3001'); });
+```
+
+# Lidando com erros
+
+A diferença de um middle ware de erro para um middleware comum é que a assinatura dele recebe quatro parâmetros em vez de três, `function (err, req, res, next) {}`
+
+O express utiliza a quantidade de parâmetros que uma função recebe para determinar se ela é um middleware de erro ou um middleware comum. Mesmo não utilizando os parâmetros de req, res ou next, o middleware de erro precisa recebê-los, pode ser adicionado um underline no começo do nome do parâmetro para indicar que ele não recebe nada. Isso é uma boa prática e sinaliza para quem está lendo o código que aquele parâmetro não é utilizado. `function (err, _req, _res, _next)`.
+
+Também é possível encadear middlewares de erro, no mesmo esquema dos outros middlewares, simplesmente colocando-os na sequência em que devem ser executados:
+```
+app.use(function logErrors(err, req, res, next) {
+  console.error(err.stack);
+  /* passa o erro para o próximo middleware */
+  next(err);
+});
+
+app.use(function (err, req, res, next) {
+  res.status(500);
+  res.json({ error: err });
+});
+```
+
+Usando o next(err) indica ao express que ele não deve continuar executando nenhum middleware ou rota que não seja de erro. Quando passamos qualquer parâmetro para o next, o Express entende que é um erro e deixa de executar middlewares comuns, passando a execução para o próximo middleware de erro registrado para aquela rota, router ou aplicação.
+
+Esse detalhe é importante, pois se um erro acontece dentro de um rota ou middleware e nós não o capturamos e o passamos para a função next, os middlewares de erro não serão chamados para tratar aquele erro. Fazendo noss API ficar sem responder aquela requisição.
+
+Sempre realize tratamento de erros nas suas rotas e middlewares, passando o erro para a função next, caso necessário.
+
+Um exemplo onde o erro fica "flutuando" e não existe resposta do servidor é quando utilizamos um middleware async. Como o Express não faz .catch na promise retornada pelo middleware, ele não sabe que ocorreu um erro, a não ser que nós capturemos esse erro e o passemos para a função next.
+
+O parâmetro passado para a função next, sempre é um indicador que ele vai redirecionar para o middleware de erro, e não para passar um objeto qualquer entre dois middlewares.
+
+Esse tipo de erro pode acontecer ao fazer uma query para um banco, e ter várias possíveis falhas, como o banco não estar respondendo, queries escritas erradas, as credenciais estarem erradas.
+
+Para que não seja necessário ter que criar estruturas try/catch sempre que formos utilizar códigos que eventuralmente podem disparar exceções podemos usar um pacote chamado express-rescue.
+
+# Pacote express-rescue
+
+Está disponível no npm e nos ajuda com a tarefa de garantri que os erros sempre sejam tratados.
+Primeiro é necessário fazer a instalação `npm i express-rescue`
+
+Para adicionar o express-rescue, basta passarmos o nosso middleware como parâmetro para a função rescue que foi importada. Essa função vai gerar um novo moddleware que vai fazer o tratamento de erros da middleware sem precisamor escrver o try/catch.
+
+Ele simplesmente executa nosso middleware original dentro de um bloco de try/catch, caso ocorra qualquer erro, dando fluxo ao erro do express.
+
+O uso correto do middleware de erro, possibilita centralizar o tratamento de erros da aplicação em partes específicas dela. Isso facilita a construção dos middlewares de rotas, pois você não precisa ficar tratando erros em todos os middlewares. Se algo der errado em qualquer rota que estiver envelopada pelo express-rescue, esse erro vai ser tratado pelo middleware de erros mais próximo.
+
+É muito comum ter um middleware de erro genérico, e outros middlewares que convertem erros para esse formato genérico:
+```
+/* errorMiddleware.js */
+
+module.exports = (err, req, res, next) => {
+  if (err.code && err.status) {
+    return res.status(err.status).json({ message: err.message, code: err.code });
+  }
+
+  return res.status(500).json({ message: err.message });
+}
+```
+
+Foi convertido um erro de leitura de arquivo para um erro que o middleware de erros sabe formatar. Nos middlewares comuns precisamos nos preocupar apenas com o minho feliz, ao passo que nos middlewares de erro nos preocupamos apenas com o fluxo de erros.
+
+Também é utilizado um array para passar mais de um middleware para uma mesma rota. Poderia ser passado como parâmetro, mas um array deixa mais explícita a intenção de realmente utilizar vários middlewares em uma mesma rota.
 
 # Recursos adicionais
 # 4.1
@@ -542,7 +1086,7 @@ sinon.stub(fs, 'readFileSync')
 [O que é API REST - Red Hat](https://www.redhat.com/pt-br/topics/api/what-is-a-rest-api)
 [REST no glossário - MDN Web Docs](https://developer.mozilla.org/pt-BR/docs/Glossary/REST)
 
-# 22.3
+# 4.3
 
 - [Artigo Test Doubles](https://medium.com/rd-shipit/test-doubles-mocks-stubs-fakes-spies-e-dummies-a5cdafcd0daf)
 - [Vídeo: TDD Test Driven Development](https://www.youtube.com/watch?v=bLdEypr2e-8)
