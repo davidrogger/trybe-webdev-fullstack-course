@@ -35,7 +35,7 @@ describe('Testing route /activites', () => {
       expect(fs.promises.writeFile.calledOnce).to.be.equal(true);
     });
   });
-  describe('Requesting a new post active fail', () => {
+  describe('Bad request a new post activity', () => {
     describe('Name field is required and need to have at least 4 characters:', () => {
       it('Should return status 400 with a message "Name field is required"', async () => {
         const { status, body } = await chai
@@ -45,7 +45,7 @@ describe('Testing route /activites', () => {
       });
       it('Should return status 400 with a message "Name need at least 4 characters"', async () => {
         const { status, body } = await chai
-          .request(app).post(activityRoute).send(request.POST.missingNameBodyTest);
+          .request(app).post(activityRoute).send(request.POST.badNameBodyTest);
         expect(status).to.be.equal(http.BAD_REQUEST);
         expect(body.message).to.be.equal('Name need at least 4 characters');
       });
