@@ -13,21 +13,42 @@ const { expect } = chai;
 
 const app = require('../../src/app/app');
 
+const activityRoute = '/activities';
+
 describe('Testing route /activites', () => {
   beforeEach(() => {
     sinon.stub(fs.promises, 'writeFile').resolves();
   });
   afterEach(() => sinon.restore());
-  describe('When requesting a new post active successfully', () => {
+  describe('Requesting a new post active successfully', () => {
     it('Should respond status 201 with a message "Activity successfully recorded".', async () => {
-      const response = await chai.request(app).post('/activities').send(request.POST.newActivityBodyTest);
-      expect(response.status).to.be.equal(http.CREATED);
-      expect(response.body.message).to.be.equal(expected.message.createdOK);
+      const { status, body } = await chai
+        .request(app).post(activityRoute).send(request.POST.newActivityBodyTest);
+
+      expect(status).to.be.equal(http.CREATED);
+      expect(body.message).to.be.equal(expected.message.createdOK);
     });
     it('Should save the activity in the json file".', async () => {
-      await chai.request(app).post('/activities').send(request.POST.newActivityBodyTest);
+      await chai
+        .request(app).post(activityRoute).send(request.POST.newActivityBodyTest);
+
       expect(fs.promises.writeFile.calledOnce).to.be.equal(true);
     });
   });
-  describe('When requesting a new post active fail', () => {});
+  describe('Requesting a new post active fail', () => {
+    describe('Name field is required and need to have at least 4 characters:', () => {
+      it('Should return status 400 with a message "Name field is required"', async () => {
+        const { status, body } = await chai
+          .request(app).post(activityRoute).send(request.POST.missingNameBodyTest);
+        expect(status).to.be.equal(http.BAD_REQUEST);
+        expect(body.message).to.be.equal('Name field is required');
+      });
+      it('Should return status 400 with a message "Name need at least 4 characters"', async () => {
+        const { status, body } = await chai
+          .request(app).post(activityRoute).send(request.POST.missingNameBodyTest);
+        expect(status).to.be.equal(http.BAD_REQUEST);
+        expect(body.message).to.be.equal('Name need at least 4 characters');
+      });
+    });
+  });
 });
