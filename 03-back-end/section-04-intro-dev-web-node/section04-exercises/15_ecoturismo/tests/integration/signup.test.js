@@ -11,7 +11,7 @@ const {
 
 const signupRoute = '/signup';
 
-describe('Testing route /signup', () => {
+describe.only('Testing route /signup', () => {
   beforeEach(() => {
     sinon.stub(fs.promises, 'readFile').resolves(JSON.stringify(mockData));
   });
