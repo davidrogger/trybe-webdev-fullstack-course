@@ -66,6 +66,67 @@ describe('Testing route /activites', () => {
       });
     });
 
-    describe('"Description" field is required and need other 3 fields that are required as well', () => {});
+    describe('"Description" field is required', () => {
+      it('Should return status 400 with a message "Description field is required"', async () => {
+        const { status, body } = await chai
+          .request(app).post(activityRoute).send(request.POST.missingDescriptionBodyTest);
+        expect(status).to.be.equal(http.BAD_REQUEST);
+        expect(body.message).to.be.equal('Description field is required');
+      });
+    });
+
+    describe('Fields required in "description" field, "createdAt", "rating" and "difficulty"', () => {
+      describe('"createdAt" is required and need to have a format dd/mm/yyyy', () => {
+        it('Should return status 400 with a message ""createdAt" field is required in "description""', async () => {
+          const { status, body } = await chai
+            .request(app).post(activityRoute).send(request.POST.missingCreatedAtBodyTest);
+          expect(status).to.be.equal(http.BAD_REQUEST);
+          expect(body.message).to.be.equal('"createdAt" field is required in "description"');
+        });
+        it('Should return status 400 with a message ""createdAt" field need to have a format dd/mm/yyyy"', async () => {
+          const { status, body } = await chai
+            .request(app).post(activityRoute).send(request.POST.badCreatedAtBodyTest);
+          expect(status).to.be.equal(http.BAD_REQUEST);
+          expect(body.message).to.be.equal('""createdAt" field need to have a format dd/mm/yyyy"');
+        });
+      });
+      describe('"rating" is required and need to be a number between 1 and 5', () => {
+        it('Should return status 400 with a message ""rating" field is required"', async () => {
+          const { status, body } = await chai
+            .request(app).post(activityRoute).send(request.POST.missingRatingBodyTest);
+          expect(status).to.be.equal(http.BAD_REQUEST);
+          expect(body.message).to.be.equal('"rating" field is required');
+        });
+        it('Should return status 400 with a message ""rating" should be a number between 1 and 5"', async () => {
+          const { badNumber, badString } = {
+            badNumber: { ...request.POST.badRatingNumberBodyTest },
+            badString: { ...request.POST.badRatingStringBodyTest },
+          };
+
+          await Promise.all(
+            [badNumber, badString].map(async (requestBodyTest) => {
+              const { status, body } = await chai
+                .request(app).post(activityRoute).send(requestBodyTest);
+              expect(status).to.be.equal(http.BAD_REQUEST);
+              expect(body.message).to.be.equal('"rating" should be a number between 1 and 5"');
+            }),
+          );
+        });
+      });
+      describe('"difficulty" is required and need to be "Easy", "Medium" or "Hard"', () => {
+        it('Should return status 400 with a message ""difficulty" field is required"', async () => {
+          const { status, body } = await chai
+            .request(app).post(activityRoute).send(request.POST.missingDifficultyBodyTest);
+          expect(status).to.be.equal(http.BAD_REQUEST);
+          expect(body.message).to.be.equal('"difficulty" field is required');
+        });
+        it('Should return status 400 with a message ""difficulty" should be "Easy", "Medium" or "Hard"', async () => {
+          const { status, body } = await chai
+            .request(app).post(activityRoute).send(request.POST.badDifficultyBodyTest);
+          expect(status).to.be.equal(http.BAD_REQUEST);
+          expect(body.message).to.be.equal('"difficulty" should be "Easy", "Medium" or "Hard"');
+        });
+      });
+    });
   });
 });
