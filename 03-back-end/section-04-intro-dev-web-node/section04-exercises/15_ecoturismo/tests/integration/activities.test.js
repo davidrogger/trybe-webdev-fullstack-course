@@ -83,11 +83,11 @@ describe('Testing route /activites', () => {
           expect(status).to.be.equal(http.BAD_REQUEST);
           expect(body.message).to.be.equal('"createdAt" field is required in "description"');
         });
-        it('Should return status 400 with a message ""createdAt" field need to have a format dd/mm/yyyy"', async () => {
+        it('Should return status 400 with a message ""createdAt" field need to be dd/mm/yyyy"', async () => {
           const { status, body } = await chai
             .request(app).post(activityRoute).send(request.POST.badCreatedAtBodyTest);
           expect(status).to.be.equal(http.BAD_REQUEST);
-          expect(body.message).to.be.equal('""createdAt" field need to have a format dd/mm/yyyy"');
+          expect(body.message).to.be.equal('"createdAt" field need to be dd/mm/yyyy"');
         });
       });
       describe('"rating" is required and need to be a number between 1 and 5', () => {
@@ -108,7 +108,7 @@ describe('Testing route /activites', () => {
               const { status, body } = await chai
                 .request(app).post(activityRoute).send(requestBodyTest);
               expect(status).to.be.equal(http.BAD_REQUEST);
-              expect(body.message).to.be.equal('"rating" should be a number between 1 and 5"');
+              expect(body.message).to.be.equal('rating" should be a number between 1 and 5');
             }),
           );
         });

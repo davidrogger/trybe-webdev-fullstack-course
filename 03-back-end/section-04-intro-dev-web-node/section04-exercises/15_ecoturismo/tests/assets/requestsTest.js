@@ -4,7 +4,7 @@ const POST = {
     price: 0,
     description: {
       rating: 5,
-      difficulty: 'Fácil',
+      difficulty: 'Easy',
       createdAt: '10/08/2022',
     },
   },
@@ -58,7 +58,7 @@ const POST = {
     name: 'Teste',
     price: 0,
     description: {
-      rating: 1,
+      rating: 2,
       difficulty: 'Fácil',
       createdAt: '10-08-2022',
     },
@@ -82,7 +82,7 @@ const POST = {
   },
   badRatingStringBodyTest: {
     name: 'Teste',
-    price: 'teste',
+    price: 0,
     description: {
       rating: 'teste',
       difficulty: 'Fácil',
@@ -93,7 +93,7 @@ const POST = {
     name: 'Teste',
     price: 0,
     description: {
-      rating: 1,
+      rating: 3,
       createdAt: '10/08/2022',
     },
   },
@@ -101,7 +101,7 @@ const POST = {
     name: 'Teste',
     price: 0,
     description: {
-      rating: 1,
+      rating: 4,
       difficulty: 'teste',
       createdAt: '10/08/2022',
     },
