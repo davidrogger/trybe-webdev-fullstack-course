@@ -29,6 +29,14 @@ function verifyPrice(req, _res, next) {
   next();
 }
 
-requiredValidations.use([verifyName, verifyPrice]);
+function verifyDescription(req, _res, next) {
+  const { description } = req.body;
+
+  if (isUndefined(description)) throw new BadRequestError('"description" field is required');
+
+  next();
+}
+
+requiredValidations.use([verifyName, verifyPrice, verifyDescription]);
 
 module.exports = requiredValidations;

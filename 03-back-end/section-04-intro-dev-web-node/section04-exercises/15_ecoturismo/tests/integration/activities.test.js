@@ -67,11 +67,11 @@ describe('Testing route /activites', () => {
     });
 
     describe('"Description" field is required', () => {
-      it('Should return status 400 with a message "Description field is required"', async () => {
+      it('Should return status 400 with a message ""description" field is required"', async () => {
         const { status, body } = await chai
           .request(app).post(activityRoute).send(request.POST.missingDescriptionBodyTest);
         expect(status).to.be.equal(http.BAD_REQUEST);
-        expect(body.message).to.be.equal('Description field is required');
+        expect(body.message).to.be.equal('"description" field is required');
       });
     });
 
