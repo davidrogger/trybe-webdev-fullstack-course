@@ -1,17 +1,13 @@
-const chai = require('chai');
-const chaiHttp = require('chai-http');
-const sinon = require('sinon');
-
-const fs = require('fs');
-const http = require('../../src/assets/httpStatus');
-const expected = require('../assets/expectedResponses');
-const request = require('../assets/requestsTest');
-
-chai.use(chaiHttp);
-
-const { expect } = chai;
-
-const app = require('../../src/app/app');
+const {
+  chai,
+  sinon,
+  fs,
+  http,
+  expected,
+  request,
+  expect,
+  app,
+} = require('./index');
 
 const activityRoute = '/activities';
 
@@ -21,7 +17,7 @@ describe('Testing route /activites', () => {
   });
   afterEach(() => sinon.restore());
   describe('Requesting a new post active successfully', () => {
-    it('Should respond status 201 with a message "Activity successfully recorded".', async () => {
+    it('Should respond status 201 with a message "Activity successfully recordeda".', async () => {
       const { status, body } = await chai
         .request(app).post(activityRoute).send(request.POST.newActivityBodyTest);
 

@@ -106,6 +106,12 @@ const POST = {
       createdAt: '10/08/2022',
     },
   },
+  validSignup: {
+    email: 'jonas@teste.com',
+    password: '123456',
+    firstName: 'Jonas',
+    phoneNumber: '123456',
+  },
 };
 
 module.exports = {
