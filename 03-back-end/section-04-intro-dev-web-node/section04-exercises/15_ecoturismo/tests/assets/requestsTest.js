@@ -106,11 +106,33 @@ const POST = {
       createdAt: '10/08/2022',
     },
   },
-  validSignup: {
-    email: 'jonas@teste.com',
-    password: '123456',
-    firstName: 'Jonas',
-    phoneNumber: '123456',
+  signupTest: {
+    valid: {
+      email: 'jonas@teste.com',
+      password: '123456',
+      firstName: 'Jonas',
+      phoneNumber: '123456',
+    },
+    missingEmail: {
+      password: '123456',
+      firstName: 'Jonas',
+      phoneNumber: '123456',
+    },
+    missingPassword: {
+      email: 'jonas@teste.com',
+      firstName: 'Jonas',
+      phoneNumber: '123456',
+    },
+    missingFirstName: {
+      email: 'jonas@teste.com',
+      password: '123456',
+      phoneNumber: '123456',
+    },
+    missingPhoneNumber: {
+      email: 'jonas@teste.com',
+      password: '123456',
+      firstName: 'Jonas',
+    },
   },
 };
 
