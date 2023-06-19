@@ -36,7 +36,7 @@ describe('Testing route /activites', () => {
     });
   });
   describe('Bad request a new post activity', () => {
-    describe('Name field is required and need to have at least 4 characters:', () => {
+    describe('"Name" field is required and need to have at least 4 characters:', () => {
       it('Should return status 400 with a message "Name field is required"', async () => {
         const { status, body } = await chai
           .request(app).post(activityRoute).send(request.POST.missingNameBodyTest);
@@ -50,5 +50,22 @@ describe('Testing route /activites', () => {
         expect(body.message).to.be.equal('Name need at least 4 characters');
       });
     });
+
+    describe('"Price" field is required and need to be a number equal or above 0', () => {
+      it('Should return status 400 with a message "Price field is required"', async () => {
+        const { status, body } = await chai
+          .request(app).post(activityRoute).send(request.POST.missingPriceBodyTest);
+        expect(status).to.be.equal(http.BAD_REQUEST);
+        expect(body.message).to.be.equal('Price field is required');
+      });
+      it('Should return status 400 with a message "Price need to be a number equal or above zero"', async () => {
+        const { status, body } = await chai
+          .request(app).post(activityRoute).send(request.POST.badPriceBodyTest);
+        expect(status).to.be.equal(http.BAD_REQUEST);
+        expect(body.message).to.be.equal('Price need to be a number equal or above 0');
+      });
+    });
+
+    describe('"Description" field is required and need other 3 fields that are required as well', () => {});
   });
 });
