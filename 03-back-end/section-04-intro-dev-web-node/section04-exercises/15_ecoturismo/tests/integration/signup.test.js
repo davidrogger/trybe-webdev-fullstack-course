@@ -11,7 +11,7 @@ const {
 
 const signupRoute = '/signup';
 
-describe.only('Testing route /signup', () => {
+describe('Testing route /signup', () => {
   beforeEach(() => {
     sinon.stub(fs.promises, 'readFile').resolves(JSON.stringify(mockData));
   });
@@ -27,7 +27,7 @@ describe.only('Testing route /signup', () => {
     });
   });
 
-  describe('Singning up with fail', () => {
+  describe.only('Singning up with fail', () => {
     describe('When missing fields', () => {
       it('Should return 401, with message, "Missing required fields"', async () => {
         const {
@@ -46,6 +46,20 @@ describe.only('Testing route /signup', () => {
             expect(body.message).to.be.equal('Missing required fields');
           }),
         );
+      });
+    });
+    describe('When the user or password are unauthorized', () => {
+      it('Should return status 401 when the email is not found', async () => {
+        const { status, body } = await chai
+          .request(app).post(signupRoute).send(request.POST.signupTest.unauthorized.email);
+        expect(status).to.be.equal(http.UNAUTHORIZED);
+        expect(body.message).to.be.equal('Access Unauthorized');
+      });
+      it('Should return status 401 when the password not match', async () => {
+        const { status, body } = await chai
+          .request(app).post(signupRoute).send(request.POST.signupTest.unauthorized.password);
+        expect(status).to.be.equal(http.UNAUTHORIZED);
+        expect(body.message).to.be.equal('Access Unauthorized');
       });
     });
   });

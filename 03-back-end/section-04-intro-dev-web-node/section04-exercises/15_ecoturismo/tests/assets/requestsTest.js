@@ -133,6 +133,20 @@ const POST = {
       password: '123456',
       firstName: 'Jonas',
     },
+    unauthorized: {
+      email: {
+        email: 'teste@teste.com',
+        password: '123456',
+        firstName: 'Jonas',
+        phoneNumber: '123456',
+      },
+      password: {
+        email: 'jonas@teste.com',
+        password: 'teste',
+        firstName: 'Jonas',
+        phoneNumber: '123456',
+      },
+    },
   },
 };
 
