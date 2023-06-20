@@ -1,10 +1,13 @@
 const fs = require('fs/promises');
-const { resolve } = require('path');
-
-const DATABASE_PATH = resolve(__dirname, '../../db/ecoturismo.json');
+const database = require('./connection.model');
 
 async function createActivity(activity) {
-  fs.writeFile(DATABASE_PATH, JSON.stringify(activity));
+  const data = await database.getAllData();
+
+  data.activities.push(activity);
+  const updatedData = JSON.stringify(data);
+
+  await fs.writeFile(database.PATH, updatedData);
 
   return activity;
 }

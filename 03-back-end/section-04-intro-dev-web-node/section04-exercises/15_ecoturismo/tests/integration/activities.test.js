@@ -7,6 +7,7 @@ const {
   request,
   expect,
   app,
+  mockData,
 } = require('./index');
 
 const activityRoute = '/activities';
@@ -14,10 +15,11 @@ const activityRoute = '/activities';
 describe('Testing route /activites', () => {
   beforeEach(() => {
     sinon.stub(fs.promises, 'writeFile').resolves();
+    sinon.stub(fs.promises, 'readFile').resolves(JSON.stringify(mockData));
   });
   afterEach(() => sinon.restore());
   describe('Requesting a new post active successfully', () => {
-    it('Should respond status 201 with a message "Activity successfully recordeda".', async () => {
+    it('Should respond status 201 with a message "Activity successfully recorded".', async () => {
       const { status, body } = await chai
         .request(app).post(activityRoute).send(request.POST.newActivityBodyTest);
 
