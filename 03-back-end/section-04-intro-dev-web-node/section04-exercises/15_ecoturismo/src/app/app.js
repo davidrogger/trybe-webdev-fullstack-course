@@ -7,6 +7,7 @@ const tokenService = require('../services/token.service');
 
 const activityValidations = require('../middleware/activities.validation');
 const signupValidations = require('../middleware/signup.validation');
+const { verifyToken } = require('../middleware/token.validation');
 const errorHandler = require('../middleware/errors.response');
 
 const app = express();
@@ -23,7 +24,7 @@ app.post('/signup', [signupValidations, async (req, res, next) => {
   }
 }]);
 
-app.post('/activities', [activityValidations, async (req, res, next) => {
+app.post('/activities', [verifyToken, activityValidations, async (req, res, next) => {
   const payload = req.body;
 
   const activity = await activityService.createNewActivity(payload);
