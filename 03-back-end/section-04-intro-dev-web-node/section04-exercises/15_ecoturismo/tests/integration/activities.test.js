@@ -34,6 +34,21 @@ describe('Testing route /activites', () => {
     });
   });
   describe('Bad request a new post activity', () => {
+    describe('When the token is missing or invalid', () => {
+      it('Shoul return status 401, with a message "Missing Token"', async () => {
+        const { status, body } = await chai
+          .request(app).post(activityRoute).send(request.POST.newActivityBodyTest);
+        expect(status).to.be.equal(http.UNAUTHORIZED);
+        expect(body.message).to.be.equal('Missing Token');
+      });
+      it('Shoul return status 401, with a message "Invalid Token"', async () => {
+        const { status, body } = await chai
+          .request(app).post(activityRoute).send(request.POST.newActivityBodyTest);
+        expect(status).to.be.equal(http.UNAUTHORIZED);
+        expect(body.message).to.be.equal('Invalid Token');
+      });
+    });
+
     describe('"Name" field is required and need to have at least 4 characters:', () => {
       it('Should return status 400 with a message "Name field is required"', async () => {
         const { status, body } = await chai

@@ -27,7 +27,7 @@ describe('Testing route /signup', () => {
     });
   });
 
-  describe.only('Singning up with fail', () => {
+  describe('Singning up with fail', () => {
     describe('When missing fields', () => {
       it('Should return 401, with message, "Missing required fields"', async () => {
         const {
