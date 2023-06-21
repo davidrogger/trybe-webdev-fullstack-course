@@ -1133,10 +1133,16 @@ Middleware para definir limites de requisiçoes, que ajudam a evitar uso excessi
 - [Artigo Test Doubles](https://medium.com/rd-shipit/test-doubles-mocks-stubs-fakes-spies-e-dummies-a5cdafcd0daf)
 - [Vídeo: TDD Test Driven Development](https://www.youtube.com/watch?v=bLdEypr2e-8)
 
-# 22.4
+# 4.4
 
 - [Documentação Express - Rotas](https://expressjs.com/pt-br/guide/routing.html)
 - [Documentação Express - Middleware](https://expressjs.com/pt-br/guide/writing-middleware.html)
 - [Página do MDN sobre Node + Express](https://developer.mozilla.org/pt-BR/docs/Learn/Server-side/Express_Nodejs/Introduction)
 - [Rest with Node and Express](https://www.robinwieruch.de/node-express-server-rest-api)
 - [Middleware [Node js Design Patterns]](https://www.youtube.com/watch?v=lI2MiMEn9HQ)
+- [Usando Middlewares](https://expressjs.com/pt-br/guide/using-middleware.html)
+- [Escrevendo Middlewares](https://expressjs.com/pt-br/guide/writing-middleware.html)
+- [Express - Middlewares](https://reflectoring.io/express-middleware/)
+- [Ataque de negação de serviço DoS](https://www.geeksforgeeks.org/middleware-in-express-js/)
+- [Segurança em Aplicação WEB](https://developer.mozilla.org/pt-BR/docs/Learn/Server-side/First_steps/Website_security)
+- [OWASP API Security Project](https://owasp.org/www-project-api-security/)
