@@ -1,0 +1,35 @@
+version: '3'
+services:
+  database:
+    image: mysql:8.0.29
+    container_name: cash_db
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=cash_db
+    ports:
+      - "3006:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 5s
+      retries: 3
+    volumes:
+      - ./db/db.sql:/docker-entrypoint-initdb.d/db.sql
+
+  cash_api:
+    build:
+      dockerfile: ./dockerfile
+      context: .
+    container_name: cash_api
+    restart: always
+    working_dir: /app
+    volumes:
+      - ./:/app
+    ports:
+      - 3001:3000
+    depends_on:
+      database:
+        condition: service_healthy
+    environment:
+      - API_URL=localhost
+      - API_PORT=3001
