@@ -8,13 +8,15 @@ services:
       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
       - MYSQL_DATABASE=${DB_NAME}
     ports:
-      - "3006:3306"
+      - "${DB_PORT}:3306"
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       timeout: 5s
       retries: 3
     volumes:
-      - ./src/db/tables.sql:/docker-entrypoint-initdb.d/db.sql
+      - ./src/db/tables.sql:/docker-entrypoint-initdb.d/tables.sql
+    networks:
+      - cash_network
 
   cash_api:
     build:
@@ -26,14 +28,20 @@ services:
     volumes:
       - ./:/app
     ports:
-      - 3001:3000
+      - ${API_PORT}:${API_PORT}
     depends_on:
       database:
         condition: service_healthy
     environment:
-      API_URL: ${API_URL}
+      API_HOSTNAME: ${API_HOSTNAME}
       API_PORT: ${API_PORT}
+      DB_HOSTNAME: ${DB_HOSTNAME}
       DB_NAME: ${DB_NAME}
       DB_USER: ${DB_USER}
       DB_PASSWORD: ${DB_PASSWORD}
       DB_PORT: ${DB_PORT}
+    networks:
+      - cash_network
+
+networks:
+  cash_network:
