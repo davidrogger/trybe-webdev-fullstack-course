@@ -28,7 +28,7 @@ describe('Testing Route /people', () => {
         });
 
       expect(status).to.be.equal(201);
-      expect(message).to.be.deep.equals({ message: 'New ID 33 recorded with success!' });
+      expect(message).to.be.deep.equal('New ID 33 recorded with success!');
     });
   });
 });
