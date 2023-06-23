@@ -14,7 +14,7 @@ services:
       timeout: 5s
       retries: 3
     volumes:
-      - ./src/db/tables.sql:/docker-entrypoint-initdb.d/tables.sql
+      - ./migration.sql:/docker-entrypoint-initdb.d/migration.sql
     networks:
       - cash_network
 
