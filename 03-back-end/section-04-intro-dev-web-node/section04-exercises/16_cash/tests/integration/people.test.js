@@ -77,7 +77,19 @@ describe('Testing Route /people', () => {
         .put(`${peopleRoute}/1`)
         .send(dataMock.updateValidUser);
       expect(status).to.be.equal(200);
-      expect(body).to.be.deep.equal(dataMock.updateValidUser);
+      expect(body).to.be.deep.equal({ id: 1, ...dataMock.updateValidUser });
+    });
+  });
+
+  describe('When deleting a people', () => {
+    it('Should return status 200 message "People ID xx was deleted"', async () => {
+      sinon.stub(connection, 'execute').resolves([{ affectedRows: 1 }]);
+
+      const { status, body } = await chai
+        .request(app)
+        .delete(`${peopleRoute}/1`);
+      expect(status).to.be.equal(200);
+      expect(body).to.be.deep.equal('People ID 1 was deleted');
     });
   });
 });
