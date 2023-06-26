@@ -6,20 +6,20 @@ async function insert(person) {
   } = person;
 
   return connection.execute(
-    'INSERT INTO PEOPLE (first_name, last_name, email, phone) VALUES (?, ?, ?, ?)',
+    'INSERT INTO people (first_name, last_name, email, phone) VALUES (?, ?, ?, ?);',
     [firstName, lastName, email, phone],
   );
 }
 
 async function findAll() {
   return connection.execute(
-    'SELECT * FROM PEOPLE;',
+    'SELECT * FROM people;',
   );
 }
 
 async function findById(id) {
   return connection.execute(
-    'SELECT * FROM PEOPLE WHERE id = ?',
+    'SELECT * FROM people WHERE id = ?;',
     [id],
   );
 }
