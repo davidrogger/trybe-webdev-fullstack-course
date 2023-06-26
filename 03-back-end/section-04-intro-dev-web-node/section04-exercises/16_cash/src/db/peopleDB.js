@@ -11,13 +11,21 @@ async function insert(person) {
   );
 }
 
-async function getAll() {
+async function findAll() {
   return connection.execute(
     'SELECT * FROM PEOPLE;',
   );
 }
 
+async function findById(id) {
+  return connection.execute(
+    'SELECT * FROM PEOPLE WHERE id = ?',
+    [id],
+  );
+}
+
 module.exports = {
   insert,
-  getAll,
+  findAll,
+  findById,
 };
