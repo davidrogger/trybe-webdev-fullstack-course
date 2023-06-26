@@ -1,0 +1,56 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "cash_api",
+    "dateExported": "2023-06-26T18:10:45.701Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "bcdbc5f7-030c-48b9-8d35-0a20037e1fb5",
+            "colId": "88a6a79f-bfa8-479c-af6f-9fd72d065b75",
+            "containerId": "",
+            "name": "findAll",
+            "url": "localhost:3001/people",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-06-26T18:04:50.477Z",
+            "modified": "2023-06-26T18:05:01.256Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "4dc77ff6-0b13-48c4-9112-2413fa692a6b",
+            "colId": "88a6a79f-bfa8-479c-af6f-9fd72d065b75",
+            "containerId": "",
+            "name": "addNewPerson",
+            "url": "localhost:3001/people",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-06-26T18:07:51.564Z",
+            "modified": "2023-06-26T18:08:21.253Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"firstName\": \"Jonas\",\n  \"lastName\": \"Doe\",\n  \"email\": \"jonasdoe@always.here\",\n  \"phone\": \"111 222 3333\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "9fac4a02-fce1-405b-9cc9-29f42ec7fc87",
+            "colId": "88a6a79f-bfa8-479c-af6f-9fd72d065b75",
+            "containerId": "",
+            "name": "findById",
+            "url": "localhost:3001/people/1",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-06-26T18:08:41.628Z",
+            "modified": "2023-06-26T18:08:59.100Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
