@@ -24,8 +24,22 @@ async function findById(id) {
   );
 }
 
+async function updateById(id, updatedData) {
+  const {
+    firstName, lastName, email, phone,
+  } = updatedData;
+
+  const [{ affectedRows }] = await connection.execute(
+    'UPDATE people SET first_name = ?, last_name = ?, email = ?, phone = ? WHERE id = ?',
+    [firstName, lastName, email, phone, id],
+  );
+
+  return affectedRows;
+}
+
 module.exports = {
   insert,
   findAll,
   findById,
+  updateById,
 };
