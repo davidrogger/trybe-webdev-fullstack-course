@@ -5,6 +5,13 @@ const newValidUser = {
   phone: '111 222 3333',
 };
 
+const updateValidUser = {
+  firstName: 'Jonas',
+  lastName: 'Doe',
+  email: 'jonasdoe@always.here',
+  phone: '444 555 6666',
+};
+
 const peopleList = [
   {
     id: 1,
@@ -25,4 +32,5 @@ const peopleList = [
 module.exports = {
   newValidUser,
   peopleList,
+  updateValidUser,
 };

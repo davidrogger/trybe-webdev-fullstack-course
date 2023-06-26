@@ -67,4 +67,17 @@ describe('Testing Route /people', () => {
       });
     });
   });
+
+  describe('When updating people information', () => {
+    it('Should return status 200 with the updated', async () => {
+      sinon.stub(connection, 'execute').resolves([{ affectedRows: 1 }]);
+
+      const { status, body } = await chai
+        .request(app)
+        .put(`${peopleRoute}/1`)
+        .send(dataMock.updateValidUser);
+      expect(status).to.be.equal(200);
+      expect(body).to.be.deep.equal(dataMock.updateValidUser);
+    });
+  });
 });
