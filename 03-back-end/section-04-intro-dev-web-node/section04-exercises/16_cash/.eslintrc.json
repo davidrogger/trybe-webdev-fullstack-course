@@ -1,14 +1,17 @@
 {
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
   "env": {
     "commonjs": true,
     "node": true,
     "mocha": true
   },
   "extends": [
-    "eslint:recommended",
-    "airbnb-base"
+    "prettier"
   ],
   "rules": {
-    "no-console": "off"
+    "no-console": "off",
+    "quotes": ["warn", "single"]
   }
 }
