@@ -42,5 +42,17 @@ describe('Testing Route /people', () => {
         expect(body).to.be.deep.equal(dataMock.peopleList);
       });
     });
+    describe('Getting a people from its ID', () => {
+      it('Should return status 200, with the ID selected', async () => {
+        sinon.stub(connection, 'execute').resolves([dataMock.peopleList[0]]);
+
+        const { status, body } = await chai
+          .request(app)
+          .get(`${peopleRoute}/1`);
+
+        expect(status).to.be.equal(200);
+        expect(body).to.be.deep.equal(dataMock.peopleList[0]);
+      });
+    });
   });
 });
