@@ -44,7 +44,7 @@ describe('Testing Route /people', () => {
     });
     describe('Getting a people from its ID', () => {
       it('Should return status 200, with the ID selected', async () => {
-        sinon.stub(connection, 'execute').resolves([dataMock.peopleList[0]]);
+        sinon.stub(connection, 'execute').resolves([[dataMock.peopleList[0]]]);
 
         const { status, body } = await chai
           .request(app)

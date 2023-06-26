@@ -17,7 +17,7 @@ route.get('/', async (_req, res) => {
 
 route.get('/:id', async (req, res) => {
   const { id } = req.params;
-  const [person] = await peopleDB.findById(Number(id));
+  const [[person]] = await peopleDB.findById(Number(id));
   res.status(200).json(person);
 });
 
