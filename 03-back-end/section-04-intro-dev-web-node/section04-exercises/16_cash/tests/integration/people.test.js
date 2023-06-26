@@ -89,7 +89,7 @@ describe('Testing Route /people', () => {
         .request(app)
         .delete(`${peopleRoute}/1`);
       expect(status).to.be.equal(200);
-      expect(body).to.be.deep.equal('People ID 1 was deleted');
+      expect(body.message).to.be.deep.equal('People ID 1 was deleted');
     });
   });
 });

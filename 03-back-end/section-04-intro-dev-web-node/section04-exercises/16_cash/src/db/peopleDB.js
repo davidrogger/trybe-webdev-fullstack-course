@@ -37,9 +37,19 @@ async function updateById(id, updatedData) {
   return affectedRows;
 }
 
+async function removeById(id) {
+  const [{ affectedRows }] = await connection.execute(
+    'DELETE FROM people WHERE id = ?;',
+    [id],
+  );
+
+  return affectedRows;
+}
+
 module.exports = {
   insert,
   findAll,
   findById,
   updateById,
+  removeById,
 };

@@ -37,7 +37,18 @@ route.put('/:id', async (req, res) => {
   try {
     const updatedRows = await peopleDB.updateById(id, newPersonData);
     if (updatedRows > 0) res.status(200).json({ id, ...newPersonData });
-    else res.status(404).json({ message: `ID:${id} not found` });
+    else res.status(404).json({ message: `ID: ${id} not found` });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+route.delete('/:id', async (req, res) => {
+  const id = Number(req.params.id);
+  try {
+    const deletedRows = await peopleDB.removeById(id);
+    if (deletedRows > 0) res.status(200).json({ message: `People ID ${id} was deleted` });
+    else res.status(404).json({ message: `ID: ${id} not found` });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
