@@ -32,7 +32,7 @@ describe('Testing Route /people', () => {
   describe('When requesting to GET with success', () => {
     describe('Getting all people in the data', () => {
       it('Should return 200 with all people in the database', async () => {
-        sinon.stub(connection, 'execute').resolves(dataMock.peopleList);
+        sinon.stub(connection, 'execute').resolves([dataMock.peopleList]);
 
         const { status, body } = await chai
           .request(app)

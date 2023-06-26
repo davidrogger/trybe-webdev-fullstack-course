@@ -11,6 +11,13 @@ async function insert(person) {
   );
 }
 
+async function getAll() {
+  return connection.execute(
+    'SELECT * FROM PEOPLE;',
+  );
+}
+
 module.exports = {
   insert,
+  getAll,
 };

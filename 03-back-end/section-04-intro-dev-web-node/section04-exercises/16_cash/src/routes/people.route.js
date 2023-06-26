@@ -11,7 +11,7 @@ route.post('/', async (req, res) => {
 });
 
 route.get('/', async (_req, res) => {
-  const people = await peopleDB.getAll();
+  const [people] = await peopleDB.getAll();
   res.status(200).json(people);
 });
 
