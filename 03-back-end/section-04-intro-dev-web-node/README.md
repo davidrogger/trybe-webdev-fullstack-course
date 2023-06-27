@@ -1146,3 +1146,10 @@ Middleware para definir limites de requisiçoes, que ajudam a evitar uso excessi
 - [Ataque de negação de serviço DoS](https://www.geeksforgeeks.org/middleware-in-express-js/)
 - [Segurança em Aplicação WEB](https://developer.mozilla.org/pt-BR/docs/Learn/Server-side/First_steps/Website_security)
 - [OWASP API Security Project](https://owasp.org/www-project-api-security/)
+
+# 4.5
+
+- [Repositório da biblioteca mysql2](https://github.com/sidorares/node-mysql2)
+- [Documentação da biblioteca dotenv](https://www.npmjs.com/package/dotenv)
+- [Testes de integração para aplicações Node.js com Mocha e Chai](https://medium.com/desenvolvimento-com-node-js/testes-de-integra%C3%A7%C3%A3o-para-aplica%C3%A7%C3%B5es-node-js-com-mocha-e-chai-610a1ba15e1b)
+- [Testes de integração para API com Typescript, mocha, chai e sinon](https://dev.to/matheusg18/testes-de-integracao-para-api-com-typescript-mocha-chai-e-sinon-3np9)
