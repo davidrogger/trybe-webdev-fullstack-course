@@ -1,0 +1,47 @@
+version: '3'
+services:
+  database:
+    image: mysql:8.0.29
+    container_name: cash_db
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_NAME}
+    ports:
+      - "${DB_PORT}:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 5s
+      retries: 3
+    volumes:
+      - ./migration.sql:/docker-entrypoint-initdb.d/migration.sql
+    networks:
+      - cash_network
+
+  cash_api:
+    build:
+      dockerfile: ./dockerfile
+      context: .
+    container_name: cash_api
+    restart: always
+    working_dir: /app
+    volumes:
+      - ./:/app
+    ports:
+      - ${API_PORT}:${API_PORT}
+    depends_on:
+      database:
+        condition: service_healthy
+    environment:
+      API_HOSTNAME: ${API_HOSTNAME}
+      API_PORT: ${API_PORT}
+      DB_HOSTNAME: ${DB_HOSTNAME}
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_PORT: ${DB_PORT}
+    networks:
+      - cash_network
+
+networks:
+  cash_network:

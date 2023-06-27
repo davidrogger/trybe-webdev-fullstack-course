@@ -1,0 +1,29 @@
+{
+  "name": "16_cash",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/**/*$FILE*.test.js --exit",
+    "dev": "node --watch src/server",
+    "start": "node src/server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "chai-http": "^4.4.0",
+    "eslint": "^8.43.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "mocha": "^10.2.0",
+    "sinon": "^15.2.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-async-errors": "^3.1.1",
+    "mysql2": "^3.4.0"
+  }
+}
