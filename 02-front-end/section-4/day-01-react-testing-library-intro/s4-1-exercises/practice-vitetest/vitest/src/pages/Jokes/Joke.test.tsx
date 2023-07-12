@@ -31,3 +31,14 @@ describe('Testing fetch', () => {
       });
   });
 });
+
+describe('Testing Button "New Joke"', () => {
+  it('Should be rendered', () => {
+    render(<Jokes />)
+
+    const newJokeBtn = screen.getByRole('button', { name: 'New Joke' });
+
+    expect(newJokeBtn).toBeInTheDocument();
+  });
+
+});
