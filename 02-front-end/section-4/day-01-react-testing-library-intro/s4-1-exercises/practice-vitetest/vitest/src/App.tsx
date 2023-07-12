@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import ValidEmail from './components/ValidEmail';
 
 function App() {
   const [email, setEmail] = useState('');
@@ -36,7 +37,7 @@ function App() {
           onClick={ () => setSaveEmail('') }
         />
       </div>
-      <h2>{ `Valor: ${saveEmail}` }</h2>
+      <ValidEmail email={ saveEmail } />
     </div>
   );
 }
