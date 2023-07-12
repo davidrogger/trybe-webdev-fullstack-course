@@ -1,25 +1,25 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import App from './App';
+import SendEmail from './SendEmail';
 
 it('Should render label "Email"', () => {
-  render(<App />);
+  render(<SendEmail />);
   expect(screen.getByLabelText('Email:')).toBeInTheDocument();
 });
 
 it('Should render button "Enviar"', () => {
-  render(<App />);
+  render(<SendEmail />);
   expect(screen.getByRole('button', { name: 'Enviar' })).toBeInTheDocument();
 });
 
 it('Should render button "Voltar"', () => {
-  render(<App />);
+  render(<SendEmail />);
   expect(screen.getByRole('button', { name: 'Voltar' })).toBeInTheDocument();
 });
 
 it('Should save the email in sided with "Value:" message when clicked in "Enviar"', async () => {
-  render(<App />);
+  render(<SendEmail />);
   const emailInput = screen.getByLabelText('Email:');
   const sendBtn = screen.getByRole('button', { name: 'Enviar' });
   const emailSaved = screen.getByRole('heading', { name: 'Valor:' });

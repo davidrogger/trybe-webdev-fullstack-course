@@ -1,0 +1,66 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.form-container {
+  display: flex;
+  align-items: center;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #f8f9fa;
+}
+
+input[type='email'] {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  font-family: inherit;
+  color: #f8f9fa;
+  background-color: #495057;
+}
+
+input[type='button'] {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  font-family: inherit;
+  color: #343a40;
+  background-color: #f8f9fa;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+input[type='button']:hover {
+  background-color: #ced4da;
+  color: #212529;
+}
+
+input[type='button']:active {
+  background-color: #adb5bd;
+  color: #212529;
+}
+
+h2 {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  color: #f8f9fa;
+}
