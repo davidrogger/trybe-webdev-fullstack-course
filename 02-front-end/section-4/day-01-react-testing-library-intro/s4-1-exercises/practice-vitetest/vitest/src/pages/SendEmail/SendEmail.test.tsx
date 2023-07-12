@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import SendEmail from './SendEmail';
+import SendEmail from '.';
 
 it('Should render label "Email"', () => {
   render(<SendEmail />);

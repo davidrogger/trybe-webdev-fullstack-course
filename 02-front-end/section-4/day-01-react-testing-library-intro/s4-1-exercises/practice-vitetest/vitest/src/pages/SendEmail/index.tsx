@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import './sendEmail.css';
-import ValidEmail from '../components/ValidEmail';
+import './style.css';
+import ValidEmail from '../../components/ValidEmail';
 
 function SendEmail() {
   const [email, setEmail] = useState('');
