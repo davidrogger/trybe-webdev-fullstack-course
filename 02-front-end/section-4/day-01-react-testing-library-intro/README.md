@@ -30,3 +30,41 @@ Exemplo:
 - E se a senha estiver incorreta?
 
 Cada uma dessas situações é um caso de uso diferente. Mais importante do que garantir a cobertura do código, é garantir que seus testes abordam todos os casos de uso da sua aplicação. Para isto é preciso criar testes automatizados que simulam uma pessoa acessando a página fazendo um sequência de ações que resulta naquele caso de uso.
+
+# Criando ambiente de teste com vitest
+
+Instalando:
+
+```
+npm i -D vitest jsdom @testing-library/jest-dom @testing-library/react @testing-library/user-event 
+```
+
+Crie o arquivo stupeTests.ts
+
+```
+// ./setupTests.ts
+
+import '@testing-library/jest-dom';
+```
+
+No arquivo `vite.config.tsc` modifique a exportação do vite pata vitest, e adicione a chave test.
+
+```
+import { defineConfig } from 'vitest/config'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  plugins: [react()],
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './setupTests.ts',
+    css: true,
+    reporters: ['verbose'],
+    coverage: {
+      reporter: ['text', 'json', 'html'],
+      provider: 'c8'
+    }
+  },
+})
+```
