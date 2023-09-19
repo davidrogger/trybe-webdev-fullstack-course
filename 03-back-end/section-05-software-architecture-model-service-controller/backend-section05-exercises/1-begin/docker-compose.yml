@@ -31,4 +31,4 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - ./script.sql:docker-entrypoint-initdb.d
+      - ./script.sql:/docker-entrypoint-initdb.d/script.sql

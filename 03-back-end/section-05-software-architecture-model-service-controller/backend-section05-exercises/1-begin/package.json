@@ -1,0 +1,24 @@
+{
+  "name": "1-begin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "debug": "nodemon --ignore coverage src/server.js",
+    "eslint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json . --ext .js, jsx"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint-config-trybe-backend": "^2.1.0",
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "camelize": "^1.0.1",
+    "express": "^4.18.2",
+    "mysql2": "^2.3.0",
+    "snakeize": "^0.1.0"
+  }
+}
