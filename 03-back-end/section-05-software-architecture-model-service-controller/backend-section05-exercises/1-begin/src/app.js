@@ -12,6 +12,7 @@ app.get('/passengers', async (_req, res) => {
 
 app.get('/passengers/:id', async (req, res) => {
   const passenger = await passengersModel.findById(req.params.id);
+  if (!passenger) return res.status(404).json({ message: 'Passenger not found' });
   res.status(200).json({ passenger });
 });
 
