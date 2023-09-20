@@ -1,0 +1,23 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "TrybeCar",
+    "dateExported": "2023-09-20T17:18:52.353Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "4e0e922b-7aec-4e3f-8b9c-c5b50b3564ba",
+            "colId": "f60c351a-52f0-4bb5-8c10-57fb40385b89",
+            "containerId": "",
+            "name": "findAllPassengers",
+            "url": "localhost:3001/passengers",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-09-20T17:18:19.111Z",
+            "modified": "2023-09-20T17:18:40.205Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
