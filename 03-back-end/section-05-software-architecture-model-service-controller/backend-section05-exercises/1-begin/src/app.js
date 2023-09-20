@@ -10,4 +10,9 @@ app.get('/passengers', async (_req, res) => {
   res.status(200).json({ passengers });
 });
 
+app.get('/passengers/:id', async (req, res) => {
+  const passenger = await passengersModel.findById(req.params.id);
+  res.status(200).json({ passenger });
+});
+
 module.exports = app;

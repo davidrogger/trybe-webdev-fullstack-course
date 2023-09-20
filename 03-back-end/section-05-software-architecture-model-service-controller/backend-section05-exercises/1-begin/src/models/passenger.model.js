@@ -7,6 +7,13 @@ async function findAll() {
   return camelize(passengers);
 }
 
+async function findById(passengerId) {
+  const query = 'SELECT * FROM passengers WHERE id = ?';
+  const [[passenger]] = await connection.execute(query, [passengerId]);
+  return camelize(passenger);
+}
+
 module.exports = {
   findAll,
+  findById,
 };
