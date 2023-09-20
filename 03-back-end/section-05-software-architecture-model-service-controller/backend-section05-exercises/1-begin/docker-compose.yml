@@ -2,7 +2,7 @@ version: '3'
 
 services:
   node:
-    image: node:16.14
+    build: .
     container_name: trybecar
     tty: true
     stdin_open: true
